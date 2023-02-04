@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import { Link, Route, Routes } from "react-router-dom";
-import { AboutPageLazy } from "./pages/AboutPage/AboutPage.lazy";
-import { MainPageLazy } from "./pages/MainPage/MainPage.lazy";
+
+import { AboutPage, MainPage } from "pages";
+import { useTheme } from "app/providers";
+import { classNames } from "shared/lib";
+
 import "./styles/index.scss";
-import { useTheme } from "./theme";
-import { classNames } from "./helpers";
 
 export const App = ({}): JSX.Element => {
 	const { theme, toggleTheme } = useTheme();
@@ -17,8 +18,8 @@ export const App = ({}): JSX.Element => {
 
 		 <Suspense fallback={<div>Loading...</div>}>
 			 <Routes>
-				 <Route path="/about" element={<AboutPageLazy/>}/>
-				 <Route path="/" element={<MainPageLazy/>}/>
+				 <Route path="/about" element={<AboutPage/>}/>
+				 <Route path="/" element={<MainPage/>}/>
 			 </Routes>
 		 </Suspense>
 	 </div>

@@ -1,7 +1,10 @@
 {
 	"compilerOptions": {
 		"outDir": "./build/",
-		// "baseUrl": ".",
+		"baseUrl": ".",
+		"paths": {
+			"*": ["./src/*"]
+		},
 		"noImplicitAny": true,
 		"module": "ESNext",
 		"target": "es5",
@@ -9,8 +12,10 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
 	},
+	"exclude": ["node_modules"],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"

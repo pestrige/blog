@@ -5,12 +5,11 @@ import { Navbar } from "widgets";
 import "./styles/index.scss";
 
 export const App = ({}): JSX.Element => {
-	const { theme, toggleTheme } = useTheme();
+	const { theme } = useTheme();
 
 	return (
 	 <div className={classNames("app", theme)}>
-		 <Navbar />
-		 <button onClick={toggleTheme}>TOGGLE THEME</button>
+		 <Navbar/>
 		 <AppRouter/>
 	 </div>
 	);

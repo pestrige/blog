@@ -1,6 +1,6 @@
 import { AppRouter, useTheme } from "app/providers";
 import { classNames } from "shared/lib";
-import { Navbar } from "widgets";
+import { Navbar, Sidebar } from "widgets";
 
 import "./styles/index.scss";
 
@@ -10,7 +10,10 @@ export const App = ({}): JSX.Element => {
 	return (
 	 <div className={classNames("app", theme)}>
 		 <Navbar/>
-		 <AppRouter/>
+		 <div className="content">
+			 <Sidebar/>
+			 <AppRouter/>
+		 </div>
 	 </div>
 	);
 };

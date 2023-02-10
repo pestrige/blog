@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainPage = ({}): JSX.Element => {
 	return (
-	 <div>
+	 <div className="page">
 			Main page
 	 </div>
 	);

@@ -27,7 +27,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 				options: {
 					modules: {
 						auto: (path: string) => !!path.includes(".module.scss"),
-						localIdentName: isDev ? "[path][name]__[local]--[hash:base64:4]" : "[hash:base64:8]"
+						localIdentName: isDev ? "[name]__[local]--[hash:base64:4]" : "[hash:base64:8]"
 					}
 				}
 			},

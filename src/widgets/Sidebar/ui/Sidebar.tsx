@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { classNames } from "shared/lib";
-import { ThemeSwitcher } from "shared/ui";
+import { LanguageSwitcher, ThemeSwitcher } from "widgets";
 import cls from "./Sidebar.module.scss";
 
 interface Props {
@@ -18,6 +18,7 @@ export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
 
 		 <div className={cls.switches}>
 			 <ThemeSwitcher/>
+			 <LanguageSwitcher />
 		 </div>
 	 </div>
 	);

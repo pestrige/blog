@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { AppRouter, useTheme } from "app/providers";
 import { classNames } from "shared/lib";
 import { Navbar, Sidebar } from "widgets";
@@ -9,11 +10,13 @@ export const App = ({}): JSX.Element => {
 
 	return (
 	 <div className={classNames("app", theme)}>
-		 <Navbar/>
-		 <div className="content">
-			 <Sidebar/>
-			 <AppRouter/>
-		 </div>
+		 <Suspense fallback="">
+			 <Navbar/>
+			 <div className="content">
+				 <Sidebar/>
+				 <AppRouter/>
+			 </div>
+		 </Suspense>
 	 </div>
 	);
 };

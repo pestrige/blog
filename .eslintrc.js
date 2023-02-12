@@ -7,6 +7,7 @@ module.exports = {
 		'plugin:react/recommended',
 		'airbnb',
 		'plugin:i18next/recommended',
+		'prettier',
 	],
 	overrides: [],
 	parser: '@typescript-eslint/parser',
@@ -41,6 +42,8 @@ module.exports = {
 		'no-underscore-dangle': 'off',
 		'no-tabs': 'off',
 		'arrow-body-style': 'off',
+		'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'max-len': ['error', { ignoreComments: true, code: 110 }],
 	},
 	globals: {
 		__IS_DEV__: true,

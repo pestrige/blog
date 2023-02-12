@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { classNames } from 'shared/lib';
-import { LanguageSwitcher, ThemeSwitcher } from 'widgets';
-import { useTranslation } from 'react-i18next';
-import cls from './Sidebar.module.scss';
+import React, { useState } from "react";
+import { classNames } from "shared/lib";
+import { LanguageSwitcher, ThemeSwitcher } from "widgets";
+import { useTranslation } from "react-i18next";
+import cls from "./Sidebar.module.scss";
 
 interface Props {
 	className?: string;
 }
 
-export const Sidebar = ({ className = '123' }: Props): JSX.Element => {
+export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
 	const { t } = useTranslation();
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -16,7 +16,9 @@ export const Sidebar = ({ className = '123' }: Props): JSX.Element => {
 
 	return (
 		<div className={classNames(cls.root, { [cls.collapsed]: isCollapsed }, className)}>
-			<button type="button" onClick={onToggle}>{t('Переключить')}</button>
+			<button type="button" onClick={onToggle}>
+				{t("Переключить")}
+			</button>
 
 			<div className={cls.switches}>
 				<ThemeSwitcher />

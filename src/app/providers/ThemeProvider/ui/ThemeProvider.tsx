@@ -13,11 +13,11 @@ export const ThemeProvider = ({ children }: Props): JSX.Element => {
 	const providerValue = useMemo(() => ({
 		theme,
 		setTheme,
-	}), [theme])
+	}), [theme]);
 
 	return (
-	 <ThemeContext.Provider value={providerValue}>
-		 {children}
-	 </ThemeContext.Provider>
+		<ThemeContext.Provider value={providerValue}>
+			{children}
+		</ThemeContext.Provider>
 	);
 };

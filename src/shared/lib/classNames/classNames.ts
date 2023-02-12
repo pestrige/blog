@@ -8,7 +8,7 @@ export const classNames = (className: string, ...args: Argument[]): string => {
 			return;
 		}
 
-		if (typeof argument === "string") {
+		if (typeof argument === 'string') {
 			classes.push(argument);
 		} else {
 			const classesFromObject = Object.keys(argument).filter((cls) => !!argument[cls]);
@@ -16,5 +16,5 @@ export const classNames = (className: string, ...args: Argument[]): string => {
 		}
 	});
 
-	return classes.join(" ");
+	return classes.join(' ');
 };

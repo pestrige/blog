@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"stylelint-config-standard-scss",
+		"stylelint-config-recess-order"
+	],
+	"ignoreFiles": [
+		"build/css/**.css"
+	],
+	"plugins": [
+		"stylelint-order"
+	],
+	"rules": {
+		"selector-class-pattern": null
+	}
+}

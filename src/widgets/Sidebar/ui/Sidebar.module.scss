@@ -1,8 +1,8 @@
 .root {
   position: relative;
-  height: calc(100vh - var(--navbar-height ));
   width: var(--sidebar-width);
-  background-color: var(--inverted-bg-color );
+  height: calc(100vh - var(--navbar-height));
+  background-color: var(--inverted-bg-color);
   transition: width 0.3s;
 }
 
@@ -13,9 +13,9 @@
 .switches {
   position: absolute;
   bottom: 20px;
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
+  width: 100%;
 }

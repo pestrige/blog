@@ -4,19 +4,17 @@
 @import "./themes/dark";
 
 .app {
-	font: var(--font-m);
-
-	background-color: var(--bg-color);
-	color: var(--primary-color );
-
-	min-height: 100vh;
+  min-height: 100vh;
+  font: var(--font-m);
+  color: var(--primary-color);
+  background-color: var(--bg-color);
 }
 
 .content {
-	display: flex;
+  display: flex;
 }
 
 .page {
-	flex-grow: 1;
-	padding: 20px;
+  flex-grow: 1;
+  padding: 20px;
 }

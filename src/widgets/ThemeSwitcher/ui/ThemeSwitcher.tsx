@@ -1,13 +1,12 @@
 import React, { ReactNode } from "react";
-import { Theme, useTheme } from "app/providers";
 import { Button, ButtonTheme } from "shared/ui";
 import { DarkThemeIcon, LightThemeIcon } from "shared/assets";
-import { classNames } from "shared/lib";
+import { classNames, Theme, THEMES, useTheme } from "shared/lib";
 import cls from "./ThemeSwitcher.module.scss";
 
 const SwitcherIcons: Record<Theme, ReactNode> = {
-	[Theme.DARK]: <DarkThemeIcon />,
-	[Theme.LIGHT]: <LightThemeIcon />,
+	[THEMES.dark]: <DarkThemeIcon />,
+	[THEMES.light]: <LightThemeIcon />,
 };
 
 interface Props {

@@ -1,3 +1,4 @@
+export { ErrorComponent } from "./ErrorComponent";
 export { LanguageSwitcher } from "./LanguageSwitcher";
 export { Navbar } from "./Navbar";
 export { PageLoader } from "./PageLoader";

@@ -1,5 +1,6 @@
 .root {
   position: relative;
+  flex-shrink: 0;
   width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
   background-color: var(--inverted-bg-color);

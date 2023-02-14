@@ -22,7 +22,7 @@
 	],
 	"include": [
 		"./config/jest/setupTests.ts",
-		"./src"
+		"./src/**/*"
 	],
 	"ts-node": {
 		"compilerOptions": {

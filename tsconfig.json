@@ -3,7 +3,9 @@
 		"outDir": "./build/",
 		"baseUrl": ".",
 		"paths": {
-			"*": ["./src/*"]
+			"*": [
+				"./src/*"
+			]
 		},
 		"noImplicitAny": true,
 		"module": "ESNext",
@@ -13,9 +15,15 @@
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"skipLibCheck": true,
+		"skipLibCheck": true
 	},
-	"exclude": ["node_modules"],
+	"exclude": [
+		"node_modules"
+	],
+	"include": [
+		"./config/jest/setupTests.ts",
+		"./src"
+	],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"

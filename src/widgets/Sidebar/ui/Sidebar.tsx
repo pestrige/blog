@@ -15,8 +15,11 @@ export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
 	const onToggle = () => setIsCollapsed((prev) => !prev);
 
 	return (
-		<div className={classNames(cls.root, { [cls.collapsed]: isCollapsed }, className)}>
-			<button type="button" onClick={onToggle}>
+		<div
+			data-testid="sidebar-test"
+			className={classNames(cls.root, { [cls.collapsed]: isCollapsed }, className)}
+		>
+			<button data-testid="sidebar-toggle-test" type="button" onClick={onToggle}>
 				{t("Переключить")}
 			</button>
 

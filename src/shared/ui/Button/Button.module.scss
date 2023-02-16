@@ -12,3 +12,10 @@
     background-color: transparent;
   }
 }
+
+.outline {
+  padding: 10px 15px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}

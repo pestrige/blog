@@ -12,8 +12,9 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss-fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui ": "npx loki test",
-    "test:ui-approve ": "npx loki approve",
+    "test:ui": "npx loki test",
+    "test:ui-approve": "npx loki approve",
+    "test:ui-ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
   },

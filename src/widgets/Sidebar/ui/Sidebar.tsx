@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { classNames } from "shared/lib";
-import { LanguageSwitcher, ThemeSwitcher } from "widgets";
-import { useTranslation } from "react-i18next";
+import { LanguageSwitcher, SidebarSwitcher, ThemeSwitcher } from "features";
+import { MainMenu } from "widgets";
 import cls from "./Sidebar.module.scss";
 
 interface Props {
@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
-	const { t } = useTranslation();
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	const onToggle = () => setIsCollapsed((prev) => !prev);
@@ -19,14 +18,14 @@ export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
 			data-testid="sidebar-test"
 			className={classNames(cls.root, { [cls.collapsed]: isCollapsed }, className)}
 		>
-			<button data-testid="sidebar-toggle-test" type="button" onClick={onToggle}>
-				{t("Переключить")}
-			</button>
+			<MainMenu isCollapsed={isCollapsed} />
 
 			<div className={cls.switches}>
 				<ThemeSwitcher />
-				<LanguageSwitcher />
+				<LanguageSwitcher short={isCollapsed} />
 			</div>
+
+			<SidebarSwitcher onToggle={onToggle} isCollapsed={isCollapsed} />
 		</div>
 	);
 };

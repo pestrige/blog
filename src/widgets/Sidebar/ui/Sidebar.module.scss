@@ -15,8 +15,11 @@
   position: absolute;
   bottom: 20px;
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   width: 100%;
+}
+
+.collapsed .switches {
+  flex-direction: column;
 }

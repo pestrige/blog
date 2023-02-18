@@ -5,20 +5,34 @@ import cls from "./Button.module.scss";
 export enum ButtonTheme {
 	CLEAR = "clear",
 	OUTLINE = "outline",
+	BACKGROUND = "background",
+	BACKGROUND_INVERTED = "backgroundInverted",
+}
+
+export enum ButtonSize {
+	M = "M",
+	L = "L",
+	XL = "XL",
 }
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: ButtonTheme;
+	square?: boolean;
+	size?: ButtonSize;
 }
 
-export const Button = ({ children, className, theme, ...otherProps }: Props): JSX.Element => {
+export const Button = ({
+	children,
+	className,
+	theme,
+	square,
+	size = ButtonSize.M,
+	...otherProps
+}: Props): JSX.Element => {
+	const classes = classNames(cls.button, cls[theme], cls[size], { [cls.square]: square }, className);
+
 	return (
-		<button
-			data-testid="button-test"
-			type="button"
-			className={classNames(cls.button, cls[theme], className)}
-			{...otherProps}
-		>
+		<button data-testid="button-test" type="button" className={classes} {...otherProps}>
 			{children}
 		</button>
 	);

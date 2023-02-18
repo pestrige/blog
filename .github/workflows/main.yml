@@ -21,12 +21,16 @@ jobs:
       - name: Build production  project
         run: npm run build:prod
       - name: Linting typescript
+        if: (always)
         run: npm run lint
       - name: Linting CSS
+        if: (always)
         run: npm run lint:scss
       - name: Unit testing
+        if: (always)
         run: npm run test:unit
       - name: Build storybook
+        if: (always)
         run: npm run storybook:build
       - name: Screenshot testing
         run: npm run test:ui-ci

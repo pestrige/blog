@@ -1,6 +1,5 @@
 export { ErrorComponent } from "./ErrorComponent";
-export { LanguageSwitcher } from "./LanguageSwitcher";
+export { MainMenu } from "./MainMenu";
 export { Navbar } from "./Navbar";
 export { PageLoader } from "./PageLoader";
 export { Sidebar } from "./Sidebar";
-export { ThemeSwitcher } from "./ThemeSwitcher";

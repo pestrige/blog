@@ -41,7 +41,12 @@
   font: var(--font-l);
 }
 
-.clear {
+.clearInverted {
+  color: var(--inverted-primary-color);
+}
+
+.clear,
+.clearInverted {
   padding: 0;
   background-color: transparent;
   border: none;

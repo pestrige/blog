@@ -46,6 +46,7 @@ module.exports = {
 		"no-underscore-dangle": "off",
 		"no-tabs": "off",
 		"arrow-body-style": "off",
+		"no-param-reassign": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{

@@ -3,5 +3,5 @@ export interface CounterSchema {
 }
 
 export interface StoreSchema {
-	// counter: CounterSchema;
+	counter: CounterSchema;
 }

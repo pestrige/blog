@@ -1,7 +1,5 @@
-export interface CounterSchema {
-	value: number;
-}
+import { UserSchema } from "entities/User";
 
 export interface StoreSchema {
-	counter: CounterSchema;
+	user: UserSchema;
 }

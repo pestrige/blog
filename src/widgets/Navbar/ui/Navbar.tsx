@@ -1,7 +1,8 @@
 import { classNames } from "shared/lib";
-import { Button, ButtonTheme, Modal } from "shared/ui";
+import { Button, ButtonTheme } from "shared/ui";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { LoginModal } from "features";
 import cls from "./Navbar.module.scss";
 
 interface Props {
@@ -26,9 +27,7 @@ export const Navbar = ({ className }: Props): JSX.Element => {
 				</li>
 			</ul>
 
-			<Modal isOpen={isOpen} onClose={toggleUserModal}>
-				<div>{t("Войти")}</div>
-			</Modal>
+			<LoginModal isOpen={isOpen} onClose={toggleUserModal} />
 		</div>
 	);
 };

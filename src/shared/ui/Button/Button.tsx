@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, memo } from "react";
 import { classNames } from "shared/lib";
 import cls from "./Button.module.scss";
 
@@ -22,19 +22,14 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: ButtonSize;
 }
 
-export const Button = ({
-	children,
-	className,
-	theme,
-	square,
-	size = ButtonSize.M,
-	...otherProps
-}: Props): JSX.Element => {
-	const classes = classNames(cls.button, cls[theme], cls[size], { [cls.square]: square }, className);
+export const Button = memo(
+	({ children, className, theme, square, size = ButtonSize.M, ...otherProps }: Props): JSX.Element => {
+		const classes = classNames(cls.button, cls[theme], cls[size], { [cls.square]: square }, className);
 
-	return (
-		<button data-testid="button-test" type="button" className={classes} {...otherProps}>
-			{children}
-		</button>
-	);
-};
+		return (
+			<button data-testid="button-test" type="button" className={classes} {...otherProps}>
+				{children}
+			</button>
+		);
+	}
+);

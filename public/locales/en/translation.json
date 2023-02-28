@@ -4,11 +4,13 @@
 	"Введите username": "Enter username",
 	"Введите пароль": "Enter password",
 	"Войти": "Login",
+	"Выйти": "Logout",
 	"Короткий язык": "EN",
 	"Обновить страницу": "Reload page",
 	"О сайте": "About",
 	"Переключить": "Toggle",
 	"Произошла непредвиденная ошибка": "An unexpected error has occurred",
 	"Страница не найдена": "Page not found",
+	"Форма авторизации": "Authorization form",
 	"Язык": "English"
 }

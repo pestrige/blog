@@ -18,6 +18,12 @@ Primary.args = {
 	children: "Text",
 };
 
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+	children: "Text",
+	disabled: true,
+};
+
 // clear
 export const Clear = Template.bind({});
 Clear.args = {
@@ -43,6 +49,13 @@ export const Outline = Template.bind({});
 Outline.args = {
 	children: "Text",
 	theme: ButtonTheme.OUTLINE,
+};
+
+export const OutlineDisabled = Template.bind({});
+OutlineDisabled.args = {
+	children: "Text",
+	theme: ButtonTheme.OUTLINE,
+	disabled: true,
 };
 
 export const OutlineSizeL = Template.bind({});

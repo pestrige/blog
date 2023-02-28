@@ -14,6 +14,8 @@ interface Props extends HTMLInputProps {
 export const Input = memo((props: Props) => {
 	const ref = useRef<HTMLInputElement>(null);
 	const { className, value, onChange, type = "text", placeholder, autofocus, ...otherProps } = props;
+	// TODO: implement id generator
+	const index = `input-${Date.now()}`;
 
 	const onChangeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
 		onChange?.(evt.target.value);
@@ -27,9 +29,10 @@ export const Input = memo((props: Props) => {
 
 	return (
 		<div className={classNames(cls.InputWrapper, className)}>
-			{placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
+			{placeholder && <label htmlFor={index} className={cls.placeholder}>{`${placeholder}>`}</label>}
 			<div className={cls.caretWrapper}>
 				<input
+					id={index}
 					ref={ref}
 					type={type}
 					value={value}

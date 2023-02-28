@@ -1,20 +1,36 @@
+:root {
+  --ring-size: 20px;
+}
+
 .ring {
   position: relative;
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: var(--ring-size);
+  height: var(--ring-size);
+}
+
+.ring.S {
+  --ring-size: 20px;
+}
+
+.ring.M {
+  --ring-size: 40px;
+}
+
+.ring.L {
+  --ring-size: 80px;
 }
 
 .ring div {
   position: absolute;
   box-sizing: border-box;
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
+  width: calc(var(--ring-size) * 0.8);
+  height: calc(var(--ring-size) * 0.8);
+  margin: calc(var(--ring-size) / 10);
   border-color: var(--inverted-bg-color) transparent transparent;
   border-style: solid;
-  border-width: 8px;
+  border-width: calc(var(--ring-size) / 10);
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }

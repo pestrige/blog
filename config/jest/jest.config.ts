@@ -22,6 +22,7 @@ export default {
 	moduleNameMapper: {
 		"\\.s?css$": "identity-obj-proxy",
 		"\\.svg$": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+		"^axios$": require.resolve("axios"),
 	},
 	globals: {
 		__IS_DEV__: true,
@@ -158,12 +159,6 @@ export default {
 
 	// Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
 	// timers: "real",
-
-	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-	// transformIgnorePatterns: [
-	//   "\\\\node_modules\\\\",
-	//   "\\.pnp\\.[^\\\\]+$"
-	// ],
 
 	// An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
 	// unmockedModulePathPatterns: undefined,

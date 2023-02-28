@@ -5,6 +5,11 @@
   padding: 6px 15px;
   color: var(--primary-color);
   cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
 }
 
 .M {

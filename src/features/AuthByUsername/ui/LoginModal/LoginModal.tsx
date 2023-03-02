@@ -1,6 +1,6 @@
-import React from "react";
-import { Modal } from "shared/ui";
-import { LoginForm } from "../LoginForm/LoginForm";
+import React, { Suspense } from "react";
+import { Loader, Modal } from "shared/ui";
+import { LoginFormLazy } from "../LoginForm/LoginForm.lazy";
 
 interface Props {
 	className?: string;
@@ -11,7 +11,9 @@ interface Props {
 export const LoginModal = ({ className = "", isOpen, onClose }: Props): JSX.Element => {
 	return (
 		<Modal isOpen={isOpen} onClose={onClose} className={className}>
-			<LoginForm />
+			<Suspense fallback={<Loader size="M" />}>
+				<LoginFormLazy />
+			</Suspense>
 		</Modal>
 	);
 };

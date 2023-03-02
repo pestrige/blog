@@ -3,9 +3,11 @@ import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme, Input, Loader, Text, TextTheme } from "shared/ui";
 import { useDispatch } from "react-redux";
 import { FormEvent, memo, useCallback } from "react";
+import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
 import {
 	loginActions,
 	loginByUsername,
+	loginReducer,
 	useLoginErrorSelector,
 	useLoginLoadingSelector,
 	useLoginPasswordSelector,
@@ -13,11 +15,15 @@ import {
 } from "../../model";
 import cls from "./LoginForm.module.scss";
 
-interface LoginFormProps {
+const initialReducers: ReducersList = {
+	login: loginReducer,
+};
+
+export interface LoginFormProps {
 	className?: string;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 	const username = useLoginUsernameSelector();
@@ -47,6 +53,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 		[dispatch, username, password]
 	);
 
+	useDynamicReducerLoader(initialReducers);
+
 	return (
 		<form className={classNames(cls.LoginForm, className)} onSubmit={handleSubmit}>
 			<Text title={t("Форма авторизации")} />
@@ -72,3 +80,5 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 		</form>
 	);
 });
+
+export default LoginForm;

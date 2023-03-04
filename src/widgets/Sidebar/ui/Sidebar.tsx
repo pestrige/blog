@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { memo, useState } from "react";
 import { classNames } from "shared/lib";
 import { LanguageSwitcher, SidebarSwitcher, ThemeSwitcher } from "features";
 import { MainMenu } from "widgets";
@@ -8,7 +8,7 @@ interface Props {
 	className?: string;
 }
 
-export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
+export const Sidebar = memo(({ className = "123" }: Props): JSX.Element => {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	const onToggle = () => setIsCollapsed((prev) => !prev);
@@ -28,4 +28,4 @@ export const Sidebar = ({ className = "123" }: Props): JSX.Element => {
 			<SidebarSwitcher onToggle={onToggle} isCollapsed={isCollapsed} />
 		</div>
 	);
-};
+});

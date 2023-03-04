@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui";
 import cls from "./SidebarSwitcher.module.scss";
 
@@ -7,7 +7,7 @@ interface Props {
 	isCollapsed: boolean;
 }
 
-export const SidebarSwitcher = ({ onToggle, isCollapsed }: Props): JSX.Element => {
+export const SidebarSwitcher = memo(({ onToggle, isCollapsed }: Props): JSX.Element => {
 	return (
 		<Button
 			data-testid="sidebar-toggle-test"
@@ -20,4 +20,4 @@ export const SidebarSwitcher = ({ onToggle, isCollapsed }: Props): JSX.Element =
 			{isCollapsed ? ">" : "<"}
 		</Button>
 	);
-};
+});

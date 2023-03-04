@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { memo, ReactNode } from "react";
 import { Button, ButtonTheme } from "shared/ui";
 import { DarkThemeIcon, LightThemeIcon } from "shared/assets";
 import { classNames, Theme, THEMES, useTheme } from "shared/lib";
@@ -13,7 +13,7 @@ interface Props {
 	className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: Props): JSX.Element => {
+export const ThemeSwitcher = memo(({ className }: Props): JSX.Element => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
@@ -21,4 +21,4 @@ export const ThemeSwitcher = ({ className }: Props): JSX.Element => {
 			{SwitcherIcons[theme]}
 		</Button>
 	);
-};
+});

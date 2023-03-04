@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { classNames } from "shared/lib";
 import cls from "./Text.module.scss";
 
@@ -13,11 +14,13 @@ interface Props {
 	theme?: TextTheme;
 }
 
-export const Text = ({ title, text, className = "", theme = TextTheme.PRIMARY }: Props): JSX.Element => {
-	return (
-		<div className={classNames(className, cls[theme])}>
-			{!!title && <p className={cls.title}>{title}</p>}
-			{!!text && <p className={cls.text}>{text}</p>}
-		</div>
-	);
-};
+export const Text = memo(
+	({ title, text, className = "", theme = TextTheme.PRIMARY }: Props): JSX.Element => {
+		return (
+			<div className={classNames(className, cls[theme])}>
+				{!!title && <p className={cls.title}>{title}</p>}
+				{!!text && <p className={cls.text}>{text}</p>}
+			</div>
+		);
+	}
+);

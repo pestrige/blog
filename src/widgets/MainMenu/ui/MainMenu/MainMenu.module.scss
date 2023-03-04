@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 30px;
+  background: var(--inverted-bg-color);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.linkWrapper {
+  margin-bottom: 15px;
+}

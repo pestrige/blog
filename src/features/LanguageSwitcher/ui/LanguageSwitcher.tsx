@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui";
+import { memo } from "react";
 import cls from "./LanguageSwitcher.module.scss";
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 	short?: boolean;
 }
 
-export const LanguageSwitcher = ({ className = "", short }: Props): JSX.Element => {
+export const LanguageSwitcher = memo(({ className = "", short }: Props): JSX.Element => {
 	const { t, i18n } = useTranslation();
 
 	const toggleLanguage = async () => {
@@ -19,4 +20,4 @@ export const LanguageSwitcher = ({ className = "", short }: Props): JSX.Element 
 			{t(short ? "Короткий язык" : "Язык")}
 		</Button>
 	);
-};
+});

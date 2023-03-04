@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useStore } from "react-redux";
 import { StoreWithManager, StoreSchemaKey } from "shared/config";
 import { Reducer } from "@reduxjs/toolkit";
+import { useAppDispatch } from "shared/hooks";
 
 export type ReducersList = {
 	[name in StoreSchemaKey]?: Reducer;
@@ -11,7 +12,7 @@ type ReducerObjectEntry = [StoreSchemaKey, Reducer];
 
 export const useDynamicReducerLoader = (reducers: ReducersList, isRemoveAfterUnmount = true) => {
 	const store = useStore() as StoreWithManager;
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		Object.entries(reducers).forEach(([reducerName, reducer]: ReducerObjectEntry) => {

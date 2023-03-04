@@ -1,9 +1,8 @@
 import { classNames } from "shared/lib";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme, Input, Loader, Text, TextTheme } from "shared/ui";
-import { useDispatch } from "react-redux";
 import { FormEvent, memo, useCallback } from "react";
-import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
 import {
 	loginActions,
 	loginByUsername,
@@ -21,11 +20,12 @@ const initialReducers: ReducersList = {
 
 export interface LoginFormProps {
 	className?: string;
+	onClose: () => void;
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 	const { t } = useTranslation();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const username = useLoginUsernameSelector();
 	const password = useLoginPasswordSelector();
 	const error = useLoginErrorSelector();
@@ -46,11 +46,14 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 	);
 
 	const handleSubmit = useCallback(
-		(evt: FormEvent<HTMLFormElement>) => {
+		async (evt: FormEvent<HTMLFormElement>) => {
 			evt.preventDefault();
-			dispatch(loginByUsername({ username, password }));
+			const result = await dispatch(loginByUsername({ username, password }));
+			if (result.meta.requestStatus === "fulfilled") {
+				onClose();
+			}
 		},
-		[dispatch, username, password]
+		[dispatch, username, password, onClose]
 	);
 
 	useDynamicReducerLoader(initialReducers);

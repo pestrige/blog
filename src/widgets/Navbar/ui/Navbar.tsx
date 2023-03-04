@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features";
 import { userActions, useUser } from "entities/User";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "shared/hooks";
 import cls from "./Navbar.module.scss";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Navbar = ({ className }: Props): JSX.Element => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 	const { isAuth, username } = useUser();
 	const [isOpen, setIsOpen] = useState(false);

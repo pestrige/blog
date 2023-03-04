@@ -12,7 +12,7 @@ export const LoginModal = ({ className = "", isOpen, onClose }: Props): JSX.Elem
 	return (
 		<Modal isOpen={isOpen} onClose={onClose} className={className}>
 			<Suspense fallback={<Loader size="M" />}>
-				<LoginFormLazy />
+				<LoginFormLazy onClose={onClose} />
 			</Suspense>
 		</Modal>
 	);

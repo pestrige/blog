@@ -1,12 +1,14 @@
-import { UserSchema } from "entities/User";
-import { LoginSchema } from "features";
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+import { LoginSchema } from "features";
+import { UserSchema } from "entities/User";
+import { ProfileSchema } from "entities/Profile";
 
 export interface StoreSchema {
 	user: UserSchema;
 
 	// async reducers
 	login?: LoginSchema;
+	profile?: ProfileSchema;
 }
 
 export type StoreSchemaKey = keyof StoreSchema;

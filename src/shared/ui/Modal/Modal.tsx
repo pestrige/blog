@@ -12,8 +12,8 @@ interface Props {
 	onClose: () => void;
 }
 
-const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Element => {
-	const ref = useRef<ReturnType<typeof setTimeout>>();
+const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Element | null => {
+	const ref = useRef<ReturnType<typeof setTimeout> | null>(null);
 	const [isClosing, setIsClosing] = useState(false);
 
 	const handleClose = useCallback(() => {
@@ -46,7 +46,11 @@ const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Elemen
 	}, [isOpen, handleKeyDown]);
 
 	useEffect(() => {
-		return () => clearTimeout(ref.current);
+		return () => {
+			if (ref.current) {
+				clearTimeout(ref.current);
+			}
+		};
 	}, []);
 
 	if (!isOpen) {

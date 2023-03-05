@@ -10,7 +10,7 @@ export default {
 	component: ErrorComponent,
 } as ComponentMeta<typeof ErrorComponent>;
 
-const Template: ComponentStory<typeof ErrorComponent> = (args) => <ErrorComponent {...args} />;
+const Template: ComponentStory<typeof ErrorComponent> = () => <ErrorComponent />;
 
 export const Light = Template.bind({});
 Light.args = {};

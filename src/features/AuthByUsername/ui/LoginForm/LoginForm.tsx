@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme, Input, Loader, Text, TextTheme } from "shared/ui";
+import { Button, Input, Loader, Text, TextTheme } from "shared/ui";
 import { FormEvent, memo, useCallback } from "react";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
 import {
@@ -77,7 +77,7 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 				onChange={handlePasswordChange}
 				value={password}
 			/>
-			<Button theme={ButtonTheme.OUTLINE} className={cls.loginBtn} type="submit" disabled={isLoading}>
+			<Button className={cls.loginBtn} type="submit" disabled={isLoading}>
 				{isLoading ? <Loader size="S" /> : t("Войти")}
 			</Button>
 		</form>

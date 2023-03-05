@@ -10,7 +10,7 @@ export default {
 	component: PageLoader,
 } as ComponentMeta<typeof PageLoader>;
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
+const Template: ComponentStory<typeof PageLoader> = () => <PageLoader />;
 
 export const Light = Template.bind({});
 Light.args = {};

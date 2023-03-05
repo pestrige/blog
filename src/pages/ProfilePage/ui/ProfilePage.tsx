@@ -1,15 +1,22 @@
-import { memo } from "react";
-import { useTranslation } from "react-i18next";
-import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
-import { profileReducer } from "entities/Profile";
+import { memo, useEffect } from "react";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
+import { fetchProfileData, ProfileCard, profileReducer } from "entities/Profile";
 
 const reducersList: ReducersList = { profile: profileReducer };
 
 const MainPage = memo((): JSX.Element => {
-	const { t } = useTranslation();
+	const appDispatch = useAppDispatch();
 	useDynamicReducerLoader(reducersList);
 
-	return <div className="page">{t("Профиль")}</div>;
+	useEffect(() => {
+		appDispatch(fetchProfileData());
+	}, [appDispatch]);
+
+	return (
+		<div className="page">
+			<ProfileCard />
+		</div>
+	);
 });
 
 export default MainPage;

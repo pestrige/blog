@@ -47,6 +47,7 @@ module.exports = {
 		"no-tabs": "off",
 		"arrow-body-style": "off",
 		"no-param-reassign": "off",
+		"no-undef": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{

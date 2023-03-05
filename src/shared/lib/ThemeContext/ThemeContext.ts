@@ -10,8 +10,13 @@ export const THEMES = {
 export type Theme = keyof typeof THEMES;
 
 interface ThemeContextProps {
-	theme?: Theme;
-	setTheme?: (theme: Theme) => void;
+	theme: Theme;
+	setTheme: (theme: Theme) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({ theme: THEMES.light });
+const initialContext: ThemeContextProps = {
+	theme: THEMES.light,
+	setTheme: () => undefined,
+};
+
+export const ThemeContext = createContext<ThemeContextProps>(initialContext);

@@ -1,11 +1,11 @@
 import { Story } from "@storybook/react";
-import { DeepPartial } from "@reduxjs/toolkit";
 import { StoreSchema } from "shared/config";
 import { StoreProvider } from "app/providers";
 import { loginReducer } from "features/AuthByUsername/model";
 import { profileReducer } from "entities/Profile";
+import { ReducersList } from "shared/hooks";
 
-const asyncReducers = {
+const asyncReducers: ReducersList = {
 	login: loginReducer,
 	profile: profileReducer,
 };

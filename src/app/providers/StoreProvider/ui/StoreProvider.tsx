@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 import { createReduxStore, StoreSchema } from "shared/config";
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 
 interface Props {

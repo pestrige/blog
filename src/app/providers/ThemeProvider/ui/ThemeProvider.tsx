@@ -21,7 +21,9 @@ export const ThemeProvider = ({ children }: Props): JSX.Element => {
 	);
 
 	useEffect(() => {
-		rootElement.className = theme;
+		if (rootElement) {
+			rootElement.className = theme;
+		}
 	}, [theme]);
 
 	return <ThemeContext.Provider value={providerValue}>{children}</ThemeContext.Provider>;

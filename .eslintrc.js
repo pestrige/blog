@@ -25,7 +25,7 @@ module.exports = {
 	rules: {
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-indent-props": [2, "tab"],
-		indent: [2, "tab"],
+		indent: [2, "tab", { "SwitchCase": 1 }],
 		"react/jsx-filename-extension": [
 			2,
 			{

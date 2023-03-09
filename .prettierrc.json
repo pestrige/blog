@@ -1,4 +1,5 @@
 {
-	"printWidth": 105,
-	"useTabs": true
+	"printWidth": 110,
+	"useTabs": true,
+	"tabWidth": 4
 }

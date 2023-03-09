@@ -1,6 +1,11 @@
 {
+	"Ваш аватар": "Your avatar",
+	"Ваш возраст": "Your age",
+	"Ваш город": "Your city",
 	"Ваше имя": "Your name",
-	"Ваша фамилия": "Ваша фамилия",
+	"Ваш ник": "Your username",
+	"Ваша фамилия": "Your surname",
+	"Ошибка загрузки профиля": "Profile loading error",
 	"Профиль": "Profile",
 	"Редактировать": "Edit"
 }

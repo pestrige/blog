@@ -67,6 +67,12 @@
   border: 1px solid var(--primary-color);
 }
 
+.outlineError {
+  color: var(--error);
+  background-color: transparent;
+  border: 1px solid var(--error);
+}
+
 .background {
   color: var(--primary-color);
   background-color: var(--bg-color);

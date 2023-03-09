@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.buttons,
+.editButton {
+  margin-left: auto;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.cancelButton {
+  margin-right: 10px;
+}

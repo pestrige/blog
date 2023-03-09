@@ -2,23 +2,34 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { InputHTMLAttributes, ChangeEvent, memo, useEffect, useRef } from "react";
 import cls from "./Input.module.scss";
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange">;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "readOnly" | "name">;
 
 interface Props extends HTMLInputProps {
+	name: string;
 	className?: string;
 	value?: string;
-	onChange?: (value: string) => void;
+	onChange?: (value: string, name: string) => void;
 	autofocus?: boolean;
+	readonly?: boolean;
 }
 
 export const Input = memo((props: Props) => {
+	const {
+		name,
+		className,
+		value,
+		onChange,
+		type = "text",
+		placeholder,
+		autofocus = false,
+		readonly = false,
+		...otherProps
+	} = props;
 	const ref = useRef<HTMLInputElement>(null);
-	const { className, value, onChange, type = "text", placeholder, autofocus, ...otherProps } = props;
-	// TODO: implement id generator
-	const index = `input-${Date.now()}`;
+	const wrapperClasses = classNames(cls.InputWrapper, { [cls.readonly]: readonly }, className);
 
 	const onChangeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-		onChange?.(evt.target.value);
+		onChange?.(evt.target.value, name);
 	};
 
 	useEffect(() => {
@@ -28,16 +39,18 @@ export const Input = memo((props: Props) => {
 	}, [autofocus]);
 
 	return (
-		<div className={classNames(cls.InputWrapper, className)}>
-			{placeholder && <label htmlFor={index} className={cls.placeholder}>{`${placeholder}>`}</label>}
+		<div className={wrapperClasses}>
+			{placeholder && <label htmlFor={name} className={cls.placeholder}>{`${placeholder}>`}</label>}
 			<div className={cls.caretWrapper}>
 				<input
-					id={index}
+					id={name}
+					name={name}
 					ref={ref}
 					type={type}
 					value={value}
 					onChange={onChangeHandler}
 					className={cls.input}
+					readOnly={readonly}
 					{...otherProps}
 				/>
 			</div>

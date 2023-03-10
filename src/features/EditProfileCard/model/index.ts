@@ -7,3 +7,4 @@ export { useProfileFormSelector } from "./selectors/getProfileFormData/getProfil
 export { useProfileErrorSelector } from "./selectors/getProfileError/getProfileError";
 export { useProfileLoadingSelector } from "./selectors/getProfileLoading/getProfileLoading";
 export { useProfileReadonlySelector } from "./selectors/getProfileReadonly/getProfileReadonly";
+export { useProfileValidateErrorsSelector } from "./selectors/getProfileValidateErrors/getProfileValidateErrors";

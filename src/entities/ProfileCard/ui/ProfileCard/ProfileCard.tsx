@@ -4,10 +4,14 @@ import { Avatar, Input, Loader, Text, TextTheme } from "shared/ui";
 import { classNames } from "shared/lib";
 import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
-import { ProfileCardType } from "../../model/types/profileCard";
+import { translationValidateErrors } from "../../model/constants/constants";
+import {
+	ProfileCardType,
+	ProfileCardTypeKeyof,
+	ValidateErrors,
+	ValidateErrorsEnum,
+} from "../../model/types/profileCard";
 import cls from "./ProfileCard.module.scss";
-
-type ProfileCardTypeKeyof = keyof ProfileCardType;
 
 interface ProfileInputsItem {
 	name: ProfileCardTypeKeyof;
@@ -23,10 +27,21 @@ const profileInputs: ProfileInputsItem[] = [
 	{ name: "avatar", label: "Ваш аватар" },
 ];
 
+const getTranslateErrors = (errors: ValidateErrors, field: ProfileCardTypeKeyof): string => {
+	if (errors[field]) {
+		const errorName = errors[field];
+		if (errorName) {
+			return translationValidateErrors[errorName] ?? "";
+		}
+	}
+	return "";
+};
+
 interface Props {
 	profile?: ProfileCardType;
 	isLoading: boolean;
-	error: string;
+	error?: ValidateErrorsEnum;
+	validateErrors: ValidateErrors;
 	readonly: boolean;
 	onInputChange: (value: string, name: string) => void;
 	onSubmit: (evt: FormEvent<HTMLFormElement>) => void;
@@ -37,10 +52,12 @@ export const ProfileCard = ({
 	isLoading,
 	error,
 	readonly,
+	validateErrors,
 	onInputChange,
 	onSubmit,
 }: Props): JSX.Element => {
 	const { t } = useTranslation("profile");
+	const errorText = error ? translationValidateErrors[error] : undefined;
 
 	if (isLoading) {
 		return (
@@ -55,7 +72,7 @@ export const ProfileCard = ({
 			<div className={classNames(cls.root, cls.error)}>
 				<Text
 					title={t("Ошибка загрузки профиля")}
-					text={error}
+					text={errorText ? t(errorText) : undefined}
 					theme={TextTheme.ERROR}
 					align="center"
 				/>
@@ -70,6 +87,7 @@ export const ProfileCard = ({
 			<ul className={cls.list}>
 				{profileInputs.map(({ name, label }) => {
 					const adaptedValue = profile ? profile[name]?.toString() : "";
+					const inputError = getTranslateErrors(validateErrors, name);
 
 					return (
 						<li key={name} className={cls.listITem}>
@@ -80,6 +98,7 @@ export const ProfileCard = ({
 								className={cls.input}
 								readonly={readonly}
 								onChange={onInputChange}
+								error={inputError}
 							/>
 						</li>
 					);

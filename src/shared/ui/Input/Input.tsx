@@ -8,6 +8,7 @@ interface Props extends HTMLInputProps {
 	name: string;
 	className?: string;
 	value?: string;
+	error?: string;
 	onChange?: (value: string, name: string) => void;
 	autofocus?: boolean;
 	readonly?: boolean;
@@ -23,10 +24,11 @@ export const Input = memo((props: Props) => {
 		placeholder,
 		autofocus = false,
 		readonly = false,
+		error = "",
 		...otherProps
 	} = props;
 	const ref = useRef<HTMLInputElement>(null);
-	const wrapperClasses = classNames(cls.InputWrapper, { [cls.readonly]: readonly }, className);
+	const wrapperClasses = classNames(cls.root, { [cls.readonly]: readonly }, className);
 
 	const onChangeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
 		onChange?.(evt.target.value, name);
@@ -40,20 +42,23 @@ export const Input = memo((props: Props) => {
 
 	return (
 		<div className={wrapperClasses}>
-			{placeholder && <label htmlFor={name} className={cls.placeholder}>{`${placeholder}>`}</label>}
-			<div className={cls.caretWrapper}>
-				<input
-					id={name}
-					name={name}
-					ref={ref}
-					type={type}
-					value={value}
-					onChange={onChangeHandler}
-					className={cls.input}
-					readOnly={readonly}
-					{...otherProps}
-				/>
+			<div className={cls.InputWrapper}>
+				{placeholder && <label htmlFor={name} className={cls.placeholder}>{`${placeholder}>`}</label>}
+				<div className={cls.caretWrapper}>
+					<input
+						id={name}
+						name={name}
+						ref={ref}
+						type={type}
+						value={value}
+						onChange={onChangeHandler}
+						className={cls.input}
+						readOnly={readonly}
+						{...otherProps}
+					/>
+				</div>
 			</div>
+			{!!error && <span className={cls.error}>{error}</span>}
 		</div>
 	);
 });

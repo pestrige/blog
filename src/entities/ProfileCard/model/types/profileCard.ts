@@ -11,3 +11,19 @@ export interface ProfileCardType {
 	username?: string;
 	avatar?: string;
 }
+
+export type ProfileCardTypeKeyof = keyof ProfileCardType;
+
+export enum ValidateErrorsEnum {
+	REQUIRED_FIELD = "REQUIRED_FIELD",
+	INCORRECT_AGE = "INCORRECT_AGE",
+	EMPTY_DATA = "EMPTY_DATA",
+	SERVER_ERROR = "SERVER_ERROR",
+}
+
+export type ValidateErrors = Partial<Record<ProfileCardTypeKeyof, ValidateErrorsEnum>>;
+
+export interface ProfileErrors {
+	validateErrors?: ValidateErrors;
+	error?: ValidateErrorsEnum;
+}

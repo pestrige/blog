@@ -5,7 +5,11 @@
 	"Ваше имя": "Your name",
 	"Ваш ник": "Your username",
 	"Ваша фамилия": "Your surname",
+	"Некорректный возраст": "Incorrect age",
+	"Обязательное поле": "Required field",
 	"Ошибка загрузки профиля": "Profile loading error",
+	"Ошибка сервера": "Server error",
 	"Профиль": "Profile",
-	"Редактировать": "Edit"
+	"Редактировать": "Edit",
+	"Форма не может быть пустой": "The form cannot be empty"
 }

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { ProfileCard } from "entities/ProfileCard";
+import { ProfileCard, ProfileCardTypeKeyof } from "entities/ProfileCard";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
 import {
 	fetchProfileData,
@@ -10,6 +10,7 @@ import {
 	useProfileFormSelector,
 	useProfileLoadingSelector,
 	useProfileReadonlySelector,
+	useProfileValidateErrorsSelector,
 } from "../model";
 
 const reducersList: ReducersList = { profile: profileReducer };
@@ -19,6 +20,7 @@ export const EditableProfileCard = (): JSX.Element => {
 	const formData = useProfileFormSelector();
 	const isLoading = useProfileLoadingSelector();
 	const error = useProfileErrorSelector();
+	const validateErrors = useProfileValidateErrorsSelector();
 	const readonly = useProfileReadonlySelector();
 
 	const handleInputChange = useCallback(
@@ -31,7 +33,12 @@ export const EditableProfileCard = (): JSX.Element => {
 				default:
 					break;
 			}
-			dispatch(profileActions.updateProfile({ [name]: newValue }));
+			dispatch(
+				profileActions.updateProfile({
+					form: { [name]: newValue },
+					field: name as ProfileCardTypeKeyof,
+				})
+			);
 		},
 		[dispatch]
 	);
@@ -51,6 +58,7 @@ export const EditableProfileCard = (): JSX.Element => {
 			profile={formData}
 			isLoading={isLoading}
 			error={error}
+			validateErrors={validateErrors}
 			readonly={readonly}
 			onInputChange={handleInputChange}
 			onSubmit={handleSubmit}

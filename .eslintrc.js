@@ -58,6 +58,7 @@ module.exports = {
 			"error",
 			{
 				ignoreComments: true,
+				ignorePattern: '^export .*',
 				code: 110,
 			},
 		],

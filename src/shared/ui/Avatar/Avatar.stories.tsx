@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import AvatarImg from "shared/assets/tests/storybook-avatar.webp";
 import { Avatar } from "./Avatar";
 
 export default {
@@ -14,11 +13,11 @@ const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-	src: AvatarImg,
+	src: "https://i.pravatar.cc/150?img=1",
 };
 
 export const Small = Template.bind({});
 Small.args = {
-	src: AvatarImg,
+	src: "https://i.pravatar.cc/150?img=1",
 	size: 50,
 };

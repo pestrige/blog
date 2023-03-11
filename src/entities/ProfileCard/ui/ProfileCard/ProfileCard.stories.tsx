@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import AvatarImg from "shared/assets/tests/storybook-avatar.webp";
 import { THEMES } from "shared/lib";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
@@ -18,7 +17,7 @@ const user = {
 	country: Country.Russia,
 	city: "Moscow",
 	username: "admin",
-	avatar: AvatarImg,
+	avatar: "https://i.pravatar.cc/150?img=1",
 };
 
 export default {

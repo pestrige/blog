@@ -50,6 +50,9 @@ export const EditableProfileCard = (): JSX.Element => {
 	useDynamicReducerLoader(reducersList);
 
 	useEffect(() => {
+		if (__PROJECT__ === "storybook") {
+			return;
+		}
 		dispatch(fetchProfileData());
 	}, [dispatch]);
 

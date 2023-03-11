@@ -10,7 +10,7 @@ export const fetchProfileData = createAsyncThunk<ProfileCardType, void, ThunkCon
 			const response = await extra.api.get<ProfileCardType>("/profile");
 
 			if (!response.data) {
-				return rejectWithValue(ValidateErrorsEnum.SERVER_ERROR);
+				throw new Error();
 			}
 			return response.data;
 		} catch (e) {

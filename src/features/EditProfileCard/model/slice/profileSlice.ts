@@ -13,7 +13,7 @@ const initialState: ProfileSchema = {
 	validateErrors: {},
 };
 
-type UpdateProfilePayloadAction = PayloadAction<{ form: ProfileCardType; field: ProfileCardTypeKeyof }>;
+export type UpdateProfilePayload = { form: ProfileCardType; field: ProfileCardTypeKeyof };
 
 export const profileSlice = createSlice({
 	name: "profile",
@@ -28,7 +28,7 @@ export const profileSlice = createSlice({
 			state.validateErrors = {};
 			state.form = state.data;
 		},
-		updateProfile: (state, { payload }: UpdateProfilePayloadAction) => {
+		updateProfile: (state, { payload }: PayloadAction<UpdateProfilePayload>) => {
 			state.form = { ...state.form, ...payload.form };
 			if (state.validateErrors[payload.field]) {
 				delete state.validateErrors[payload.field];

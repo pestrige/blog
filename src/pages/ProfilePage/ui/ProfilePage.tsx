@@ -2,7 +2,7 @@ import { memo } from "react";
 import { EditableProfileCard } from "features/EditProfileCard";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
-const MainPage = memo((): JSX.Element => {
+const ProfilePage = memo((): JSX.Element => {
 	return (
 		<div className="page">
 			<ProfilePageHeader />
@@ -11,4 +11,4 @@ const MainPage = memo((): JSX.Element => {
 	);
 });
 
-export default MainPage;
+export default ProfilePage;

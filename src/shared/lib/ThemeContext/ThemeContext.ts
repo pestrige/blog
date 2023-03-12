@@ -5,6 +5,7 @@ export const LOCAL_STORAGE_THEME_KEY = "theme";
 export const THEMES = {
 	dark: "dark",
 	light: "light",
+	blue: "blue",
 } as const;
 
 export type Theme = keyof typeof THEMES;

@@ -1,8 +1,10 @@
 import { RouteProps } from "react-router-dom";
 import { AboutPage, MainPage, NotFound, ProfilePage } from "pages";
+import { ReactElement } from "react";
 
 type AppRouteProps = RouteProps & {
 	authOnly?: boolean;
+	element: ReactElement;
 };
 
 export enum AppRoutes {

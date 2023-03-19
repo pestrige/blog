@@ -9,6 +9,7 @@ import { ArticleDetails } from "./ArticleDetails";
 export default {
 	title: "entities/ArticleDetails",
 	component: ArticleDetails,
+	parameters: { loki: { skip: true } },
 } as ComponentMeta<typeof ArticleDetails>;
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;

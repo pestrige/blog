@@ -4,7 +4,7 @@ import cls from "./Text.module.scss";
 
 type TextVariant = "primary" | "error";
 type TextAlign = "left" | "right" | "center";
-type TextSize = "md" | "lg";
+type TextSize = "sm" | "md" | "lg";
 
 interface Props {
 	className?: string;

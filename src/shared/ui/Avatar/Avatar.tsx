@@ -3,14 +3,22 @@ import { classNames } from "shared/lib";
 import cls from "./Avatar.module.scss";
 
 interface Props {
-	src: string;
+	src?: string;
 	size?: number;
-	alt?: string;
+	alt: string;
 	className?: string;
 }
 
 export const Avatar = memo(({ src, size = 100, alt, className = "" }: Props): JSX.Element => {
 	const style: CSSProperties = useMemo(() => ({ width: `${size}px`, height: `${size}px` }), [size]);
+
+	if (!src) {
+		return (
+			<div className={classNames(cls.empty, className)} style={style}>
+				{alt[0]}
+			</div>
+		);
+	}
 
 	return <img className={classNames(cls.img, className)} src={src} alt={alt} style={style} />;
 });

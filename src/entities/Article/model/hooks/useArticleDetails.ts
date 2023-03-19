@@ -1,14 +1,10 @@
-import { useEffect } from "react";
-import { useAppDispatch } from "shared/hooks";
+import { useAppDispatch, useInitialEffect } from "shared/hooks";
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
 
 export const useArticleDetails = (articleId: string) => {
 	const dispatch = useAppDispatch();
 
-	useEffect(() => {
-		if (__PROJECT__ === "storybook") {
-			return;
-		}
+	useInitialEffect(() => {
 		dispatch(fetchArticleById(articleId));
-	}, [dispatch, articleId]);
+	}, [articleId]);
 };

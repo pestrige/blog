@@ -6,6 +6,7 @@ import { LoginSchema } from "features/AuthByUsername";
 import { ProfileSchema } from "features/EditProfileCard";
 import { UserSchema } from "entities/User";
 import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsCommentsSchema } from "pages/DetailArticlePage";
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -14,6 +15,7 @@ export interface StoreSchema {
 	login?: LoginSchema;
 	profile?: ProfileSchema;
 	articleDetails?: ArticleDetailsSchema;
+	articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StoreSchemaKey = keyof StoreSchema;

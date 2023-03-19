@@ -82,7 +82,9 @@ export const ProfileCard = ({
 
 	return (
 		<form onSubmit={onSubmit} className={classNames(cls.root, { [cls.editable]: !readonly })}>
-			{!!profile?.avatar && <Avatar src={profile.avatar} className={cls.avatar} />}
+			{!!profile?.avatar && (
+				<Avatar src={profile.avatar} className={cls.avatar} alt={profile.first ?? ""} />
+			)}
 
 			<ul className={cls.list}>
 				{profileInputs.map(({ name, label }) => {

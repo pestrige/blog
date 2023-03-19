@@ -2,7 +2,7 @@ import { classNames } from "shared/lib";
 import { Button, ButtonTheme, Text } from "shared/ui";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { LoginModal } from "features";
+import { LoginModal } from "features/AuthByUsername";
 import { userActions, useUser } from "entities/User";
 import { useAppDispatch } from "shared/hooks";
 import cls from "./Navbar.module.scss";
@@ -30,7 +30,7 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 			<div className={classNames(cls.wrapper, className)}>
 				<ul className={cls.links}>
 					<li className={cls.mainLink}>
-						<Text text={username} />
+						<Text text={username} inverted />
 					</li>
 					<li>
 						<Button onClick={handleLogout} theme={ButtonTheme.CLEAR_INVERTED}>

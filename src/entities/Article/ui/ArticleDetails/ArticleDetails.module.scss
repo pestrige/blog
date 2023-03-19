@@ -1,0 +1,28 @@
+.articleDetails {
+  min-height: 100%;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.info,
+.infoLast {
+  display: flex;
+  align-items: center;
+}
+
+.infoLast {
+  margin-bottom: 30px;
+}
+
+.icon {
+  margin-right: 8px;
+  fill: var(--secondary-color);
+}

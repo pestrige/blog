@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
-import { Text, TextTheme } from "./Text";
+import { Text } from "./Text";
 
 export default {
 	title: "shared/Text",
@@ -27,6 +27,7 @@ Dark.args = {
 };
 Dark.decorators = [ThemeDecorator(THEMES.dark)];
 
+// With title
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
 	title: "Title text lorem",
@@ -37,10 +38,18 @@ OnlyText.args = {
 	text: "Description text lorem",
 };
 
+// Large
+export const Large = Template.bind({});
+Large.args = {
+	title: "Title text lorem",
+	text: "Description text lorem",
+	size: "lg",
+};
+
 // error
 export const Error = Template.bind({});
 Error.args = {
 	title: "Title text lorem",
 	text: "Description text lorem",
-	theme: TextTheme.ERROR,
+	variant: "error",
 };

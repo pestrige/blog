@@ -5,6 +5,13 @@
   padding: 6px 15px;
   color: var(--primary-color);
   cursor: pointer;
+  transition: opacity 0.3s, fill-opacity 0.3s, stroke-opacity 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+    fill-opacity: 0.8;
+    stroke-opacity: 0.8;
+  }
 
   &:disabled {
     cursor: default;

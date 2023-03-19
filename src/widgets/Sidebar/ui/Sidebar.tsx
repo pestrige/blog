@@ -1,6 +1,8 @@
 import { memo, useState } from "react";
 import { classNames } from "shared/lib";
-import { LanguageSwitcher, SidebarSwitcher, ThemeSwitcher } from "features";
+import { LanguageSwitcher } from "features/LanguageSwitcher";
+import { SidebarSwitcher } from "features/SidebarSwitcher";
+import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { MainMenu } from "widgets";
 import cls from "./Sidebar.module.scss";
 

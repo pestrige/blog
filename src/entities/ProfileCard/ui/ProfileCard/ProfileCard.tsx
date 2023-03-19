@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { Avatar, Input, Loader, Text, TextTheme } from "shared/ui";
+import { Avatar, Input, Loader, Text } from "shared/ui";
 import { classNames } from "shared/lib";
 import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
@@ -73,7 +73,7 @@ export const ProfileCard = ({
 				<Text
 					title={t("Ошибка загрузки профиля")}
 					text={errorText ? t(errorText) : undefined}
-					theme={TextTheme.ERROR}
+					variant="error"
 					align="center"
 				/>
 			</div>

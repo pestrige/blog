@@ -1,11 +1,19 @@
 .title {
-  font: var(--font-l);
   color: var(--primary-color);
 }
 
 .text {
-  font: var(--font-m);
   color: var(--secondary-color);
+}
+
+.inverted {
+  .title {
+    color: var(--inverted-primary-color);
+  }
+
+  .text {
+    color: var(--inverted-secondary-color);
+  }
 }
 
 .error {
@@ -28,4 +36,24 @@
 
 .center {
   text-align: center;
+}
+
+.md {
+  .title {
+    font: var(--font-l);
+  }
+
+  .text {
+    font: var(--font-m);
+  }
+}
+
+.lg {
+  .title {
+    font: var(--font-xl);
+  }
+
+  .text {
+    font: var(--font-l);
+  }
 }

@@ -1,9 +1,11 @@
 export { Avatar } from "./Avatar/Avatar";
 export { AppLink, AppLinkTheme } from "./AppLink";
 export { Button, ButtonTheme, ButtonSize } from "./Button";
+export { Code } from "./Code/Code";
 export { Input } from "./Input";
 export { Loader } from "./Loader";
 export { Modal } from "./Modal";
 export { Portal } from "./Portal";
+export { Skeleton } from "./Skeleton/Skeleton";
 export { Select, SelectOption } from "./Select/Select";
-export { Text, TextTheme } from "./Text";
+export { Text } from "./Text";

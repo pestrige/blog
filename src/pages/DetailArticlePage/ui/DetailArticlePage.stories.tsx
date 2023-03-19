@@ -45,6 +45,7 @@ const article: Article = {
 export default {
 	title: "pages/DetailArticlePage",
 	component: DetailArticlePage,
+	parameters: { router: { path: "/articles/:id", route: "/articles/1" } },
 } as ComponentMeta<typeof DetailArticlePage>;
 
 const Template: ComponentStory<typeof DetailArticlePage> = () => <DetailArticlePage />;

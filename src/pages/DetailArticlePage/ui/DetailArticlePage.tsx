@@ -6,12 +6,7 @@ import { Text } from "shared/ui";
 
 const DetailArticlePage = memo((): JSX.Element => {
 	const { t } = useTranslation("articles");
-	let { id } = useParams<{ id: string }>();
-
-	// TODO: add storybook
-	if (__PROJECT__ === "storybook") {
-		id = "1";
-	}
+	const { id } = useParams<{ id: string }>();
 
 	if (!id) {
 		return (

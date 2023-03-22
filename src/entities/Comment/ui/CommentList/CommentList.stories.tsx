@@ -4,8 +4,21 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
 import { CommentList } from "./CommentList";
 
+const comments = [
+	{
+		id: "1",
+		text: "hello world",
+		user: { id: "1", username: "Ivan" },
+	},
+	{
+		id: "2",
+		text: "another hello world 2",
+		user: { id: "1", username: "Ivan" },
+	},
+];
+
 export default {
-	title: "shared/CommentList",
+	title: "entities/CommentList",
 	component: CommentList,
 } as ComponentMeta<typeof CommentList>;
 
@@ -13,9 +26,13 @@ const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...
 
 // Light
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = { comments };
 
 // Dark
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = { comments };
 Dark.decorators = [ThemeDecorator(THEMES.dark)];
+
+// Loading
+export const Loading = Template.bind({});
+Loading.args = { isLoading: true };

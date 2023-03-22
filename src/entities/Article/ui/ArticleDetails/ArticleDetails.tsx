@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
 import { Avatar, Text } from "shared/ui";
 import { CalendarIcon, EyeIcon } from "shared/assets";
+import { classNames } from "shared/lib";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useArticleDetails } from "../../model/hooks/useArticleDetails";
 import {
@@ -17,10 +18,11 @@ import cls from "./ArticleDetails.module.scss";
 const reducersList: ReducersList = { articleDetails: articleDetailsReducer };
 
 interface Props {
+	className?: string;
 	id: string;
 }
 
-export const ArticleDetails = memo(({ id }: Props): JSX.Element => {
+export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 	const article = useArticleDataSelector();
 	const isArticleLoading = useIsArticleLoadingSelector();
 	const articleError = useArticleErrorSelector();
@@ -35,7 +37,7 @@ export const ArticleDetails = memo(({ id }: Props): JSX.Element => {
 
 	if (articleError || !article) {
 		return (
-			<div className={cls.articleDetails}>
+			<div className={classNames(cls.articleDetails, className)}>
 				<Text align="center" title={t("Статья не найдена")} />
 			</div>
 		);

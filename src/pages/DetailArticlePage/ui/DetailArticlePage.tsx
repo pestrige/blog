@@ -1,11 +1,15 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+
 import { ArticleDetails } from "entities/Article";
-import { Text } from "shared/ui";
 import { CommentList } from "entities/Comment";
+import { AddCommentForm } from "features/AddCommentForm";
+import { Text } from "shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
-import { articleDetailsCommentsSliceReducer } from "../model/slice/articleDetailsCommentsSlice";
+
+import { sendCommentByArticleId } from "../model/services/sendCommentByArticleId";
+import { articleDetailsCommentsReducer } from "../model/slice/articleDetailsCommentsSlice";
 import {
 	useArticleCommentsError,
 	useArticleCommentsSelector,
@@ -13,7 +17,7 @@ import {
 } from "../model/selectors/selectors";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId";
 
-const reducers: ReducersList = { articleDetailsComments: articleDetailsCommentsSliceReducer };
+const reducers: ReducersList = { articleDetailsComments: articleDetailsCommentsReducer };
 
 const DetailArticlePage = memo((): JSX.Element => {
 	const { t } = useTranslation("articles");
@@ -22,6 +26,13 @@ const DetailArticlePage = memo((): JSX.Element => {
 	const comments = useArticleCommentsSelector();
 	const isCommentsLoading = useIsArticleCommentsLoading();
 	const error = useArticleCommentsError();
+
+	const handleSubmit = useCallback(
+		(commentText: string) => {
+			dispatch(sendCommentByArticleId(commentText));
+		},
+		[dispatch]
+	);
 
 	useDynamicReducerLoader(reducers);
 
@@ -39,13 +50,10 @@ const DetailArticlePage = memo((): JSX.Element => {
 
 	return (
 		<div className="page">
-			<ArticleDetails id={id ?? "1"} />
-			<CommentList
-				error={error}
-				isLoading={isCommentsLoading}
-				title={t("Комментарии")}
-				comments={comments}
-			/>
+			<ArticleDetails id={id ?? "1"} className="big-margin" />
+			<Text title={t("Комментарии")} className="block-margin" />
+			<AddCommentForm onSubmit={handleSubmit} className="block-margin" />
+			<CommentList error={error} isLoading={isCommentsLoading} comments={comments} />
 		</div>
 	);
 });

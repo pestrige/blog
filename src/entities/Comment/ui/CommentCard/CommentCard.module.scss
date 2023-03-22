@@ -1,5 +1,6 @@
 .commentCard {
   padding: 20px;
+  list-style: none;
   border: 1px solid var(--primary-color);
 
   &:not(:last-child) {

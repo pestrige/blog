@@ -4,8 +4,14 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
 import { CommentCard } from "./CommentCard";
 
+const comment = {
+	id: "1",
+	text: "hello world",
+	user: { id: "1", username: "Ivan" },
+};
+
 export default {
-	title: "shared/CommentCard",
+	title: "entities/CommentCard",
 	component: CommentCard,
 } as ComponentMeta<typeof CommentCard>;
 
@@ -13,9 +19,9 @@ const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...
 
 // Light
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = { comment };
 
 // Dark
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = { comment };
 Dark.decorators = [ThemeDecorator(THEMES.dark)];

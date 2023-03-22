@@ -1,5 +1,7 @@
 import { Story, StoryContext } from "@storybook/react";
 import { BrowserRouter, MemoryRouter, Route, Routes } from "react-router-dom";
+import { PageLoader } from "widgets";
+import React, { Suspense } from "react";
 
 interface Router {
 	path: string;
@@ -19,9 +21,11 @@ export const RouterDecorator = (StoryComponent: Story, { parameters }: StoryCont
 
 	return (
 		<MemoryRouter initialEntries={[encodeURI(router.route)]}>
-			<Routes>
-				<Route path={router.path} element={<StoryComponent />} />
-			</Routes>
+			<Suspense fallback={<PageLoader />}>
+				<Routes>
+					<Route path={router.path} element={<StoryComponent />} />
+				</Routes>
+			</Suspense>
 		</MemoryRouter>
 	);
 };

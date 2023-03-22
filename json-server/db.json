@@ -102,6 +102,48 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "another comment",
+      "id": "NWyeGGc"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "another comment",
+      "id": "eft9e3Z"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sndkj biuh ",
+      "id": "pgYAS8K"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sndkj biuh ",
+      "id": "zHjjpqu"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "one more comment",
+      "id": "HAq7GBC"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "vukqzoS"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ksjd iub iub ",
+      "id": "ayMpHwZ"
     }
   ],
   "users": [

@@ -4,6 +4,7 @@ import { To } from "history";
 import { NavigateOptions } from "react-router";
 import { LoginSchema } from "features/AuthByUsername";
 import { ProfileSchema } from "features/EditProfileCard";
+import { AddCommentFormSchema } from "features/AddCommentForm";
 import { UserSchema } from "entities/User";
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/DetailArticlePage";
@@ -16,6 +17,7 @@ export interface StoreSchema {
 	profile?: ProfileSchema;
 	articleDetails?: ArticleDetailsSchema;
 	articleDetailsComments?: ArticleDetailsCommentsSchema;
+	addCommentForm?: AddCommentFormSchema;
 }
 
 export type StoreSchemaKey = keyof StoreSchema;

@@ -5,6 +5,7 @@ import { ProfileCardType } from "entities/ProfileCard";
 import { fetchProfileData } from "./fetchProfileData";
 
 const profile: ProfileCardType = {
+	id: "1",
 	first: "Ivan",
 	lastname: "Ivanov",
 	age: 36,
@@ -19,7 +20,7 @@ describe("fetchProfileData", () => {
 	test("should successfully fetch data", async () => {
 		const thunk = new TestAsyncThunk(fetchProfileData);
 		thunk.api.get.mockReturnValue(Promise.resolve({ data: profile }));
-		const result = await thunk.callThunk();
+		const result = await thunk.callThunk("1");
 
 		expect(thunk.api.get).toHaveBeenCalled();
 		expect(result.meta.requestStatus).toBe("fulfilled");
@@ -29,7 +30,7 @@ describe("fetchProfileData", () => {
 	test("should return fetch error", async () => {
 		const thunk = new TestAsyncThunk(fetchProfileData);
 		thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-		const result = await thunk.callThunk();
+		const result = await thunk.callThunk("1");
 
 		expect(result.meta.requestStatus).toBe("rejected");
 	});

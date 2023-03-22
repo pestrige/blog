@@ -1,7 +1,12 @@
 import React, { memo, useCallback } from "react";
 import { Button, ButtonTheme, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
-import { profileActions, useProfileReadonlySelector, updateProfileData } from "features/EditProfileCard";
+import {
+	profileActions,
+	useProfileReadonlySelector,
+	useIsEditAllowSelector,
+	updateProfileData,
+} from "features/EditProfileCard";
 import { useAppDispatch } from "shared/hooks";
 import cls from "./ProfilePageHeader.module.scss";
 
@@ -9,10 +14,19 @@ export const ProfilePageHeader = memo((): JSX.Element => {
 	const { t } = useTranslation("profile");
 	const dispatch = useAppDispatch();
 	const readonly = useProfileReadonlySelector();
+	const isEditable = useIsEditAllowSelector();
 
 	const handleEditClick = useCallback(() => dispatch(profileActions.setReadonly(false)), [dispatch]);
 	const handleCancelClick = useCallback(() => dispatch(profileActions.cancelEdit()), [dispatch]);
 	const handleSaveClick = useCallback(() => dispatch(updateProfileData()), [dispatch]);
+
+	if (!isEditable) {
+		return (
+			<div className={cls.header}>
+				<Text title={t("Профиль")} />
+			</div>
+		);
+	}
 
 	return (
 		<div className={cls.header}>

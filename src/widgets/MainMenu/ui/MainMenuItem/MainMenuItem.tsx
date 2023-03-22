@@ -8,15 +8,16 @@ import { MainMenuItemType } from "../../model/menuItems";
 interface Props {
 	collapsed: boolean;
 	item: MainMenuItemType;
+	pathId?: string;
 }
 
-export const MainMenuItem = memo(({ collapsed, item }: Props): JSX.Element => {
+export const MainMenuItem = memo(({ collapsed, item, pathId }: Props): JSX.Element => {
 	const { t } = useTranslation();
-	const { path, text, Icon } = item;
+	const { path, text, Icon, isPathId } = item;
 
 	return (
 		<AppLink
-			to={path}
+			to={isPathId && pathId ? `${path}/${pathId}` : path}
 			theme={AppLinkTheme.SECONDARY}
 			className={classNames(cls.link, { [cls.collapsed]: collapsed })}
 		>

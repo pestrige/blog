@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { ProfileCard, ProfileCardTypeKeyof } from "entities/ProfileCard";
-import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
+import { useParams } from "react-router-dom";
 import {
 	fetchProfileData,
 	profileActions,
@@ -22,6 +23,7 @@ export const EditableProfileCard = (): JSX.Element => {
 	const error = useProfileErrorSelector();
 	const validateErrors = useProfileValidateErrorsSelector();
 	const readonly = useProfileReadonlySelector();
+	const { id } = useParams<{ id: string }>();
 
 	const handleInputChange = useCallback(
 		(value: string, name: string) => {
@@ -49,12 +51,11 @@ export const EditableProfileCard = (): JSX.Element => {
 
 	useDynamicReducerLoader(reducersList);
 
-	useEffect(() => {
-		if (__PROJECT__ === "storybook") {
-			return;
+	useInitialEffect(() => {
+		if (id) {
+			dispatch(fetchProfileData(id));
 		}
-		dispatch(fetchProfileData());
-	}, [dispatch]);
+	});
 
 	return (
 		<ProfileCard

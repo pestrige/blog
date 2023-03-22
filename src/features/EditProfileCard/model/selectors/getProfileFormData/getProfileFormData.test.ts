@@ -4,6 +4,7 @@ import { Country } from "entities/Country";
 import { getProfileFormData } from "./getProfileFormData";
 
 const profile = {
+	id: "1",
 	first: "Ivan",
 	lastname: "Ivanov",
 	age: 36,

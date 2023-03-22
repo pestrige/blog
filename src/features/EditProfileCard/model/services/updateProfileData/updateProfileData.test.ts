@@ -6,6 +6,7 @@ import { StoreSchema } from "shared/config";
 import { updateProfileData } from "./updateProfileData";
 
 const form: ProfileCardType = {
+	id: "1",
 	first: "Ivan",
 	lastname: "Ivanov",
 	age: 36,

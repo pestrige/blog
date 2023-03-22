@@ -7,11 +7,12 @@ export interface MainMenuItemType {
 	text: string;
 	Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
 	isAuthOnly?: boolean;
+	isPathId?: boolean;
 }
 
 export const mainMenuItems: MainMenuItemType[] = [
 	{ path: RoutePaths.main, text: "Главная", Icon: MenuMainIcon },
 	{ path: RoutePaths.about, text: "О сайте", Icon: MenuAboutIcon },
-	{ path: RoutePaths.profile, text: "Профиль", Icon: MenuProfileIcon, isAuthOnly: true },
+	{ path: RoutePaths.profile, text: "Профиль", Icon: MenuProfileIcon, isAuthOnly: true, isPathId: true },
 	{ path: RoutePaths.articles, text: "Статьи", Icon: MenuArticleIcon, isAuthOnly: true },
 ];

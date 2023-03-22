@@ -2,15 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "shared/config";
 import { ProfileCardType, ValidateErrorsEnum } from "entities/ProfileCard";
 
-export const fetchProfileData = createAsyncThunk<ProfileCardType, void, ThunkConfig<ValidateErrorsEnum>>(
+export const fetchProfileData = createAsyncThunk<ProfileCardType, string, ThunkConfig<ValidateErrorsEnum>>(
 	"profile/fetchProfileData",
-	async (_, thunkAPI) => {
+	async (profileId, thunkAPI) => {
 		const { rejectWithValue, extra } = thunkAPI;
 		try {
-			const response = await extra.api.get<ProfileCardType>("/profile");
+			const response = await extra.api.get<ProfileCardType>(`/profile/${profileId}`);
 
 			if (!response.data) {
-				throw new Error();
+				return rejectWithValue(ValidateErrorsEnum.SERVER_ERROR);
 			}
 			return response.data;
 		} catch (e) {

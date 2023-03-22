@@ -16,7 +16,7 @@ export const updateProfileData = createAsyncThunk<ProfileCardType, void, ThunkCo
 		}
 
 		try {
-			const response = await extra.api.put<ProfileCardType>("/profile", formData);
+			const response = await extra.api.put<ProfileCardType>(`/profile/${formData?.id}`, formData);
 
 			if (!response.data) {
 				return rejectWithValue({ error: ValidateErrorsEnum.SERVER_ERROR });

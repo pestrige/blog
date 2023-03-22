@@ -8,3 +8,4 @@ export { useProfileErrorSelector } from "./selectors/getProfileError/getProfileE
 export { useProfileLoadingSelector } from "./selectors/getProfileLoading/getProfileLoading";
 export { useProfileReadonlySelector } from "./selectors/getProfileReadonly/getProfileReadonly";
 export { useProfileValidateErrorsSelector } from "./selectors/getProfileValidateErrors/getProfileValidateErrors";
+export { useIsEditAllowSelector } from "./selectors/getIsEditAllow/getIsEditAllow";

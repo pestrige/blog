@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from "react";
 import { classNames } from "shared/lib";
-import { useIsAuthSelector } from "entities/User";
+import { useIsAuthSelector, useUser } from "entities/User";
 import { mainMenuItems } from "../../model/menuItems";
 import { MainMenuItem } from "../../ui/MainMenuItem/MainMenuItem";
 import cls from "./MainMenu.module.scss";
@@ -12,6 +12,7 @@ interface Props {
 
 export const MainMenu = memo(({ className, isCollapsed }: Props): JSX.Element => {
 	const isAuth = useIsAuthSelector();
+	const { id } = useUser();
 
 	const menuItems = useMemo(
 		() => mainMenuItems.filter(({ isAuthOnly }) => !(isAuthOnly && !isAuth)),
@@ -23,7 +24,7 @@ export const MainMenu = memo(({ className, isCollapsed }: Props): JSX.Element =>
 			<ul className={cls.links}>
 				{menuItems.map((item) => (
 					<li className={cls.linkWrapper} key={item.path}>
-						<MainMenuItem collapsed={isCollapsed} item={item} />
+						<MainMenuItem collapsed={isCollapsed} item={item} pathId={id} />
 					</li>
 				))}
 			</ul>

@@ -35,4 +35,5 @@ Dark.decorators = [ThemeDecorator(THEMES.dark)];
 
 // Loading
 export const Loading = Template.bind({});
+Loading.parameters = { loki: { skip: true } };
 Loading.args = { isLoading: true };

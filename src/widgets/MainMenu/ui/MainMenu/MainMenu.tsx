@@ -1,8 +1,7 @@
-import React, { memo, useMemo } from "react";
+import React, { memo } from "react";
 import { classNames } from "shared/lib";
-import { useIsAuthSelector, useUser } from "entities/User";
-import { mainMenuItems } from "../../model/menuItems";
 import { MainMenuItem } from "../../ui/MainMenuItem/MainMenuItem";
+import { useMenuItemsSelector } from "../../model/selectors/getMenuItems";
 import cls from "./MainMenu.module.scss";
 
 interface Props {
@@ -11,20 +10,14 @@ interface Props {
 }
 
 export const MainMenu = memo(({ className, isCollapsed }: Props): JSX.Element => {
-	const isAuth = useIsAuthSelector();
-	const { id } = useUser();
-
-	const menuItems = useMemo(
-		() => mainMenuItems.filter(({ isAuthOnly }) => !(isAuthOnly && !isAuth)),
-		[isAuth]
-	);
+	const menuItems = useMenuItemsSelector();
 
 	return (
 		<nav className={classNames(cls.wrapper, className)}>
 			<ul className={cls.links}>
 				{menuItems.map((item) => (
 					<li className={cls.linkWrapper} key={item.path}>
-						<MainMenuItem collapsed={isCollapsed} item={item} pathId={id} />
+						<MainMenuItem collapsed={isCollapsed} item={item} />
 					</li>
 				))}
 			</ul>

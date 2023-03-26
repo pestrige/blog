@@ -48,6 +48,10 @@ module.exports = {
 		"arrow-body-style": "off",
 		"no-param-reassign": "off",
 		"no-undef": "off",
+		"prefer-arrow-callback": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"react/no-array-index-key": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{

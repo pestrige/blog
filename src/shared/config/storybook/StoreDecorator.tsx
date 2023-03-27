@@ -7,10 +7,12 @@ import { profileReducer } from "features/EditProfileCard/model";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
 import { addCommentReducer } from "features/AddCommentForm/model/slice/addCommentSlice";
 import { articleDetailsCommentsReducer } from "pages/DetailArticlePage/model/slice/articleDetailsCommentsSlice";
+import { articlesPageReducer } from "pages/ArticlesPage/model/slice/articlesPageSlice";
 
 const asyncReducers: ReducersList = {
 	login: loginReducer,
 	profile: profileReducer,
+	articlesPage: articlesPageReducer,
 	articleDetails: articleDetailsReducer,
 	addCommentForm: addCommentReducer,
 	articleDetailsComments: articleDetailsCommentsReducer,

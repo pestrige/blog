@@ -8,6 +8,7 @@ import { AddCommentFormSchema } from "features/AddCommentForm";
 import { UserSchema } from "entities/User";
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/DetailArticlePage";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -15,6 +16,7 @@ export interface StoreSchema {
 	// async reducers
 	login?: LoginSchema;
 	profile?: ProfileSchema;
+	articlesPage?: ArticlesPageSchema;
 	articleDetails?: ArticleDetailsSchema;
 	articleDetailsComments?: ArticleDetailsCommentsSchema;
 	addCommentForm?: AddCommentFormSchema;

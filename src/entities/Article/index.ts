@@ -6,3 +6,4 @@ export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
 
 export { ArticleList } from "./ui/ArticleList/ArticleList";
 export { ArticleListItem } from "./ui/ArticleListItem/ArticleListItem";
+export { ArticleViewSwitcher } from "./ui/ArticleViewSwitcher/ArticleViewSwitcher";

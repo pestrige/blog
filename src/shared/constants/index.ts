@@ -1,1 +1,1 @@
-export { USER_LOCALSTORAGE_KEY } from "./localstorage";
+export { USER_LOCALSTORAGE_KEY, ARTICLES_VIEW_KEY } from "./localstorage";

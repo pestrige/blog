@@ -13,3 +13,7 @@ export const useArticlesIsLoadingSelector = () => useSelector(getArticlesIsLoadi
 
 export const getArticlesView = (store: StoreSchema) => store?.articlesPage?.view ?? ArticleView.GRID;
 export const useArticlesViewSelector = () => useSelector(getArticlesView);
+
+export const getArticlesLimit = (store: StoreSchema) => store?.articlesPage?.limit ?? 4;
+export const getArticlesPage = (store: StoreSchema) => store?.articlesPage?.page ?? 1;
+export const getArticlesHasMore = (store: StoreSchema) => store?.articlesPage?.hasMore ?? true;

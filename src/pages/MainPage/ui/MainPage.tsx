@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const MainPage = memo((): JSX.Element => {
 	const { t } = useTranslation();
 
-	return <div className="page">{t("Главная страница")}</div>;
+	return <main className="page">{t("Главная страница")}</main>;
 });
 
 export default MainPage;

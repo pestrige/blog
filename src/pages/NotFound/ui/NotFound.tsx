@@ -7,8 +7,8 @@ export const NotFound = memo((): JSX.Element => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={classNames(cls.root, "page")}>
+		<main className={classNames(cls.root, "page")}>
 			<h1 className={cls.title}>{t("Страница не найдена")}</h1>
-		</div>
+		</main>
 	);
 });

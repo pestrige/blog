@@ -48,20 +48,20 @@ const DetailArticlePage = memo((): JSX.Element => {
 
 	if (!id) {
 		return (
-			<div className="page">
+			<main className="page">
 				<Text title={t("Статья не найдена")} />
-			</div>
+			</main>
 		);
 	}
 
 	return (
-		<div className="page">
+		<main className="page">
 			<Button onClick={handleBackClick}>{t("Назад к списку")}</Button>
 			<ArticleDetails id={id ?? "1"} className="big-margin" />
 			<Text title={t("Комментарии")} className="block-margin" />
 			<AddCommentForm onSubmit={handleSubmit} className="block-margin" />
 			<CommentList error={error} isLoading={isCommentsLoading} comments={comments} />
-		</div>
+		</main>
 	);
 });
 

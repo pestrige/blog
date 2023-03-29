@@ -1,13 +1,14 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ArticleList, ArticleView, ArticleViewSwitcher } from "entities/Article";
-import { Text } from "shared/ui";
+import { ObservableScrollPage, Text } from "shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
 import {
 	useArticlesIsLoadingSelector,
 	useArticlesSelector,
 	useArticlesViewSelector,
 } from "../model/selectors/articlesPageSelectors";
+import { fetchNextArticles } from "../model/services/fetchNextArticles/fetchNextArticles";
 import { fetchArticles } from "../model/services/fetchArticles/fetchArticles";
 import { articlesPageActions, articlesPageReducer } from "../model/slice/articlesPageSlice";
 
@@ -27,19 +28,22 @@ const ArticlesPage = memo((): JSX.Element => {
 		[dispatch]
 	);
 
-	useDynamicReducerLoader(reducers);
+	const handleScrollEnd = useCallback(() => {
+		dispatch(fetchNextArticles());
+	}, [dispatch]);
 
+	useDynamicReducerLoader(reducers);
 	useInitialEffect(() => {
-		dispatch(fetchArticles());
 		dispatch(articlesPageActions.initState());
+		dispatch(fetchArticles({ page: 1 }));
 	});
 
 	return (
-		<div className="page">
+		<ObservableScrollPage onScrollEnd={handleScrollEnd}>
 			<Text title={t("Статьи")} />
 			<ArticleViewSwitcher activeView={view} onViewSwitch={handleViewSwitch} />
 			<ArticleList view={view} articles={articles} isLoading={isLoading} />
-		</div>
+		</ObservableScrollPage>
 	);
 });
 

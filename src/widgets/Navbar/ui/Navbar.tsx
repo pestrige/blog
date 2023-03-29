@@ -27,8 +27,8 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 
 	if (isAuth) {
 		return (
-			<div className={classNames(cls.wrapper, className)}>
-				<ul className={cls.links}>
+			<header className={classNames(cls.wrapper, className)}>
+				<menu className={cls.links}>
 					<li className={cls.mainLink}>
 						<Text text={username} inverted />
 					</li>
@@ -37,22 +37,22 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 							{t("Выйти")}
 						</Button>
 					</li>
-				</ul>
-			</div>
+				</menu>
+			</header>
 		);
 	}
 
 	return (
-		<div className={classNames(cls.wrapper, className)}>
-			<ul className={cls.links}>
+		<header className={classNames(cls.wrapper, className)}>
+			<menu className={cls.links}>
 				<li className={cls.mainLink}>
 					<Button onClick={toggleUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
 						{t("Войти")}
 					</Button>
 				</li>
-			</ul>
+			</menu>
 
 			<LoginModal isOpen={isOpen} onClose={toggleUserModal} />
-		</div>
+		</header>
 	);
 });

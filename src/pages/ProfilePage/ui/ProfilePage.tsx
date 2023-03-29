@@ -4,10 +4,10 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 const ProfilePage = memo((): JSX.Element => {
 	return (
-		<div className="page">
+		<main className="page">
 			<ProfilePageHeader />
 			<EditableProfileCard />
-		</div>
+		</main>
 	);
 });
 

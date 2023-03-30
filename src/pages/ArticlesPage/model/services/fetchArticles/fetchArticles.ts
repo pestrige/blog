@@ -24,7 +24,7 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticlesArgs, Thun
 			});
 
 			if (!response.data) {
-				rejectWithValue("error");
+				return rejectWithValue("error");
 			}
 
 			return response.data;

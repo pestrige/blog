@@ -17,3 +17,4 @@ export const useArticlesViewSelector = () => useSelector(getArticlesView);
 export const getArticlesLimit = (store: StoreSchema) => store?.articlesPage?.limit ?? 4;
 export const getArticlesPage = (store: StoreSchema) => store?.articlesPage?.page ?? 1;
 export const getArticlesHasMore = (store: StoreSchema) => store?.articlesPage?.hasMore ?? true;
+export const getArticlesInitialized = (store: StoreSchema) => store?.articlesPage?._initialized;

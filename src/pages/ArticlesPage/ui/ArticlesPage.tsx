@@ -9,7 +9,7 @@ import {
 	useArticlesViewSelector,
 } from "../model/selectors/articlesPageSelectors";
 import { fetchNextArticles } from "../model/services/fetchNextArticles/fetchNextArticles";
-import { fetchArticles } from "../model/services/fetchArticles/fetchArticles";
+import { initializeArticles } from "../model/services/initializeArticles/initializeArticles";
 import { articlesPageActions, articlesPageReducer } from "../model/slice/articlesPageSlice";
 
 const reducers: ReducersList = { articlesPage: articlesPageReducer };
@@ -32,10 +32,9 @@ const ArticlesPage = memo((): JSX.Element => {
 		dispatch(fetchNextArticles());
 	}, [dispatch]);
 
-	useDynamicReducerLoader(reducers);
+	useDynamicReducerLoader(reducers, false);
 	useInitialEffect(() => {
-		dispatch(articlesPageActions.initState());
-		dispatch(fetchArticles({ page: 1 }));
+		dispatch(initializeArticles());
 	});
 
 	return (

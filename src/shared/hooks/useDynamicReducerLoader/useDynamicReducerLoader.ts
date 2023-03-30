@@ -13,9 +13,16 @@ export const useDynamicReducerLoader = (reducers: ReducersList, isRemoveAfterUnm
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
+		const mountedReducers = store.reducerManager.getReducerMap();
 		Object.entries(reducers).forEach(([reducerName, reducer]) => {
-			store.reducerManager.add(reducerName as StoreSchemaKey, reducer);
-			dispatch({ type: `@INIT ${reducerName} reducer` });
+			const key = reducerName as StoreSchemaKey;
+			const mounted = mountedReducers[key];
+
+			// If reducer has not been mounted, add to store
+			if (!mounted) {
+				store.reducerManager.add(key, reducer);
+				dispatch({ type: `@INIT ${key} reducer` });
+			}
 		});
 
 		return () => {

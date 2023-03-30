@@ -8,8 +8,7 @@ import { createReducerManager } from "./reducerManager";
 
 export const createReduxStore = (
 	initialState?: StoreSchema,
-	asyncReducers?: ReducersMapObject<StoreSchema>,
-	navigate?: (to: To, options?: NavigateOptions) => void
+	asyncReducers?: ReducersMapObject<StoreSchema>
 ) => {
 	const rootReducer: ReducersMapObject<StoreSchema> = {
 		...asyncReducers,
@@ -27,7 +26,6 @@ export const createReduxStore = (
 				thunk: {
 					extraArgument: {
 						api: Api,
-						navigate,
 					},
 				},
 			}),

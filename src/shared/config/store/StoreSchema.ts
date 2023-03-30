@@ -1,7 +1,5 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { To } from "history";
-import { NavigateOptions } from "react-router";
 import { LoginSchema } from "features/AuthByUsername";
 import { ProfileSchema } from "features/EditProfileCard";
 import { AddCommentFormSchema } from "features/AddCommentForm";
@@ -37,7 +35,6 @@ export interface StoreWithManager extends EnhancedStore<StoreSchema> {
 
 export interface ThunkExtraArgs {
 	api: AxiosInstance;
-	navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

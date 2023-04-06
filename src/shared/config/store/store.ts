@@ -1,6 +1,7 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { userReducer } from "entities/User";
 import { Api } from "shared/api";
+import { scrollReducer } from "widgets/ObservableScrollPage";
 import { StoreSchema } from "./StoreSchema";
 import { createReducerManager } from "./reducerManager";
 
@@ -11,6 +12,7 @@ export const createReduxStore = (
 	const rootReducer: ReducersMapObject<StoreSchema> = {
 		...asyncReducers,
 		user: userReducer,
+		scroll: scrollReducer,
 	};
 
 	const reducerManager = createReducerManager(rootReducer);

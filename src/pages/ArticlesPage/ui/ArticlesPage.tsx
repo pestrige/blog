@@ -1,8 +1,9 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ArticleList, ArticleView, ArticleViewSwitcher } from "entities/Article";
-import { ObservableScrollPage, Text } from "shared/ui";
+import { Text } from "shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
+import { ObservableScrollPage } from "widgets";
 import {
 	useArticlesIsLoadingSelector,
 	useArticlesSelector,

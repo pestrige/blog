@@ -7,9 +7,11 @@ import { UserSchema } from "entities/User";
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/DetailArticlePage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { ScrollSchema } from "widgets/ObservableScrollPage";
 
 export interface StoreSchema {
 	user: UserSchema;
+	scroll: ScrollSchema;
 
 	// async reducers
 	login?: LoginSchema;

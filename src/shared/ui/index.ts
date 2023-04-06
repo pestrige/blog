@@ -6,7 +6,6 @@ export { Code } from "./Code/Code";
 export { Input } from "./Input";
 export { Loader } from "./Loader";
 export { Modal } from "./Modal";
-export { ObservableScrollPage } from "./ObservableScrollPage/ObservableScrollPage";
 export { Portal } from "./Portal";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Select, SelectOption } from "./Select/Select";

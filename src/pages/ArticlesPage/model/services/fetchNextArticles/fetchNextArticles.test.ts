@@ -12,7 +12,7 @@ describe("fetchNextArticles", () => {
 		await thunk.callThunk();
 
 		expect(thunk.dispatch).toBeCalledTimes(4);
-		expect(fetchArticles).toHaveBeenCalledWith({ page: 2 });
+		expect(fetchArticles).toHaveBeenCalled();
 	});
 
 	test("should not have been called while loading", async () => {

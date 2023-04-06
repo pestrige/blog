@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.tab {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  cursor: pointer;
+}
+
+.active {
+  cursor: default;
+}

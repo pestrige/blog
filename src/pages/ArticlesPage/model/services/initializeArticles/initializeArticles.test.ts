@@ -17,10 +17,11 @@ describe("initializeArticles", () => {
 				_initialized: false,
 			},
 		});
-		await thunk.callThunk();
+		const searchParams = new URLSearchParams();
+		await thunk.callThunk(searchParams);
 
 		expect(thunk.dispatch).toBeCalledTimes(4);
-		expect(fetchArticles).toHaveBeenCalledWith({ page: 1 });
+		expect(fetchArticles).toHaveBeenCalled();
 	});
 
 	test("should not have been called if already initialized", async () => {
@@ -35,7 +36,8 @@ describe("initializeArticles", () => {
 				_initialized: true,
 			},
 		});
-		await thunk.callThunk();
+		const searchParams = new URLSearchParams();
+		await thunk.callThunk(searchParams);
 
 		expect(thunk.dispatch).toBeCalledTimes(2);
 		expect(fetchArticles).not.toHaveBeenCalled();

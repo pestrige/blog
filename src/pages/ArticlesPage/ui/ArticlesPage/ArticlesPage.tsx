@@ -1,33 +1,26 @@
 import { memo, useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { ArticleList, ArticleView, ArticleViewSwitcher } from "entities/Article";
-import { Text } from "shared/ui";
+import { ArticleList } from "entities/Article";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
 import { ObservableScrollPage } from "widgets";
+import { useSearchParams } from "react-router-dom";
 import {
 	useArticlesIsLoadingSelector,
 	useArticlesSelector,
 	useArticlesViewSelector,
-} from "../model/selectors/articlesPageSelectors";
-import { fetchNextArticles } from "../model/services/fetchNextArticles/fetchNextArticles";
-import { initializeArticles } from "../model/services/initializeArticles/initializeArticles";
-import { articlesPageActions, articlesPageReducer } from "../model/slice/articlesPageSlice";
+} from "../../model/selectors/articlesPageSelectors";
+import { fetchNextArticles } from "../../model/services/fetchNextArticles/fetchNextArticles";
+import { initializeArticles } from "../../model/services/initializeArticles/initializeArticles";
+import { articlesPageReducer } from "../../model/slice/articlesPageSlice";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 const reducers: ReducersList = { articlesPage: articlesPageReducer };
 
 const ArticlesPage = memo((): JSX.Element => {
-	const { t } = useTranslation();
+	const [searchParams] = useSearchParams();
 	const dispatch = useAppDispatch();
 	const articles = useArticlesSelector();
 	const isLoading = useArticlesIsLoadingSelector();
 	const view = useArticlesViewSelector();
-
-	const handleViewSwitch = useCallback(
-		(view: ArticleView) => {
-			dispatch(articlesPageActions.setView(view));
-		},
-		[dispatch]
-	);
 
 	const handleScrollEnd = useCallback(() => {
 		dispatch(fetchNextArticles());
@@ -35,13 +28,12 @@ const ArticlesPage = memo((): JSX.Element => {
 
 	useDynamicReducerLoader(reducers, false);
 	useInitialEffect(() => {
-		dispatch(initializeArticles());
+		dispatch(initializeArticles(searchParams));
 	});
 
 	return (
 		<ObservableScrollPage onScrollEnd={handleScrollEnd}>
-			<Text title={t("Статьи")} />
-			<ArticleViewSwitcher activeView={view} onViewSwitch={handleViewSwitch} />
+			<ArticlesPageFilters className="big-margin" />
 			<ArticleList view={view} articles={articles} isLoading={isLoading} />
 		</ObservableScrollPage>
 	);

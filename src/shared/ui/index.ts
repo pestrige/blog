@@ -9,4 +9,5 @@ export { Modal } from "./Modal";
 export { Portal } from "./Portal";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Select, SelectOption } from "./Select/Select";
+export { Tabs, TabItem } from "./Tabs/Tabs";
 export { Text } from "./Text";

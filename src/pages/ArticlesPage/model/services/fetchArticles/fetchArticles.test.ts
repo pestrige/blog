@@ -9,7 +9,7 @@ describe("fetchArticles", () => {
 
 		const thunk = new TestAsyncThunk(fetchArticles);
 		thunk.api.get.mockReturnValue(Promise.resolve({ data: returnedValue }));
-		const result = await thunk.callThunk({ page: 1 });
+		const result = await thunk.callThunk({});
 
 		expect(thunk.dispatch).toHaveBeenCalledTimes(2);
 		expect(thunk.api.get).toHaveBeenCalled();
@@ -20,7 +20,7 @@ describe("fetchArticles", () => {
 	test("should return fetch error", async () => {
 		const thunk = new TestAsyncThunk(fetchArticles);
 		thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-		const result = await thunk.callThunk({ page: 1 });
+		const result = await thunk.callThunk({});
 
 		expect(thunk.dispatch).toHaveBeenCalledTimes(2);
 		expect(thunk.api.get).toHaveBeenCalled();

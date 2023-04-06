@@ -1,6 +1,18 @@
 {
+	"IT": "IT",
+	"Все": "All",
+	"возрастанию": "ascending",
+	"дате создания": "date",
 	"Комментарии": "Comments",
 	"Назад к списку": "Back to articles",
+	"названию": "title",
+	"Наука": "Science",
+	"Поиск": "Search",
+	"просмотрам": "views",
+	"Сортировать по": "Sort by",
+	"Статьи не найдены": "Articles not found",
 	"Статья не найдена": "Article not found",
-	"Читать далее": "Read more..."
+	"Читать далее": "Read more...",
+	"убыванию": "descending",
+	"Экономика": "Economy"
 }

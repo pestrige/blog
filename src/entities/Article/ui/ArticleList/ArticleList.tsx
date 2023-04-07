@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListITemSkeleton";
@@ -21,10 +21,17 @@ interface Props {
 	className?: string;
 	isLoading?: boolean;
 	view?: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo(
-	({ articles, className = "", isLoading = false, view = ArticleView.GRID }: Props): JSX.Element => {
+	({
+		articles,
+		className = "",
+		isLoading = false,
+		view = ArticleView.GRID,
+		target,
+	}: Props): JSX.Element => {
 		const { t } = useTranslation("articles");
 
 		if (!isLoading && articles.length === 0)
@@ -39,7 +46,7 @@ export const ArticleList = memo(
 				<ul className={cls[view]}>
 					{articles.length > 0 &&
 						articles.map((article) => (
-							<ArticleListItem key={article.id} article={article} view={view} />
+							<ArticleListItem key={article.id} article={article} view={view} target={target} />
 						))}
 
 					{isLoading && getSkeleton(view)}

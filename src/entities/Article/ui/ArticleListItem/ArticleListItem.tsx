@@ -1,8 +1,7 @@
-import { memo, useCallback } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { classNames, formatDateToISO } from "shared/lib";
-import { Avatar, Card, Button, Text } from "shared/ui";
+import { AppLink, Avatar, Card, Button, Text } from "shared/ui";
 import { EyeIcon } from "shared/assets";
 import { RoutePaths } from "shared/config";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
@@ -12,17 +11,13 @@ import cls from "./ArticleListItem.module.scss";
 interface Props {
 	article: Article;
 	view: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo(({ article, view }: Props): JSX.Element => {
+export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Element => {
 	const { t } = useTranslation("articles");
-	const navigate = useNavigate();
 	const { id, title, img, createdAt, type, views, user, blocks } = article;
 	const articleDate = formatDateToISO(createdAt);
-
-	const handleButtonClick = useCallback(() => {
-		navigate(`${RoutePaths.articles}/${id}`);
-	}, [id, navigate]);
 
 	const infoBlock = (
 		<div className={cls.infoWrapper}>
@@ -55,31 +50,35 @@ export const ArticleListItem = memo(({ article, view }: Props): JSX.Element => {
 					<img src={img} alt={title} className={cls.image} />
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
-					<Button onClick={handleButtonClick}>{t("Читать далее")}</Button>
+					<AppLink to={`${RoutePaths.articles}/${id}`} target={target}>
+						<Button>{t("Читать далее")}</Button>
+					</AppLink>
 				</Card>
 			</li>
 		);
 	}
 
 	return (
-		<li className={classNames(cls.wrapper, cls.grid)} onClick={handleButtonClick}>
-			<Card>
-				<div className={cls.imageWrapper}>
-					<img src={img} alt={title} className={cls.image} />
-					<time className={cls.date} dateTime={articleDate}>
-						<Text text={createdAt} />
-					</time>
-				</div>
-
-				<div className={cls.infoWrapper}>
-					<Text text={type.join(", ")} className={cls.info} />
-					<div className={cls.viewsWrapper}>
-						<EyeIcon className={cls.eye} />
-						<Text text={views.toString()} />
+		<li className={classNames(cls.wrapper, cls.grid)}>
+			<AppLink to={`${RoutePaths.articles}/${id}`} noHover target={target}>
+				<Card>
+					<div className={cls.imageWrapper}>
+						<img src={img} alt={title} className={cls.image} />
+						<time className={cls.date} dateTime={articleDate}>
+							<Text text={createdAt} />
+						</time>
 					</div>
-				</div>
-				<Text className={cls.title} text={title} />
-			</Card>
+
+					<div className={cls.infoWrapper}>
+						<Text text={type.join(", ")} className={cls.info} />
+						<div className={cls.viewsWrapper}>
+							<EyeIcon className={cls.eye} />
+							<Text text={views.toString()} />
+						</div>
+					</div>
+					<Text className={cls.title} text={title} />
+				</Card>
+			</AppLink>
 		</li>
 	);
 });

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useStore } from "react-redux";
-import { StoreWithManager, StoreSchemaKey } from "shared/config";
+import { StoreWithManager, StoreSchemaKey, StoreSchema } from "shared/config";
 import { Reducer } from "@reduxjs/toolkit";
 import { useAppDispatch } from "shared/hooks";
 
 export type ReducersList = {
-	[name in StoreSchemaKey]?: Reducer;
+	[name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>>;
 };
 
 export const useDynamicReducerLoader = (reducers: ReducersList, isRemoveAfterUnmount = true) => {

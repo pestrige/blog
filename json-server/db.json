@@ -357,7 +357,8 @@
 			"createdAt": "26.09.2023",
 			"userId": "1",
 			"type": [
-				"IT"
+				"IT",
+				"ECONOMICS"
 			],
 			"blocks": [
 				{
@@ -381,6 +382,7 @@
 			"createdAt": "21.02.2022",
 			"userId": "1",
 			"type": [
+				"IT",
 				"ECONOMICS"
 			],
 			"blocks": [

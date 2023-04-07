@@ -10,12 +10,22 @@ export enum AppLinkTheme {
 
 interface Props extends LinkProps {
 	theme?: AppLinkTheme;
+	noHover?: boolean;
 }
 
 export const AppLink = memo(
-	({ className, children, theme = AppLinkTheme.PRIMARY, ...otherProps }: Props): JSX.Element => {
+	({
+		className,
+		children,
+		theme = AppLinkTheme.PRIMARY,
+		noHover = false,
+		...otherProps
+	}: Props): JSX.Element => {
 		return (
-			<Link className={classNames(cls.link, cls[theme], className)} {...otherProps}>
+			<Link
+				className={classNames(cls.link, cls[theme], { [cls.noHover]: noHover }, className)}
+				{...otherProps}
+			>
 				{children}
 			</Link>
 		);

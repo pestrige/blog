@@ -2,7 +2,7 @@
   color: var(--primary-color);
   transition: opacity 0.3s;
 
-  &:hover {
+  &:hover:not(.noHover) {
     opacity: 0.7;
   }
 }

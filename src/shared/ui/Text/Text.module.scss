@@ -16,6 +16,16 @@
   }
 }
 
+.secondary {
+  .title {
+    color: var(--secondary-color);
+  }
+
+  .text {
+    color: var(--secondary-dark-color);
+  }
+}
+
 .error {
   .title {
     color: var(--error);

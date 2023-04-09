@@ -1,4 +1,5 @@
 {
+	"Блог о технологиях": "Blog about technologies",
 	"Главная страница": "Main page",
 	"Главная": "Main",
 	"Введите username": "Enter username",
@@ -15,6 +16,7 @@
 	"Переключить": "Toggle",
 	"Произошла непредвиденная ошибка": "An unexpected error has occurred",
 	"Профиль": "Profile",
+	"Создать статью": "Create article",
 	"Сохранить": "Save",
 	"Страница не найдена": "Page not found",
 	"Статьи": "Articles",

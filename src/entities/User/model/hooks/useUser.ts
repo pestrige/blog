@@ -1,4 +1,4 @@
-import { useUserSelector } from "../selectors/getUserData/getUserData";
+import { useUserSelector } from "../selectors/userSelectors";
 
 export const useUser = () => {
 	const user = useUserSelector();

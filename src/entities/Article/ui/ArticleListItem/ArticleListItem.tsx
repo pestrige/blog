@@ -50,7 +50,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 					<img src={img} alt={title} className={cls.image} />
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
-					<AppLink to={`${RoutePaths.articles}/${id}`} target={target}>
+					<AppLink to={`${RoutePaths.article}/${id}`} target={target}>
 						<Button>{t("Читать далее")}</Button>
 					</AppLink>
 				</Card>
@@ -60,7 +60,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 	return (
 		<li className={classNames(cls.wrapper, cls.grid)}>
-			<AppLink to={`${RoutePaths.articles}/${id}`} noHover target={target}>
+			<AppLink to={`${RoutePaths.article}/${id}`} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
 						<img src={img} alt={title} className={cls.image} />

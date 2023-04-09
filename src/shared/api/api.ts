@@ -5,7 +5,7 @@ export const Api = axios.create({
 	baseURL: __API__,
 });
 
-Api.interceptors.request.use((config) => {
+Api?.interceptors.request.use((config) => {
 	if (config.headers) {
 		config.headers.authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || "";
 	}

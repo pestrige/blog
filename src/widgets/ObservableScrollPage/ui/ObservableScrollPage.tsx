@@ -2,7 +2,7 @@ import React, { ReactNode, UIEvent, useLayoutEffect, useRef } from "react";
 import { classNames } from "shared/lib";
 import { useAppDispatch, useDebounceCallback, useInfinityScroll } from "shared/hooks";
 import { useLocation } from "react-router-dom";
-import { useScrollByPathSelector } from "widgets/ObservableScrollPage/model/selectors/selectors";
+import { useScrollByPathSelector } from "../model/selectors/selectors";
 import cls from "./ObservableScrollPage.module.scss";
 import { scrollActions } from "../model/slice/scrollSlice";
 

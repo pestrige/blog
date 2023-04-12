@@ -1,8 +1,9 @@
-import { ProfileSchema, updateProfileData } from "features/EditProfileCard";
 import { ProfileCardType, ValidateErrorsEnum } from "entities/ProfileCard";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { profileReducer, profileActions, UpdateProfilePayload } from "./profileSlice";
+import { ProfileSchema } from "../types/profile";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 describe("profileSlice", () => {
 	test("should set toggle readonly flag", () => {

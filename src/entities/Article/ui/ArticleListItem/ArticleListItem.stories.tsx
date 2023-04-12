@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
-import { articleExample } from "entities/Article/model/constants/articleExample";
-import { ArticleView } from "entities/Article";
+import { articleExample } from "../../model/constants/articleExample";
+import { ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "./ArticleListItem";
 
 export default {

@@ -21,11 +21,11 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
-	plugins: ["react", "@typescript-eslint", "i18next"],
+	plugins: ["react", "@typescript-eslint", "i18next", "fsd-path-checker"],
 	rules: {
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-indent-props": [2, "tab"],
-		indent: [2, "tab", { "SwitchCase": 1 }],
+		indent: [2, "tab", { SwitchCase: 1 }],
 		"react/jsx-filename-extension": [
 			2,
 			{
@@ -52,6 +52,7 @@ module.exports = {
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
 		"react/no-array-index-key": "off",
+		"fsd-path-checker/path-checker": "error",
 		"i18next/no-literal-string": [
 			"error",
 			{
@@ -62,7 +63,7 @@ module.exports = {
 			"error",
 			{
 				ignoreComments: true,
-				ignorePattern: '^export|import .*',
+				ignorePattern: "^export|import .*",
 				code: 110,
 			},
 		],

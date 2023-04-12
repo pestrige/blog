@@ -1,5 +1,5 @@
 import { StoreSchema } from "shared/config";
-import { LoginSchema } from "features/AuthByUsername";
+import { LoginSchema } from "../../types/loginSchema";
 import { getLoginState } from "./getLoginState";
 
 describe("getLoginState", () => {

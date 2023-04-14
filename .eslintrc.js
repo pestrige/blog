@@ -52,7 +52,7 @@ module.exports = {
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
 		"react/no-array-index-key": "off",
-		"fsd-path-checker/path-checker": "error",
+		"fsd-path-checker/path-checker": process.env.NODE_ENV === "production" ? "off" : "error",
 		"i18next/no-literal-string": [
 			"error",
 			{

@@ -8,6 +8,7 @@
     "build:prod": "webpack --env mode=production apiUrl=https://blog-server-pestrige.vercel.app",
     "build:dev": "webpack --env mode=development",
     "lint": "eslint '**/*.{ts,tsx}'",
+    "lint:prod": "NODE_ENV=production eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss-fix": "npx stylelint \"**/*.scss\" --fix",

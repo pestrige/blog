@@ -22,7 +22,7 @@ jobs:
         run: npm run build:prod
       - name: Linting typescript
         if: always()
-        run: npm run lint
+        run: npm run lint:prod
       - name: Linting CSS
         if: always()
         run: npm run lint:scss

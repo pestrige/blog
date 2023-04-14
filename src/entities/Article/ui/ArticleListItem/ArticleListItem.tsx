@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames, formatDateToISO } from "shared/lib";
-import { AppLink, Avatar, Card, Button, Text } from "shared/ui";
+import { AppLink, Avatar, Card, Button, Text, HStack } from "shared/ui";
 import { EyeIcon } from "shared/assets";
 import { RoutePaths } from "shared/config";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
@@ -20,13 +20,13 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 	const articleDate = formatDateToISO(createdAt);
 
 	const infoBlock = (
-		<div className={cls.infoWrapper}>
+		<HStack justify="between" className={cls.infoWrapper}>
 			<Text text={type.join(", ")} className={cls.info} />
 			<div className={cls.viewsWrapper}>
 				<EyeIcon className={cls.eye} />
 				<Text text={views.toString()} />
 			</div>
-		</div>
+		</HStack>
 	);
 
 	if (view === ArticleView.LIST) {
@@ -35,7 +35,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 			| undefined;
 
 		return (
-			<li className={classNames(cls.wrapper, cls.list)}>
+			<li className={classNames(cls.list)}>
 				<Card>
 					<div className={cls.header}>
 						<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
@@ -59,7 +59,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 	}
 
 	return (
-		<li className={classNames(cls.wrapper, cls.grid)}>
+		<li className={classNames(cls.grid)}>
 			<AppLink to={`${RoutePaths.article}/${id}`} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
@@ -69,13 +69,13 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 						</time>
 					</div>
 
-					<div className={cls.infoWrapper}>
+					<HStack justify="between" className={cls.infoWrapper}>
 						<Text text={type.join(", ")} className={cls.info} />
 						<div className={cls.viewsWrapper}>
 							<EyeIcon className={cls.eye} />
 							<Text text={views.toString()} />
 						</div>
-					</div>
+					</HStack>
 					<Text className={cls.title} text={title} />
 				</Card>
 			</AppLink>

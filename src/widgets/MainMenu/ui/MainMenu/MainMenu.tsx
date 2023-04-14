@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { classNames } from "shared/lib";
+import { VStack } from "shared/ui";
 import { MainMenuItem } from "../../ui/MainMenuItem/MainMenuItem";
 import { useMenuItemsSelector } from "../../model/selectors/getMenuItems";
 import cls from "./MainMenu.module.scss";
@@ -14,13 +15,13 @@ export const MainMenu = memo(({ className, isCollapsed }: Props): JSX.Element =>
 
 	return (
 		<nav className={classNames(cls.wrapper, className)}>
-			<ul className={cls.links}>
+			<VStack as="ul" gap={16}>
 				{menuItems.map((item) => (
-					<li className={cls.linkWrapper} key={item.path}>
+					<li key={item.path}>
 						<MainMenuItem collapsed={isCollapsed} item={item} />
 					</li>
 				))}
-			</ul>
+			</VStack>
 		</nav>
 	);
 });

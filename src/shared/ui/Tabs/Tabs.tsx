@@ -1,6 +1,6 @@
 import { memo, ReactNode, useCallback } from "react";
 import { classNames } from "shared/lib";
-import { Card } from "shared/ui";
+import { Card, HStack } from "shared/ui";
 import cls from "./Tabs.module.scss";
 
 export interface TabItem {
@@ -24,7 +24,7 @@ export const Tabs = memo(function Tabs({ className, tabs, value, onTabClick }: P
 	);
 
 	return (
-		<ul className={classNames(cls.list, className)}>
+		<HStack as="ul" className={className}>
 			{tabs.map((tab) => {
 				const active = tab.value === value;
 
@@ -36,6 +36,6 @@ export const Tabs = memo(function Tabs({ className, tabs, value, onTabClick }: P
 					</li>
 				);
 			})}
-		</ul>
+		</HStack>
 	);
 });

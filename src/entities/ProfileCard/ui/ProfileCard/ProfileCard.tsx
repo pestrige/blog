@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { Avatar, Input, Loader, Text } from "shared/ui";
+import { Avatar, Input, Loader, Text, VStack } from "shared/ui";
 import { classNames } from "shared/lib";
 import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
@@ -86,7 +86,7 @@ export const ProfileCard = ({
 				<Avatar src={profile.avatar} className={cls.avatar} alt={profile.first ?? ""} />
 			)}
 
-			<ul className={cls.list}>
+			<VStack max as="ul">
 				{profileInputs.map(({ name, label }) => {
 					const adaptedValue = profile ? profile[name]?.toString() : "";
 					const inputError = getTranslateErrors(validateErrors, name);
@@ -112,7 +112,7 @@ export const ProfileCard = ({
 				<li key="currency" className={cls.listITem}>
 					<CurrencySelect readonly={readonly} value={profile?.currency} onChange={onInputChange} />
 				</li>
-			</ul>
+			</VStack>
 
 			<button type="submit" className="visually-hidden">
 				{t("Сохранить", { ns: "translation" })}

@@ -8,7 +8,7 @@ import {
 	ArticleViewSwitcher,
 } from "entities/Article";
 import { useAppDispatch, useDebounceCallback } from "shared/hooks";
-import { Card, Input } from "shared/ui";
+import { Card, HStack, Input } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { SortOrder } from "shared/types";
 import { fetchArticles } from "../../model/services/fetchArticles/fetchArticles";
@@ -20,7 +20,6 @@ import {
 	useArticlesViewSelector,
 } from "../../model/selectors/articlesPageSelectors";
 import { articlesPageActions } from "../../model/slice/articlesPageSlice";
-import cls from "./ArticlesPageFilters.module.scss";
 
 interface Props {
 	className?: string;
@@ -83,7 +82,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 
 	return (
 		<div className={className}>
-			<div className={cls.sortWrapper}>
+			<HStack gap={16} justify="between" className="block-margin">
 				<ArticleSortSelector
 					sort={sort}
 					order={order}
@@ -91,9 +90,9 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 					onChangeOrder={handleChangeOrder}
 				/>
 				<ArticleViewSwitcher activeView={view} onViewSwitch={handleViewSwitch} />
-			</div>
+			</HStack>
 
-			<Card className={cls.search}>
+			<Card className="block-margin">
 				<Input
 					name="articlesSearch"
 					placeholder={t("Поиск")}

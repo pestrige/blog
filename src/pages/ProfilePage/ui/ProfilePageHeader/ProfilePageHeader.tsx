@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from "react";
-import { Button, ButtonTheme, Text } from "shared/ui";
+import { Button, ButtonTheme, HStack, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import {
 	profileActions,
@@ -29,7 +29,7 @@ export const ProfilePageHeader = memo((): JSX.Element => {
 	}
 
 	return (
-		<div className={cls.header}>
+		<HStack justify="between" className={cls.header}>
 			<Text title={t("Профиль")} />
 			{readonly && (
 				<Button className={cls.editButton} onClick={handleEditClick}>
@@ -38,17 +38,13 @@ export const ProfilePageHeader = memo((): JSX.Element => {
 			)}
 
 			{!readonly && (
-				<div className={cls.buttons}>
-					<Button
-						className={cls.cancelButton}
-						theme={ButtonTheme.OUTLINE_ERROR}
-						onClick={handleCancelClick}
-					>
+				<HStack>
+					<Button theme={ButtonTheme.OUTLINE_ERROR} onClick={handleCancelClick}>
 						{t("Отменить", { ns: "translation" })}
 					</Button>
 					<Button onClick={handleSaveClick}>{t("Сохранить", { ns: "translation" })}</Button>
-				</div>
+				</HStack>
 			)}
-		</div>
+		</HStack>
 	);
 });

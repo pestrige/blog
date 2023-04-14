@@ -13,14 +13,6 @@
   margin-left: auto;
 }
 
-.list {
-  list-style: none;
-}
-
-.listITem:not(:last-child) {
-  margin-bottom: 10px;
-}
-
 .loading,
 .error {
   display: flex;

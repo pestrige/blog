@@ -1,5 +1,6 @@
 import React, { CSSProperties, memo, useMemo } from "react";
 import { classNames } from "shared/lib";
+import { HStack } from "shared/ui";
 import cls from "./Avatar.module.scss";
 
 interface Props {
@@ -14,9 +15,14 @@ export const Avatar = memo(({ src, size = 100, alt, className = "" }: Props): JS
 
 	if (!src) {
 		return (
-			<div className={classNames(cls.empty, className)} style={style}>
+			<HStack
+				justify="center"
+				align="center"
+				className={classNames(cls.empty, className)}
+				style={style}
+			>
 				{alt[0]}
-			</div>
+			</HStack>
 		);
 	}
 

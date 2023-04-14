@@ -1,18 +1,5 @@
 .wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
   height: var(--navbar-height);
   padding: 20px;
   background: var(--inverted-bg-color);
-}
-
-.links {
-  display: flex;
-  margin-left: auto;
-  list-style: none;
-}
-
-.link {
-  margin-right: 15px;
 }

@@ -4,6 +4,7 @@ import { LanguageSwitcher } from "features/LanguageSwitcher";
 import { SidebarSwitcher } from "features/SidebarSwitcher";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { MainMenu } from "widgets";
+import { HStack } from "shared/ui";
 import cls from "./Sidebar.module.scss";
 
 interface Props {
@@ -22,10 +23,10 @@ export const Sidebar = memo(({ className = "123" }: Props): JSX.Element => {
 		>
 			<MainMenu isCollapsed={isCollapsed} />
 
-			<div className={cls.switches}>
+			<HStack justify="center" max className={cls.switches}>
 				<ThemeSwitcher />
 				<LanguageSwitcher short={isCollapsed} />
-			</div>
+			</HStack>
 
 			<SidebarSwitcher onToggle={onToggle} isCollapsed={isCollapsed} />
 		</div>

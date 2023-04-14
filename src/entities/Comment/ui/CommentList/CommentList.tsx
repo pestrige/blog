@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { t } from "i18next";
-import { classNames } from "shared/lib";
 import { Text } from "shared/ui";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { CommentCardSkeleton } from "../CommentCard/CommentCardSkeleton";
@@ -24,7 +23,7 @@ export const CommentList = memo(
 			<div>
 				{!!title && <Text className={cls.title} title={title} />}
 
-				<ul className={classNames(cls.commentList, className)}>
+				<ul className={className}>
 					{isLoading && <CommentCardSkeleton />}
 
 					{isComments &&

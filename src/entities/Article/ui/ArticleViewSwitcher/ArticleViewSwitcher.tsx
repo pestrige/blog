@@ -1,5 +1,5 @@
 import React, { memo, MouseEvent, useCallback } from "react";
-import { Button, ButtonTheme } from "shared/ui";
+import { Button, ButtonTheme, HStack } from "shared/ui";
 import { ViewGridIcon, ViewListIcon } from "shared/assets";
 import { classNames } from "shared/lib";
 import { ArticleView } from "../../model/types/article";
@@ -25,14 +25,14 @@ export const ArticleViewSwitcher = memo(({ activeView, onViewSwitch }: Props): J
 	);
 
 	return (
-		<ul className={cls.list}>
+		<HStack as="ul">
 			{viewTypes.map(({ id, view, Icon }) => (
-				<li key={id} className={cls.listItem}>
+				<li key={id}>
 					<Button name={view} onClick={handleButtonClick} theme={ButtonTheme.CLEAR}>
 						<Icon className={classNames(cls.icon, { [cls.active]: view === activeView })} />
 					</Button>
 				</li>
 			))}
-		</ul>
+		</HStack>
 	);
 });

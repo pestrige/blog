@@ -1,11 +1,4 @@
-.wrapper {
-  list-style: none;
-}
-
 .infoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: 8px;
 }
 
@@ -49,7 +42,7 @@
 
   .text {
     max-height: 290px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     overflow-y: hidden;
   }
 }

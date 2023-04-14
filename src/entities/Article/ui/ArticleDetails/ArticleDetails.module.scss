@@ -5,11 +5,11 @@
 .avatar {
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: var(--margin-xl);
 }
 
 .title {
-  margin-bottom: 16px;
+  margin-bottom: var(--margin-m);
 }
 
 .info,
@@ -19,10 +19,10 @@
 }
 
 .infoLast {
-  margin-bottom: 32px;
+  margin-bottom: var(--margin-xl);
 }
 
 .icon {
-  margin-right: 8px;
+  margin-right: var(--margin-s);
   fill: var(--secondary-color);
 }

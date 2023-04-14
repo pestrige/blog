@@ -1,5 +1,5 @@
 .infoWrapper {
-  margin-bottom: 8px;
+  margin-bottom: var(--margin-s);
 }
 
 .viewsWrapper {
@@ -18,11 +18,11 @@
   .header {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--margin-s);
   }
 
   .avatar {
-    margin-right: 8px;
+    margin-right: var(--margin-s);
   }
 
   .date {
@@ -30,19 +30,19 @@
   }
 
   .title {
-    margin-bottom: 8px;
+    margin-bottom: var(--margin-s);
   }
 
   .image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    margin-bottom: 8px;
+    margin-bottom: var(--margin-s);
   }
 
   .text {
     max-height: 290px;
-    margin-bottom: 16px;
+    margin-bottom: var(--margin-m);
     overflow-y: hidden;
   }
 }
@@ -83,7 +83,7 @@
   .imageWrapper {
     position: relative;
     height: 200px;
-    margin-bottom: 8px;
+    margin-bottom: var(--margin-s);
     overflow: hidden;
   }
 

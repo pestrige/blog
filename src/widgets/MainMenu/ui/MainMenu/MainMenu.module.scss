@@ -1,5 +1,5 @@
 .wrapper {
-  padding-top: 20px;
-  padding-left: 32px;
+  padding-top: var(--margin-l);
+  padding-left: var(--margin-xl);
   background: var(--inverted-bg-color);
 }

@@ -21,16 +21,16 @@
 .page {
   flex-grow: 1;
   height: calc(100vh - var(--navbar-height));
-  padding: 32px 20px 20px 40px;
+  padding: var(--margin-xl) 20px 20px 40px;
   overflow-y: auto;
 }
 
 .block-margin {
-  margin-bottom: 16px;
+  margin-bottom: var(--margin-m);
 }
 
 .big-margin {
-  margin-bottom: 32px;
+  margin-bottom: var(--margin-xl);
 }
 
 .visually-hidden {

@@ -1,9 +1,9 @@
 .commentCard {
-  padding: 20px;
+  padding: var(--margin-l);
   border: 1px solid var(--primary-color);
 
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: var(--margin-l);
   }
 }
 

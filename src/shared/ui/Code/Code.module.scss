@@ -1,7 +1,7 @@
 .code {
   position: relative;
   width: 100%;
-  padding: 20px;
+  padding: var(--margin-l);
   overflow: auto;
   background-color: var(--code-bg);
   border: 1px solid var(--inverted-secondary-color);
@@ -9,8 +9,8 @@
 
 .button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: var(--margin-l);
+  right: var(--margin-l);
 }
 
 .icon path {

@@ -13,7 +13,7 @@
 
 .switches {
   position: absolute;
-  bottom: 20px;
+  bottom: var(--margin-l);
 }
 
 .collapsed .switches {

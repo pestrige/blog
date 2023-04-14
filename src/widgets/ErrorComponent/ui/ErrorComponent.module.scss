@@ -4,9 +4,9 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: var(--margin-l);
 }
 
 .text {
-  margin-bottom: 20px;
+  margin-bottom: var(--margin-l);
 }

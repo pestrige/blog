@@ -55,19 +55,19 @@
 }
 
 .gap8 {
-  gap: 8px;
+  gap: var(--margin-s);
 }
 
 .gap16 {
-  gap: 16px;
+  gap: var(--margin-m);
 }
 
 .gap24 {
-  gap: 24px;
+  gap: var(--margin-l);
 }
 
 .gap32 {
-  gap: 32px;
+  gap: var(--margin-xl);
 }
 
 .max {

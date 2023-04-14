@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 16px;
+  padding: 6px var(--margin-m);
   color: var(--primary-color);
   cursor: pointer;
   transition: opacity 0.3s, fill-opacity 0.3s, stroke-opacity 0.3s;

@@ -1,6 +1,16 @@
 import { classNames } from "shared/lib";
-import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "shared/ui";
-import { memo, useCallback, useState } from "react";
+import {
+	AppLink,
+	AppLinkTheme,
+	Avatar,
+	Button,
+	ButtonTheme,
+	Dropdown,
+	DropdownItem,
+	HStack,
+	Text,
+} from "shared/ui";
+import { memo, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
 import { userActions, useUser } from "entities/User";
@@ -15,7 +25,7 @@ interface Props {
 export const Navbar = memo(({ className }: Props): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
-	const { isAuth, username } = useUser();
+	const { isAuth, username, avatar, id } = useUser();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleUserModal = useCallback(() => {
@@ -26,9 +36,16 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 		dispatch(userActions.logout());
 	}, [dispatch]);
 
+	const dropdownItems: DropdownItem[] = useMemo(() => {
+		return [
+			{ content: t("Профиль"), href: `${RoutePaths.profile}/${id}` },
+			{ content: t("Выйти"), onClick: handleLogout },
+		];
+	}, [t, id, handleLogout]);
+
 	if (isAuth) {
 		return (
-			<HStack justify="between" max className={classNames(cls.wrapper, className)}>
+			<HStack as="header" justify="between" max className={classNames(cls.wrapper, className)}>
 				<Text text={t("Блог о технологиях")} inverted />
 				<HStack as="menu" gap={16}>
 					<li>
@@ -40,9 +57,11 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 						</AppLink>
 					</li>
 					<li>
-						<Button onClick={handleLogout} theme={ButtonTheme.CLEAR_INVERTED}>
-							{t("Выйти")}
-						</Button>
+						<Dropdown
+							direction="bottom right"
+							trigger={<Avatar size={32} alt="avatar" src={avatar} />}
+							items={dropdownItems}
+						/>
 					</li>
 				</HStack>
 			</HStack>
@@ -50,8 +69,8 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 	}
 
 	return (
-		<header className={classNames(cls.wrapper, className)}>
-			<menu className={cls.links}>
+		<HStack as="header" justify="end" max className={classNames(cls.wrapper, className)}>
+			<menu className={cls.menu}>
 				<li className={cls.mainLink}>
 					<Button onClick={toggleUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
 						{t("Войти")}
@@ -60,6 +79,6 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 			</menu>
 
 			<LoginModal isOpen={isOpen} onClose={toggleUserModal} />
-		</header>
+		</HStack>
 	);
 });

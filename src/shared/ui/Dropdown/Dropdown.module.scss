@@ -1,0 +1,57 @@
+.wrapper {
+  position: relative;
+}
+
+.button,
+.itemButton {
+  padding: 0;
+  margin: 0;
+  color: var(--primary-color);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  position: absolute;
+  z-index: var(--z-index-select);
+  width: fit-content;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--margin-s);
+}
+
+.item {
+  padding: var(--margin-s) var(--margin-m);
+  cursor: pointer;
+
+  &.active {
+    background-color: var(--inverted-secondary-color);
+  }
+}
+
+.bottomLeft {
+  top: 100%;
+  left: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  right: 0;
+}
+
+.topRight {
+  right: 0;
+  bottom: 100%;
+}
+
+.topLeft {
+  bottom: 100%;
+  left: 0;
+}

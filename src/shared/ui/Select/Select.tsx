@@ -39,6 +39,7 @@ export const Select = memo(function Select(props: SelectProps): JSX.Element {
 			<Listbox
 				as="div"
 				value={value}
+				defaultValue={label}
 				onChange={onChangeHandler}
 				disabled={readonly}
 				className={cls.wrapper}

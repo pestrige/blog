@@ -4,6 +4,7 @@
 
 .button {
   position: relative;
+  min-height: var(--margin-xl);
   padding-right: var(--margin-xl);
 
   &::after {

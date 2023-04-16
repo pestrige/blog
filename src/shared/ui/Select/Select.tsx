@@ -1,10 +1,13 @@
-import { ChangeEvent, memo, useMemo } from "react";
+import { memo, useCallback, Fragment } from "react";
+import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "shared/lib";
+import { Button, HStack } from "shared/ui";
 import cls from "./Select.module.scss";
 
 export interface SelectOption {
 	value: string;
 	content: string;
+	disabled?: boolean;
 }
 
 interface SelectProps {
@@ -17,31 +20,73 @@ interface SelectProps {
 	readonly?: boolean;
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = memo(function Select(props: SelectProps): JSX.Element {
 	const { name, className, label, options, onChange, value, readonly } = props;
 
-	const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-		if (onChange) {
-			onChange(e.target.value, name);
-		}
-	};
-
-	const optionsList = useMemo(
-		() =>
-			options?.map((opt) => (
-				<option className={cls.option} value={opt.value} key={opt.value}>
-					{opt.content}
-				</option>
-			)),
-		[options]
+	const onChangeHandler = useCallback(
+		(value: string) => {
+			if (onChange) {
+				onChange(value, name);
+			}
+		},
+		[onChange, name]
 	);
 
 	return (
-		<div className={classNames(cls.wrapper, className)}>
+		<HStack className={className}>
 			{label && <span className={cls.label}>{`${label}>`}</span>}
-			<select disabled={readonly} className={cls.select} value={value} onChange={onChangeHandler}>
-				{optionsList}
-			</select>
-		</div>
+
+			<Listbox
+				as="div"
+				value={value}
+				onChange={onChangeHandler}
+				disabled={readonly}
+				className={cls.wrapper}
+			>
+				{({ open }) => (
+					<>
+						<Listbox.Button as="div">
+							<Button
+								disabled={readonly}
+								className={classNames(cls.button, { [cls.open]: open })}
+							>
+								{value}
+							</Button>
+						</Listbox.Button>
+						<Transition
+							show={open}
+							enter="transition duration-100 ease-out"
+							enterFrom="transform scale-95 opacity-0"
+							enterTo="transform scale-100 opacity-100"
+							leave="transition duration-75 ease-out"
+							leaveFrom="transform scale-100 opacity-100"
+							leaveTo="transform scale-95 opacity-0"
+						>
+							<Listbox.Options className={cls.list} static>
+								{(options ?? []).map((item) => (
+									<Listbox.Option
+										as={Fragment}
+										key={item.value}
+										value={item.value}
+										disabled={item.disabled}
+									>
+										{({ selected, active }) => (
+											<li
+												className={classNames(cls.listItem, {
+													[cls.selected]: selected,
+													[cls.active]: active,
+												})}
+											>
+												{item.content}
+											</li>
+										)}
+									</Listbox.Option>
+								))}
+							</Listbox.Options>
+						</Transition>
+					</>
+				)}
+			</Listbox>
+		</HStack>
 	);
 });

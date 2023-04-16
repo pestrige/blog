@@ -1,3 +1,5 @@
+const IS_DEV = process.env.NODE_ENV === "development";
+
 module.exports = {
 	env: {
 		browser: true,
@@ -21,7 +23,7 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
-	plugins: ["react", "@typescript-eslint", "i18next", "fsd-path-checker"],
+	plugins: ["react", "@typescript-eslint", "i18next", IS_DEV && "fsd-path-checker"].filter(Boolean),
 	rules: {
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-indent-props": [2, "tab"],
@@ -52,7 +54,7 @@ module.exports = {
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
 		"react/no-array-index-key": "off",
-		"fsd-path-checker/path-checker": process.env.NODE_ENV === "production" ? "off" : "error",
+		[IS_DEV ? "fsd-path-checker/path-checker" : undefined]: IS_DEV ? "error" : "off",
 		"i18next/no-literal-string": [
 			"error",
 			{

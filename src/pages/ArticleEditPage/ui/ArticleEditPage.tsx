@@ -22,7 +22,7 @@ const ArticleEditPage = memo((): JSX.Element => {
 				</Button>
 			)}
 
-			<Text title={isEdit ? `${t("Редактирование статьи")} ${id}` : "Создание статьи"} />
+			<Text title={isEdit ? `${t("Редактирование статьи")} ${id}` : "Создание статьи"} titleTag="h1" />
 		</main>
 	);
 });

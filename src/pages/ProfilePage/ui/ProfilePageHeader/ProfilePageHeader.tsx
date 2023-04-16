@@ -30,7 +30,7 @@ export const ProfilePageHeader = memo((): JSX.Element => {
 
 	return (
 		<HStack justify="between" className={cls.header}>
-			<Text title={t("Профиль")} />
+			<Text title={t("Профиль")} titleTag="h1" />
 			{readonly && (
 				<Button className={cls.editButton} onClick={handleEditClick}>
 					{t("Редактировать")}

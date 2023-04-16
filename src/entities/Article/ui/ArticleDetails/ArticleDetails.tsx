@@ -48,7 +48,13 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 			<div className={cls.avatar}>
 				<Avatar src={article.img} alt={article.title} size={200} />
 			</div>
-			<Text className={cls.title} title={article.title} text={article.subtitle} size="lg" />
+			<Text
+				className={cls.title}
+				title={article.title}
+				text={article.subtitle}
+				size="lg"
+				titleTag="h1"
+			/>
 
 			<div className={cls.info}>
 				<EyeIcon className={cls.icon} />

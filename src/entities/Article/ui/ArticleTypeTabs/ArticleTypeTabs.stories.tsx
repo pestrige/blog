@@ -5,7 +5,7 @@ import { THEMES } from "shared/lib";
 import { ArticleTypeTabs } from "./ArticleTypeTabs";
 
 export default {
-	title: "shared/ArticleTypeTabs",
+	title: "entities/ArticleTypeTabs",
 	component: ArticleTypeTabs,
 } as ComponentMeta<typeof ArticleTypeTabs>;
 

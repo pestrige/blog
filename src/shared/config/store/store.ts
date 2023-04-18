@@ -1,6 +1,6 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { userReducer } from "entities/User";
-import { Api } from "shared/api";
+import { Api, rtkApi } from "shared/api";
 import { scrollReducer } from "widgets/ObservableScrollPage";
 import { StoreSchema } from "./StoreSchema";
 import { createReducerManager } from "./reducerManager";
@@ -13,6 +13,7 @@ export const createReduxStore = (
 		...asyncReducers,
 		user: userReducer,
 		scroll: scrollReducer,
+		[rtkApi.reducerPath]: rtkApi.reducer,
 	};
 
 	const reducerManager = createReducerManager(rootReducer);
@@ -28,7 +29,7 @@ export const createReduxStore = (
 						api: Api,
 					},
 				},
-			}),
+			}).concat(rtkApi.middleware),
 	});
 
 	// @ts-ignore

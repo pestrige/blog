@@ -8,10 +8,12 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsPageSchema } from "pages/DetailArticlePage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { ScrollSchema } from "widgets/ObservableScrollPage";
+import { rtkApi } from "shared/api";
 
 export interface StoreSchema {
 	user: UserSchema;
 	scroll: ScrollSchema;
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
 	// async reducers
 	login?: LoginSchema;

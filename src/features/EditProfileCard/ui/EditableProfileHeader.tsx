@@ -1,16 +1,15 @@
 import React, { memo, useCallback } from "react";
 import { Button, ButtonTheme, HStack, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch } from "shared/hooks";
 import {
 	profileActions,
-	useProfileReadonlySelector,
-	useIsEditAllowSelector,
 	updateProfileData,
-} from "features/EditProfileCard";
-import { useAppDispatch } from "shared/hooks";
-import cls from "./ProfilePageHeader.module.scss";
+	useIsEditAllowSelector,
+	useProfileReadonlySelector,
+} from "../model";
 
-export const ProfilePageHeader = memo((): JSX.Element => {
+export const EditableProfileHeader = memo((): JSX.Element => {
 	const { t } = useTranslation("profile");
 	const dispatch = useAppDispatch();
 	const readonly = useProfileReadonlySelector();
@@ -22,20 +21,16 @@ export const ProfilePageHeader = memo((): JSX.Element => {
 
 	if (!isEditable) {
 		return (
-			<div className={cls.header}>
+			<div className="big-margin">
 				<Text title={t("Профиль")} />
 			</div>
 		);
 	}
 
 	return (
-		<HStack justify="between" className={cls.header}>
+		<HStack justify="between" className="big-margin">
 			<Text title={t("Профиль")} titleTag="h1" />
-			{readonly && (
-				<Button className={cls.editButton} onClick={handleEditClick}>
-					{t("Редактировать")}
-				</Button>
-			)}
+			{readonly && <Button onClick={handleEditClick}>{t("Редактировать")}</Button>}
 
 			{!readonly && (
 				<HStack>

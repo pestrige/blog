@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { ProfileCard, ProfileCardTypeKeyof } from "entities/ProfileCard";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
 import { useParams } from "react-router-dom";
+import { EditableProfileHeader } from "./EditableProfileHeader";
 import {
 	fetchProfileData,
 	profileActions,
@@ -58,14 +59,17 @@ export const EditableProfileCard = (): JSX.Element => {
 	});
 
 	return (
-		<ProfileCard
-			profile={formData}
-			isLoading={isLoading}
-			error={error}
-			validateErrors={validateErrors}
-			readonly={readonly}
-			onInputChange={handleInputChange}
-			onSubmit={handleSubmit}
-		/>
+		<>
+			<EditableProfileHeader />
+			<ProfileCard
+				profile={formData}
+				isLoading={isLoading}
+				error={error}
+				validateErrors={validateErrors}
+				readonly={readonly}
+				onInputChange={handleInputChange}
+				onSubmit={handleSubmit}
+			/>
+		</>
 	);
 };

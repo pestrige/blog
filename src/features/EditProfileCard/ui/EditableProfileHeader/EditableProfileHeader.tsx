@@ -7,7 +7,7 @@ import {
 	updateProfileData,
 	useIsEditAllowSelector,
 	useProfileReadonlySelector,
-} from "../model";
+} from "../../model";
 
 export const EditableProfileHeader = memo((): JSX.Element => {
 	const { t } = useTranslation("profile");
@@ -30,14 +30,24 @@ export const EditableProfileHeader = memo((): JSX.Element => {
 	return (
 		<HStack justify="between" className="big-margin">
 			<Text title={t("Профиль")} titleTag="h1" />
-			{readonly && <Button onClick={handleEditClick}>{t("Редактировать")}</Button>}
+			{readonly && (
+				<Button dataTestId="ProfileCard.EditBtn" onClick={handleEditClick}>
+					{t("Редактировать")}
+				</Button>
+			)}
 
 			{!readonly && (
 				<HStack>
-					<Button theme={ButtonTheme.OUTLINE_ERROR} onClick={handleCancelClick}>
+					<Button
+						dataTestId="ProfileCard.CancelBtn"
+						theme={ButtonTheme.OUTLINE_ERROR}
+						onClick={handleCancelClick}
+					>
 						{t("Отменить", { ns: "translation" })}
 					</Button>
-					<Button onClick={handleSaveClick}>{t("Сохранить", { ns: "translation" })}</Button>
+					<Button dataTestId="ProfileCard.SaveBtn" onClick={handleSaveClick}>
+						{t("Сохранить", { ns: "translation" })}
+					</Button>
 				</HStack>
 			)}
 		</HStack>

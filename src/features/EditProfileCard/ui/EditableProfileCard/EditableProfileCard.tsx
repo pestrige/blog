@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import { ProfileCard, ProfileCardTypeKeyof } from "entities/ProfileCard";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
-import { useParams } from "react-router-dom";
-import { EditableProfileHeader } from "./EditableProfileHeader";
+import { EditableProfileHeader } from "../EditableProfileHeader/EditableProfileHeader";
 import {
 	fetchProfileData,
 	profileActions,
@@ -13,18 +12,17 @@ import {
 	useProfileLoadingSelector,
 	useProfileReadonlySelector,
 	useProfileValidateErrorsSelector,
-} from "../model";
+} from "../../model";
 
 const reducersList: ReducersList = { profile: profileReducer };
 
-export const EditableProfileCard = (): JSX.Element => {
+export const EditableProfileCard = ({ id }: { id?: string }): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const formData = useProfileFormSelector();
 	const isLoading = useProfileLoadingSelector();
 	const error = useProfileErrorSelector();
 	const validateErrors = useProfileValidateErrorsSelector();
 	const readonly = useProfileReadonlySelector();
-	const { id } = useParams<{ id: string }>();
 
 	const handleInputChange = useCallback(
 		(value: string, name: string) => {

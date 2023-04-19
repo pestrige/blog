@@ -81,7 +81,11 @@ export const ProfileCard = ({
 	}
 
 	return (
-		<form onSubmit={onSubmit} className={classNames(cls.root, { [cls.editable]: !readonly })}>
+		<form
+			data-testid="ProfileCard.Form"
+			onSubmit={onSubmit}
+			className={classNames(cls.root, { [cls.editable]: !readonly })}
+		>
 			{!!profile?.avatar && (
 				<Avatar src={profile.avatar} className={cls.avatar} alt={profile.first ?? ""} />
 			)}
@@ -101,6 +105,8 @@ export const ProfileCard = ({
 								readonly={readonly}
 								onChange={onInputChange}
 								error={inputError}
+								dataTestInputId={`ProfileCard.Input.${name}`}
+								dataTestErrorId={`ProfileCard.Error.${name}`}
 							/>
 						</li>
 					);

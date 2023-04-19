@@ -21,6 +21,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: ButtonTheme;
 	square?: boolean;
 	size?: ButtonSize;
+
+	dataTestId?: string;
 }
 
 export const Button = memo(
@@ -30,12 +32,18 @@ export const Button = memo(
 		theme = ButtonTheme.OUTLINE,
 		square = false,
 		size = ButtonSize.M,
+		dataTestId,
 		...otherProps
 	}: Props): JSX.Element => {
 		const classes = classNames(cls.button, cls[theme], cls[size], { [cls.square]: square }, className);
 
 		return (
-			<button data-testid="button-test" type="button" className={classes} {...otherProps}>
+			<button
+				data-testid={dataTestId ?? "button-test"}
+				type="button"
+				className={classes}
+				{...otherProps}
+			>
 				{children}
 			</button>
 		);

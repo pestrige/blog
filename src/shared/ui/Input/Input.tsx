@@ -12,6 +12,9 @@ interface Props extends HTMLInputProps {
 	onChange?: (value: string, name: string) => void;
 	autofocus?: boolean;
 	readonly?: boolean;
+
+	dataTestInputId?: string;
+	dataTestErrorId?: string;
 }
 
 export const Input = memo((props: Props) => {
@@ -25,6 +28,8 @@ export const Input = memo((props: Props) => {
 		autofocus = false,
 		readonly = false,
 		error = "",
+		dataTestInputId,
+		dataTestErrorId,
 		...otherProps
 	} = props;
 	const ref = useRef<HTMLInputElement>(null);
@@ -54,11 +59,16 @@ export const Input = memo((props: Props) => {
 						onChange={onChangeHandler}
 						className={cls.input}
 						readOnly={readonly}
+						data-testid={dataTestInputId}
 						{...otherProps}
 					/>
 				</div>
 			</div>
-			{!!error && <span className={cls.error}>{error}</span>}
+			{!!error && (
+				<span className={cls.error} data-testid={dataTestErrorId}>
+					{error}
+				</span>
+			)}
 		</div>
 	);
 });

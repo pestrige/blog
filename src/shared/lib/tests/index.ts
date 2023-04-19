@@ -1,2 +1,2 @@
-export { renderWithProviders } from "./renderWithProviders/renderWithProviders";
+export { renderWithProviders, RenderWithProvidersProps } from "./renderWithProviders/renderWithProviders";
 export { TestAsyncThunk } from "./TestAsyncThunk/TestAsyncThunk";

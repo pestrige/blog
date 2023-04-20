@@ -1,4 +1,5 @@
 {
+	"Админка": "Admin page",
 	"Блог о технологиях": "Blog about technologies",
 	"Главная страница": "Main page",
 	"Главная": "Main",
@@ -6,6 +7,7 @@
 	"Введите пароль": "Enter password",
 	"Войти": "Login",
 	"Выйти": "Logout",
+	"Доступ запрещен": "Access denied",
 	"Комментарии не найдены": "Comments not found",
 	"Короткий язык": "EN",
 	"Напишите комментарий": "Write comment",

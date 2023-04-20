@@ -13,7 +13,7 @@ import {
 import { memo, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "features/AuthByUsername";
-import { userActions, useUser } from "entities/User";
+import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "entities/User";
 import { useAppDispatch } from "shared/hooks";
 import { RoutePaths } from "shared/config";
 import cls from "./Navbar.module.scss";
@@ -26,6 +26,9 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 	const { isAuth, username, avatar, id } = useUser();
+	const isAdmin = useIsUserAdminSelector();
+	const isManager = useIsUserManagerSelector();
+	const isAdminPanelAvailable = isAdmin || isManager;
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleUserModal = useCallback(() => {
@@ -39,9 +42,10 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 	const dropdownItems: DropdownItem[] = useMemo(() => {
 		return [
 			{ content: t("Профиль"), href: `${RoutePaths.profile}/${id}` },
+			...(isAdminPanelAvailable ? [{ content: t("Админка"), href: RoutePaths.admin_panel }] : []),
 			{ content: t("Выйти"), onClick: handleLogout },
 		];
-	}, [t, id, handleLogout]);
+	}, [t, id, handleLogout, isAdminPanelAvailable]);
 
 	if (isAuth) {
 		return (

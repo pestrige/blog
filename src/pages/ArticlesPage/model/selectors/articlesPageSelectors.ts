@@ -3,7 +3,7 @@ import { StoreSchema } from "shared/config";
 import { ArticleSort, ArticleType, ArticleView } from "entities/Article";
 import { articlesAdapter } from "../slice/articlesPageSlice";
 
-export const getArticles = articlesAdapter.getSelectors<StoreSchema>(
+export const getArticles = articlesAdapter?.getSelectors<StoreSchema>(
 	(store) => store.articlesPage || articlesAdapter.getInitialState()
 );
 export const useArticlesSelector = () => useSelector(getArticles.selectAll);

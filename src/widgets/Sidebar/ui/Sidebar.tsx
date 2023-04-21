@@ -11,7 +11,7 @@ interface Props {
 	className?: string;
 }
 
-export const Sidebar = memo(({ className = "123" }: Props): JSX.Element => {
+export const Sidebar = memo(({ className = "" }: Props): JSX.Element => {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	const onToggle = () => setIsCollapsed((prev) => !prev);

@@ -1,4 +1,4 @@
-import { memo, useCallback, Fragment } from "react";
+import { memo, useCallback, Fragment, useMemo } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "shared/lib";
 import { Button, HStack } from "shared/ui";
@@ -22,6 +22,7 @@ interface SelectProps {
 
 export const Select = memo(function Select(props: SelectProps): JSX.Element {
 	const { name, className, label, options, onChange, value, readonly } = props;
+	const selected = useMemo(() => options?.find((option) => option.value === value), [options, value]);
 
 	const onChangeHandler = useCallback(
 		(value: string) => {
@@ -51,7 +52,7 @@ export const Select = memo(function Select(props: SelectProps): JSX.Element {
 								disabled={readonly}
 								className={classNames(cls.button, { [cls.open]: open })}
 							>
-								{value}
+								{selected?.content ?? "..."}
 							</Button>
 						</Listbox.Button>
 						<Transition

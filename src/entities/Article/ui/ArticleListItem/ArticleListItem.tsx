@@ -5,7 +5,8 @@ import { AppLink, Avatar, Card, Button, Text, HStack } from "shared/ui";
 import { EyeIcon } from "shared/assets";
 import { RoutePaths } from "shared/config";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from "../../model/types/article";
+import { Article, ArticleTextBlock } from "../../model/types/article";
+import { ArticleView, ArticleBlockType } from "../../model/constants/article";
 import cls from "./ArticleListItem.module.scss";
 
 interface Props {

@@ -1,5 +1,6 @@
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
+import { ValidateErrorsEnum } from "../constants/constants";
 
 export interface ProfileCardType {
 	id?: string;
@@ -14,13 +15,6 @@ export interface ProfileCardType {
 }
 
 export type ProfileCardTypeKeyof = keyof ProfileCardType;
-
-export enum ValidateErrorsEnum {
-	REQUIRED_FIELD = "REQUIRED_FIELD",
-	INCORRECT_AGE = "INCORRECT_AGE",
-	EMPTY_DATA = "EMPTY_DATA",
-	SERVER_ERROR = "SERVER_ERROR",
-}
 
 export type ValidateErrors = Partial<Record<ProfileCardTypeKeyof, ValidateErrorsEnum>>;
 

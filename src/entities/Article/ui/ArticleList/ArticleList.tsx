@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListITemSkeleton";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
-import { Article, ArticleView } from "../../model/types/article";
+import { Article } from "../../model/types/article";
+import { ArticleView } from "../../model/constants/article";
 import cls from "./ArticleList.module.scss";
 
 const getSkeleton = (view: ArticleView) => {

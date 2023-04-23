@@ -4,7 +4,8 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
 import { ArticleList } from "./ArticleList";
 import { articleExample } from "../../model/constants/articleExample";
-import { Article, ArticleView } from "../../model/types/article";
+import { Article } from "../../model/types/article";
+import { ArticleView } from "../../model/constants/article";
 
 const articles = new Array(9).fill(0).map((_, index) => ({
 	...articleExample,

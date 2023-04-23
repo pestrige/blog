@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolki
 import { Article, ArticleSort, ArticleView } from "entities/Article";
 import { ARTICLES_VIEW_KEY } from "shared/constants";
 import { SortOrder } from "shared/types";
-import { ArticleType } from "entities/Article/model/types/article";
+import { ArticleType } from "entities/Article/model/constants/article";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
 

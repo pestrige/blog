@@ -1,2 +1,2 @@
-export { DropdownDirection } from "./ui";
-export { SortOrder } from "./types";
+export type { DropdownDirection } from "./ui";
+export type { SortOrder } from "./types";

@@ -16,7 +16,8 @@
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"isolatedModules": true
 	},
 	"exclude": [
 		"node_modules"

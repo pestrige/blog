@@ -1,4 +1,5 @@
-import { Article, ArticleBlockType, ArticleType } from "../types/article";
+import { Article } from "../types/article";
+import { ArticleBlockType, ArticleType } from "./article";
 
 export /* eslint-disable max-len */
 const articleExample: Article = {

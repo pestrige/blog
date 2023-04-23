@@ -4,13 +4,8 @@ import { Avatar, Input, Loader, Text, VStack } from "shared/ui";
 import { classNames } from "shared/lib";
 import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
-import { translationValidateErrors } from "../../model/constants/constants";
-import {
-	ProfileCardType,
-	ProfileCardTypeKeyof,
-	ValidateErrors,
-	ValidateErrorsEnum,
-} from "../../model/types/profileCard";
+import { translationValidateErrors, ValidateErrorsEnum } from "../../model/constants/constants";
+import { ProfileCardType, ProfileCardTypeKeyof, ValidateErrors } from "../../model/types/profileCard";
 import cls from "./ProfileCard.module.scss";
 
 interface ProfileInputsItem {

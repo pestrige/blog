@@ -1,5 +1,6 @@
-export { Article, ArticleSort, ArticleView, ArticleType } from "./model/types/article";
-export { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
+export type { Article } from "./model/types/article";
+export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
+export { ArticleBlockType, ArticleType, ArticleView, ArticleSort } from "./model/constants/article";
 export { getArticleData, useArticleDataSelector } from "./model/selectors/articleDetails";
 
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";

@@ -1,7 +1,7 @@
 import { StoreSchema } from "shared/config";
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
-import { UserRole } from "../types/user";
+import { UserRole } from "../constants/user";
 
 export const getUserData = (store: StoreSchema) => store.user.authData;
 export const useUserSelector = () => useSelector(getUserData);

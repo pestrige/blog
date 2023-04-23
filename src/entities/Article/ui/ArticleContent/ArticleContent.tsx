@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
+import { ArticleBlock } from "../../model/types/article";
+import { ArticleBlockType } from "../../model/constants/article";
 import { ArticleBlockCode } from "../ArticleBlockCode/ArticleBlockCode";
 import { ArticleBlockImage } from "../ArticleBlockImage/ArticleBlockImage";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";

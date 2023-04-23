@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Card, Skeleton } from "shared/ui";
-import { ArticleView } from "../../model/types/article";
+import { ArticleView } from "../../model/constants/article";
 import cls from "./ArticleListItem.module.scss";
 
 interface Props {

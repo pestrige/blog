@@ -1,6 +1,6 @@
 import { memo, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { classNames } from "shared/lib";
-import { Portal } from "shared/ui";
+import { Portal } from "../Portal";
 import cls from "./Modal.module.scss";
 
 const ANIMATION_DELAY = 300;

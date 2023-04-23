@@ -1,6 +1,6 @@
 import React, { CSSProperties, memo, useMemo } from "react";
 import { classNames } from "shared/lib";
-import { HStack } from "shared/ui";
+import { HStack } from "../Stack";
 import cls from "./Avatar.module.scss";
 
 interface Props {

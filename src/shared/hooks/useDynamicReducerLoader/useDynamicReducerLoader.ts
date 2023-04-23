@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useStore } from "react-redux";
 import { StoreWithManager, StoreSchemaKey, StoreSchema } from "shared/config";
 import { Reducer } from "@reduxjs/toolkit";
-import { useAppDispatch } from "shared/hooks";
+import { useAppDispatch } from "../useAppDispatch/useAppDispatch";
 
 export type ReducersList = {
 	[name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>>;

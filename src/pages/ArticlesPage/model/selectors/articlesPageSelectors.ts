@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { StoreSchema } from "shared/config";
 import { ArticleSort, ArticleType, ArticleView } from "entities/Article";
-import { articlesAdapter } from "../slice/articlesPageSlice";
+import { articlesAdapter } from "../slice/articlesPageAdapter";
 
 export const getArticles = articlesAdapter?.getSelectors<StoreSchema>(
 	(store) => store.articlesPage || articlesAdapter.getInitialState()

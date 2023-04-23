@@ -7,7 +7,7 @@ import { THEMES } from "shared/lib";
 import { Sidebar } from "./Sidebar";
 
 export default {
-	title: "widgets/Sidebar",
+	title: "features/Sidebar",
 	component: Sidebar,
 } as ComponentMeta<typeof Sidebar>;
 

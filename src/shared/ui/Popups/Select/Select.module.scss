@@ -1,7 +1,3 @@
-.wrapper {
-  position: relative;
-}
-
 .button {
   position: relative;
   min-height: var(--margin-xl);
@@ -29,23 +25,6 @@
 }
 
 .list {
-  position: absolute;
-  z-index: var(--z-index-select);
   min-width: 100%;
-  background-color: var(--card-bg);
-  border-radius: var(--margin-s);
   box-shadow: 4px 4px 8px var(--code-bg);
-}
-
-.listItem {
-  padding: var(--margin-s) var(--margin-m);
-  cursor: pointer;
-
-  &.selected {
-    background-color: var(--inverted-secondary-color);
-  }
-
-  &.active:not(&.selected) {
-    background-color: var(--bg-color);
-  }
 }

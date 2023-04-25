@@ -1,0 +1,10 @@
+.notification {
+  fill: var(--inverted-primary-color);
+}
+
+.notifications {
+  width: 350px;
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+}

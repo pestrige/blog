@@ -2,8 +2,10 @@ import { Menu } from "@headlessui/react";
 import { Fragment, memo, ReactNode } from "react";
 import { classNames } from "shared/lib";
 import { DropdownDirection } from "shared/types";
-import { AppLink } from "../AppLink";
+import { AppLink } from "../../AppLink";
+import { mapDirectionClass } from "../constants";
 import cls from "./Dropdown.module.scss";
+import commonCls from "../common.module.scss";
 
 export interface DropdownItem {
 	disabled?: boolean;
@@ -19,29 +21,30 @@ interface Props {
 	direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-	"top left": cls.topLeft,
-	"top right": cls.topRight,
-	"bottom left": cls.bottomLeft,
-	"bottom right": cls.bottomRight,
-};
-
 export const Dropdown = memo(
 	({ className, trigger, items, direction = "bottom left" }: Props): JSX.Element => {
 		return (
-			<Menu as="div" className={classNames(cls.wrapper, className)}>
-				<Menu.Button as={typeof trigger === "string" ? "button" : "div"} className={cls.button}>
+			<Menu as="div" className={classNames(commonCls.wrapper, className)}>
+				<Menu.Button
+					as={typeof trigger === "string" ? "button" : "div"}
+					className={commonCls.triggerButton}
+				>
 					{trigger}
 				</Menu.Button>
 
-				<Menu.Items as="ul" className={classNames(cls.menu, mapDirectionClass[direction])}>
+				<Menu.Items
+					as="ul"
+					className={classNames(commonCls.list, cls.list, mapDirectionClass[direction])}
+				>
 					{items.map((item, index) => {
 						return (
 							<Menu.Item as={Fragment} key={index} disabled={item.disabled}>
 								{({ active, close }) => (
 									<li
 										key={index}
-										className={classNames(cls.item, { [cls.active]: active })}
+										className={classNames(commonCls.listItem, {
+											[commonCls.active]: active,
+										})}
 										onClick={item.onClick}
 									>
 										{!!item.href && (
@@ -52,7 +55,7 @@ export const Dropdown = memo(
 										{!item.href && (
 											<button
 												type="button"
-												className={cls.itemButton}
+												className={commonCls.clearButton}
 												onClick={item.onClick}
 											>
 												{item.content}

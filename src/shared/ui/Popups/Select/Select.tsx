@@ -1,9 +1,10 @@
 import { memo, useCallback, Fragment, useMemo } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "shared/lib";
-import { Button } from "../Button";
-import { HStack } from "../Stack";
+import { Button } from "../../Button";
+import { HStack } from "../../Stack";
 import cls from "./Select.module.scss";
+import commonCls from "../common.module.scss";
 
 export interface SelectOption {
 	value: string;
@@ -44,7 +45,7 @@ export const Select = memo(function Select(props: SelectProps): JSX.Element {
 				defaultValue={label}
 				onChange={onChangeHandler}
 				disabled={readonly}
-				className={cls.wrapper}
+				className={commonCls.wrapper}
 			>
 				{({ open }) => (
 					<>
@@ -65,7 +66,7 @@ export const Select = memo(function Select(props: SelectProps): JSX.Element {
 							leaveFrom="transform scale-100 opacity-100"
 							leaveTo="transform scale-95 opacity-0"
 						>
-							<Listbox.Options className={cls.list} static>
+							<Listbox.Options className={classNames(commonCls.list, cls.list)} static as="ul">
 								{(options ?? []).map((item) => (
 									<Listbox.Option
 										as={Fragment}
@@ -75,9 +76,9 @@ export const Select = memo(function Select(props: SelectProps): JSX.Element {
 									>
 										{({ selected, active }) => (
 											<li
-												className={classNames(cls.listItem, {
-													[cls.selected]: selected,
-													[cls.active]: active,
+												className={classNames(commonCls.listItem, {
+													[commonCls.selected]: selected,
+													[commonCls.active]: active,
 												})}
 											>
 												{item.content}

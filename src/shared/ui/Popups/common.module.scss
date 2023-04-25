@@ -2,8 +2,8 @@
   position: relative;
 }
 
-.button,
-.itemButton {
+.triggerButton,
+.clearButton {
   padding: 0;
   margin: 0;
   color: var(--primary-color);
@@ -12,27 +12,28 @@
   border: none;
 }
 
-.button {
+.triggerButton {
   display: flex;
   align-items: center;
 }
 
-.menu {
+.list {
   position: absolute;
   z-index: var(--z-index-select);
-  width: fit-content;
-  overflow: hidden;
   background-color: var(--card-bg);
-  border: 1px solid var(--primary-color);
   border-radius: var(--margin-s);
 }
 
-.item {
+.listItem {
   padding: var(--margin-s) var(--margin-m);
   cursor: pointer;
 
-  &.active {
+  &.selected {
     background-color: var(--inverted-secondary-color);
+  }
+
+  &.active:not(&.selected) {
+    background-color: var(--bg-color);
   }
 }
 

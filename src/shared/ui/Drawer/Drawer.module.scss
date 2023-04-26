@@ -1,0 +1,47 @@
+.drawer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 150px;
+  max-height: 50%;
+  padding: var(--margin-l);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.drawer.open {
+  animation: drawer-in 0.3s ease-in-out forwards;
+}
+
+.drawer.close {
+  animation: drawer-out 0.3s ease-in-out forwards;
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}

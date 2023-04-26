@@ -1,18 +1,23 @@
-import { memo, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import { classNames } from "shared/lib";
+import { memo, ReactNode } from "react";
 import { useModal } from "shared/hooks";
+import { classNames } from "shared/lib";
 import { Portal } from "../Portal";
 import { Overlay } from "../Overlay/Overlay";
-import cls from "./Modal.module.scss";
+import cls from "./Drawer.module.scss";
 
 interface Props {
-	children: ReactNode;
 	className?: string;
 	isOpen: boolean;
+	children: ReactNode;
 	onClose: () => void;
 }
 
-const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Element | null => {
+export const Drawer = memo(function Drawer({
+	isOpen,
+	children,
+	className,
+	onClose,
+}: Props): JSX.Element | null {
 	const { isClosing, handleClose, handleContentClick } = useModal(onClose);
 
 	if (!isOpen) {
@@ -21,9 +26,9 @@ const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Elemen
 
 	return (
 		<Portal>
-			<Overlay onClose={handleClose} isOpen={isOpen} isClose={isClosing} data-testid="modal-test">
+			<Overlay isOpen={isOpen} isClose={isClosing} onClose={handleClose}>
 				<div
-					className={classNames(cls.content, className, {
+					className={classNames(cls.drawer, className, {
 						[cls.open]: isOpen,
 						[cls.close]: isClosing,
 					})}
@@ -35,6 +40,4 @@ const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Elemen
 			</Overlay>
 		</Portal>
 	);
-};
-
-export const Modal = memo(ModalInner);
+});

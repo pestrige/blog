@@ -1,16 +1,3 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: var(--z-index-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-
 .content {
   padding: var(--margin-l);
   background-color: var(--bg-color);
@@ -19,40 +6,12 @@
   transform: translateY(-50px);
 }
 
-.overlay.open {
-  animation: overlay-in 0.3s ease-in-out forwards;
-
-  .content {
-    animation: content-in 0.3s ease-in-out forwards;
-  }
+.content.open {
+  animation: content-in 0.3s ease-in-out forwards;
 }
 
-.overlay.close {
-  animation: overlay-out 0.3s ease-in-out forwards;
-
-  .content {
-    animation: content-out 0.3s ease-in-out forwards;
-  }
-}
-
-@keyframes overlay-in {
-  from {
-    background-color: transparent;
-  }
-
-  to {
-    background-color: var(--overlay-color);
-  }
-}
-
-@keyframes overlay-out {
-  from {
-    background-color: var(--overlay-color);
-  }
-
-  to {
-    background-color: transparent;
-  }
+.content.close {
+  animation: content-out 0.3s ease-in-out forwards;
 }
 
 @keyframes content-in {

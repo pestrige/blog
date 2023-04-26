@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, memo, useCallback, useState } from "react";
 import { NotificationList } from "entities/Notification";
+import { AnimationProvider } from "shared/providers";
 import { Button, ButtonTheme, Drawer, Popover } from "shared/ui";
 import { useIsMobile } from "shared/hooks";
 import { NotificationIcon } from "shared/assets";
@@ -30,9 +31,13 @@ export const NotificationButton = memo(function NotificationButton(): JSX.Elemen
 			{isMobile && (
 				<>
 					<TriggerButton onClick={handleOpenClick} />
-					<Drawer isOpen={isOpen} onClose={handleCloseClick}>
-						<NotificationList />
-					</Drawer>
+					{isOpen && (
+						<AnimationProvider>
+							<Drawer isOpen={isOpen} onClose={handleCloseClick}>
+								<NotificationList />
+							</Drawer>
+						</AnimationProvider>
+					)}
 				</>
 			)}
 			{!isMobile && (

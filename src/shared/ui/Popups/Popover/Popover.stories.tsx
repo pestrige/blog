@@ -4,13 +4,6 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { THEMES } from "shared/lib";
 import { Popover } from "./Popover";
 
-const notification = {
-	id: "1",
-	title: "Уведомление 1",
-	description: "Произошло какое-то событие",
-	userId: "1",
-};
-
 export default {
 	title: "shared/Popover",
 	component: Popover,

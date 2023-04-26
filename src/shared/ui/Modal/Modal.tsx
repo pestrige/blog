@@ -1,4 +1,4 @@
-import { memo, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { memo, ReactNode } from "react";
 import { classNames } from "shared/lib";
 import { useModal } from "shared/hooks";
 import { Portal } from "../Portal";

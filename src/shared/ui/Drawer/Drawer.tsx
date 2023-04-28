@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useEffect } from "react";
 import { useModal } from "@/shared/hooks";
 import { classNames } from "@/shared/lib";
-import { useAnimationContext } from "@/shared/providers";
+import { AnimationProvider, useAnimationContext } from "@/shared/providers";
 import { Portal } from "../Portal";
 import { Loader } from "../Loader";
 import { Overlay } from "../Overlay/Overlay";
@@ -85,7 +85,7 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 	);
 };
 
-export const Drawer = ({ children, ...otherProps }: DrawerProps) => {
+const DrawerAsync = ({ children, ...otherProps }: DrawerProps) => {
 	const { isLoaded } = useAnimationContext();
 
 	if (!isLoaded) {
@@ -94,3 +94,9 @@ export const Drawer = ({ children, ...otherProps }: DrawerProps) => {
 
 	return <DrawerContent {...otherProps}>{children}</DrawerContent>;
 };
+
+export const Drawer = ({ children, ...otherProps }: DrawerProps): JSX.Element => (
+	<AnimationProvider>
+		<DrawerAsync {...otherProps}>{children}</DrawerAsync>
+	</AnimationProvider>
+);

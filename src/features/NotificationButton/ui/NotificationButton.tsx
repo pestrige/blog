@@ -32,11 +32,9 @@ export const NotificationButton = memo(function NotificationButton(): JSX.Elemen
 				<>
 					<TriggerButton onClick={handleOpenClick} />
 					{isOpen && (
-						<AnimationProvider>
-							<Drawer isOpen={isOpen} onClose={handleCloseClick}>
-								<NotificationList />
-							</Drawer>
-						</AnimationProvider>
+						<Drawer isOpen={isOpen} onClose={handleCloseClick}>
+							<NotificationList />
+						</Drawer>
 					)}
 				</>
 			)}

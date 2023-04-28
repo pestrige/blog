@@ -1,6 +1,6 @@
-import { StoreSchema } from "shared/config";
 import { AsyncThunkAction } from "@reduxjs/toolkit";
 import axios, { AxiosStatic } from "axios";
+import { StoreSchema } from "@/shared/config";
 
 type ActionCreatorType<ReturnType, ThunkArg, RejectedValue> = (
 	arg: ThunkArg

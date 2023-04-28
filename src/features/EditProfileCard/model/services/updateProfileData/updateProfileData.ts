@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "shared/config";
-import { ProfileCardType, ProfileErrors, ValidateErrorsEnum } from "entities/ProfileCard";
+import { ThunkConfig } from "@/shared/config";
+import { ProfileCardType, ProfileErrors, ValidateErrorsEnum } from "@/entities/ProfileCard";
 import { getProfileFormData } from "../../selectors/getProfileFormData/getProfileFormData";
 import { validateProfileCard } from "../validateProfileCard/validateProfileCard";
 

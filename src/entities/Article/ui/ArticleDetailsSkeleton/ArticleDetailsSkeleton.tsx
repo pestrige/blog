@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Skeleton } from "shared/ui";
+import { Skeleton } from "@/shared/ui";
 import cls from "./ArticleDetailsSkeleton.module.scss";
 
 export const ArticleDetailsSkeleton = memo((): JSX.Element => {

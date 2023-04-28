@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "shared/config";
+import { ThunkConfig } from "@/shared/config";
 import {
 	getArticlesHasMore,
 	getArticlesIsLoading,

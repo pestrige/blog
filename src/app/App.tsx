@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { AppRouter, ErrorBoundary } from "app/providers";
-import { Navbar, Sidebar } from "widgets";
-import { useInitUser } from "entities/User";
+import { Navbar, Sidebar } from "@/widgets";
+import { AppRouter, ErrorBoundary } from "@/app/providers";
+import { useInitUser } from "@/entities/User";
 
 import "./styles/index.scss";
 

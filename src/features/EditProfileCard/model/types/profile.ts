@@ -1,4 +1,4 @@
-import { ProfileCardType, ValidateErrors, ValidateErrorsEnum } from "entities/ProfileCard";
+import { ProfileCardType, ValidateErrors, ValidateErrorsEnum } from "@/entities/ProfileCard";
 
 export interface ProfileSchema {
 	data?: ProfileCardType;

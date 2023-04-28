@@ -1,9 +1,9 @@
 import React, { memo, useCallback } from "react";
-import { Text } from "shared/ui";
-import { AddCommentForm } from "features/AddCommentForm";
-import { CommentList } from "entities/Comment";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useInitialEffect } from "shared/hooks";
+import { Text } from "@/shared/ui";
+import { AddCommentForm } from "@/features/AddCommentForm";
+import { CommentList } from "@/entities/Comment";
+import { useAppDispatch, useInitialEffect } from "@/shared/hooks";
 import {
 	useArticleCommentsError,
 	useArticleCommentsSelector,

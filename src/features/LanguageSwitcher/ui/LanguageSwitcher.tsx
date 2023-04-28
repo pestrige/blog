@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui";
 import { memo } from "react";
+import { Button, ButtonTheme } from "@/shared/ui";
 import cls from "./LanguageSwitcher.module.scss";
 
 interface Props {

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Text } from "shared/ui";
+import { Text } from "@/shared/ui";
 import { ArticleImageBlock } from "../../model/types/article";
 import cls from "./ArticleBlockImage.module.scss";
 

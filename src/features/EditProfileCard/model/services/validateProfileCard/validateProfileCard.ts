@@ -4,7 +4,7 @@ import {
 	ProfileErrors,
 	ValidateErrors,
 	ValidateErrorsEnum,
-} from "entities/ProfileCard";
+} from "@/entities/ProfileCard";
 
 export const validateProfileCard = (profile?: ProfileCardType): ProfileErrors => {
 	const errors: ValidateErrors = {};

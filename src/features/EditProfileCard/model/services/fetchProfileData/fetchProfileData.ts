@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "shared/config";
-import { ProfileCardType, ValidateErrorsEnum } from "entities/ProfileCard";
+import { ThunkConfig } from "@/shared/config";
+import { ProfileCardType, ValidateErrorsEnum } from "@/entities/ProfileCard";
 
 export const fetchProfileData = createAsyncThunk<ProfileCardType, string, ThunkConfig<ValidateErrorsEnum>>(
 	"profile/fetchProfileData",

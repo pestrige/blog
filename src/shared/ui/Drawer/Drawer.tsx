@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useEffect } from "react";
-import { useModal } from "shared/hooks";
-import { classNames } from "shared/lib";
-import { useAnimationContext } from "shared/providers";
+import { useModal } from "@/shared/hooks";
+import { classNames } from "@/shared/lib";
+import { useAnimationContext } from "@/shared/providers";
 import { Portal } from "../Portal";
 import { Loader } from "../Loader";
 import { Overlay } from "../Overlay/Overlay";

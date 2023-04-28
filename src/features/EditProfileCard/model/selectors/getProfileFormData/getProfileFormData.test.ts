@@ -1,6 +1,6 @@
-import { StoreSchema } from "shared/config";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
+import { StoreSchema } from "@/shared/config";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
 import { getProfileFormData } from "./getProfileFormData";
 
 const profile = {

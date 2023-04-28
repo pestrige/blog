@@ -1,5 +1,5 @@
-import { StoreSchema } from "shared/config";
 import { useSelector } from "react-redux";
+import { StoreSchema } from "@/shared/config";
 
 export const getComment = (store: StoreSchema) => store.addCommentForm?.text ?? "";
 export const useCommentSelector = () => useSelector(getComment);

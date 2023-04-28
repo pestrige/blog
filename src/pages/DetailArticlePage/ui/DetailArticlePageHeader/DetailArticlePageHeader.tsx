@@ -1,10 +1,10 @@
 import React, { memo, useCallback } from "react";
-import { Button } from "shared/ui";
-import { RoutePaths } from "shared/config";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/shared/ui";
+import { RoutePaths } from "@/shared/config";
 
-import { useArticleDataSelector } from "entities/Article";
+import { useArticleDataSelector } from "@/entities/Article";
 import { useCanUserEditArticleSelector } from "../../model/selectors/articleSelectors";
 import cls from "./DetailArticlePageHeader.module.scss";
 

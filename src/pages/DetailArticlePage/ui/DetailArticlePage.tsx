@@ -2,10 +2,10 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-import { ArticleDetails } from "entities/Article";
-import { Text } from "shared/ui";
-import { ArticleRecommendations } from "features/ArticleRecommendations";
-import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
+import { ArticleDetails } from "@/entities/Article";
+import { Text } from "@/shared/ui";
+import { ArticleRecommendations } from "@/features/ArticleRecommendations";
+import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
 import { articleDetailsPageReducer } from "../model/slice";
 import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
 import { DetailArticlePageComments } from "./DetailArticlePageComments/DetailArticlePageComments";

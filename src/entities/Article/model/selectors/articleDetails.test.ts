@@ -1,4 +1,4 @@
-import { StoreSchema } from "shared/config";
+import { StoreSchema } from "@/shared/config";
 import { articleExample } from "../constants/articleExample";
 import { getArticleData, getArticleError, getIsArticleLoading } from "./articleDetails";
 

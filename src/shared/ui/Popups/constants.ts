@@ -1,4 +1,4 @@
-import { DropdownDirection } from "shared/types";
+import { DropdownDirection } from "@/shared/types";
 import commonCls from "./common.module.scss";
 
 export const mapDirectionClass: Record<DropdownDirection, string> = {

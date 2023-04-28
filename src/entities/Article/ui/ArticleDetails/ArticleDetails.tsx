@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { ReducersList, useDynamicReducerLoader } from "shared/hooks";
-import { Avatar, Text } from "shared/ui";
-import { CalendarIcon, EyeIcon } from "shared/assets";
-import { classNames } from "shared/lib";
+import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
+import { Avatar, Text } from "@/shared/ui";
+import { CalendarIcon, EyeIcon } from "@/shared/assets";
+import { classNames } from "@/shared/lib";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useArticleDetails } from "../../model/hooks/useArticleDetails";
 import {

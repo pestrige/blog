@@ -1,7 +1,7 @@
-import { TestAsyncThunk } from "shared/lib/tests";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import { ProfileCardType } from "entities/ProfileCard";
+import { TestAsyncThunk } from "@/shared/lib/tests";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import { ProfileCardType } from "@/entities/ProfileCard";
 import { fetchProfileData } from "./fetchProfileData";
 
 const profile: ProfileCardType = {

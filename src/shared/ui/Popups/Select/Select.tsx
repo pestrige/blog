@@ -1,6 +1,6 @@
 import { memo, useCallback, Fragment, useMemo } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { classNames } from "shared/lib";
+import { classNames } from "@/shared/lib";
 import { Button } from "../../Button";
 import { HStack } from "../../Stack";
 import cls from "./Select.module.scss";

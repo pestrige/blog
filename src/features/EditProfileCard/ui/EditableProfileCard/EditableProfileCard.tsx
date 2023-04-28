@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { ProfileCard, ProfileCardTypeKeyof } from "entities/ProfileCard";
-import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "shared/hooks";
+import { ProfileCard, ProfileCardTypeKeyof } from "@/entities/ProfileCard";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader, useInitialEffect } from "@/shared/hooks";
 import { EditableProfileHeader } from "../EditableProfileHeader/EditableProfileHeader";
 import {
 	fetchProfileData,

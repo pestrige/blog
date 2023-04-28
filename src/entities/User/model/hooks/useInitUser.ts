@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "shared/hooks";
+import { useAppDispatch } from "@/shared/hooks";
 import { userActions } from "../slice/userSlice";
 
 export const useInitUser = () => {

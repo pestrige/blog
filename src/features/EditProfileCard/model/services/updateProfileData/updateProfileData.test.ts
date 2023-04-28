@@ -1,8 +1,8 @@
-import { TestAsyncThunk } from "shared/lib/tests";
-import { ProfileCardType, ValidateErrorsEnum } from "entities/ProfileCard";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import { StoreSchema } from "shared/config";
+import { TestAsyncThunk } from "@/shared/lib/tests";
+import { ProfileCardType, ValidateErrorsEnum } from "@/entities/ProfileCard";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import { StoreSchema } from "@/shared/config";
 import { updateProfileData } from "./updateProfileData";
 
 const form: ProfileCardType = {

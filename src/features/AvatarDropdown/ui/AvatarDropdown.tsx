@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useMemo } from "react";
-import { Avatar, Dropdown, DropdownItem } from "shared/ui";
-import { RoutePaths } from "shared/config";
-import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "entities/User";
-import { useAppDispatch } from "shared/hooks";
 import { useTranslation } from "react-i18next";
+import { Avatar, Dropdown, DropdownItem } from "@/shared/ui";
+import { RoutePaths } from "@/shared/config";
+import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
+import { useAppDispatch } from "@/shared/hooks";
 
 export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const dispatch = useAppDispatch();

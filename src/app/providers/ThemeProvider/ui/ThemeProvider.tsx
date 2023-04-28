@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useMemo, useState } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, THEMES, ThemeContext } from "shared/lib";
+import { LOCAL_STORAGE_THEME_KEY, Theme, THEMES, ThemeContext } from "@/shared/lib";
 
 const rootElement = document.getElementById("root");
 

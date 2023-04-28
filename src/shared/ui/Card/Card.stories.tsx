@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { THEMES } from "shared/lib";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { THEMES } from "@/shared/lib";
 import { Card } from "./Card";
 
 /* eslint-disable i18next/no-literal-string */

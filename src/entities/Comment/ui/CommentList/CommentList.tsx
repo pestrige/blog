@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { t } from "i18next";
-import { Text } from "shared/ui";
+import { Text } from "@/shared/ui";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { CommentCardSkeleton } from "../CommentCard/CommentCardSkeleton";
 import { Comment } from "../../model/types/comment";

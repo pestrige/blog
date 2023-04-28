@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from "shared/lib/tests";
-import { Article } from "entities/Article";
-import { articleExample } from "entities/Article/model/constants/articleExample";
+import { TestAsyncThunk } from "@/shared/lib/tests";
+import { Article } from "@/entities/Article";
+import { articleExample } from "@/entities/Article/model/constants/articleExample";
 import { fetchArticles } from "./fetchArticles";
 
 describe("fetchArticles", () => {

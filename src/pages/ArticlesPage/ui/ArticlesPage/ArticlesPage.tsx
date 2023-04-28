@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 
-import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
-import { ObservableScrollPage } from "widgets";
+import { ObservableScrollPage } from "@/widgets";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import { fetchNextArticles } from "../../model/services/fetchNextArticles/fetchNextArticles";
 import { articlesPageReducer } from "../../model/slice/articlesPageSlice";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";

@@ -1,9 +1,9 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames, formatDateToISO } from "shared/lib";
-import { AppLink, Avatar, Card, Button, Text, HStack } from "shared/ui";
-import { EyeIcon } from "shared/assets";
-import { RoutePaths } from "shared/config";
+import { classNames, formatDateToISO } from "@/shared/lib";
+import { AppLink, Avatar, Card, Button, Text, HStack } from "@/shared/ui";
+import { EyeIcon } from "@/shared/assets";
+import { RoutePaths } from "@/shared/config";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleView, ArticleBlockType } from "../../model/constants/article";

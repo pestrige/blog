@@ -1,4 +1,4 @@
-import { StoreSchema } from "shared/config";
+import { StoreSchema } from "@/shared/config";
 import { getProfileReadonly } from "./getProfileReadonly";
 
 describe("getProfileReadonly", () => {

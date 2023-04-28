@@ -1,7 +1,7 @@
 import { memo } from "react";
-import { classNames } from "shared/lib";
-import { AppLink, Avatar, Text } from "shared/ui";
-import { RoutePaths } from "shared/config";
+import { classNames } from "@/shared/lib";
+import { AppLink, Avatar, Text } from "@/shared/ui";
+import { RoutePaths } from "@/shared/config";
 import { Comment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
 

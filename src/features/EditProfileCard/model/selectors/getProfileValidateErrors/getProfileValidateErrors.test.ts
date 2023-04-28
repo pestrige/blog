@@ -1,5 +1,5 @@
-import { StoreSchema } from "shared/config";
-import { ValidateErrorsEnum } from "entities/ProfileCard";
+import { StoreSchema } from "@/shared/config";
+import { ValidateErrorsEnum } from "@/entities/ProfileCard";
 import { getProfileValidateErrors } from "./getProfileValidateErrors";
 
 const validateErrors = {

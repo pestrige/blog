@@ -1,8 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { getUserData } from "entities/User";
-import { RoutePaths } from "shared/config";
-import { MenuAboutIcon, MenuArticleIcon, MenuMainIcon, MenuProfileIcon } from "shared/assets";
 import { useSelector } from "react-redux";
+import { getUserData } from "@/entities/User";
+import { RoutePaths } from "@/shared/config";
+import { MenuAboutIcon, MenuArticleIcon, MenuMainIcon, MenuProfileIcon } from "@/shared/assets";
 import { MainMenuItemType } from "../types/mainMenu";
 
 const getMenuItems = createSelector(getUserData, (userData) => {

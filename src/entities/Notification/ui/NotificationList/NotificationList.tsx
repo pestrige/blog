@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Skeleton, VStack } from "shared/ui";
+import { Skeleton, VStack } from "@/shared/ui";
 import { useNotifications } from "../../api/notificationApi";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 

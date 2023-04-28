@@ -1,6 +1,6 @@
 import React from "react";
-import { classNames } from "shared/lib";
-import { Skeleton } from "shared/ui";
+import { classNames } from "@/shared/lib";
+import { Skeleton } from "@/shared/ui";
 import cls from "./CommentCard.module.scss";
 
 interface Props {

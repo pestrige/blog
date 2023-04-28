@@ -1,7 +1,7 @@
 import React, { memo } from "react";
-import { AppLink, AppLinkTheme } from "shared/ui";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib";
+import { AppLink, AppLinkTheme } from "@/shared/ui";
+import { classNames } from "@/shared/lib";
 import { MainMenuItemType } from "../../model/types/mainMenu";
 import cls from "./MainMenuItem.module.scss";
 

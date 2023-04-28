@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders, RenderWithProvidersProps } from "shared/lib/tests";
-import { ProfileCardType } from "entities/ProfileCard";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import { Api } from "shared/api";
 import userEvent from "@testing-library/user-event";
+import { renderWithProviders, RenderWithProvidersProps } from "@/shared/lib/tests";
+import { ProfileCardType } from "@/entities/ProfileCard";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import { Api } from "@/shared/api";
 import { profileReducer } from "../../model";
 import { EditableProfileCard } from "./EditableProfileCard";
 

@@ -1,6 +1,6 @@
-import { StoreSchema } from "shared/config";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
+import { StoreSchema } from "@/shared/config";
 
 const getScrollPosition = (store: StoreSchema) => store.scroll.scroll;
 const getScrollByPath = createSelector(

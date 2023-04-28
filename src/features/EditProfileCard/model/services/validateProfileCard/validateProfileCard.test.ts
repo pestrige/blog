@@ -1,6 +1,6 @@
-import { ProfileCardType, ValidateErrorsEnum } from "entities/ProfileCard";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
+import { ProfileCardType, ValidateErrorsEnum } from "@/entities/ProfileCard";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
 import { validateProfileCard } from "./validateProfileCard";
 
 describe("validateProfileCard", () => {

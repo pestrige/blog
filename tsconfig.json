@@ -3,9 +3,7 @@
 		"outDir": "./build/",
 		"baseUrl": ".",
 		"paths": {
-			"*": [
-				"./src/*"
-			]
+			"@/*": ["./src/*"]
 		},
 		"noImplicitAny": true,
 		"module": "ESNext",

@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
-import { Button, ButtonTheme, HStack, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "shared/hooks";
+import { Button, ButtonTheme, HStack, Text } from "@/shared/ui";
+import { useAppDispatch } from "@/shared/hooks";
 import {
 	profileActions,
 	updateProfileData,

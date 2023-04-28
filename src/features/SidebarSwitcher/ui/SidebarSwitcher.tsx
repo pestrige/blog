@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Button, ButtonSize, ButtonTheme } from "shared/ui";
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui";
 import cls from "./SidebarSwitcher.module.scss";
 
 interface Props {

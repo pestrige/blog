@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { ArticleList } from "entities/Article";
-import { useAppDispatch, useInitialEffect } from "shared/hooks";
+import { ArticleList } from "@/entities/Article";
+import { useAppDispatch, useInitialEffect } from "@/shared/hooks";
 import {
 	useArticlesIsLoadingSelector,
 	useArticlesSelector,

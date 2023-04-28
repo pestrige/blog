@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { AppLink, Card, Text } from "shared/ui";
+import { AppLink, Card, Text } from "@/shared/ui";
 import { Notification } from "../../model/types/notifications";
 import cls from "./NotificationItem.module.scss";
 

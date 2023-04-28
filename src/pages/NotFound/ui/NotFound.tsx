@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib";
-import { HStack } from "shared/ui";
+import { classNames } from "@/shared/lib";
+import { HStack } from "@/shared/ui";
 import cls from "./NotFound.module.scss";
 
 export const NotFound = memo((): JSX.Element => {

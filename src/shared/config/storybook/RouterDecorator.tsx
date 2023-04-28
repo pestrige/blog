@@ -1,7 +1,7 @@
 import { Story, StoryContext } from "@storybook/react";
 import { BrowserRouter, MemoryRouter, Route, Routes } from "react-router-dom";
-import { PageLoader } from "widgets";
 import React, { Suspense } from "react";
+import { PageLoader } from "@/widgets";
 
 interface Router {
 	path: string;

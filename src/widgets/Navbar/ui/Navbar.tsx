@@ -1,13 +1,13 @@
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { LoginModal } from "features/AuthByUsername";
-import { NotificationButton } from "features/NotificationButton";
-import { AvatarDropdown } from "features/AvatarDropdown";
-import { useUser } from "entities/User";
-import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "shared/ui";
-import { classNames } from "shared/lib";
-import { RoutePaths } from "shared/config";
+import { LoginModal } from "@/features/AuthByUsername";
+import { NotificationButton } from "@/features/NotificationButton";
+import { AvatarDropdown } from "@/features/AvatarDropdown";
+import { useUser } from "@/entities/User";
+import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "@/shared/ui";
+import { classNames } from "@/shared/lib";
+import { RoutePaths } from "@/shared/config";
 import cls from "./Navbar.module.scss";
 
 interface Props {

@@ -1,4 +1,5 @@
 import { memo, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	ArticleSort,
 	ArticleSortSelector,
@@ -6,11 +7,10 @@ import {
 	ArticleTypeTabs,
 	ArticleView,
 	ArticleViewSwitcher,
-} from "entities/Article";
-import { useAppDispatch, useDebounceCallback } from "shared/hooks";
-import { Card, HStack, Input } from "shared/ui";
-import { useTranslation } from "react-i18next";
-import { SortOrder } from "shared/types";
+} from "@/entities/Article";
+import { useAppDispatch, useDebounceCallback } from "@/shared/hooks";
+import { Card, HStack, Input } from "@/shared/ui";
+import { SortOrder } from "@/shared/types";
 import { fetchArticles } from "../../model/services/fetchArticles/fetchArticles";
 import {
 	useArticlesOrderSelector,

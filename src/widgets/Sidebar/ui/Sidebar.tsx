@@ -1,10 +1,10 @@
 import { memo, useState } from "react";
-import { LanguageSwitcher } from "features/LanguageSwitcher";
-import { SidebarSwitcher } from "features/SidebarSwitcher";
-import { ThemeSwitcher } from "features/ThemeSwitcher";
-import { MainMenu } from "features/MainMenu";
-import { classNames } from "shared/lib";
-import { HStack } from "shared/ui";
+import { LanguageSwitcher } from "@/features/LanguageSwitcher";
+import { SidebarSwitcher } from "@/features/SidebarSwitcher";
+import { ThemeSwitcher } from "@/features/ThemeSwitcher";
+import { MainMenu } from "@/features/MainMenu";
+import { classNames } from "@/shared/lib";
+import { HStack } from "@/shared/ui";
 import cls from "./Sidebar.module.scss";
 
 interface Props {

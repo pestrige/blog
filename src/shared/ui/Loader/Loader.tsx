@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib";
+import { classNames } from "@/shared/lib";
 import cls from "./Loader.module.scss";
 
 type LoaderSize = "S" | "M" | "L";

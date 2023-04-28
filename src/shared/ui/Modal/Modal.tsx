@@ -1,6 +1,6 @@
 import { memo, ReactNode } from "react";
-import { classNames } from "shared/lib";
-import { useModal } from "shared/hooks";
+import { classNames } from "@/shared/lib";
+import { useModal } from "@/shared/hooks";
 import { Portal } from "../Portal";
 import { Overlay } from "../Overlay/Overlay";
 import cls from "./Modal.module.scss";

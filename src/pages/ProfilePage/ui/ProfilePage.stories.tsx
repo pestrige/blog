@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import { THEMES } from "shared/lib";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
+import { THEMES } from "@/shared/lib";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
 import ProfilePage from "./ProfilePage";
 
 const user = {

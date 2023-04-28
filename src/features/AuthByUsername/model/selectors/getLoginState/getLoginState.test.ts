@@ -1,4 +1,4 @@
-import { StoreSchema } from "shared/config";
+import { StoreSchema } from "@/shared/config";
 import { LoginSchema } from "../../types/loginSchema";
 import { getLoginState } from "./getLoginState";
 

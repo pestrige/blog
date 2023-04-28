@@ -1,8 +1,8 @@
-import { classNames } from "shared/lib";
 import { useTranslation } from "react-i18next";
-import { Button, Input, Loader, Text } from "shared/ui";
 import { FormEvent, memo, useCallback } from "react";
-import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "shared/hooks";
+import { classNames } from "@/shared/lib";
+import { Button, Input, Loader, Text } from "@/shared/ui";
+import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import {
 	loginActions,
 	loginByUsername,

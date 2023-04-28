@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui";
+import { Text } from "@/shared/ui";
 
 const ForbiddenPage = memo((): JSX.Element => {
 	const { t } = useTranslation();

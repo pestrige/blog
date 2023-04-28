@@ -1,6 +1,6 @@
 import React, { memo } from "react";
-import { classNames } from "shared/lib";
-import { VStack } from "shared/ui";
+import { classNames } from "@/shared/lib";
+import { VStack } from "@/shared/ui";
 import { MainMenuItem } from "../../ui/MainMenuItem/MainMenuItem";
 import { useMenuItemsSelector } from "../../model/selectors/getMenuItems";
 import cls from "./MainMenu.module.scss";

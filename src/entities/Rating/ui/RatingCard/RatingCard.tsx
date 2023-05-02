@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	ButtonTheme,
@@ -19,6 +19,7 @@ interface Props {
 	className?: string;
 	title: string;
 	feedbackTitle?: string;
+	rating?: number;
 	onCancel?: (starsCount: number) => void;
 	onAccept?: (starsCount: number, feedback?: string) => void;
 }
@@ -27,26 +28,32 @@ export const RatingCard = memo(function RatingCard({
 	className,
 	title,
 	feedbackTitle,
+	rating,
 	onCancel,
 	onAccept,
 }: Props): JSX.Element {
+	console.log("rating", rating);
 	const { t } = useTranslation();
 	const isMobile = useIsMobile();
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [selectedStars, setSelectedStars] = useState(0);
+	const [selectedStars, setSelectedStars] = useState(rating ?? 0);
 	const [feedback, setFeedback] = useState("");
 
 	const handleSelectStars = useCallback(
-		(rating: number) => {
-			setSelectedStars(rating);
+		(selectedRating: number) => {
+			if (rating) {
+				return;
+			}
+
+			setSelectedStars(selectedRating);
 			if (feedbackTitle) {
 				setIsModalOpen(true);
 				return;
 			}
 
-			onAccept?.(rating);
+			onAccept?.(selectedRating);
 		},
-		[feedbackTitle, onAccept]
+		[rating, feedbackTitle, onAccept]
 	);
 
 	const handleInput = useCallback((value: string) => {
@@ -77,17 +84,23 @@ export const RatingCard = memo(function RatingCard({
 		[feedbackTitle, t, handleInput, feedback]
 	);
 
+	useEffect(() => {
+		if (rating) {
+			setSelectedStars(rating);
+		}
+	}, [rating]);
+
 	return (
 		<Card className={className}>
 			<VStack align="center">
 				<Text title={title} />
-				<StarRating onSelect={handleSelectStars} />
+				<StarRating onSelect={handleSelectStars} rating={selectedStars} />
 			</VStack>
 
 			{!isMobile && (
 				<Modal isOpen={isModalOpen} onClose={handleModalClose}>
 					{content}
-					<HStack justify="end" max>
+					<HStack justify="end" max className={cls.modalButtons}>
 						<Button theme={ButtonTheme.OUTLINE_ERROR} onClick={handleCancel}>
 							{t("Отмена")}
 						</Button>

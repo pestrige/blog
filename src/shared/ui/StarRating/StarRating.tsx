@@ -20,7 +20,6 @@ export const StarRating = memo(function StarRating({
 	onSelect,
 }: Props): JSX.Element {
 	const [hoveredRating, setHoveredRating] = useState(0);
-	const [isClicked, setIsClicked] = useState(false);
 
 	const handleHover = useCallback((currentRating: number) => {
 		return () => setHoveredRating(currentRating);
@@ -33,7 +32,6 @@ export const StarRating = memo(function StarRating({
 	const handleClick = useCallback(
 		(rating: number) => {
 			return () => {
-				setIsClicked(true);
 				if (onSelect) {
 					onSelect(rating);
 				}
@@ -50,9 +48,8 @@ export const StarRating = memo(function StarRating({
 						width={size}
 						height={size}
 						className={classNames(cls.star, {
-							[cls.filled]:
-								hoveredRating && !isClicked ? hoveredRating >= star : rating >= star,
-							[cls.clicked]: isClicked,
+							[cls.filled]: hoveredRating && !rating ? hoveredRating >= star : rating >= star,
+							[cls.clicked]: !!rating,
 						})}
 					/>
 				</li>

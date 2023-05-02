@@ -643,5 +643,130 @@
       "username": "user",
       "avatar": "https://i.pravatar.cc/150?img=1"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": "ywFyTrA"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "rate": 3,
+      "id": "nCFvDaY"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": "7jyNv7D"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 4,
+      "id": "uW4VPrU"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 5,
+      "id": "QUQeOF0"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "",
+      "id": "yR5Q8Hr"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "siugiudfg",
+      "id": "wIYmwSn"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "rate": 4,
+      "id": "RlAQFrQ"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "супер",
+      "id": "gi-iasy"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 4,
+      "id": "jauldBd"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

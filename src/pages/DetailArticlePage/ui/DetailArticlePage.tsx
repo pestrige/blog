@@ -9,6 +9,7 @@ import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
 import { articleDetailsPageReducer } from "../model/slice";
 import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
 import { DetailArticlePageComments } from "./DetailArticlePageComments/DetailArticlePageComments";
+import { ArticleRating } from "@/features/ArticleRating";
 
 const reducers: ReducersList = {
 	articleDetailsPage: articleDetailsPageReducer,
@@ -32,6 +33,7 @@ const DetailArticlePage = memo((): JSX.Element => {
 			<DetailArticlePageHeader />
 			<ArticleDetails id={id ?? "1"} className="big-margin" />
 
+			<ArticleRating articleId={id} />
 			<ArticleRecommendations />
 			<DetailArticlePageComments id={id} />
 		</main>

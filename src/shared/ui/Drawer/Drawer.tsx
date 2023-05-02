@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect } from "react";
+import { MouseEvent, ReactNode, useCallback, useEffect } from "react";
 import { useModal } from "@/shared/hooks";
 import { classNames } from "@/shared/lib";
 import { AnimationProvider, useAnimationContext } from "@/shared/providers";
@@ -33,6 +33,10 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 			onResolve: handleClose,
 		});
 	};
+
+	const handleContentClick = useCallback((evt: MouseEvent<HTMLDivElement>) => {
+		evt.stopPropagation();
+	}, []);
 
 	const bind = Gesture.useDrag(
 		({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
@@ -73,6 +77,7 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 			<div className={classNames(cls.drawer, className)}>
 				<Overlay onClose={handleCloseDrawer} isOpen={isOpen} isClose={isClosing}>
 					<Spring.a.div
+						onClick={handleContentClick}
 						className={cls.sheet}
 						style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
 						{...bind()}

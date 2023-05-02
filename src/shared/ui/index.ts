@@ -15,6 +15,7 @@ export { Portal } from "./Portal";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Select } from "./Popups/Select/Select";
 export type { SelectOption } from "./Popups/Select/Select";
+export { StarRating } from "./StarRating/StarRating";
 export { Tabs } from "./Tabs/Tabs";
 export type { TabItem } from "./Tabs/Tabs";
 export { Text } from "./Text";

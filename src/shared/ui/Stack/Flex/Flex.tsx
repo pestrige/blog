@@ -1,4 +1,4 @@
-import { ReactNode, CSSProperties } from "react";
+import { ReactNode, CSSProperties, HTMLAttributes } from "react";
 import { classNames } from "@/shared/lib";
 import cls from "./Flex.module.scss";
 
@@ -36,7 +36,7 @@ const gapClasses: Record<FlexGap, string> = {
 	32: cls.gap32,
 };
 
-export interface FlexProps {
+export interface FlexProps extends HTMLAttributes<Element> {
 	children: ReactNode;
 	as?: keyof JSX.IntrinsicElements;
 	className?: string;
@@ -58,6 +58,7 @@ export const Flex = ({
 	gap = 8,
 	max = false,
 	style,
+	...otherProps
 }: FlexProps): JSX.Element => {
 	const Tag = as;
 	const classes = classNames(
@@ -71,7 +72,7 @@ export const Flex = ({
 	);
 
 	return (
-		<Tag style={style} className={classes}>
+		<Tag style={style} className={classes} {...otherProps}>
 			{children}
 		</Tag>
 	);

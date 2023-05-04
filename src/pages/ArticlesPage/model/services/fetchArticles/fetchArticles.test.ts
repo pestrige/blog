@@ -1,5 +1,7 @@
 import { TestAsyncThunk } from "@/shared/lib/tests";
 import { Article } from "@/entities/Article";
+// TODO: add public API for test data
+// eslint-disable-next-line fsd-path-checker/public-api-imports
 import { articleExample } from "@/entities/Article/model/constants/articleExample";
 import { fetchArticles } from "./fetchArticles";
 

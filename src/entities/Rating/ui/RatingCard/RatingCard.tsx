@@ -32,7 +32,6 @@ export const RatingCard = memo(function RatingCard({
 	onCancel,
 	onAccept,
 }: Props): JSX.Element {
-	console.log("rating", rating);
 	const { t } = useTranslation();
 	const isMobile = useIsMobile();
 	const [isModalOpen, setIsModalOpen] = useState(false);

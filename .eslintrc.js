@@ -54,7 +54,7 @@ module.exports = {
 		"jsx-a11y/click-events-have-key-events": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
 		"react/no-array-index-key": "off",
-		[IS_DEV ? "fsd-path-checker/path-checker" : undefined]: IS_DEV ? "error" : "off",
+		[IS_DEV ? "fsd-path-checker/path-checker" : undefined]: IS_DEV ? ["error", { alias: "@" }] : "off",
 		"i18next/no-literal-string": [
 			"error",
 			{

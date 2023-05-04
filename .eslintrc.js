@@ -57,7 +57,13 @@ module.exports = {
 		[IS_PROD ? undefined : "fsd-path-checker/path-checker"]: IS_PROD ? "off" : ["error", { alias: "@" }],
 		[IS_PROD ? undefined : "fsd-path-checker/public-api-imports"]: IS_PROD
 			? "off"
-			: ["error", { alias: "@" }],
+			: [
+				"error",
+				{
+					alias: "@",
+					testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"],
+				},
+			  ],
 		"i18next/no-literal-string": [
 			"error",
 			{

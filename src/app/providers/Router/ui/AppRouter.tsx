@@ -1,8 +1,8 @@
 import React, { memo, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { appRoutes } from "@/shared/config";
 import { PageLoader } from "@/widgets/PageLoader";
 import { useUserIsMountedSelector } from "@/entities/User";
+import { appRoutes } from "../model/config";
 import { RouteElement } from "./RouteElement";
 
 export const AppRouter = memo((): JSX.Element | null => {

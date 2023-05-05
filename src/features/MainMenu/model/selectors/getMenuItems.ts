@@ -1,7 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { getUserData } from "@/entities/User";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 import { MenuAboutIcon, MenuArticleIcon, MenuMainIcon, MenuProfileIcon } from "@/shared/assets";
 import { MainMenuItemType } from "../types/mainMenu";
 

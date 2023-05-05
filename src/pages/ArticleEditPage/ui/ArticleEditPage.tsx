@@ -2,7 +2,7 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Text } from "@/shared/ui";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 
 const ArticleEditPage = memo((): JSX.Element => {
 	const { t } = useTranslation("article");

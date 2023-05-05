@@ -1,7 +1,7 @@
 import { ReactElement, useMemo } from "react";
 import { Navigate } from "react-router-dom";
 import { useIsAuthSelector, UserRole, useUserRolesSelector } from "@/entities/User";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 
 interface Props {
 	authOnly?: boolean;

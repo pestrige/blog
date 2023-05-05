@@ -7,7 +7,7 @@ import { AvatarDropdown } from "@/features/AvatarDropdown";
 import { useUser } from "@/entities/User";
 import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "@/shared/ui";
 import { classNames } from "@/shared/lib";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 import cls from "./Navbar.module.scss";
 
 interface Props {

@@ -2,7 +2,7 @@ import React, { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/shared/ui";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 
 import { useArticleDataSelector } from "@/entities/Article";
 import { useCanUserEditArticleSelector } from "../../model/selectors/articleSelectors";

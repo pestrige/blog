@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Avatar, Dropdown, DropdownItem } from "@/shared/ui";
-import { RoutePaths } from "@/shared/config";
+import { RoutePaths } from "@/shared/constants";
 import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
 import { useAppDispatch } from "@/shared/hooks";
 

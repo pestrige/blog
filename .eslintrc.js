@@ -64,6 +64,21 @@ module.exports = {
 					testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"],
 				},
 			  ],
+		[IS_PROD ? undefined : "fsd-path-checker/layer-imports"]: IS_PROD
+			? "off"
+			: [
+				"error",
+				{
+					alias: "@",
+					ignoreImportPatterns: ["**/StoreSchema", "**/testing"],
+					ignoreFiles: [
+						"**/StoreSchema.ts",
+						"**/lib/tests/**",
+						"**/shared/config/storybook/**",
+						"**/shared/config/store/**",
+					],
+				},
+			  ],
 		"i18next/no-literal-string": [
 			"error",
 			{

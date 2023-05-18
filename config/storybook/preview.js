@@ -13,6 +13,14 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
+	themes: {
+		default: "light",
+		list: [
+			{ name: "light", class: ["root", THEMES.light], color: "#e8e8ea" },
+			{ name: "dark", class: ["root", THEMES.dark], color: "#090949" },
+			{ name: "blue", class: ["root", THEMES.blue], color: "#5e69ee" },
+		],
+	},
 	layout: "fullscreen",
 };
 

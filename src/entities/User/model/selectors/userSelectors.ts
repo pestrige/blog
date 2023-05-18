@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { StoreSchema } from "@/shared/config";
+import { buildSelector } from "@/shared/lib";
 import { UserRole } from "../constants/user";
 
-export const getUserData = (store: StoreSchema) => store.user.authData;
-export const useUserSelector = () => useSelector(getUserData);
+export const [useUserSelector, getUserData] = buildSelector((store: StoreSchema) => store.user.authData);
 
-export const getUserIsMounted = (store: StoreSchema) => store.user._mounted ?? false;
-export const useUserIsMountedSelector = () => useSelector(getUserIsMounted);
+export const [useUserIsMountedSelector] = buildSelector((store: StoreSchema) => store.user._mounted ?? false);
 
 export const getIsAuth = createSelector(getUserData, (userStore) => !!userStore?.id);
 export const useIsAuthSelector = () => useSelector(getIsAuth);

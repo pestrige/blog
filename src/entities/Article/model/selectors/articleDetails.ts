@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
 import { StoreSchema } from "@/shared/config";
+import { buildSelector } from "@/shared/lib";
 
-export const getArticleData = (store: StoreSchema) => store?.articleDetails?.data;
-export const useArticleDataSelector = () => useSelector(getArticleData);
+export const [useArticleDataSelector, getArticleData] = buildSelector(
+	(store: StoreSchema) => store?.articleDetails?.data
+);
 
-export const getIsArticleLoading = (store: StoreSchema) => store?.articleDetails?.isLoading ?? true;
-export const useIsArticleLoadingSelector = () => useSelector(getIsArticleLoading);
+export const [useIsArticleLoadingSelector, getIsArticleLoading] = buildSelector(
+	(store: StoreSchema) => store?.articleDetails?.isLoading ?? true
+);
 
-export const getArticleError = (store: StoreSchema) => store?.articleDetails?.error ?? "";
-export const useArticleErrorSelector = () => useSelector(getArticleError);
+export const [useArticleErrorSelector, getArticleError] = buildSelector(
+	(store: StoreSchema) => store?.articleDetails?.error ?? ""
+);

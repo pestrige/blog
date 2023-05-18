@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
 import { StoreSchema } from "@/shared/config";
+import { buildSelector } from "@/shared/lib";
 
-export const getComment = (store: StoreSchema) => store.addCommentForm?.text ?? "";
-export const useCommentSelector = () => useSelector(getComment);
+export const [useCommentSelector, getComment] = buildSelector(
+	(store: StoreSchema) => store.addCommentForm?.text ?? ""
+);
 
-export const getCommentError = (store: StoreSchema) => store.addCommentForm?.error ?? "";
-export const useCommentErrorSelector = () => useSelector(getCommentError);
+export const [useCommentErrorSelector, getCommentError] = buildSelector(
+	(store: StoreSchema) => store.addCommentForm?.error ?? ""
+);

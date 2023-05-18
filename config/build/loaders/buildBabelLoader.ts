@@ -12,6 +12,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
 		use: {
 			loader: "babel-loader",
 			options: {
+				cacheDirectory: true,
 				plugins: [
 					[
 						"@babel/plugin-transform-typescript",

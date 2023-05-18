@@ -19,8 +19,8 @@ export const CountrySelect = memo(({ className, value, onChange, readonly }: Cou
 	const { t } = useTranslation();
 
 	const onChangeHandler = useCallback(
-		(value: string, name: string) => {
-			onChange?.(value as Country, name);
+		(value: Country, name: string) => {
+			onChange?.(value, name);
 		},
 		[onChange]
 	);

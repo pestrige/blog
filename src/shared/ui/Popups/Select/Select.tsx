@@ -1,35 +1,36 @@
-import { memo, useCallback, Fragment, useMemo } from "react";
+import { useCallback, Fragment, useMemo } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "@/shared/lib";
 import { Button } from "../../Button";
 import { HStack } from "../../Stack";
 import cls from "./Select.module.scss";
 import commonCls from "../common.module.scss";
+import { typedMemo } from "@/shared/constants";
 
-export interface SelectOption {
-	value: string;
+export interface SelectOption<T> {
+	value: T;
 	content: string;
 	disabled?: boolean;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
 	name: string;
 	className?: string;
 	label?: string;
-	options?: SelectOption[];
-	value?: string;
-	onChange?: (value: string, name: string) => void;
+	options?: SelectOption<T>[];
+	value?: T;
+	onChange?: (value: T, name: string) => void;
 	readonly?: boolean;
 }
 
-export const Select = memo(function Select(props: SelectProps): JSX.Element {
+export const Select = typedMemo(function Select<T extends string>(props: SelectProps<T>): JSX.Element {
 	const { name, className, label, options, onChange, value, readonly } = props;
 	const selected = useMemo(() => options?.find((option) => option.value === value), [options, value]);
 
 	const onChangeHandler = useCallback(
 		(value: string) => {
 			if (onChange) {
-				onChange(value, name);
+				onChange(value as T, name);
 			}
 		},
 		[onChange, name]

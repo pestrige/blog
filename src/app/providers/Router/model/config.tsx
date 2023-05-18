@@ -5,7 +5,7 @@ import { ArticleEditPage } from "@/pages/ArticleEditPage";
 import { AdminPanelPage } from "@/pages/AdminPanelPage";
 import { ForbiddenPage } from "@/pages/ForbiddenPage";
 import { UserRole } from "@/entities/User";
-import { AppRoutes, RoutePaths } from "@/shared/constants";
+import { AppRoutes, getRoute } from "@/shared/constants";
 
 type AppRouteProps = RouteProps & {
 	authOnly?: boolean;
@@ -14,41 +14,43 @@ type AppRouteProps = RouteProps & {
 };
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
-	[AppRoutes.MAIN]: { element: <MainPage />, path: RoutePaths.main },
-	[AppRoutes.ABOUT]: { element: <AboutPage />, path: RoutePaths.about },
+	[AppRoutes.MAIN]: { element: <MainPage />, path: getRoute.main() },
+	[AppRoutes.ABOUT]: { element: <AboutPage />, path: getRoute.about() },
 	[AppRoutes.PROFILE]: {
 		element: <ProfilePage />,
-		path: `${RoutePaths.profile}/:id`,
+		path: `${getRoute.profile(":id")}`,
 		authOnly: true,
 	},
-	[AppRoutes.ARTICLES]: { element: <ArticlesPage />, path: RoutePaths.articles, authOnly: true },
+	[AppRoutes.ARTICLES]: { element: <ArticlesPage />, path: getRoute.articles(), authOnly: true },
 	[AppRoutes.ARTICLE]: {
 		element: <DetailArticlePage />,
-		path: `${RoutePaths.article}/:id`,
+		path: `${getRoute.article(":id")}`,
 		authOnly: true,
 	},
 	[AppRoutes.ARTICLE_EDIT]: {
 		element: <ArticleEditPage />,
-		path: RoutePaths.article_edit,
+		path: getRoute.articleEdit(":id"),
 		authOnly: true,
 	},
 	[AppRoutes.ARTICLE_CREATE]: {
 		element: <ArticleEditPage />,
-		path: RoutePaths.article_create,
+		path: getRoute.articleCreate(),
 		authOnly: true,
 	},
 	[AppRoutes.ADMIN_PANEL]: {
 		element: <AdminPanelPage />,
-		path: RoutePaths.admin_panel,
+		path: getRoute.adminPanel(),
 		authOnly: true,
 		roles: [UserRole.ADMIN, UserRole.MANAGER],
 	},
 	[AppRoutes.FORBIDDEN]: {
 		element: <ForbiddenPage />,
-		path: RoutePaths.forbidden,
+		path: getRoute.forbidden(),
 		authOnly: true,
 	},
-	[AppRoutes.NOT_FOUND]: { element: <NotFound />, path: RoutePaths.notFound },
+
+	// last
+	[AppRoutes.NOT_FOUND]: { element: <NotFound />, path: "*" },
 };
 
 export const appRoutes: AppRouteProps[] = Object.values(routeConfig);

@@ -7,8 +7,8 @@ import { AvatarDropdown } from "@/features/AvatarDropdown";
 import { useUser } from "@/entities/User";
 import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "@/shared/ui";
 import { classNames } from "@/shared/lib";
-import { RoutePaths } from "@/shared/constants";
 import cls from "./Navbar.module.scss";
+import { getRoute } from "@/shared/constants";
 
 interface Props {
 	className?: string;
@@ -33,7 +33,7 @@ export const Navbar = memo(({ className }: Props): JSX.Element => {
 					</li>
 
 					<li>
-						<AppLink to={RoutePaths.article_create} theme={AppLinkTheme.SECONDARY}>
+						<AppLink to={getRoute.articleCreate()} theme={AppLinkTheme.SECONDARY}>
 							<Text text={t("Создать статью")} variant="secondary" />
 						</AppLink>
 					</li>

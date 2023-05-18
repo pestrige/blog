@@ -2,7 +2,7 @@ import React, { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/shared/ui";
-import { RoutePaths } from "@/shared/constants";
+import { getRoute } from "@/shared/constants";
 
 import { useArticleDataSelector } from "@/entities/Article";
 import { useCanUserEditArticleSelector } from "../../model/selectors/articleSelectors";
@@ -15,12 +15,12 @@ export const DetailArticlePageHeader = memo((): JSX.Element => {
 	const canEdit = useCanUserEditArticleSelector();
 
 	const handleBackClick = useCallback(() => {
-		navigate(RoutePaths.articles);
+		navigate(getRoute.articles());
 	}, [navigate]);
 
 	const handleEditClick = useCallback(() => {
 		if (article?.id) {
-			navigate(RoutePaths.article_edit.replace(":id", article.id));
+			navigate(getRoute.articleEdit(article.id));
 		}
 	}, [navigate, article?.id]);
 

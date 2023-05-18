@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Avatar, Dropdown, DropdownItem } from "@/shared/ui";
-import { RoutePaths } from "@/shared/constants";
 import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
 import { useAppDispatch } from "@/shared/hooks";
+import { getRoute } from "@/shared/constants/router";
 
 export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const dispatch = useAppDispatch();
@@ -19,8 +19,8 @@ export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 
 	const dropdownItems: DropdownItem[] = useMemo(() => {
 		return [
-			{ content: t("Профиль"), href: `${RoutePaths.profile}/${id}` },
-			...(isAdminPanelAvailable ? [{ content: t("Админка"), href: RoutePaths.admin_panel }] : []),
+			{ content: t("Профиль"), href: `${getRoute.profile(id || "")}` },
+			...(isAdminPanelAvailable ? [{ content: t("Админка"), href: getRoute.adminPanel() }] : []),
 			{ content: t("Выйти"), onClick: handleLogout },
 		];
 	}, [t, id, handleLogout, isAdminPanelAvailable]);

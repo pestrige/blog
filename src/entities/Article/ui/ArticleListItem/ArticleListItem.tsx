@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames, formatDateToISO } from "@/shared/lib";
 import { AppLink, Avatar, Card, Button, Text, HStack } from "@/shared/ui";
 import { EyeIcon } from "@/shared/assets";
-import { RoutePaths } from "@/shared/constants";
+import { getRoute } from "@/shared/constants";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
 import { Article, ArticleTextBlock } from "../../model/types/article";
 import { ArticleView, ArticleBlockType } from "../../model/constants/article";
@@ -51,7 +51,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 					<img src={img} alt={title} className={cls.image} />
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
-					<AppLink to={`${RoutePaths.article}/${id}`} target={target}>
+					<AppLink to={getRoute.article(id)} target={target}>
 						<Button>{t("Читать далее")}</Button>
 					</AppLink>
 				</Card>
@@ -61,7 +61,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 	return (
 		<li className={classNames(cls.grid)}>
-			<AppLink to={`${RoutePaths.article}/${id}`} noHover target={target}>
+			<AppLink to={getRoute.article(id)} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
 						<img src={img} alt={title} className={cls.image} />

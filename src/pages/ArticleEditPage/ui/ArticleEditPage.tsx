@@ -2,7 +2,7 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Text } from "@/shared/ui";
-import { RoutePaths } from "@/shared/constants";
+import { getRoute } from "@/shared/constants";
 
 const ArticleEditPage = memo((): JSX.Element => {
 	const { t } = useTranslation("article");
@@ -11,7 +11,10 @@ const ArticleEditPage = memo((): JSX.Element => {
 	const isEdit = Boolean(id);
 
 	const handleBackClick = useCallback(() => {
-		navigate(`${RoutePaths.article}/${id}`);
+		if (!id) {
+			return;
+		}
+		navigate(getRoute.article(id));
 	}, [navigate, id]);
 
 	return (

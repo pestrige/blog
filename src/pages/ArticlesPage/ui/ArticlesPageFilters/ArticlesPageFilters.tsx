@@ -1,13 +1,9 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	ArticleSort,
-	ArticleSortSelector,
-	ArticleType,
-	ArticleTypeTabs,
-	ArticleView,
-	ArticleViewSwitcher,
-} from "@/entities/Article";
+import { ArticleSort, ArticleType, ArticleView } from "@/entities/Article";
+import { ArticleSortSelector } from "@/features/ArticleSortSelector";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+import { ArticleViewSwitcher } from "@/features/ArticleViewSwitcher";
 import { useAppDispatch, useDebounceCallback } from "@/shared/hooks";
 import { Card, HStack, Input } from "@/shared/ui";
 import { SortOrder } from "@/shared/types";

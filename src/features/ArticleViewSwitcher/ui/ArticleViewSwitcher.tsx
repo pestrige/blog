@@ -2,7 +2,7 @@ import React, { memo, MouseEvent, useCallback } from "react";
 import { Button, ButtonTheme, HStack } from "@/shared/ui";
 import { ViewGridIcon, ViewListIcon } from "@/shared/assets";
 import { classNames } from "@/shared/lib";
-import { ArticleView } from "../../model/constants/article";
+import { ArticleView } from "@/entities/Article";
 import cls from "./ArticleViewSwitcher.module.scss";
 
 const viewTypes = [

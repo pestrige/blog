@@ -23,7 +23,13 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
-	plugins: ["react", "@typescript-eslint", "i18next", !IS_PROD && "fsd-path-checker"].filter(Boolean),
+	plugins: [
+		"react",
+		"@typescript-eslint",
+		"i18next",
+		"unused-imports",
+		!IS_PROD && "fsd-path-checker",
+	].filter(Boolean),
 	rules: {
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-indent-props": [2, "tab"],
@@ -35,6 +41,7 @@ module.exports = {
 			},
 		],
 		"import/no-unresolved": "off",
+		"unused-imports/no-unused-imports": "error",
 		"import/prefer-default-export": "off",
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": "warn",
@@ -58,26 +65,26 @@ module.exports = {
 		[IS_PROD ? undefined : "fsd-path-checker/public-api-imports"]: IS_PROD
 			? "off"
 			: [
-				"error",
-				{
-					alias: "@",
-					testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"],
-				},
+					"error",
+					{
+						alias: "@",
+						testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"],
+					},
 			  ],
 		[IS_PROD ? undefined : "fsd-path-checker/layer-imports"]: IS_PROD
 			? "off"
 			: [
-				"error",
-				{
-					alias: "@",
-					ignoreImportPatterns: ["**/StoreSchema", "**/testing"],
-					ignoreFiles: [
-						"**/StoreSchema.ts",
-						"**/lib/tests/**",
-						"**/shared/config/storybook/**",
-						"**/shared/config/store/**",
-					],
-				},
+					"error",
+					{
+						alias: "@",
+						ignoreImportPatterns: ["**/StoreSchema", "**/testing"],
+						ignoreFiles: [
+							"**/StoreSchema.ts",
+							"**/lib/tests/**",
+							"**/shared/config/storybook/**",
+							"**/shared/config/store/**",
+						],
+					},
 			  ],
 		"i18next/no-literal-string": [
 			"error",

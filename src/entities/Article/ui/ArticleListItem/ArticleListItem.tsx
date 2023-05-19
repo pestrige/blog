@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames, formatDateToISO } from "@/shared/lib";
-import { AppLink, Avatar, Card, Button, Text, HStack } from "@/shared/ui";
+import { AppLink, Avatar, Card, Button, Text, HStack, AppImage, Skeleton } from "@/shared/ui";
 import { EyeIcon } from "@/shared/assets";
 import { getRoute } from "@/shared/constants";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
@@ -48,7 +48,12 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 					<Text title={title} className={cls.title} />
 					{infoBlock}
-					<img src={img} alt={title} className={cls.image} />
+					<AppImage
+						src={img}
+						alt={title}
+						className={cls.image}
+						fallback={<Skeleton width="100%" height={200} />}
+					/>
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
 					<AppLink to={getRoute.article(id)} target={target}>
@@ -64,7 +69,12 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 			<AppLink to={getRoute.article(id)} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
-						<img src={img} alt={title} className={cls.image} />
+						<AppImage
+							src={img}
+							alt={title}
+							className={cls.image}
+							fallback={<Skeleton width="100%" height={200} />}
+						/>
 						<time className={cls.date} dateTime={articleDate}>
 							<Text text={createdAt} />
 						</time>

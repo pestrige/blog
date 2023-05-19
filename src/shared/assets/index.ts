@@ -12,3 +12,4 @@ export { default as NotificationIcon } from "./icons/notification-icon.svg";
 export { default as StarIcon } from "./icons/star.svg";
 export { default as ViewGridIcon } from "./icons/view-grid.svg";
 export { default as ViewListIcon } from "./icons/view-list.svg";
+export { default as UserIcon } from "./icons/user-filled.svg";

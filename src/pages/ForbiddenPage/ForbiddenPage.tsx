@@ -6,7 +6,7 @@ const ForbiddenPage = memo((): JSX.Element => {
 	const { t } = useTranslation();
 
 	return (
-		<main className="page">
+		<main className="page" data-testid="ForbiddenPage">
 			<Text title={t("Доступ запрещен")} />
 		</main>
 	);

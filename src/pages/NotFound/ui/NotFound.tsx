@@ -8,7 +8,13 @@ export const NotFound = memo((): JSX.Element => {
 	const { t } = useTranslation();
 
 	return (
-		<HStack as="main" justify="center" align="center" className={classNames(cls.root, "page")}>
+		<HStack
+			testId="NotFoundPage"
+			as="main"
+			justify="center"
+			align="center"
+			className={classNames(cls.root, "page")}
+		>
 			<h1 className={cls.title}>{t("Страница не найдена")}</h1>
 		</HStack>
 	);

@@ -5,7 +5,7 @@ import { EditableProfileCard } from "@/features/EditProfileCard";
 const ProfilePage = memo((): JSX.Element => {
 	const { id } = useParams<{ id: string }>();
 	return (
-		<main className="page">
+		<main className="page" data-testid="ProfilePage">
 			<EditableProfileCard id={id} />
 		</main>
 	);

@@ -1,6 +1,7 @@
 import { ReactNode, CSSProperties, HTMLAttributes } from "react";
 import { classNames } from "@/shared/lib";
 import cls from "./Flex.module.scss";
+import { TestProps } from "@/shared/types";
 
 type FlexJustify = "start" | "end" | "center" | "between" | "around";
 type FlexAlign = "start" | "end" | "center" | "baseline" | "stretch";
@@ -36,7 +37,7 @@ const gapClasses: Record<FlexGap, string> = {
 	32: cls.gap32,
 };
 
-export interface FlexProps extends HTMLAttributes<Element> {
+export interface FlexProps extends HTMLAttributes<Element>, TestProps {
 	children: ReactNode;
 	as?: keyof JSX.IntrinsicElements;
 	className?: string;

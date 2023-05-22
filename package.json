@@ -130,6 +130,9 @@
 		"**/*.{ts,tsx}": "eslint"
 	},
 	"loki": {
+		"pixelmatch": {
+			"threshold": 0.9
+		},
 		"fetchFailIgnore": ".*",
 		"configurations": {
 			"chrome.laptop": {

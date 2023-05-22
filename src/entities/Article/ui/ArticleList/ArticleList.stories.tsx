@@ -21,11 +21,11 @@ const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...
 
 // LightGrid
 export const LightGrid = Template.bind({});
-LightGrid.args = { articles, view: ArticleView.GRID };
+LightGrid.args = { articles, view: ArticleView.GRID, isLoading: false };
 
 // DarkGrid
 export const DarkGrid = Template.bind({});
-DarkGrid.args = { articles, view: ArticleView.GRID };
+DarkGrid.args = { articles, view: ArticleView.GRID, isLoading: false };
 DarkGrid.decorators = [ThemeDecorator(THEMES.dark)];
 
 // LightList

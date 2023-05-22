@@ -82,6 +82,7 @@
 		"jest": "^27.5.1",
 		"jest-html-reporters": "^3.1.4",
 		"json-server": "^0.17.2",
+		"lint-staged": "^13.2.2",
 		"loki": "^0.31.1",
 		"mini-css-extract-plugin": "^2.5.3",
 		"prettier": "2.8.4",
@@ -124,6 +125,9 @@
 		"react-i18next": "^12.2.0",
 		"react-redux": "^7.2.6",
 		"react-router-dom": "^6.2.1"
+	},
+	"lint-staged": {
+		"**/*.{ts,tsx}": "eslint"
 	},
 	"loki": {
 		"fetchFailIgnore": ".*",

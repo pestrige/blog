@@ -68,7 +68,7 @@ jobs:
       - name: install modules
         run: npm ci --force
       - name: linting typescript
-        run: npm run lint
+        run: npm run lint:prod
         if: always()
       - name: linting css
         run: npm run lint:scss

@@ -9,10 +9,11 @@ import { scrollActions } from "../model/slice/scrollSlice";
 interface Props {
 	className?: string;
 	children: ReactNode;
+	testId?: string;
 	onScrollEnd: () => void;
 }
 
-export const ObservableScrollPage = ({ className, children, onScrollEnd }: Props): JSX.Element => {
+export const ObservableScrollPage = ({ className, children, testId, onScrollEnd }: Props): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const { pathname } = useLocation();
 	const wrapperRef = useRef<HTMLElement>(null);
@@ -34,7 +35,12 @@ export const ObservableScrollPage = ({ className, children, onScrollEnd }: Props
 	}, []);
 
 	return (
-		<main ref={wrapperRef} className={classNames("page", className)} onScroll={handleScrollChange}>
+		<main
+			data-testid={testId}
+			ref={wrapperRef}
+			className={classNames("page", className)}
+			onScroll={handleScrollChange}
+		>
 			{children}
 			<div ref={triggerRef} className={cls.trigger} />
 		</main>

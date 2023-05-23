@@ -19,7 +19,7 @@ const ArticlesPage = memo((): JSX.Element => {
 	useDynamicReducerLoader(reducers, false);
 
 	return (
-		<ObservableScrollPage onScrollEnd={handleScrollEnd}>
+		<ObservableScrollPage testId="ArticlesPage" onScrollEnd={handleScrollEnd}>
 			<ArticlesPageFilters className="big-margin" />
 			<ArticleInfinityList />
 		</ObservableScrollPage>

@@ -59,6 +59,7 @@ export const Flex = ({
 	gap = 8,
 	max = false,
 	style,
+	testId,
 	...otherProps
 }: FlexProps): JSX.Element => {
 	const Tag = as;
@@ -73,7 +74,7 @@ export const Flex = ({
 	);
 
 	return (
-		<Tag style={style} className={classes} {...otherProps}>
+		<Tag style={style} className={classes} data-testid={testId} {...otherProps}>
 			{children}
 		</Tag>
 	);

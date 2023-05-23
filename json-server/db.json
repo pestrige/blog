@@ -618,6 +618,15 @@
         "MANAGER"
       ],
       "avatar": "https://i.pravatar.cc/150?img=15"
+    },
+    {
+      "id": "4",
+      "username": "test",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://i.pravatar.cc/150?img=3"
     }
   ],
   "profile": [

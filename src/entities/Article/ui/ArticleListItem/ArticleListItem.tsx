@@ -21,7 +21,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 	const articleDate = formatDateToISO(createdAt);
 
 	const infoBlock = (
-		<HStack justify="between" className={cls.infoWrapper}>
+		<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
 			<Text text={type.join(", ")} className={cls.info} />
 			<div className={cls.viewsWrapper}>
 				<EyeIcon className={cls.eye} />
@@ -36,7 +36,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 			| undefined;
 
 		return (
-			<li className={classNames(cls.list)}>
+			<li className={classNames(cls.list)} data-testid="ArticleListItem">
 				<Card>
 					<div className={cls.header}>
 						<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
@@ -65,7 +65,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 	}
 
 	return (
-		<li className={classNames(cls.grid)}>
+		<li className={classNames(cls.grid)} data-testid="ArticleListItem">
 			<AppLink to={getRoute.article(id)} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
@@ -80,7 +80,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 						</time>
 					</div>
 
-					<HStack justify="between" className={cls.infoWrapper}>
+					<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
 						<Text text={type.join(", ")} className={cls.info} />
 						<div className={cls.viewsWrapper}>
 							<EyeIcon className={cls.eye} />

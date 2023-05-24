@@ -54,6 +54,7 @@ const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingPr
 			feedbackTitle={t("Оставьте свой отзыв о статье")}
 			onAccept={handleAccept}
 			onCancel={handleCancel}
+			testId="ArticleRating"
 		/>
 	);
 });

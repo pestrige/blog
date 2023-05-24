@@ -41,9 +41,20 @@ export const StarRating = memo(function StarRating({
 	);
 
 	return (
-		<HStack as="ul" className={classNames(className)} onMouseLeave={handleMouseLeave}>
+		<HStack
+			testId="RatingStar.list"
+			as="ul"
+			className={classNames(className)}
+			onMouseLeave={handleMouseLeave}
+		>
 			{STARS.map((star) => (
-				<li key={star} onMouseEnter={handleHover(star)} onClick={handleClick(star)}>
+				<li
+					data-testid={`RatingStar.${star}`}
+					data-selected={hoveredRating && !rating ? hoveredRating >= star : rating >= star}
+					key={star}
+					onMouseEnter={handleHover(star)}
+					onClick={handleClick(star)}
+				>
 					<StarIcon
 						width={size}
 						height={size}

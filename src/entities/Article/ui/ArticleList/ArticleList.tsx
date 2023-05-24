@@ -23,6 +23,7 @@ interface Props {
 	isLoading?: boolean;
 	view?: ArticleView;
 	target?: HTMLAttributeAnchorTarget;
+	testId?: string;
 }
 
 export const ArticleList = memo(
@@ -32,6 +33,7 @@ export const ArticleList = memo(
 		isLoading = false,
 		view = ArticleView.GRID,
 		target,
+		testId,
 	}: Props): JSX.Element => {
 		const { t } = useTranslation("articles");
 
@@ -43,7 +45,7 @@ export const ArticleList = memo(
 			);
 
 		return (
-			<div className={className}>
+			<div className={className} data-testid={testId ?? "ArticleList"}>
 				<ul className={cls[view]}>
 					{articles.length > 0 &&
 						articles.map((article) => (

@@ -49,8 +49,11 @@ const AddCommentForm = memo(({ className, onSubmit }: Props): JSX.Element => {
 				value={comment}
 				error={error}
 				onChange={handleCommentChange}
+				dataTestInputId="CommentForm.Input"
 			/>
-			<Button type="submit">{t("Отправить")}</Button>
+			<Button dataTestId="CommentForm.Submit" type="submit">
+				{t("Отправить")}
+			</Button>
 		</form>
 	);
 });

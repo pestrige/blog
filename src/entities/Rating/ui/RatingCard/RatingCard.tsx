@@ -20,6 +20,7 @@ interface Props {
 	title: string;
 	feedbackTitle?: string;
 	rating?: number;
+	testId?: string;
 	onCancel?: (starsCount: number) => void;
 	onAccept?: (starsCount: number, feedback?: string) => void;
 }
@@ -29,6 +30,7 @@ export const RatingCard = memo(function RatingCard({
 	title,
 	feedbackTitle,
 	rating,
+	testId = "RatingCard",
 	onCancel,
 	onAccept,
 }: Props): JSX.Element {
@@ -77,10 +79,16 @@ export const RatingCard = memo(function RatingCard({
 		() => (
 			<VStack gap={32} max>
 				<Text title={feedbackTitle} />
-				<Input name="feedback" placeholder={t("Ваш отзыв")} onChange={handleInput} value={feedback} />
+				<Input
+					dataTestInputId={`${testId}.Input`}
+					name="feedback"
+					placeholder={t("Ваш отзыв")}
+					onChange={handleInput}
+					value={feedback}
+				/>
 			</VStack>
 		),
-		[feedbackTitle, t, handleInput, feedback]
+		[feedbackTitle, t, handleInput, feedback, testId]
 	);
 
 	useEffect(() => {
@@ -100,10 +108,16 @@ export const RatingCard = memo(function RatingCard({
 				<Modal isOpen={isModalOpen} onClose={handleModalClose}>
 					{content}
 					<HStack justify="end" max className={cls.modalButtons}>
-						<Button theme={ButtonTheme.OUTLINE_ERROR} onClick={handleCancel}>
+						<Button
+							dataTestId={`${testId}.CancelButton`}
+							theme={ButtonTheme.OUTLINE_ERROR}
+							onClick={handleCancel}
+						>
 							{t("Отмена")}
 						</Button>
-						<Button onClick={handleAccept}>{t("Отправить")}</Button>
+						<Button dataTestId={`${testId}.SendButton`} onClick={handleAccept}>
+							{t("Отправить")}
+						</Button>
 					</HStack>
 				</Modal>
 			)}

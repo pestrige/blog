@@ -503,6 +503,19 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Kotlin news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
+      "views": 109,
+      "createdAt": "01.04.2023",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "cK09LXm"
     }
   ],
   "comments": [
@@ -651,6 +664,17 @@
       "city": "Moscow",
       "username": "user",
       "avatar": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": "4",
+      "first": "Peter",
+      "lastname": "Petrov",
+      "age": 25,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "test",
+      "avatar": "https://i.pravatar.cc/150?img=3"
     }
   ],
   "article-ratings": [
@@ -760,6 +784,12 @@
       "userId": "1",
       "rate": 4,
       "id": "jauldBd"
+    },
+    {
+      "articleId": "17",
+      "userId": "4",
+      "rate": 4,
+      "id": "mUxMOm_"
     }
   ],
   "profile-ratings": [

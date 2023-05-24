@@ -14,7 +14,7 @@ export const CommentCard = memo(({ comment, className = "" }: Props): JSX.Elemen
 	const { user } = comment;
 
 	return (
-		<li className={classNames(cls.commentCard, className)}>
+		<li data-testid="CommentCard" className={classNames(cls.commentCard, className)}>
 			<div className={cls.header}>
 				<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
 				<AppLink to={getRoute.article(user.id)}>

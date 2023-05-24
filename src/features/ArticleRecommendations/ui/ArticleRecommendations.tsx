@@ -18,6 +18,7 @@ export const ArticleRecommendations = memo(function ArticleRecommendations(): JS
 				isLoading={isLoading}
 				className="block-margin"
 				target="_blank"
+				testId="ArticleRecommendations"
 			/>
 		</>
 	);

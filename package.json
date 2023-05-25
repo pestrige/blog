@@ -13,6 +13,7 @@
 		"lint:fix": "eslint '**/*.{ts,tsx}' --fix",
 		"lint:scss": "npx stylelint \"**/*.scss\"",
 		"lint:scss-fix": "npx stylelint \"**/*.scss\" --fix",
+		"prettier": "npx prettier --write \"**/*.{ts,tsx}\"",
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:e2e": "cypress open",
 		"test:ui": "npx loki test",
@@ -129,7 +130,7 @@
 		"react-router-dom": "^6.2.1"
 	},
 	"lint-staged": {
-		"**/*.{ts,tsx}": "eslint"
+		"**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
 	},
 	"loki": {
 		"pixelmatch": {

@@ -1,11 +1,10 @@
 const jsonServer = require("json-server");
 const path = require("path");
 const https = require("https");
+const http = require("http");
 const fs = require("fs");
 
-const privateKey = fs.readFileSync(path.resolve(__dirname, "selfsigned.key"), "utf8");
-const certificate = fs.readFileSync(path.resolve(__dirname, "selfsigned.crt"), "utf8");
-const credentials = {key: privateKey, cert: certificate};
+const IS_DEV = process.env.MODE === "development";
 
 const server = jsonServer.create();
 
@@ -15,12 +14,14 @@ server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (req, res, next) => {
-	await new Promise((res) => {
-		setTimeout(res, 0);
+if (IS_DEV) {
+	server.use(async (req, res, next) => {
+		await new Promise((res) => {
+			setTimeout(res, 800);
+		});
+		next();
 	});
-	next();
-});
+}
 
 // Эндпоинт для логина
 server.post("/login", (req, res) => {
@@ -54,11 +55,23 @@ server.use((req, res, next) => {
 
 server.use(router);
 
-// создаем https сервер
-const httpsServer = https.createServer(credentials, server);
+// настраиваем и запускаем https или http сервер в зависимости от окружения
+if (IS_DEV) {
+	const HTTP_PORT = 8000;
+	const httpServer = http.createServer(server);
 
-// запуск сервера
-const PORT = 8443;
-httpsServer.listen(PORT, () => {
-	console.log(`server is running on ${PORT} port`);
-});
+	httpServer.listen(HTTP_PORT, () => {
+		console.log(`http server is running on ${HTTP_PORT} port`);
+	});
+} else {
+	const privateKey = fs.readFileSync("/etc/letsencrypt/live/fsd-blog.ru-0003/privkey.pem", "utf8");
+	const certificate = fs.readFileSync("/etc/letsencrypt/live/fsd-blog.ru-0003/fullchain.pem", "utf8");
+	const credentials = { key: privateKey, cert: certificate };
+	const PORT = 8443;
+	const httpsServer = https.createServer(credentials, server);
+
+	httpsServer.listen(PORT, () => {
+		console.log(`https server is running on ${PORT} port`);
+	});
+
+}

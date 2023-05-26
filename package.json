@@ -6,7 +6,8 @@
 	"scripts": {
 		"start:dev": "concurrently \"webpack serve\" \"node ./json-server/index.js\"",
 		"start:dev-vite": "concurrently \"vite\" \"node ./json-server/index.js\"",
-		"build:prod": "webpack --env mode=production apiUrl=https://blog-server-pestrige.vercel.app",
+		"build:prod": "webpack --env mode=production",
+		"build:prod-vercel": "webpack --env mode=production apiUrl=https://blog-server-pestrige.vercel.app",
 		"build:dev": "webpack --env mode=development",
 		"lint": "eslint '**/*.{ts,tsx}'",
 		"lint:prod": "NODE_ENV=production eslint '**/*.{ts,tsx}'",

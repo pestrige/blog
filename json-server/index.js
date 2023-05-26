@@ -1,6 +1,12 @@
-const fs = require("fs");
 const jsonServer = require("json-server");
 const path = require("path");
+const https = require("https");
+const fs = require("fs");
+
+const options = {
+	key: fs.readFileSync(path.resolve(__dirname, "key.pem")),
+	cert: fs.readFileSync(path.resolve(__dirname, "cert.pem")),
+};
 
 const server = jsonServer.create();
 
@@ -12,7 +18,7 @@ server.use(jsonServer.bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
 	await new Promise((res) => {
-		setTimeout(res, 800);
+		setTimeout(res, 0);
 	});
 	next();
 });
@@ -49,7 +55,10 @@ server.use((req, res, next) => {
 
 server.use(router);
 
+// создаем https сервер
+const httpsServer = https.createServer(options, server);
+
 // запуск сервера
-server.listen(8000, () => {
-	console.log("server is running on 8000 port");
+httpsServer.listen(443, () => {
+	console.log("server is running on 443 port");
 });

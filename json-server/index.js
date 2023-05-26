@@ -3,10 +3,9 @@ const path = require("path");
 const https = require("https");
 const fs = require("fs");
 
-const options = {
-	key: fs.readFileSync(path.resolve(__dirname, "key.pem")),
-	cert: fs.readFileSync(path.resolve(__dirname, "cert.pem")),
-};
+const privateKey = fs.readFileSync(path.resolve(__dirname, "selfsigned.key"), "utf8");
+const certificate = fs.readFileSync(path.resolve(__dirname, "selfsigned.crt"), "utf8");
+const credentials = {key: privateKey, cert: certificate};
 
 const server = jsonServer.create();
 
@@ -56,7 +55,7 @@ server.use((req, res, next) => {
 server.use(router);
 
 // создаем https сервер
-const httpsServer = https.createServer(options, server);
+const httpsServer = https.createServer(credentials, server);
 
 // запуск сервера
 const PORT = 8443;

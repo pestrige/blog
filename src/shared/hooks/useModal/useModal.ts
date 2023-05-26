@@ -32,6 +32,6 @@ export const useModal = (onClose: () => void) => {
 			handleClose,
 			handleContentClick,
 		}),
-		[isClosing, handleClose, handleContentClick]
+		[isClosing, handleClose, handleContentClick],
 	);
 };

@@ -69,5 +69,5 @@ export const Dropdown = memo(
 				</Menu.Items>
 			</Menu>
 		);
-	}
+	},
 );

@@ -6,7 +6,7 @@ const getScrollPosition = (store: StoreSchema) => store.scroll.scroll;
 const getScrollByPath = createSelector(
 	getScrollPosition,
 	(store: StoreSchema, path: string) => path,
-	(scroll, path) => scroll[path] ?? 0
+	(scroll, path) => scroll[path] ?? 0,
 );
 
 export const useScrollByPathSelector = (path: string) =>

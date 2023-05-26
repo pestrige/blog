@@ -16,5 +16,5 @@ export const fetchProfileData = createAsyncThunk<ProfileCardType, string, ThunkC
 		} catch (e) {
 			return rejectWithValue(ValidateErrorsEnum.SERVER_ERROR);
 		}
-	}
+	},
 );

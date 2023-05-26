@@ -54,7 +54,7 @@ export const RatingCard = memo(function RatingCard({
 
 			onAccept?.(selectedRating);
 		},
-		[rating, feedbackTitle, onAccept]
+		[rating, feedbackTitle, onAccept],
 	);
 
 	const handleInput = useCallback((value: string) => {
@@ -88,7 +88,7 @@ export const RatingCard = memo(function RatingCard({
 				/>
 			</VStack>
 		),
-		[feedbackTitle, t, handleInput, feedback, testId]
+		[feedbackTitle, t, handleInput, feedback, testId],
 	);
 
 	useEffect(() => {

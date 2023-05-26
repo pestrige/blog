@@ -37,7 +37,7 @@ export const StarRating = memo(function StarRating({
 				}
 			};
 		},
-		[onSelect]
+		[onSelect],
 	);
 
 	return (

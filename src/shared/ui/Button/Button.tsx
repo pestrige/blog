@@ -45,7 +45,7 @@ export const Button = memo(
 				[cls.square]: square,
 				[cls.full]: fullWidth,
 			},
-			className
+			className,
 		);
 
 		return (
@@ -58,5 +58,5 @@ export const Button = memo(
 				{children}
 			</button>
 		);
-	}
+	},
 );

@@ -12,7 +12,7 @@ interface Props {
 export const StoreProvider = ({ children, initialState, asyncReducers }: Props): JSX.Element => {
 	const store = createReduxStore(
 		initialState as StoreSchema,
-		asyncReducers as ReducersMapObject<StoreSchema>
+		asyncReducers as ReducersMapObject<StoreSchema>,
 	);
 
 	return <Provider store={store}>{children}</Provider>;

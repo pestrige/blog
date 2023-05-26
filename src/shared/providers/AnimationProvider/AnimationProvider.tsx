@@ -30,7 +30,7 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
 			Gesture: GestureRef.current,
 			isLoaded,
 		}),
-		[isLoaded]
+		[isLoaded],
 	);
 
 	useEffect(() => {

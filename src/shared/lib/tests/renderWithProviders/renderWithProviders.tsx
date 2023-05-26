@@ -21,6 +21,6 @@ export function renderWithProviders(component: ReactNode, options: RenderWithPro
 			<StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
 				<I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
 			</StoreProvider>
-		</MemoryRouter>
+		</MemoryRouter>,
 	);
 }

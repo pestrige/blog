@@ -40,7 +40,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 		(view: ArticleView) => {
 			dispatch(articlesPageActions.setView(view));
 		},
-		[dispatch]
+		[dispatch],
 	);
 
 	const handleChangeSort = useCallback(
@@ -49,7 +49,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 			dispatch(articlesPageActions.setPage(1));
 			debounceFetchData();
 		},
-		[debounceFetchData, dispatch]
+		[debounceFetchData, dispatch],
 	);
 	const handleChangeOrder = useCallback(
 		(newOrder: SortOrder) => {
@@ -57,7 +57,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 			dispatch(articlesPageActions.setPage(1));
 			debounceFetchData();
 		},
-		[debounceFetchData, dispatch]
+		[debounceFetchData, dispatch],
 	);
 	const handleChangeSearch = useCallback(
 		(search: string) => {
@@ -65,7 +65,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 			dispatch(articlesPageActions.setPage(1));
 			debounceFetchData();
 		},
-		[debounceFetchData, dispatch]
+		[debounceFetchData, dispatch],
 	);
 	const handleChangeType = useCallback(
 		(type: string) => {
@@ -73,7 +73,7 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 			dispatch(articlesPageActions.setPage(1));
 			debounceFetchData();
 		},
-		[debounceFetchData, dispatch]
+		[debounceFetchData, dispatch],
 	);
 
 	return (

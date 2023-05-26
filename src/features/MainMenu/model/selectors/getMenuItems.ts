@@ -22,7 +22,7 @@ const getMenuItems = createSelector(getUserData, (userData) => {
 				path: getRoute.articles(),
 				text: "Статьи",
 				Icon: MenuArticleIcon,
-			}
+			},
 		);
 	}
 

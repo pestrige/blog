@@ -21,7 +21,7 @@ export const Tabs = memo(function Tabs({ className, tabs, value, onTabClick }: P
 		(tab: TabItem) => () => {
 			return onTabClick(tab.value);
 		},
-		[onTabClick]
+		[onTabClick],
 	);
 
 	return (

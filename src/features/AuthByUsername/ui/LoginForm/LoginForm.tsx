@@ -35,14 +35,14 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 		(usernameValue: string) => {
 			dispatch(loginActions.setUsername(usernameValue));
 		},
-		[dispatch]
+		[dispatch],
 	);
 
 	const handlePasswordChange = useCallback(
 		(passwordValue: string) => {
 			dispatch(loginActions.setPassword(passwordValue));
 		},
-		[dispatch]
+		[dispatch],
 	);
 
 	const handleSubmit = useCallback(
@@ -53,7 +53,7 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 				onClose();
 			}
 		},
-		[dispatch, username, password, onClose]
+		[dispatch, username, password, onClose],
 	);
 
 	useDynamicReducerLoader(initialReducers);

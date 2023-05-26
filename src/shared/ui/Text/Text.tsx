@@ -40,5 +40,5 @@ export const Text = memo(
 				{!!text && <p className={cls.text}>{text}</p>}
 			</div>
 		);
-	}
+	},
 );

@@ -33,7 +33,7 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 				onChange(value as T, name);
 			}
 		},
-		[onChange, name]
+		[onChange, name],
 	);
 
 	return (

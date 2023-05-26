@@ -56,5 +56,5 @@ export const ArticleList = memo(
 				</ul>
 			</div>
 		);
-	}
+	},
 );

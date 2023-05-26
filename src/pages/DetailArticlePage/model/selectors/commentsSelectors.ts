@@ -3,7 +3,7 @@ import { StoreSchema } from "@/shared/config";
 import { commentsAdapter } from "../slice/articleDetailsCommentsSlice";
 
 export const getArticleComments = commentsAdapter?.getSelectors<StoreSchema>(
-	(state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
+	(state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 export const useArticleCommentsSelector = () => useSelector(getArticleComments.selectAll);
 

@@ -57,7 +57,7 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 			filterTaps: true,
 			bounds: { top: 0 },
 			rubberband: true,
-		}
+		},
 	);
 
 	const display = y.to((py) => (py < height ? "block" : "none"));

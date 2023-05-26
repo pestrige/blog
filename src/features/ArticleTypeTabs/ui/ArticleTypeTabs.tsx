@@ -19,14 +19,14 @@ export const ArticleTypeTabs = memo(({ className = "", type, onTabClick }: Props
 			{ value: ArticleType.SCIENCE, content: t("Наука") },
 			{ value: ArticleType.ECONOMICS, content: t("Экономика") },
 		],
-		[t]
+		[t],
 	);
 
 	const handleChangeType = useCallback(
 		(type: string) => {
 			onTabClick(type as ArticleType);
 		},
-		[onTabClick]
+		[onTabClick],
 	);
 
 	return (

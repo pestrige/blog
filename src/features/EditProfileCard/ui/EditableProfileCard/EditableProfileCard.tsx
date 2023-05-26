@@ -38,10 +38,10 @@ export const EditableProfileCard = ({ id }: { id?: string }): JSX.Element => {
 				profileActions.updateProfile({
 					form: { [name]: newValue },
 					field: name as ProfileCardTypeKeyof,
-				})
+				}),
 			);
 		},
-		[dispatch]
+		[dispatch],
 	);
 
 	const handleSubmit = useCallback(() => {

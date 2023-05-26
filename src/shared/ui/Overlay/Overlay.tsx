@@ -22,7 +22,7 @@ export const Overlay = memo(function Overlay({
 				onClose();
 			}
 		},
-		[onClose]
+		[onClose],
 	);
 
 	useEffect(() => {

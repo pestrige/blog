@@ -6,7 +6,7 @@ import { useMemo } from "react";
 export function buildSlice<
 	State,
 	CaseReducers extends SliceCaseReducers<State>,
-	Name extends string = string
+	Name extends string = string,
 >(options: CreateSliceOptions<State, CaseReducers, Name>) {
 	const slice = createSlice(options);
 

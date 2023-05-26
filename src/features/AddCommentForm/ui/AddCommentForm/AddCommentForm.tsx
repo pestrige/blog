@@ -29,7 +29,7 @@ const AddCommentForm = memo(({ className, onSubmit }: Props): JSX.Element => {
 		(value: string) => {
 			dispatch(setComment(value));
 		},
-		[dispatch, setComment]
+		[dispatch, setComment],
 	);
 
 	const handleSubmit = useCallback(
@@ -38,7 +38,7 @@ const AddCommentForm = memo(({ className, onSubmit }: Props): JSX.Element => {
 			onSubmit(comment);
 			handleCommentChange("");
 		},
-		[onSubmit, comment, handleCommentChange]
+		[onSubmit, comment, handleCommentChange],
 	);
 
 	return (

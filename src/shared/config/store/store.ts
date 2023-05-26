@@ -7,7 +7,7 @@ import { createReducerManager } from "./reducerManager";
 
 export const createReduxStore = (
 	initialState?: StoreSchema,
-	asyncReducers?: ReducersMapObject<StoreSchema>
+	asyncReducers?: ReducersMapObject<StoreSchema>,
 ) => {
 	const rootReducer: ReducersMapObject<StoreSchema> = {
 		...asyncReducers,

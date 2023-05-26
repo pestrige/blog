@@ -3,7 +3,7 @@ import axios, { AxiosStatic } from "axios";
 import { StoreSchema } from "@/shared/config";
 
 type ActionCreatorType<ReturnType, ThunkArg, RejectedValue> = (
-	arg: ThunkArg
+	arg: ThunkArg,
 ) => AsyncThunkAction<ReturnType, ThunkArg, { rejectValue: RejectedValue }>;
 
 jest.mock("axios");
@@ -21,7 +21,7 @@ export class TestAsyncThunk<ReturnType, ThunkArg, RejectedValue> {
 
 	constructor(
 		actionCreator: ActionCreatorType<ReturnType, ThunkArg, RejectedValue>,
-		state?: DeepPartial<StoreSchema>
+		state?: DeepPartial<StoreSchema>,
 	) {
 		this.actionCreator = actionCreator;
 		this.dispatch = jest.fn();

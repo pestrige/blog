@@ -19,7 +19,7 @@ export const CurrencySelect = memo(({ className, value, onChange, readonly }: Cu
 		(value: Currency, name: string) => {
 			onChange?.(value, name);
 		},
-		[onChange]
+		[onChange],
 	);
 
 	return (

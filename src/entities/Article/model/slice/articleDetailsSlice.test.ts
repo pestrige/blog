@@ -12,8 +12,8 @@ describe("articleDetailsSlice", () => {
 		expect(
 			articleDetailsReducer(
 				state as ArticleDetailsSchema,
-				fetchArticleById.fulfilled(articleExample, "/articles/1", "")
-			)
+				fetchArticleById.fulfilled(articleExample, "/articles/1", ""),
+			),
 		).toEqual({
 			isLoading: false,
 			data: articleExample,

@@ -27,7 +27,7 @@ export const DetailArticlePageComments = memo(function DetailArticlePageComments
 		(commentText: string) => {
 			dispatch(sendCommentByArticleId(commentText));
 		},
-		[dispatch]
+		[dispatch],
 	);
 
 	useInitialEffect(() => {

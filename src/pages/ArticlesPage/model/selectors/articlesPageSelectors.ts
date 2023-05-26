@@ -4,7 +4,7 @@ import { ArticleSort, ArticleType, ArticleView } from "@/entities/Article";
 import { articlesAdapter } from "../slice/articlesPageAdapter";
 
 export const getArticles = articlesAdapter?.getSelectors<StoreSchema>(
-	(store) => store.articlesPage || articlesAdapter.getInitialState()
+	(store) => store.articlesPage || articlesAdapter.getInitialState(),
 );
 export const useArticlesSelector = () => useSelector(getArticles.selectAll);
 

@@ -48,5 +48,5 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticlesArgs, Thun
 		} catch (e) {
 			return rejectWithValue("error");
 		}
-	}
+	},
 );

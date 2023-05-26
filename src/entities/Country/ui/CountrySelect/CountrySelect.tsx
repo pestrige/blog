@@ -22,7 +22,7 @@ export const CountrySelect = memo(({ className, value, onChange, readonly }: Cou
 		(value: Country, name: string) => {
 			onChange?.(value, name);
 		},
-		[onChange]
+		[onChange],
 	);
 
 	return (

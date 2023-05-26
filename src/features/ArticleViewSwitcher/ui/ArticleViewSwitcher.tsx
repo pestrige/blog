@@ -21,7 +21,7 @@ export const ArticleViewSwitcher = memo(({ activeView, onViewSwitch }: Props): J
 			const currentView = currentTarget.name as ArticleView;
 			onViewSwitch(currentView);
 		},
-		[onViewSwitch]
+		[onViewSwitch],
 	);
 
 	return (

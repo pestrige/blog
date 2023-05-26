@@ -34,5 +34,5 @@ export const initializeArticles = createAsyncThunk<void, URLSearchParams, ThunkC
 			dispatch(articlesPageActions.initState());
 			dispatch(fetchArticles({}));
 		}
-	}
+	},
 );

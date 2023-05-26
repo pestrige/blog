@@ -70,7 +70,7 @@ export const Flex = ({
 		directionClasses[direction],
 		gapClasses[gap],
 		{ [cls.max]: max },
-		className
+		className,
 	);
 
 	return (

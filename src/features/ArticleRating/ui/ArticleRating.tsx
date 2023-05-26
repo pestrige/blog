@@ -24,21 +24,21 @@ const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingPr
 				// TODO: handle error
 			}
 		},
-		[articleId, userId, rateArticleMutation, refetch]
+		[articleId, userId, rateArticleMutation, refetch],
 	);
 
 	const handleAccept = useCallback(
 		async (rating: number, feedback?: string) => {
 			await handleRating(rating, feedback);
 		},
-		[handleRating]
+		[handleRating],
 	);
 
 	const handleCancel = useCallback(
 		async (rating: number) => {
 			await handleRating(rating);
 		},
-		[handleRating]
+		[handleRating],
 	);
 
 	if (isLoading || isRateProcessing) {

@@ -17,7 +17,7 @@ export const ThemeProvider = ({ children }: Props): JSX.Element => {
 			theme,
 			setTheme,
 		}),
-		[theme]
+		[theme],
 	);
 
 	useEffect(() => {

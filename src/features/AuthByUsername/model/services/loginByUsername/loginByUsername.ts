@@ -25,5 +25,5 @@ export const loginByUsername = createAsyncThunk<User, AuthData, ThunkConfig<stri
 		} catch (e) {
 			return rejectWithValue("Не удалось залогиниться");
 		}
-	}
+	},
 );

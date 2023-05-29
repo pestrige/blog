@@ -1,5 +1,6 @@
 export { addQueryParams } from "./url/addQueryParams";
 export { classNames } from "./classNames/classNames";
+export { getFeatureFlag, setFeatureFlags } from "./features/setGetFeatures";
 export { buildSelector } from "./store/buildSelector";
 export { buildSlice } from "./store/buildSlice";
 export { formatDateToISO } from "./formatDate/formatDate";

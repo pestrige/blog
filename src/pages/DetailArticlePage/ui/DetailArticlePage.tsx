@@ -10,6 +10,7 @@ import { articleDetailsPageReducer } from "../model/slice";
 import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
 import { DetailArticlePageComments } from "./DetailArticlePageComments/DetailArticlePageComments";
 import { ArticleRating } from "@/features/ArticleRating";
+import { getFeatureFlag } from "@/shared/lib";
 
 const reducers: ReducersList = {
 	articleDetailsPage: articleDetailsPageReducer,
@@ -18,6 +19,8 @@ const reducers: ReducersList = {
 const DetailArticlePage = memo((): JSX.Element => {
 	const { t } = useTranslation("articles");
 	const { id } = useParams<{ id: string }>();
+	const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
+	const isArticleRecommendationEnabled = getFeatureFlag("isArticleRecommendationEnabled");
 	useDynamicReducerLoader(reducers);
 
 	if (!id) {
@@ -33,8 +36,8 @@ const DetailArticlePage = memo((): JSX.Element => {
 			<DetailArticlePageHeader />
 			<ArticleDetails id={id ?? "1"} className="big-margin" />
 
-			<ArticleRating articleId={id} />
-			<ArticleRecommendations />
+			{isArticleRatingEnabled && <ArticleRating articleId={id} />}
+			{isArticleRecommendationEnabled && <ArticleRecommendations />}
 			<DetailArticlePageComments id={id} />
 		</main>
 	);

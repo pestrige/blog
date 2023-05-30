@@ -6,4 +6,6 @@ export { buildSlice } from "./store/buildSlice";
 export { formatDateToISO } from "./formatDate/formatDate";
 export { LOCAL_STORAGE_THEME_KEY, THEMES, ThemeContext } from "./ThemeContext/ThemeContext";
 export type { Theme } from "./ThemeContext/ThemeContext";
+export { toggleFeatures } from "./features/toggleFeatures";
+export type { ToggleFeaturesOptions } from "./features/toggleFeatures";
 export { useTheme } from "./ThemeContext/useTheme";

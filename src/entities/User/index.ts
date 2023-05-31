@@ -8,6 +8,8 @@ export {
 	useUserRolesSelector,
 	useIsUserAdminSelector,
 	useIsUserManagerSelector,
+	useJsonSettings,
 } from "./model/selectors/userSelectors";
 export { useInitUser } from "./model/hooks/useInitUser";
 export { useUser } from "./model/hooks/useUser";
+export { saveJsonSettings } from "./model/services/saveJsonSettings";

@@ -3,6 +3,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { StoreSchema } from "@/shared/config";
 import { buildSelector } from "@/shared/lib";
 import { UserRole } from "../constants/user";
+import { JsonSettings } from "../types/jsonSettings";
 
 export const [useUserSelector, getUserData] = buildSelector((store: StoreSchema) => store.user.authData);
 
@@ -19,3 +20,9 @@ export const useIsUserAdminSelector = () => useSelector(isUserAdmin);
 
 const isUserManager = createSelector(getUserRoles, (roles) => roles.includes(UserRole.MANAGER));
 export const useIsUserManagerSelector = () => useSelector(isUserManager);
+
+const defaultJsonSettings: JsonSettings = {};
+
+export const [useJsonSettings] = buildSelector(
+	(store: StoreSchema) => store.user?.authData?.jsonSettings ?? defaultJsonSettings,
+);

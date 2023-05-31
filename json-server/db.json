@@ -616,6 +616,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isArticleRecommendationEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "blue",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false
       }
     },
     {
@@ -629,6 +634,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isArticleRecommendationEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "dark",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false
       }
     },
     {
@@ -642,6 +652,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isArticleRecommendationEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "dark",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpened": false
       }
     },
     {
@@ -655,6 +670,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isArticleRecommendationEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "dark",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false
       }
     }
   ],

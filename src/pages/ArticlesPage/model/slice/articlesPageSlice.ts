@@ -9,7 +9,7 @@ import { articlesAdapter } from "./articlesPageAdapter";
 export const articlesPageSlice = createSlice({
 	name: "articlesPageSlice",
 	initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
-		isLoading: false,
+		isLoading: true,
 		error: "",
 		view: ArticleView.GRID,
 		ids: [],

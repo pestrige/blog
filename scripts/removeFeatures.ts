@@ -130,6 +130,7 @@ sourceFiles.forEach((sourceFile) => {
 		 */
 		if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
 			removeToggleFunction(node);
+			return;
 		}
 
 		/**

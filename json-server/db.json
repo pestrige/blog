@@ -620,7 +620,7 @@
       "jsonSettings": {
         "theme": "blue",
         "isFirstVisit": false,
-        "settingsPageHasBeenOpened": false
+        "articlesPageHasBeenOpened": true
       }
     },
     {
@@ -636,9 +636,9 @@
         "isArticleRecommendationEnabled": false
       },
       "jsonSettings": {
-        "theme": "dark",
+        "theme": "blue",
         "isFirstVisit": false,
-        "settingsPageHasBeenOpened": false
+        "articlesPageHasBeenOpened": true
       }
     },
     {
@@ -656,7 +656,7 @@
       "jsonSettings": {
         "theme": "dark",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpened": false
+        "articlesPageHasBeenOpened": false
       }
     },
     {
@@ -674,7 +674,7 @@
       "jsonSettings": {
         "theme": "dark",
         "isFirstVisit": false,
-        "settingsPageHasBeenOpened": false
+        "articlesPageHasBeenOpened": false
       }
     }
   ],

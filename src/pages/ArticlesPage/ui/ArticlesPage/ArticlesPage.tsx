@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 
 import { ObservableScrollPage } from "@/widgets";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
+import { ArticlesPageGreeting } from "@/features/ArticlesPageGreeting";
 import { fetchNextArticles } from "../../model/services/fetchNextArticles/fetchNextArticles";
 import { articlesPageReducer } from "../../model/slice/articlesPageSlice";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
@@ -22,6 +23,7 @@ const ArticlesPage = memo((): JSX.Element => {
 		<ObservableScrollPage testId="ArticlesPage" onScrollEnd={handleScrollEnd}>
 			<ArticlesPageFilters className="big-margin" />
 			<ArticleInfinityList />
+			<ArticlesPageGreeting />
 		</ObservableScrollPage>
 	);
 });

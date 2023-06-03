@@ -7,5 +7,6 @@ export { formatDateToISO } from "./formatDate/formatDate";
 export { THEMES, ThemeContext } from "./ThemeContext/ThemeContext";
 export type { Theme } from "./ThemeContext/ThemeContext";
 export { toggleFeatures } from "./features/toggleFeatures";
+export { ToggleFeaturesWrapper } from "./features/ToggleFeaturesWrapper";
 export type { ToggleFeaturesOptions } from "./features/toggleFeatures";
 export { useTheme } from "./ThemeContext/useTheme";

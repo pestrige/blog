@@ -27,6 +27,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
 - `npm run postinstall` - выполняет очистку кеша после установки пакетов
+- `npm run remove-features` - удаляет код под feature-флагом
 
 ----
 

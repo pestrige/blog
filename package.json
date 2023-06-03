@@ -24,7 +24,8 @@
 		"storybook": "start-storybook -p 6006 -c ./config/storybook",
 		"storybook:build": "build-storybook -c ./config/storybook",
 		"prepare": "husky install",
-		"postinstall": "node ./scripts/clearCache.js"
+		"postinstall": "node ./scripts/clearCache.js",
+		"remove-features": "ts-node ./scripts/removeFeatures.ts"
 	},
 	"author": "",
 	"license": "ISC",

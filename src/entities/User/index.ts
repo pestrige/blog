@@ -7,6 +7,7 @@ export {
 	useUserIsMountedSelector,
 	useUserRolesSelector,
 	useIsUserAdminSelector,
+	useIsUserInit,
 	useIsUserManagerSelector,
 	useJsonSettings,
 } from "./model/selectors/userSelectors";

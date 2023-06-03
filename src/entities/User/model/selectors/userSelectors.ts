@@ -11,6 +11,7 @@ export const [useUserIsMountedSelector] = buildSelector((store: StoreSchema) => 
 
 export const getIsAuth = createSelector(getUserData, (userStore) => !!userStore?.id);
 export const useIsAuthSelector = () => useSelector(getIsAuth);
+export const [useIsUserInit] = buildSelector((store: StoreSchema) => store.user._mounted ?? false);
 
 const getUserRoles = createSelector(getUserData, (userStore) => userStore?.roles ?? []);
 export const useUserRolesSelector = () => useSelector(getUserRoles);

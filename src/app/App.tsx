@@ -1,12 +1,17 @@
 import { Suspense } from "react";
-import { Navbar, Sidebar } from "@/widgets";
-import { useInitUser } from "@/entities/User";
+import { Navbar, PageLoader, Sidebar } from "@/widgets";
+import { useInitUser, useIsUserInit } from "@/entities/User";
 import { AppRouter, ErrorBoundary } from "./providers";
 
 import "./styles/index.scss";
 
 export const App = (): JSX.Element => {
+	const isInit = useIsUserInit();
 	useInitUser();
+
+	if (!isInit) {
+		return <PageLoader />;
+	}
 
 	return (
 		<div className="app">

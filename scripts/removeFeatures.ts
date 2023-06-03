@@ -39,6 +39,18 @@ const isToggleComponent = (node: Node) => {
 	return identifier?.getText() === toggleComponentName;
 };
 
+const getReplacementComponentName = (jsxAttribute?: JsxAttribute) => {
+	const value = jsxAttribute
+		?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
+		?.getExpression()
+		?.getText();
+	if (value?.startsWith("(")) {
+		return value.slice(1, -1);
+	}
+
+	return value;
+};
+
 const removeToggleFunction = (node: Node) => {
 	const optionsObject = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
 
@@ -97,16 +109,15 @@ const removeToggleComponent = (node: Node) => {
 		return;
 	}
 
-	const onComponent = onAttribute?.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getExpression();
-	const offComponent = offAttribute?.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getExpression();
+	const onComponent = getReplacementComponentName(onAttribute);
+	const offComponent = getReplacementComponentName(offAttribute);
 
 	if (featureState === "on" && onComponent) {
-		node.replaceWithText(onComponent.getText());
+		node.replaceWithText(onComponent);
 	}
 
 	if (featureState === "off" && offComponent) {
-		const offComponentText = offComponent.getText();
-		const replacementValue = offComponentText === "null" ? "" : offComponentText;
+		const replacementValue = offComponent === "null" ? "" : offComponent;
 		node.replaceWithText(replacementValue);
 	}
 };

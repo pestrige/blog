@@ -19,3 +19,17 @@
 .collapsed .switches {
   flex-direction: column;
 }
+
+// Redesigned
+
+.rootRedesigned {
+  width: 220px;
+  height: 100%;
+  overflow: hidden;
+  background: var(--light-bg-redesigned);
+  border-radius: 32px;
+}
+
+.appLogo {
+  padding: var(--margin-l);
+}

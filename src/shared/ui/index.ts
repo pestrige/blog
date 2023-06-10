@@ -1,6 +1,7 @@
 export { Avatar } from "./Avatar/Avatar";
 export { AppLink, AppLinkTheme } from "./AppLink";
 export { AppImage } from "./AppImage/AppImage";
+export { AppLogo } from "./AppLogo/AppLogo";
 export { Button, ButtonTheme, ButtonSize } from "./Button";
 export { Dropdown } from "./Popups/Dropdown/Dropdown";
 export { Drawer } from "./Drawer/Drawer";

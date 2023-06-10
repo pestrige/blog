@@ -1,11 +1,14 @@
 import { memo } from "react";
 import { useParams } from "react-router-dom";
 import { EditableProfileCard } from "@/features/EditProfileCard";
+import { usePageClassName } from "@/shared/hooks";
 
 const ProfilePage = memo((): JSX.Element => {
 	const { id } = useParams<{ id: string }>();
+	const pageClassName = usePageClassName();
+
 	return (
-		<main className="page" data-testid="ProfilePage">
+		<main className={pageClassName} data-testid="ProfilePage">
 			<EditableProfileCard id={id} />
 		</main>
 	);

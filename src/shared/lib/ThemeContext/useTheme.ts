@@ -16,9 +16,9 @@ export const useTheme = (): UseThemeResult => {
 				newTheme = THEMES.light;
 				break;
 			case THEMES.light:
-				newTheme = THEMES.blue;
+				newTheme = THEMES.alt;
 				break;
-			case THEMES.blue:
+			case THEMES.alt:
 				newTheme = THEMES.dark;
 				break;
 			default:

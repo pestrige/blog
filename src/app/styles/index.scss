@@ -2,7 +2,7 @@
 @import "./variables/global";
 @import "./themes/light";
 @import "./themes/dark";
-@import "./themes/blue";
+@import "./themes/alt";
 
 #root {
   font: var(--font-m);
@@ -14,6 +14,13 @@
   background-color: var(--bg-color);
 }
 
+.app-redesigned {
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+  background-color: var(--bg-redesigned);
+}
+
 .content {
   display: flex;
 }
@@ -22,6 +29,10 @@
   flex-grow: 1;
   height: calc(100vh - var(--navbar-height));
   padding: var(--margin-xl) 20px 20px 40px;
+  overflow-y: auto;
+}
+
+.page-redesigned {
   overflow-y: auto;
 }
 

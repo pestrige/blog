@@ -615,10 +615,11 @@
       "avatar": "https://i.pravatar.cc/150?img=13",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationEnabled": true
+        "isArticleRecommendationEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "blue",
+        "theme": "dark",
         "isFirstVisit": false,
         "articlesPageHasBeenOpened": true
       }
@@ -633,10 +634,11 @@
       "avatar": "https://i.pravatar.cc/150?img=1",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleRecommendationEnabled": false
+        "isArticleRecommendationEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "blue",
+        "theme": "alt",
         "isFirstVisit": false,
         "articlesPageHasBeenOpened": true
       }
@@ -651,7 +653,8 @@
       "avatar": "https://i.pravatar.cc/150?img=15",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationEnabled": false
+        "isArticleRecommendationEnabled": false,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "dark",
@@ -669,7 +672,8 @@
       "avatar": "https://i.pravatar.cc/150?img=3",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationEnabled": true
+        "isArticleRecommendationEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "dark",

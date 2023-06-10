@@ -1,0 +1,42 @@
+.root {
+  display: grid;
+  grid-template-areas: "sidebar content rightbar";
+  grid-auto-columns: 284px 1fr 176px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  justify-self: center;
+  padding: var(--margin-xl);
+}
+
+.content {
+  grid-area: content;
+  justify-self: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: var(--margin-xl);
+}
+
+.rightbar {
+  display: flex;
+  flex-direction: column;
+  grid-area: rightbar;
+  align-items: flex-end;
+}
+
+.rightbar,
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.header {
+  justify-self: end;
+}
+
+.toolbar {
+  height: 100%;
+}

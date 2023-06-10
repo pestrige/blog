@@ -9,7 +9,7 @@ import cls from "./ThemeSwitcher.module.scss";
 const SwitcherIcons: Record<Theme, ReactNode> = {
 	[THEMES.dark]: <DarkThemeIcon />,
 	[THEMES.light]: <LightThemeIcon />,
-	[THEMES.blue]: <BlueThemeIcon />,
+	[THEMES.alt]: <BlueThemeIcon />,
 };
 
 interface Props {
@@ -32,7 +32,7 @@ export const ThemeSwitcher = memo(({ className }: Props): JSX.Element => {
 			theme={ButtonTheme.CLEAR}
 			className={classNames(cls.root, className)}
 		>
-			{SwitcherIcons[theme]}
+			{SwitcherIcons[theme] ?? <BlueThemeIcon />}
 		</Button>
 	);
 });

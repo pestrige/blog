@@ -8,3 +8,4 @@ export { useInitialEffect } from "./useInitialEffect/useInitialEffect";
 export { useIsMobile } from "./useIsMobile/useIsMobile";
 export { useHover } from "./useHover/useHover";
 export { useModal } from "./useModal/useModal";
+export { usePageClassName } from "./usePageClassName/usePageClassName";

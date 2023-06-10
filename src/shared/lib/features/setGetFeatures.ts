@@ -8,6 +8,6 @@ export function setFeatureFlags(flags?: FeatureFlags): void {
 	}
 }
 
-export function getFeatureFlag(flag: keyof FeatureFlags) {
-	return featureFlags[flag];
+export function getFeatureFlag(flag: keyof FeatureFlags): boolean {
+	return featureFlags?.[flag] ?? false;
 }

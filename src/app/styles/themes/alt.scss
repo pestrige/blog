@@ -1,10 +1,21 @@
-#root.blue {
+#root.alt {
   --bg-color: #5e69ee;
   --inverted-bg-color: #f0f1f9;
   --primary-color: #f4f4fb;
   --secondary-color: #e0e0e6;
   --inverted-primary-color: #5e69ee;
   --inverted-secondary-color: #39afea;
+
+  // redesigned
+  --dark-bg-redesigned: #fff3d6;
+  --bg-redesigned: #f0c048;
+  --light-bg-redesigned: #f2d791;
+  --text-redesigned: #1b1311;
+  --hint-redesigned: #b8b2a2;
+  --cancel-redesigned: #ff5e5e;
+  --save-redesigned: #52fa81;
+  --icon-redesigned: #4875f0;
+  --accent-redesigned: #1d59ff;
 
   // skeleton
   --skeleton-color: #39afea;

@@ -1,34 +1,24 @@
-import { memo, useState } from "react";
-import { LanguageSwitcher } from "@/features/LanguageSwitcher";
-import { SidebarSwitcher } from "@/features/SidebarSwitcher";
-import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import { MainMenu } from "@/features/MainMenu";
-import { classNames } from "@/shared/lib";
-import { HStack } from "@/shared/ui";
-import cls from "./Sidebar.module.scss";
+import { memo, useCallback, useState } from "react";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
+import { SidebarDeprecated } from "./SidebarDeprecated";
+import { SidebarRedesigned } from "./SidebarRedesigned";
 
-interface Props {
+export interface SidebarProps {
 	className?: string;
 }
 
-export const Sidebar = memo(({ className = "" }: Props): JSX.Element => {
+export const Sidebar = memo(({ className = "" }: SidebarProps): JSX.Element => {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
-	const onToggle = () => setIsCollapsed((prev) => !prev);
+	const handleToggle = useCallback(() => setIsCollapsed((prev) => !prev), []);
 
 	return (
-		<div
-			data-testid="sidebar-test"
-			className={classNames(cls.root, { [cls.collapsed]: isCollapsed }, className)}
-		>
-			<MainMenu isCollapsed={isCollapsed} />
-
-			<HStack justify="center" max className={cls.switches}>
-				<ThemeSwitcher />
-				<LanguageSwitcher short={isCollapsed} />
-			</HStack>
-
-			<SidebarSwitcher onToggle={onToggle} isCollapsed={isCollapsed} />
-		</div>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={<SidebarRedesigned isCollapsed={isCollapsed} onToggle={handleToggle} className={className} />}
+			off={
+				<SidebarDeprecated isCollapsed={isCollapsed} onToggle={handleToggle} className={className} />
+			}
+		/>
 	);
 });

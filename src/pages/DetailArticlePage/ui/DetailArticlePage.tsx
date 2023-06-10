@@ -6,7 +6,7 @@ import { ArticleDetails } from "@/entities/Article";
 import { Text } from "@/shared/ui";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecommendations } from "@/features/ArticleRecommendations";
-import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
+import { ReducersList, useDynamicReducerLoader, usePageClassName } from "@/shared/hooks";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { articleDetailsPageReducer } from "../model/slice";
 import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
@@ -19,6 +19,8 @@ const reducers: ReducersList = {
 const DetailArticlePage = memo((): JSX.Element => {
 	const { t } = useTranslation("articles");
 	const { id } = useParams<{ id: string }>();
+	const pageClassName = usePageClassName();
+
 	useDynamicReducerLoader(reducers);
 
 	if (!id) {
@@ -30,7 +32,7 @@ const DetailArticlePage = memo((): JSX.Element => {
 	}
 
 	return (
-		<main className="page">
+		<main className={pageClassName}>
 			<DetailArticlePageHeader />
 			<ArticleDetails id={id ?? "1"} className="big-margin" />
 			<ToggleFeaturesWrapper

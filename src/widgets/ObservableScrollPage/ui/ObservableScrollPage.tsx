@@ -1,7 +1,7 @@
 import React, { ReactNode, UIEvent, useLayoutEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { classNames } from "@/shared/lib";
-import { useAppDispatch, useDebounceCallback, useInfinityScroll } from "@/shared/hooks";
+import { useAppDispatch, useDebounceCallback, useInfinityScroll, usePageClassName } from "@/shared/hooks";
 import { useScrollByPathSelector } from "../model/selectors/selectors";
 import cls from "./ObservableScrollPage.module.scss";
 import { scrollActions } from "../model/slice/scrollSlice";
@@ -19,6 +19,7 @@ export const ObservableScrollPage = ({ className, children, testId, onScrollEnd 
 	const wrapperRef = useRef<HTMLElement>(null);
 	const triggerRef = useRef<HTMLDivElement>(null);
 	const scrollPosition = useScrollByPathSelector(pathname);
+	const pageClassName = usePageClassName();
 
 	const handleScrollChange = useDebounceCallback(({ target }: UIEvent<HTMLElement>) => {
 		const position = (target as HTMLElement)?.scrollTop;
@@ -38,7 +39,7 @@ export const ObservableScrollPage = ({ className, children, testId, onScrollEnd 
 		<main
 			data-testid={testId}
 			ref={wrapperRef}
-			className={classNames("page", className)}
+			className={classNames(pageClassName, className)}
 			onScroll={handleScrollChange}
 		>
 			{children}

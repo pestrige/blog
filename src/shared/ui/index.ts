@@ -1,8 +1,11 @@
 export { Avatar } from "./deprecated/Avatar/Avatar";
-export { AppLink, AppLinkTheme } from "./deprecated/AppLink";
+export { AppLink as AppLinkDeprecated, AppLinkTheme } from "./deprecated/AppLink";
+export { AppLink } from "./redesigned/AppLink";
 export { AppImage } from "./deprecated/AppImage/AppImage";
 export { AppLogo } from "./redesigned/AppLogo/AppLogo";
-export { Button, ButtonTheme, ButtonSize } from "./deprecated/Button";
+export { Button } from "./redesigned/Button/Button";
+export { Button as ButtonDeprecated, ButtonTheme, ButtonSize } from "./deprecated/Button";
+export { ButtonIcon } from "./redesigned/ButtonIcon/ButtonIcon";
 export { Dropdown } from "./deprecated/Popups/Dropdown/Dropdown";
 export { Drawer } from "./deprecated/Drawer/Drawer";
 export type { DropdownItem } from "./deprecated/Popups/Dropdown/Dropdown";

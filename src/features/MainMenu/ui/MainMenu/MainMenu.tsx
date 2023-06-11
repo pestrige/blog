@@ -1,7 +1,8 @@
 import React, { memo } from "react";
-import { classNames } from "@/shared/lib";
+import { classNames, toggleFeatures, ToggleFeaturesWrapper } from "@/shared/lib";
 import { VStack } from "@/shared/ui";
-import { MainMenuItem } from "../../ui/MainMenuItem/MainMenuItem";
+import { MainMenuItemDeprecated } from "../../ui/MainMenuItem/MainMenuItemDeprecated";
+import { MainMenuItemRedesigned } from "../../ui/MainMenuItem/MainMenuItemRedesigned";
 import { useMenuItemsSelector } from "../../model/selectors/getMenuItems";
 import cls from "./MainMenu.module.scss";
 
@@ -12,13 +13,22 @@ interface Props {
 
 export const MainMenu = memo(({ className, isCollapsed }: Props): JSX.Element => {
 	const menuItems = useMenuItemsSelector();
+	const navStyles = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => classNames(cls.wrapperRedesigned, { [cls.collapsed]: isCollapsed }),
+		off: () => cls.wrapper,
+	});
 
 	return (
-		<nav className={classNames(cls.wrapper, className)}>
+		<nav className={classNames(navStyles, className)}>
 			<VStack as="ul" gap={16}>
 				{menuItems.map((item) => (
-					<li key={item.path}>
-						<MainMenuItem collapsed={isCollapsed} item={item} />
+					<li key={item.path} className={cls.listItem}>
+						<ToggleFeaturesWrapper
+							featureName="isAppRedesigned"
+							on={<MainMenuItemRedesigned collapsed={isCollapsed} item={item} />}
+							off={<MainMenuItemDeprecated collapsed={isCollapsed} item={item} />}
+						/>
 					</li>
 				))}
 			</VStack>

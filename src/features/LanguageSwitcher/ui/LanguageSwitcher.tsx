@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { memo } from "react";
-import { Button, ButtonTheme } from "@/shared/ui";
+import { memo, useCallback } from "react";
+import { Button, ButtonDeprecated, ButtonTheme } from "@/shared/ui";
 import cls from "./LanguageSwitcher.module.scss";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 
 interface Props {
 	className?: string;
@@ -11,13 +12,27 @@ interface Props {
 export const LanguageSwitcher = memo(({ className = "", short }: Props): JSX.Element => {
 	const { t, i18n } = useTranslation();
 
-	const toggleLanguage = async () => {
+	const toggleLanguage = useCallback(async () => {
 		await i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
-	};
+	}, [i18n]);
 
 	return (
-		<Button theme={ButtonTheme.CLEAR} onClick={toggleLanguage} className={`${cls.root} ${className}`}>
-			{t(short ? "Короткий язык" : "Язык")}
-		</Button>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<Button variant="clear" onClick={toggleLanguage} className={cls.rootRedesigned}>
+					{t("Короткий язык")}
+				</Button>
+			}
+			off={
+				<ButtonDeprecated
+					theme={ButtonTheme.CLEAR}
+					onClick={toggleLanguage}
+					className={`${cls.root} ${className}`}
+				>
+					{t(short ? "Короткий язык" : "Язык")}
+				</ButtonDeprecated>
+			}
+		/>
 	);
 });

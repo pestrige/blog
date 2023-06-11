@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	ButtonTheme,
-	Button,
+	ButtonDeprecated,
 	Card,
 	HStack,
 	Input,
@@ -108,16 +108,16 @@ export const RatingCard = memo(function RatingCard({
 				<Modal isOpen={isModalOpen} onClose={handleModalClose}>
 					{content}
 					<HStack justify="end" max className={cls.modalButtons}>
-						<Button
+						<ButtonDeprecated
 							dataTestId={`${testId}.CancelButton`}
 							theme={ButtonTheme.OUTLINE_ERROR}
 							onClick={handleCancel}
 						>
 							{t("Отмена")}
-						</Button>
-						<Button dataTestId={`${testId}.SendButton`} onClick={handleAccept}>
+						</ButtonDeprecated>
+						<ButtonDeprecated dataTestId={`${testId}.SendButton`} onClick={handleAccept}>
 							{t("Отправить")}
-						</Button>
+						</ButtonDeprecated>
 					</HStack>
 				</Modal>
 			)}
@@ -126,9 +126,9 @@ export const RatingCard = memo(function RatingCard({
 				<Drawer isOpen={isModalOpen} onClose={handleModalClose}>
 					{content}
 					<HStack justify="center" align="end" max className={cls.drawerButtons}>
-						<Button fullWidth onClick={handleAccept}>
+						<ButtonDeprecated fullWidth onClick={handleAccept}>
 							{t("Отправить")}
-						</Button>
+						</ButtonDeprecated>
 					</HStack>
 				</Drawer>
 			)}

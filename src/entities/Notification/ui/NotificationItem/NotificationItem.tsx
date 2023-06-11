@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { AppLink, Card, Text } from "@/shared/ui";
+import { AppLinkDeprecated, Card, Text } from "@/shared/ui";
 import { Notification } from "../../model/types/notifications";
 import cls from "./NotificationItem.module.scss";
 
@@ -15,9 +15,9 @@ export const NotificationItem = memo(({ notification }: Props): JSX.Element => {
 			<Card variant="outlined">
 				<Text title={title} text={href ? undefined : description} />
 				{href && (
-					<AppLink to={href}>
+					<AppLinkDeprecated to={href}>
 						<Text text={description} />
-					</AppLink>
+					</AppLinkDeprecated>
 				)}
 			</Card>
 		</li>

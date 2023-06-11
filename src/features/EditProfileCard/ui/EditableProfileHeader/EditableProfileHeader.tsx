@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme, HStack, Text } from "@/shared/ui";
+import { ButtonDeprecated, ButtonTheme, HStack, Text } from "@/shared/ui";
 import { useAppDispatch } from "@/shared/hooks";
 import {
 	profileActions,
@@ -31,23 +31,23 @@ export const EditableProfileHeader = memo((): JSX.Element => {
 		<HStack justify="between" className="big-margin">
 			<Text title={t("Профиль")} titleTag="h1" />
 			{readonly && (
-				<Button dataTestId="ProfileCard.EditBtn" onClick={handleEditClick}>
+				<ButtonDeprecated dataTestId="ProfileCard.EditBtn" onClick={handleEditClick}>
 					{t("Редактировать")}
-				</Button>
+				</ButtonDeprecated>
 			)}
 
 			{!readonly && (
 				<HStack>
-					<Button
+					<ButtonDeprecated
 						dataTestId="ProfileCard.CancelBtn"
 						theme={ButtonTheme.OUTLINE_ERROR}
 						onClick={handleCancelClick}
 					>
 						{t("Отменить", { ns: "translation" })}
-					</Button>
-					<Button dataTestId="ProfileCard.SaveBtn" onClick={handleSaveClick}>
+					</ButtonDeprecated>
+					<ButtonDeprecated dataTestId="ProfileCard.SaveBtn" onClick={handleSaveClick}>
 						{t("Сохранить", { ns: "translation" })}
-					</Button>
+					</ButtonDeprecated>
 				</HStack>
 			)}
 		</HStack>

@@ -2,12 +2,12 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import { THEMES } from "@/shared/lib";
-import { Button } from "@/shared/ui";
+import { ButtonDeprecated } from "@/shared/ui";
 import { Dropdown } from "./Dropdown";
 
 /* eslint-disable i18next/no-literal-string */
 const props = {
-	trigger: <Button>Open</Button>,
+	trigger: <ButtonDeprecated>Open</ButtonDeprecated>,
 	items: [{ content: "First" }, { content: "Second" }, { content: "Third" }],
 };
 /* eslint-enable i18next/no-literal-string */

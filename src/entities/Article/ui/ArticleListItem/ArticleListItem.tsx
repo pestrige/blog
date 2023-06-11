@@ -1,7 +1,16 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames, formatDateToISO } from "@/shared/lib";
-import { AppLink, Avatar, Card, Button, Text, HStack, AppImage, Skeleton } from "@/shared/ui";
+import {
+	AppLinkDeprecated,
+	Avatar,
+	Card,
+	ButtonDeprecated,
+	Text,
+	HStack,
+	AppImage,
+	Skeleton,
+} from "@/shared/ui";
 import { EyeIcon } from "@/shared/assets";
 import { getRoute } from "@/shared/constants";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
@@ -56,9 +65,9 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 					/>
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
-					<AppLink to={getRoute.article(id)} target={target}>
-						<Button>{t("Читать далее")}</Button>
-					</AppLink>
+					<AppLinkDeprecated to={getRoute.article(id)} target={target}>
+						<ButtonDeprecated>{t("Читать далее")}</ButtonDeprecated>
+					</AppLinkDeprecated>
 				</Card>
 			</li>
 		);
@@ -66,7 +75,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 	return (
 		<li className={classNames(cls.grid)} data-testid="ArticleListItem">
-			<AppLink to={getRoute.article(id)} noHover target={target}>
+			<AppLinkDeprecated to={getRoute.article(id)} noHover target={target}>
 				<Card>
 					<div className={cls.imageWrapper}>
 						<AppImage
@@ -89,7 +98,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 					</HStack>
 					<Text className={cls.title} text={title} />
 				</Card>
-			</AppLink>
+			</AppLinkDeprecated>
 		</li>
 	);
 });

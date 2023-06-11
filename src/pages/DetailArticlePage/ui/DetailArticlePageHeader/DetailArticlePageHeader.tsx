@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/shared/ui";
+import { ButtonDeprecated } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 
 import { useArticleDataSelector } from "@/entities/Article";
@@ -26,11 +26,11 @@ export const DetailArticlePageHeader = memo((): JSX.Element => {
 
 	return (
 		<div className={cls.header}>
-			<Button onClick={handleBackClick}>{t("Назад к списку")}</Button>
+			<ButtonDeprecated onClick={handleBackClick}>{t("Назад к списку")}</ButtonDeprecated>
 			{canEdit && (
-				<Button className={cls.editBtn} onClick={handleEditClick}>
+				<ButtonDeprecated className={cls.editBtn} onClick={handleEditClick}>
 					{t("Редактировать")}
-				</Button>
+				</ButtonDeprecated>
 			)}
 		</div>
 	);

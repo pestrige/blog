@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib";
-import { AppLink, AppLinkTheme, Button, ButtonTheme, HStack, Text } from "@/shared/ui";
+import { AppLinkDeprecated, AppLinkTheme, ButtonDeprecated, ButtonTheme, HStack, Text } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
@@ -35,9 +35,9 @@ export const NavbarDeprecated = memo(function NavbarDeprecated({
 					</li>
 
 					<li>
-						<AppLink to={getRoute.articleCreate()} theme={AppLinkTheme.SECONDARY}>
+						<AppLinkDeprecated to={getRoute.articleCreate()} theme={AppLinkTheme.SECONDARY}>
 							<Text text={t("Создать статью")} variant="secondary" />
-						</AppLink>
+						</AppLinkDeprecated>
 					</li>
 
 					<NotificationButton />
@@ -51,9 +51,9 @@ export const NavbarDeprecated = memo(function NavbarDeprecated({
 		<HStack as="header" justify="end" max className={classNames(cls.wrapper, className)}>
 			<menu className={cls.menu}>
 				<li className={cls.mainLink}>
-					<Button onClick={onUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
+					<ButtonDeprecated onClick={onUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
 						{t("Войти")}
-					</Button>
+					</ButtonDeprecated>
 				</li>
 			</menu>
 

@@ -1,15 +1,15 @@
 import React, { HTMLAttributes, memo, useCallback, useState } from "react";
 import { NotificationList } from "@/entities/Notification";
-import { Button, ButtonTheme, Drawer, Popover } from "@/shared/ui";
+import { ButtonDeprecated, ButtonTheme, Drawer, Popover } from "@/shared/ui";
 import { useIsMobile } from "@/shared/hooks";
 import { NotificationIcon } from "@/shared/assets";
 import cls from "./NotificationButton.module.scss";
 
 const TriggerButton = memo(function TriggerButton(props: HTMLAttributes<HTMLButtonElement>): JSX.Element {
 	return (
-		<Button theme={ButtonTheme.CLEAR} {...props}>
+		<ButtonDeprecated theme={ButtonTheme.CLEAR} {...props}>
 			<NotificationIcon className={cls.notification} />
-		</Button>
+		</ButtonDeprecated>
 	);
 });
 

@@ -2,5 +2,17 @@
   position: absolute;
   right: -32px;
   bottom: 32px;
-  z-index: 1;
+  z-index: var(--z-index-sidebar-switcher);
+}
+
+.rootRedesigned {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: transform 0.3s;
+  transform: rotate(90deg);
+}
+
+.rootRedesignedCollapsed {
+  transform: rotate(-90deg);
 }

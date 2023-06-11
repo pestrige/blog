@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib";
-import { Button, ButtonTheme, HStack } from "@/shared/ui";
+import { ButtonDeprecated, ButtonTheme, HStack } from "@/shared/ui";
 import { LoginModal } from "@/features/AuthByUsername";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
@@ -35,9 +35,9 @@ export const NavbarRedesigned = memo(function NavbarRedesigned({
 		<HStack as="header" justify="end" max className={classNames(cls.wrapperRedesigned)}>
 			<menu className={cls.menu}>
 				<li className={cls.mainLink}>
-					<Button onClick={onUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
+					<ButtonDeprecated onClick={onUserModal} theme={ButtonTheme.CLEAR_INVERTED}>
 						{t("Войти")}
-					</Button>
+					</ButtonDeprecated>
 				</li>
 			</menu>
 

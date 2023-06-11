@@ -23,13 +23,20 @@
 // Redesigned
 
 .rootRedesigned {
+  position: relative;
   width: 220px;
   height: 100%;
   overflow: hidden;
   background: var(--light-bg-redesigned);
   border-radius: 32px;
+  transition: width 0.3s;
+
+  &.collapsed {
+    width: var(--sidebar-width-collapsed-redesigned);
+  }
 }
 
-.appLogo {
-  padding: var(--margin-l);
+div.appLogo {
+  position: absolute;
+  top: var(--margin-l);
 }

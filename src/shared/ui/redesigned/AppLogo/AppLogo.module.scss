@@ -6,6 +6,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
+  pointer-events: none;
   background: radial-gradient(57.05% 57.05% at 49.84% 42.95%, rgb(94 211 243 / 20%) 0%, rgb(94 211 243 / 13.2%) 7.81%, rgb(94 211 243 / 8.3%) 29.69%, rgb(94 211 243 / 3.86%) 56.77%, rgb(94 211 243 / 2.19%) 77.6%, rgb(94 211 243 / 0%) 100%);
   border-radius: 50%;
   opacity: 0.6;
@@ -15,6 +16,7 @@
   position: absolute;
   width: 200px;
   height: 200px;
+  pointer-events: none;
   background: radial-gradient(30.29% 30.29% at 50% 50%, rgb(94 211 243 / 18%) 0%, rgb(94 211 243 / 10.6%) 25.55%, rgb(94 211 243 / 7%) 47.27%, rgb(94 211 243 / 3.8%) 69.66%, rgb(94 211 243 / 0%) 100%);
   border-radius: 50%;
   opacity: 0.6;
@@ -23,4 +25,10 @@
 .logo {
   width: 60px;
   height: 60px;
+  transition: width 0.3s, height 0.3s;
+
+  &.small {
+    width: 30px;
+    height: 30px;
+  }
 }

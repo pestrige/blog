@@ -3,3 +3,14 @@
   padding-left: var(--margin-xl);
   background: var(--inverted-bg-color);
 }
+
+.wrapperRedesigned {
+  position: relative;
+  z-index: var(--z-index-menu);
+  padding-top: calc(var(--margin-xl) + 60px + var(--margin-xl));
+  transition: padding-top 0.3s, padding-left 0.3s;
+
+  .listItem {
+    width: 100%;
+  }
+}

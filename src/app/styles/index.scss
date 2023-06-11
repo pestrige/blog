@@ -4,6 +4,11 @@
 @import "./themes/dark";
 @import "./themes/alt";
 
+html,
+body {
+  overscroll-behavior: none;
+}
+
 #root {
   font: var(--font-m);
   color: var(--primary-color);

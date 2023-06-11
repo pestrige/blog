@@ -1,13 +1,12 @@
 .root {
   display: grid;
   grid-template-areas: "sidebar content rightbar";
-  grid-auto-columns: 284px 1fr 176px;
+  grid-auto-columns: min-content 1fr 108px;
   min-height: 100vh;
 }
 
 .sidebar {
   grid-area: sidebar;
-  justify-self: center;
   padding: var(--margin-xl);
 }
 

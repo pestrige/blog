@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { FormEvent, memo, useCallback } from "react";
 import { classNames } from "@/shared/lib";
-import { Button, Input, Loader, Text } from "@/shared/ui";
+import { ButtonDeprecated, Input, Loader, Text } from "@/shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import {
 	loginActions,
@@ -79,9 +79,9 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 				onChange={handlePasswordChange}
 				value={password}
 			/>
-			<Button className={cls.loginBtn} type="submit" disabled={isLoading}>
+			<ButtonDeprecated className={cls.loginBtn} type="submit" disabled={isLoading}>
 				{isLoading ? <Loader size="S" /> : t("Войти")}
-			</Button>
+			</ButtonDeprecated>
 		</form>
 	);
 });

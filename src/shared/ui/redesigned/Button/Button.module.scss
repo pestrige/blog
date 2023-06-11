@@ -1,0 +1,74 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px var(--margin-m);
+  color: var(--text-redesigned);
+  cursor: pointer;
+  transition: color 0.3s, fill-opacity 0.3s, stroke-opacity 0.3s;
+
+  &:hover {
+    color: var(--accent-redesigned);
+    fill-opacity: 80%;
+    stroke-opacity: 80%;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+.M {
+  font: var(--font-m);
+}
+
+.L {
+  font: var(--font-l);
+}
+
+.XL {
+  font: var(--font-xl);
+}
+
+.full {
+  width: 100%;
+}
+
+.square {
+  padding: 0;
+}
+
+.square.M {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+  font: var(--font-m-redesigned);
+}
+
+.square.L {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+  font: var(--font-m-redesigned);
+}
+
+.square.XL {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
+  font: var(--font-l-redesigned);
+}
+
+.clear {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.outline {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}

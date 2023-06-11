@@ -2,3 +2,9 @@
   display: flex;
   align-items: center;
 }
+
+.icon {
+  g {
+    fill: var(--inverted-primary-color);
+  }
+}

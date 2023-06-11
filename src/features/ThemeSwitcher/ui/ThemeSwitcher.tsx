@@ -1,23 +1,17 @@
-import React, { memo, ReactNode, useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { Button, ButtonTheme } from "@/shared/ui";
-import { BlueThemeIcon, DarkThemeIcon, LightThemeIcon } from "@/shared/assets";
-import { classNames, Theme, THEMES, useTheme } from "@/shared/lib";
+import { ThemeIcon } from "@/shared/assets";
+import { classNames, useTheme } from "@/shared/lib";
 import { useAppDispatch } from "@/shared/hooks";
 import { saveJsonSettings } from "@/entities/User";
 import cls from "./ThemeSwitcher.module.scss";
-
-const SwitcherIcons: Record<Theme, ReactNode> = {
-	[THEMES.dark]: <DarkThemeIcon />,
-	[THEMES.light]: <LightThemeIcon />,
-	[THEMES.alt]: <BlueThemeIcon />,
-};
 
 interface Props {
 	className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: Props): JSX.Element => {
-	const { theme, toggleTheme } = useTheme();
+	const { toggleTheme } = useTheme();
 	const dispatch = useAppDispatch();
 
 	const handleThemeChange = useCallback(() => {
@@ -32,7 +26,7 @@ export const ThemeSwitcher = memo(({ className }: Props): JSX.Element => {
 			theme={ButtonTheme.CLEAR}
 			className={classNames(cls.root, className)}
 		>
-			{SwitcherIcons[theme] ?? <BlueThemeIcon />}
+			<ThemeIcon className={cls.icon} />
 		</Button>
 	);
 });

@@ -1,9 +1,7 @@
-export { default as BlueThemeIcon } from "./icons/theme-blue.svg";
 export { default as CalendarIcon } from "./icons/calendar-icon.svg";
 export { default as CopyIcon } from "./icons/copy-icon.svg";
-export { default as DarkThemeIcon } from "./icons/theme-dark.svg";
+export { default as ThemeIcon } from "./icons/theme-icon.svg";
 export { default as EyeIcon } from "./icons/eye-icon.svg";
-export { default as LightThemeIcon } from "./icons/theme-light.svg";
 export { default as LogoIcon } from "./icons/logo-icon.svg";
 export { default as MenuAboutIcon } from "./icons/menu-about-icon.svg";
 export { default as MenuArticleIcon } from "./icons/menu-article-icon.svg";

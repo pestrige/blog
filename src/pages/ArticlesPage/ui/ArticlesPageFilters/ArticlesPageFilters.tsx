@@ -5,7 +5,7 @@ import { ArticleSortSelector } from "@/features/ArticleSortSelector";
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
 import { ArticleViewSwitcher } from "@/features/ArticleViewSwitcher";
 import { useAppDispatch, useDebounceCallback } from "@/shared/hooks";
-import { Card, HStack, Input } from "@/shared/ui";
+import { CardDeprecated, HStack, Input } from "@/shared/ui";
 import { SortOrder } from "@/shared/types";
 import { fetchArticles } from "../../model/services/fetchArticles/fetchArticles";
 import {
@@ -88,14 +88,14 @@ export const ArticlesPageFilters = memo(({ className }: Props): JSX.Element => {
 				<ArticleViewSwitcher activeView={view} onViewSwitch={handleViewSwitch} />
 			</HStack>
 
-			<Card className="block-margin">
+			<CardDeprecated className="block-margin">
 				<Input
 					name="articlesSearch"
 					placeholder={t("Поиск")}
 					value={search}
 					onChange={handleChangeSearch}
 				/>
-			</Card>
+			</CardDeprecated>
 
 			<ArticleTypeTabs type={type} onTabClick={handleChangeType} />
 		</div>

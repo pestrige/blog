@@ -7,7 +7,7 @@ type SvgProps = Omit<SVGProps<SVGSVGElement>, "onClick">;
 interface IconProps extends SvgProps {
 	className?: string;
 	Svg: FC<SVGProps<SVGSVGElement>>;
-	onClick: () => void;
+	onClick?: () => void;
 }
 
 export const ButtonIcon = memo((props: IconProps) => {

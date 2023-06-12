@@ -1,0 +1,30 @@
+.button {
+  position: relative;
+  min-height: var(--margin-xl);
+  padding-right: var(--margin-xl);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: var(--margin-s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+    content: "^";
+    transition: rotate 0.2s ease-in-out;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &.open {
+    &::after {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.list {
+  min-width: 100%;
+  box-shadow: 4px 4px 8px var(--code-bg);
+}

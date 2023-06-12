@@ -3,12 +3,12 @@ import { useTranslation } from "react-i18next";
 import {
 	ButtonTheme,
 	ButtonDeprecated,
-	Card,
+	CardDeprecated,
 	HStack,
 	Input,
 	Modal,
 	StarRating,
-	Text,
+	TextDeprecated,
 	VStack,
 	Drawer,
 } from "@/shared/ui";
@@ -78,7 +78,7 @@ export const RatingCard = memo(function RatingCard({
 	const content = useMemo(
 		() => (
 			<VStack gap={32} max>
-				<Text title={feedbackTitle} />
+				<TextDeprecated title={feedbackTitle} />
 				<Input
 					dataTestInputId={`${testId}.Input`}
 					name="feedback"
@@ -98,9 +98,9 @@ export const RatingCard = memo(function RatingCard({
 	}, [rating]);
 
 	return (
-		<Card className={className}>
+		<CardDeprecated className={className}>
 			<VStack align="center">
-				<Text title={title} />
+				<TextDeprecated title={title} />
 				<StarRating onSelect={handleSelectStars} rating={selectedStars} />
 			</VStack>
 
@@ -132,6 +132,6 @@ export const RatingCard = memo(function RatingCard({
 					</HStack>
 				</Drawer>
 			)}
-		</Card>
+		</CardDeprecated>
 	);
 });

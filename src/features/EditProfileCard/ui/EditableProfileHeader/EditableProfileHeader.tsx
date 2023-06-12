@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { ButtonDeprecated, ButtonTheme, HStack, Text } from "@/shared/ui";
+import { ButtonDeprecated, ButtonTheme, HStack, TextDeprecated } from "@/shared/ui";
 import { useAppDispatch } from "@/shared/hooks";
 import {
 	profileActions,
@@ -22,14 +22,14 @@ export const EditableProfileHeader = memo((): JSX.Element => {
 	if (!isEditable) {
 		return (
 			<div className="big-margin">
-				<Text title={t("Профиль")} />
+				<TextDeprecated title={t("Профиль")} />
 			</div>
 		);
 	}
 
 	return (
 		<HStack justify="between" className="big-margin">
-			<Text title={t("Профиль")} titleTag="h1" />
+			<TextDeprecated title={t("Профиль")} titleTag="h1" />
 			{readonly && (
 				<ButtonDeprecated dataTestId="ProfileCard.EditBtn" onClick={handleEditClick}>
 					{t("Редактировать")}

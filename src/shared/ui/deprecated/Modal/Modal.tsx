@@ -1,8 +1,8 @@
 import { memo, ReactNode } from "react";
 import { classNames } from "@/shared/lib";
 import { useModal } from "@/shared/hooks";
-import { Portal } from "../Portal";
-import { Overlay } from "../Overlay/Overlay";
+import { Portal } from "../../redesigned/Portal";
+import { Overlay } from "../../redesigned/Overlay/Overlay";
 import cls from "./Modal.module.scss";
 
 interface Props {

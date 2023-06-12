@@ -1,15 +1,26 @@
 import React, { HTMLAttributes, memo, useCallback, useState } from "react";
 import { NotificationList } from "@/entities/Notification";
-import { ButtonDeprecated, ButtonTheme, Drawer, Popover } from "@/shared/ui";
+import { ButtonDeprecated, ButtonIcon, ButtonTheme, Drawer, Popover, PopoverDeprecated } from "@/shared/ui";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { useIsMobile } from "@/shared/hooks";
-import { NotificationIcon } from "@/shared/assets";
+import { NotificationIcon, NotificationIconDeprecated } from "@/shared/assets";
 import cls from "./NotificationButton.module.scss";
 
-const TriggerButton = memo(function TriggerButton(props: HTMLAttributes<HTMLButtonElement>): JSX.Element {
+interface TriggerButtonProps extends Omit<HTMLAttributes<HTMLButtonElement>, "onClick"> {
+	onClick?: () => void;
+}
+
+const TriggerButton = memo(function TriggerButton(props: TriggerButtonProps): JSX.Element {
 	return (
-		<ButtonDeprecated theme={ButtonTheme.CLEAR} {...props}>
-			<NotificationIcon className={cls.notification} />
-		</ButtonDeprecated>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={<ButtonIcon Svg={NotificationIcon} onClick={props.onClick} />}
+			off={
+				<ButtonDeprecated theme={ButtonTheme.CLEAR} {...props}>
+					<NotificationIconDeprecated className={cls.notification} />
+				</ButtonDeprecated>
+			}
+		/>
 	);
 });
 
@@ -38,9 +49,19 @@ export const NotificationButton = memo(function NotificationButton(): JSX.Elemen
 				</>
 			)}
 			{!isMobile && (
-				<Popover direction="bottom right" trigger={<TriggerButton />}>
-					<NotificationList className={cls.notifications} />
-				</Popover>
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={
+						<Popover direction="bottom right" trigger={<TriggerButton />}>
+							<NotificationList className={cls.notifications} />
+						</Popover>
+					}
+					off={
+						<PopoverDeprecated direction="bottom right" trigger={<TriggerButton />}>
+							<NotificationList className={cls.notifications} />
+						</PopoverDeprecated>
+					}
+				/>
 			)}
 		</li>
 	);

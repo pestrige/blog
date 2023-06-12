@@ -1,0 +1,16 @@
+.img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.empty {
+  overflow: hidden;
+  color: var(--inverted-secondary-color);
+  text-transform: uppercase;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+}
+
+.userIcon {
+  fill: var(--secondary-color);
+}

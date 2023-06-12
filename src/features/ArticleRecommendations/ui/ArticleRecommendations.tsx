@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { ArticleList } from "@/entities/Article";
 import { useGetArticleRecommendations } from "../api/articleRecommendationsApi";
 
@@ -12,7 +12,7 @@ export const ArticleRecommendations = memo(function ArticleRecommendations(): JS
 
 	return (
 		<>
-			<Text title={t("Рекомендуемые")} className="block-margin" />
+			<TextDeprecated title={t("Рекомендуемые")} className="block-margin" />
 			<ArticleList
 				articles={recommendations ?? []}
 				isLoading={isLoading}

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
 import { ArticleDetails } from "@/entities/Article";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecommendations } from "@/features/ArticleRecommendations";
 import { ReducersList, useDynamicReducerLoader, usePageClassName } from "@/shared/hooks";
@@ -26,7 +26,7 @@ const DetailArticlePage = memo((): JSX.Element => {
 	if (!id) {
 		return (
 			<main className="page">
-				<Text title={t("Статья не найдена")} />
+				<TextDeprecated title={t("Статья не найдена")} />
 			</main>
 		);
 	}

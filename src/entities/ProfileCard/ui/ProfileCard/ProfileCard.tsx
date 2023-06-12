@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { Avatar, Input, Loader, Text, VStack } from "@/shared/ui";
+import { AvatarDeprecated, Input, Loader, TextDeprecated, VStack } from "@/shared/ui";
 import { classNames } from "@/shared/lib";
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
@@ -65,7 +65,7 @@ export const ProfileCard = ({
 	if (error) {
 		return (
 			<div className={classNames(cls.root, cls.error)}>
-				<Text
+				<TextDeprecated
 					title={t("Ошибка загрузки профиля")}
 					text={errorText ? t(errorText) : undefined}
 					variant="error"
@@ -82,7 +82,7 @@ export const ProfileCard = ({
 			className={classNames(cls.root, { [cls.editable]: !readonly })}
 		>
 			{!!profile?.avatar && (
-				<Avatar src={profile.avatar} className={cls.avatar} alt={profile.first ?? ""} />
+				<AvatarDeprecated src={profile.avatar} className={cls.avatar} alt={profile.first ?? ""} />
 			)}
 
 			<VStack max as="ul">

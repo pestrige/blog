@@ -1,0 +1,31 @@
+.card {
+  border-radius: var(--margin-xl);
+
+  &.none {
+    padding: 0;
+  }
+
+  &.sm {
+    padding: var(--margin-s);
+  }
+
+  &.md {
+    padding: var(--margin-m);
+  }
+
+  &.lg {
+    padding: var(--margin-l);
+  }
+}
+
+.primary {
+  background-color: var(--dark-bg-redesigned);
+}
+
+.secondary {
+  background-color: var(--light-bg-redesigned);
+}
+
+.outlined {
+  border: 1px solid var(--accent-redesigned);
+}

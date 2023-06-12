@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import { ButtonDeprecated, Text } from "@/shared/ui";
+import { ButtonDeprecated, TextDeprecated } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 import { usePageClassName } from "@/shared/hooks";
 
@@ -27,7 +27,10 @@ const ArticleEditPage = memo((): JSX.Element => {
 				</ButtonDeprecated>
 			)}
 
-			<Text title={isEdit ? `${t("Редактирование статьи")} ${id}` : "Создание статьи"} titleTag="h1" />
+			<TextDeprecated
+				title={isEdit ? `${t("Редактирование статьи")} ${id}` : "Создание статьи"}
+				titleTag="h1"
+			/>
 		</main>
 	);
 });

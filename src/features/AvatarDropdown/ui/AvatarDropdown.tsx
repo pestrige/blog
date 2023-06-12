@@ -1,9 +1,10 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Avatar, Dropdown, DropdownItem } from "@/shared/ui";
+import { Avatar, AvatarDeprecated, Dropdown, DropdownDeprecated, DropdownItem } from "@/shared/ui";
 import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
 import { useAppDispatch } from "@/shared/hooks";
 import { getRoute } from "@/shared/constants/router";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 
 export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const dispatch = useAppDispatch();
@@ -27,10 +28,22 @@ export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 
 	return (
 		<li>
-			<Dropdown
-				direction="bottom right"
-				trigger={<Avatar size={32} alt="avatar" src={avatar} />}
-				items={dropdownItems}
+			<ToggleFeaturesWrapper
+				featureName="isAppRedesigned"
+				on={
+					<Dropdown
+						direction="bottom right"
+						trigger={<Avatar size={42} src={avatar} />}
+						items={dropdownItems}
+					/>
+				}
+				off={
+					<DropdownDeprecated
+						direction="bottom right"
+						trigger={<AvatarDeprecated size={32} alt="avatar" src={avatar} />}
+						items={dropdownItems}
+					/>
+				}
 			/>
 		</li>
 	);

@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { AddCommentForm } from "@/features/AddCommentForm";
 import { CommentList } from "@/entities/Comment";
 import { useAppDispatch, useInitialEffect } from "@/shared/hooks";
@@ -36,7 +36,7 @@ export const DetailArticlePageComments = memo(function DetailArticlePageComments
 
 	return (
 		<>
-			<Text title={t("Комментарии")} className="block-margin" />
+			<TextDeprecated title={t("Комментарии")} className="block-margin" />
 			<AddCommentForm onSubmit={handleSubmit} className="block-margin" />
 			<CommentList error={error} isLoading={isCommentsLoading} comments={comments} />
 		</>

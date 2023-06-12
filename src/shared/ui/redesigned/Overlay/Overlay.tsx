@@ -9,10 +9,6 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	onClose: () => void;
 }
 
-/**
- * @deprecated
- */
-
 export const Overlay = memo(function Overlay({
 	children,
 	isOpen,

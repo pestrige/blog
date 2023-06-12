@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { classNames } from "@/shared/lib";
-import { AppLinkDeprecated, Avatar, Text } from "@/shared/ui";
+import { AppLinkDeprecated, AvatarDeprecated, TextDeprecated } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 import { Comment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
@@ -16,12 +16,12 @@ export const CommentCard = memo(({ comment, className = "" }: Props): JSX.Elemen
 	return (
 		<li data-testid="CommentCard" className={classNames(cls.commentCard, className)}>
 			<div className={cls.header}>
-				<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
+				<AvatarDeprecated className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
 				<AppLinkDeprecated to={getRoute.article(user.id)}>
-					<Text text={user.username} />
+					<TextDeprecated text={user.username} />
 				</AppLinkDeprecated>
 			</div>
-			<Text text={comment.text} />
+			<TextDeprecated text={comment.text} />
 		</li>
 	);
 });

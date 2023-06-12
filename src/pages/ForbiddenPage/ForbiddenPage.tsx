@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { usePageClassName } from "@/shared/hooks";
 
 const ForbiddenPage = memo((): JSX.Element => {
@@ -9,7 +9,7 @@ const ForbiddenPage = memo((): JSX.Element => {
 
 	return (
 		<main className={pageClassName} data-testid="ForbiddenPage">
-			<Text title={t("Доступ запрещен")} />
+			<TextDeprecated title={t("Доступ запрещен")} />
 		</main>
 	);
 });

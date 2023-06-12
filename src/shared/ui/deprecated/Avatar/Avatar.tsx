@@ -1,10 +1,10 @@
 import React, { CSSProperties, memo, useMemo } from "react";
 import { classNames } from "@/shared/lib";
+import { UserIcon } from "@/shared/assets";
 import { HStack } from "../../redesigned/Stack";
-import { AppImage } from "../AppImage/AppImage";
+import { AppImage } from "../../redesigned/AppImage/AppImage";
 import { Skeleton } from "../Skeleton/Skeleton";
 import cls from "./Avatar.module.scss";
-import { UserIcon } from "@/shared/assets";
 
 interface Props {
 	src?: string;

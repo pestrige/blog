@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListITemSkeleton";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { Article } from "../../model/types/article";
@@ -40,7 +40,7 @@ export const ArticleList = memo(
 		if (!isLoading && articles.length === 0)
 			return (
 				<div className={className}>
-					<Text title={t("Статьи не найдены")} />
+					<TextDeprecated title={t("Статьи не найдены")} />
 				</div>
 			);
 

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
-import { Avatar, Text } from "@/shared/ui";
+import { AvatarDeprecated, TextDeprecated } from "@/shared/ui";
 import { CalendarIcon, EyeIcon } from "@/shared/assets";
 import { classNames } from "@/shared/lib";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
@@ -38,7 +38,7 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 	if (articleError || !article) {
 		return (
 			<div className={classNames(cls.articleDetails, className)}>
-				<Text align="center" title={t("Статья не найдена")} />
+				<TextDeprecated align="center" title={t("Статья не найдена")} />
 			</div>
 		);
 	}
@@ -46,9 +46,9 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 	return (
 		<div className={cls.articleDetails}>
 			<div className={cls.avatar}>
-				<Avatar src={article.img} alt={article.title} size={200} />
+				<AvatarDeprecated src={article.img} alt={article.title} size={200} />
 			</div>
-			<Text
+			<TextDeprecated
 				className={cls.title}
 				title={article.title}
 				text={article.subtitle}
@@ -58,11 +58,11 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 
 			<div className={cls.info}>
 				<EyeIcon className={cls.icon} />
-				<Text text={article.views.toString()} />
+				<TextDeprecated text={article.views.toString()} />
 			</div>
 			<div className={cls.infoLast}>
 				<CalendarIcon className={cls.icon} />
-				<Text text={article.createdAt} />
+				<TextDeprecated text={article.createdAt} />
 			</div>
 
 			{article.blocks.map((block) => (

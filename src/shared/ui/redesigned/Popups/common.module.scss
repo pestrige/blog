@@ -1,0 +1,58 @@
+.wrapper {
+  position: relative;
+}
+
+.triggerButton,
+.clearButton {
+  padding: 0;
+  margin: 0;
+  color: var(--text-redesigned);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.triggerButton {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  position: absolute;
+  z-index: var(--z-index-select);
+  background-color: var(--dark-bg-redesigned);
+  border-radius: var(--margin-m);
+}
+
+.listItem {
+  padding: var(--margin-s) var(--margin-m);
+  cursor: pointer;
+
+  &.selected {
+    background-color: var(--hint-redesigned);
+  }
+
+  &.active:not(&.selected) {
+    background-color: var(--hint-redesigned);
+  }
+}
+
+.bottomLeft {
+  top: 100%;
+  left: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  right: 0;
+}
+
+.topRight {
+  right: 0;
+  bottom: 100%;
+}
+
+.topLeft {
+  bottom: 100%;
+  left: 0;
+}

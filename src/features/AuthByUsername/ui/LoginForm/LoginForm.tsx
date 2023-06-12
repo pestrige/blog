@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { FormEvent, memo, useCallback } from "react";
 import { classNames } from "@/shared/lib";
-import { ButtonDeprecated, Input, Loader, Text } from "@/shared/ui";
+import { ButtonDeprecated, Input, Loader, TextDeprecated } from "@/shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import {
 	loginActions,
@@ -60,8 +60,8 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 
 	return (
 		<form className={classNames(cls.LoginForm, className)} onSubmit={handleSubmit}>
-			<Text title={t("Форма авторизации")} />
-			{!!error && <Text variant="error" text={error} />}
+			<TextDeprecated title={t("Форма авторизации")} />
+			{!!error && <TextDeprecated variant="error" text={error} />}
 			<Input
 				name="username"
 				autofocus

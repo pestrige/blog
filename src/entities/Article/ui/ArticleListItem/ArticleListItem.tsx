@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { classNames, formatDateToISO } from "@/shared/lib";
 import {
 	AppLinkDeprecated,
-	Avatar,
-	Card,
+	AvatarDeprecated,
+	CardDeprecated,
 	ButtonDeprecated,
-	Text,
+	TextDeprecated,
 	HStack,
 	AppImage,
 	Skeleton,
@@ -31,10 +31,10 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 	const infoBlock = (
 		<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
-			<Text text={type.join(", ")} className={cls.info} />
+			<TextDeprecated text={type.join(", ")} className={cls.info} />
 			<div className={cls.viewsWrapper}>
 				<EyeIcon className={cls.eye} />
-				<Text text={views.toString()} />
+				<TextDeprecated text={views.toString()} />
 			</div>
 		</HStack>
 	);
@@ -46,16 +46,21 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 
 		return (
 			<li className={classNames(cls.list)} data-testid="ArticleListItem">
-				<Card>
+				<CardDeprecated>
 					<div className={cls.header}>
-						<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
-						<Text text={user.username} />
+						<AvatarDeprecated
+							className={cls.avatar}
+							src={user.avatar}
+							size={30}
+							alt={user.username}
+						/>
+						<TextDeprecated text={user.username} />
 						<time dateTime={articleDate} className={cls.date}>
-							<Text text={createdAt} align="right" />
+							<TextDeprecated text={createdAt} align="right" />
 						</time>
 					</div>
 
-					<Text title={title} className={cls.title} />
+					<TextDeprecated title={title} className={cls.title} />
 					{infoBlock}
 					<AppImage
 						src={img}
@@ -68,7 +73,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 					<AppLinkDeprecated to={getRoute.article(id)} target={target}>
 						<ButtonDeprecated>{t("Читать далее")}</ButtonDeprecated>
 					</AppLinkDeprecated>
-				</Card>
+				</CardDeprecated>
 			</li>
 		);
 	}
@@ -76,7 +81,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 	return (
 		<li className={classNames(cls.grid)} data-testid="ArticleListItem">
 			<AppLinkDeprecated to={getRoute.article(id)} noHover target={target}>
-				<Card>
+				<CardDeprecated>
 					<div className={cls.imageWrapper}>
 						<AppImage
 							src={img}
@@ -85,19 +90,19 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 							fallback={<Skeleton width="100%" height={200} />}
 						/>
 						<time className={cls.date} dateTime={articleDate}>
-							<Text text={createdAt} />
+							<TextDeprecated text={createdAt} />
 						</time>
 					</div>
 
 					<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
-						<Text text={type.join(", ")} className={cls.info} />
+						<TextDeprecated text={type.join(", ")} className={cls.info} />
 						<div className={cls.viewsWrapper}>
 							<EyeIcon className={cls.eye} />
-							<Text text={views.toString()} />
+							<TextDeprecated text={views.toString()} />
 						</div>
 					</HStack>
-					<Text className={cls.title} text={title} />
-				</Card>
+					<TextDeprecated className={cls.title} text={title} />
+				</CardDeprecated>
 			</AppLinkDeprecated>
 		</li>
 	);

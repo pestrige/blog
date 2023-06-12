@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Modal, Text } from "@/shared/ui";
+import { Modal, TextDeprecated } from "@/shared/ui";
 import { useArticlesPageGreeting } from "../hooks/useArticlesPageGreeting";
 
 export const ArticlesPageGreeting = memo((): JSX.Element => {
@@ -9,7 +9,7 @@ export const ArticlesPageGreeting = memo((): JSX.Element => {
 
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
-			<Text
+			<TextDeprecated
 				title={t("Добро подаловать на страницу статей")}
 				text={t("Здесь вы можете искать и просматривать статьи на различные темы")}
 			/>

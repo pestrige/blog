@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { t } from "i18next";
-import { Text } from "@/shared/ui";
+import { TextDeprecated } from "@/shared/ui";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { CommentCardSkeleton } from "../CommentCard/CommentCardSkeleton";
 import { Comment } from "../../model/types/comment";
@@ -21,7 +21,7 @@ export const CommentList = memo(
 
 		return (
 			<div>
-				{!!title && <Text className={cls.title} title={title} />}
+				{!!title && <TextDeprecated className={cls.title} title={title} />}
 
 				<ul className={className}>
 					{isLoading && <CommentCardSkeleton />}
@@ -29,11 +29,11 @@ export const CommentList = memo(
 					{isComments &&
 						comments?.map((comment) => <CommentCard key={comment.id} comment={comment} />)}
 
-					{isEmptyComments && <Text text={t("Комментарии не найдены")} />}
+					{isEmptyComments && <TextDeprecated text={t("Комментарии не найдены")} />}
 
 					{!isLoading && !!error && (
 						<li>
-							<Text variant="error" text={error} />
+							<TextDeprecated variant="error" text={error} />
 						</li>
 					)}
 				</ul>

@@ -1,17 +1,14 @@
-import { RefObject, useEffect } from "react";
+import { useEffect } from "react";
 
 interface UseInfinityScrollArgs {
 	callback?: () => void;
-	triggerRef: RefObject<HTMLElement | HTMLDivElement>;
-	wrapperRef: RefObject<HTMLElement | HTMLDivElement>;
+	trigger: HTMLElement | HTMLDivElement | null;
+	wrapper: HTMLElement | HTMLDivElement | null;
 }
 
-export const useInfinityScroll = ({ callback, triggerRef, wrapperRef }: UseInfinityScrollArgs) => {
-	const wrapper = wrapperRef.current;
-	const trigger = triggerRef.current;
-
+export const useInfinityScroll = ({ callback, trigger, wrapper }: UseInfinityScrollArgs) => {
 	useEffect(() => {
-		if (!callback || !trigger) {
+		if (!callback) {
 			return () => {};
 		}
 
@@ -26,10 +23,12 @@ export const useInfinityScroll = ({ callback, triggerRef, wrapperRef }: UseInfin
 			}
 		}, options);
 
-		observer.observe(trigger);
+		if (trigger) {
+			observer.observe(trigger);
+		}
 
 		return () => {
-			if (observer) {
+			if (observer && trigger) {
 				observer.unobserve(trigger);
 			}
 		};

@@ -1,7 +1,13 @@
-import React, { ReactNode, UIEvent, useLayoutEffect, useRef } from "react";
+import React, { ReactNode, UIEvent, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { classNames } from "@/shared/lib";
-import { useAppDispatch, useDebounceCallback, useInfinityScroll, usePageClassName } from "@/shared/hooks";
+import { classNames, toggleFeatures } from "@/shared/lib";
+import {
+	useAppDispatch,
+	useDebounceCallback,
+	useInfinityScroll,
+	useInitialEffect,
+	usePageClassName,
+} from "@/shared/hooks";
 import { useScrollByPathSelector } from "../model/selectors/selectors";
 import cls from "./ObservableScrollPage.module.scss";
 import { scrollActions } from "../model/slice/scrollSlice";
@@ -17,7 +23,7 @@ export const ObservableScrollPage = ({ className, children, testId, onScrollEnd 
 	const dispatch = useAppDispatch();
 	const { pathname } = useLocation();
 	const wrapperRef = useRef<HTMLElement>(null);
-	const triggerRef = useRef<HTMLDivElement>(null);
+	const [trigger, setTrigger] = useState<HTMLDivElement | null>(null);
 	const scrollPosition = useScrollByPathSelector(pathname);
 	const pageClassName = usePageClassName();
 
@@ -26,14 +32,21 @@ export const ObservableScrollPage = ({ className, children, testId, onScrollEnd 
 		dispatch(scrollActions.setScrollPosition({ path: pathname, position }));
 	});
 
-	useInfinityScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
+	useInfinityScroll({
+		trigger,
+		wrapper: toggleFeatures({
+			name: "isAppRedesigned",
+			on: () => null,
+			off: () => wrapperRef.current,
+		}),
+		callback: onScrollEnd,
+	});
 
-	useLayoutEffect(() => {
+	useInitialEffect(() => {
 		if (wrapperRef.current) {
 			wrapperRef.current.scrollTop = scrollPosition;
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	});
 
 	return (
 		<main
@@ -43,7 +56,7 @@ export const ObservableScrollPage = ({ className, children, testId, onScrollEnd 
 			onScroll={handleScrollChange}
 		>
 			{children}
-			<div ref={triggerRef} className={cls.trigger} />
+			<div ref={(ref) => (ref !== null ? setTrigger(ref) : undefined)} className={cls.trigger} />
 		</main>
 	);
 };

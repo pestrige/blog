@@ -14,7 +14,7 @@ const children = (
 /* eslint-enable */
 
 export default {
-	title: "shared/Card",
+	title: "redesigned/shared/Card",
 	component: Card,
 } as ComponentMeta<typeof Card>;
 

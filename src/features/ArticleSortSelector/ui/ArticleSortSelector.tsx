@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
-import { classNames } from "@/shared/lib";
-import { Select, SelectOption } from "@/shared/ui";
+import { classNames, ToggleFeaturesWrapper } from "@/shared/lib";
+import { Select, SelectDeprecated, SelectOption, VStack } from "@/shared/ui";
 import { SortOrder } from "@/shared/types";
 import { ArticleSort } from "@/entities/Article";
 import cls from "./ArticleSortSelector.module.scss";
@@ -65,22 +65,45 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 	);
 
 	return (
-		<div className={classNames(cls.wrapper, className)}>
-			<Select<ArticleSort>
-				name="articlesSort"
-				options={sortFieldOptions}
-				label={t("Сортировать по")}
-				value={sort}
-				onChange={changeSortHandler}
-			/>
-			<Select<SortOrder>
-				name="articlesOrder"
-				options={orderOptions}
-				label={t("по")}
-				value={order}
-				onChange={changeOrderHandler}
-				className={cls.order}
-			/>
-		</div>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<VStack className={className} gap={8}>
+					<Select<ArticleSort>
+						name="articlesSort"
+						options={sortFieldOptions}
+						label={t("Сортировать по")}
+						isLabelInRow
+						value={sort}
+						onChange={changeSortHandler}
+					/>
+					<Select<SortOrder>
+						name="articlesOrder"
+						options={orderOptions}
+						value={order}
+						onChange={changeOrderHandler}
+					/>
+				</VStack>
+			}
+			off={
+				<div className={classNames(cls.wrapper, className)}>
+					<SelectDeprecated<ArticleSort>
+						name="articlesSort"
+						options={sortFieldOptions}
+						label={t("Сортировать по")}
+						value={sort}
+						onChange={changeSortHandler}
+					/>
+					<SelectDeprecated<SortOrder>
+						name="articlesOrder"
+						options={orderOptions}
+						label={t("по")}
+						value={order}
+						onChange={changeOrderHandler}
+						className={cls.order}
+					/>
+				</div>
+			}
+		/>
 	);
 });

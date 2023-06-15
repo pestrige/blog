@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { AvatarDeprecated, Input, Loader, TextDeprecated, VStack } from "@/shared/ui";
+import { AvatarDeprecated, InputDeprecated, Loader, TextDeprecated, VStack } from "@/shared/ui";
 import { classNames } from "@/shared/lib";
 import { CountrySelect } from "@/entities/Country";
 import { CurrencySelect } from "@/entities/Currency";
@@ -92,7 +92,7 @@ export const ProfileCard = ({
 
 					return (
 						<li key={name} className={cls.listITem}>
-							<Input
+							<InputDeprecated
 								name={name}
 								value={adaptedValue}
 								placeholder={t(label)}

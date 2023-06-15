@@ -3,7 +3,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "@/shared/lib";
 import { typedMemo } from "@/shared/constants";
 import { Button } from "../../Button/Button";
-import { HStack } from "../../../redesigned/Stack";
+import { HStack, VStack } from "../../../redesigned/Stack";
 import commonCls from "../common.module.scss";
 import cls from "./Select.module.scss";
 
@@ -17,6 +17,7 @@ interface SelectProps<T extends string> {
 	name: string;
 	className?: string;
 	label?: string;
+	isLabelInRow?: boolean;
 	options?: SelectOption<T>[];
 	value?: T;
 	onChange?: (value: T, name: string) => void;
@@ -24,8 +25,10 @@ interface SelectProps<T extends string> {
 }
 
 export const Select = typedMemo(function Select<T extends string>(props: SelectProps<T>): JSX.Element {
-	const { name, className, label, options, onChange, value, readonly } = props;
+	const { name, className, label, options, onChange, value, readonly, isLabelInRow } = props;
 	const selected = useMemo(() => options?.find((option) => option.value === value), [options, value]);
+
+	const Stack = isLabelInRow ? VStack : HStack;
 
 	const onChangeHandler = useCallback(
 		(value: string) => {
@@ -37,8 +40,8 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 	);
 
 	return (
-		<HStack className={className}>
-			{label && <span className={cls.label}>{`${label}>`}</span>}
+		<Stack className={className}>
+			{label && <span className={cls.label}>{`${label}`}</span>}
 
 			<Listbox
 				as="div"
@@ -52,6 +55,7 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 					<>
 						<Listbox.Button as="div">
 							<Button
+								variant="clear"
 								disabled={readonly}
 								className={classNames(cls.button, { [cls.open]: open })}
 							>
@@ -92,6 +96,6 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 					</>
 				)}
 			</Listbox>
-		</HStack>
+		</Stack>
 	);
 });

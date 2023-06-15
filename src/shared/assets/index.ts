@@ -13,10 +13,12 @@ export { default as MenuAboutIcon } from "./icons/menu-about-icon.svg";
 export { default as MenuArticleIcon } from "./icons/menu-article-icon.svg";
 export { default as MenuMainIcon } from "./icons/menu-main-icon.svg";
 export { default as MenuProfileIcon } from "./icons/menu-profile-icon.svg";
-
 export { default as NotificationIcon } from "./icons/notification-icon.svg";
 export { default as NotificationIconDeprecated } from "./icons/notification-icon-deprecated.svg";
 export { default as StarIcon } from "./icons/star.svg";
+export { default as SearchIcon } from "./icons/search-icon.svg";
 export { default as ViewGridIcon } from "./icons/view-grid.svg";
+export { default as ViewGridIconDeprecated } from "./icons/view-grid-deprecated.svg";
 export { default as ViewListIcon } from "./icons/view-list.svg";
+export { default as ViewListIconDeprecated } from "./icons/view-list-deprecated.svg";
 export { default as UserIcon } from "./icons/user-filled.svg";

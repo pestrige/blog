@@ -1,7 +1,8 @@
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { TabItem, Tabs } from "@/shared/ui";
+import { TabItem, Tabs, TabsDeprecated } from "@/shared/ui";
 import { ArticleType } from "@/entities/Article";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 
 interface Props {
 	className?: string;
@@ -31,7 +32,11 @@ export const ArticleTypeTabs = memo(({ className = "", type, onTabClick }: Props
 
 	return (
 		<div className={className}>
-			<Tabs tabs={tabs} value={type} onTabClick={handleChangeType} />
+			<ToggleFeaturesWrapper
+				featureName="isAppRedesigned"
+				on={<Tabs tabs={tabs} value={type} onTabClick={handleChangeType} />}
+				off={<TabsDeprecated tabs={tabs} value={type} onTabClick={handleChangeType} />}
+			/>
 		</div>
 	);
 });

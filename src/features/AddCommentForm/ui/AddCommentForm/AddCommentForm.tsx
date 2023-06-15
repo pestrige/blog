@@ -1,6 +1,6 @@
 import { FormEvent, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Input, ButtonDeprecated } from "@/shared/ui";
+import { InputDeprecated, ButtonDeprecated } from "@/shared/ui";
 import { classNames } from "@/shared/lib";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import { useCommentErrorSelector, useCommentSelector } from "../../model/selectors/addCommentSelectors";
@@ -43,7 +43,7 @@ const AddCommentForm = memo(({ className, onSubmit }: Props): JSX.Element => {
 
 	return (
 		<form className={classNames(cls.form, className)} onSubmit={handleSubmit}>
-			<Input
+			<InputDeprecated
 				name="comment"
 				placeholder={t("Напишите комментарий")}
 				value={comment}

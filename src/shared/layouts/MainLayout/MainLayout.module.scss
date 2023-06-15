@@ -9,13 +9,14 @@
   grid-area: sidebar;
   max-width: 284px;
   padding: var(--margin-xl);
+  padding-right: 0;
 }
 
 .content {
   grid-area: content;
   justify-self: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1680px;
   padding: var(--margin-xl);
 }
 

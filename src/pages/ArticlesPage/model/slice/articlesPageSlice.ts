@@ -22,6 +22,7 @@ export const articlesPageSlice = createSlice({
 		limit: 9,
 		type: ArticleType.ALL,
 		_initialized: false,
+		_isFirstRequest: true,
 	}),
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleView>) => {
@@ -57,11 +58,13 @@ export const articlesPageSlice = createSlice({
 				state.error = "";
 				state.isLoading = true;
 				if (action.meta.arg.replace) {
+					state._isFirstRequest = true;
 					articlesAdapter.removeAll(state);
 				}
 			})
 			.addCase(fetchArticles.fulfilled, (state, action) => {
 				state.isLoading = false;
+				state._isFirstRequest = false;
 				state.hasMore = action.payload?.length >= state.limit;
 				if (action.meta.arg.replace) {
 					articlesAdapter.setAll(state, action.payload);
@@ -71,6 +74,7 @@ export const articlesPageSlice = createSlice({
 			})
 			.addCase(fetchArticles.rejected, (state, action) => {
 				state.isLoading = false;
+				state._isFirstRequest = false;
 				state.error = action.payload;
 			});
 	},

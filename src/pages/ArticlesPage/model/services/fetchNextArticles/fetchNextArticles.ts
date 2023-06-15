@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/shared/config";
 import {
+	getArticlesFirstRequest,
 	getArticlesHasMore,
 	getArticlesIsLoading,
 	getArticlesPage,
@@ -10,14 +11,19 @@ import { fetchArticles } from "../fetchArticles/fetchArticles";
 
 export const fetchNextArticles = createAsyncThunk<void, void, ThunkConfig<string>>(
 	"articlesPage/fetchNextArticles",
-	async (_, thunkApi) => {
+	async (isFirstTime, thunkApi) => {
 		const { getState, dispatch } = thunkApi;
 		const hasMore = getArticlesHasMore(getState());
 		const page = getArticlesPage(getState());
 		const isLoading = getArticlesIsLoading(getState());
-		console.log("isLoading", isLoading);
+		const isFirstRequest = getArticlesFirstRequest(getState());
 
 		if (!isLoading && hasMore) {
+			dispatch(articlesPageActions.setPage(page + 1));
+			dispatch(fetchArticles({}));
+		}
+
+		if (isFirstRequest && isLoading) {
 			dispatch(articlesPageActions.setPage(page + 1));
 			dispatch(fetchArticles({}));
 		}

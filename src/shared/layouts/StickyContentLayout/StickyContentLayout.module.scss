@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  grid-template-areas: "left content right";
+  grid-template-columns: min-content 1fr min-content;
+  gap: var(--margin-m);
+}
+
+.left {
+  grid-area: left;
+}
+
+.content {
+  grid-area: content;
+  justify-self: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.right {
+  grid-area: right;
+}
+
+.left,
+.right {
+  position: sticky;
+  top: var(--margin-xl);
+  height: fit-content;
+}

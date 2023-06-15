@@ -1,10 +1,10 @@
 import { memo, ReactNode, useCallback } from "react";
 import { classNames } from "@/shared/lib";
 import { Card } from "../Card/Card";
-import { HStack } from "../../redesigned/Stack";
+import { VStack } from "../../redesigned/Stack";
 import cls from "./Tabs.module.scss";
 
-interface TabItem {
+export interface TabItem {
 	value: string;
 	content: ReactNode;
 }
@@ -25,18 +25,24 @@ export const Tabs = memo(function Tabs({ className, tabs, value, onTabClick }: P
 	);
 
 	return (
-		<HStack as="ul" className={className}>
+		<VStack as="ul" className={className}>
 			{tabs.map((tab) => {
 				const active = tab.value === value;
 
 				return (
 					<li key={tab.value} className={classNames(cls.tab, { [cls.active]: active })}>
-						<Card onClick={handleTabClick(tab)} variant={active ? "primary" : "outlined"}>
+						<Card
+							onClick={active ? undefined : handleTabClick(tab)}
+							variant={active ? "secondary" : "primary"}
+							borderRadius="lg"
+							as="div"
+							className={cls.card}
+						>
 							{tab.content}
 						</Card>
 					</li>
 				);
 			})}
-		</HStack>
+		</VStack>
 	);
 });

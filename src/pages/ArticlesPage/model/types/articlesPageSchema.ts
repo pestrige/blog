@@ -19,4 +19,5 @@ export interface ArticlesPageSchema extends EntityState<Article> {
 	type: ArticleType;
 
 	_initialized: boolean;
+	_isFirstRequest: boolean;
 }

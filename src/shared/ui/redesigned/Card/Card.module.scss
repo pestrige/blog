@@ -1,6 +1,4 @@
 .card {
-  border-radius: var(--margin-xl);
-
   &.none {
     padding: 0;
   }
@@ -16,6 +14,26 @@
   &.lg {
     padding: var(--margin-l);
   }
+}
+
+.borderNoRadius {
+  border-radius: 0;
+}
+
+.borderRadiusSm {
+  border-radius: var(--margin-s);
+}
+
+.borderRadiusMd {
+  border-radius: var(--margin-m);
+}
+
+.borderRadiusLg {
+  border-radius: var(--margin-l);
+}
+
+.borderRadiusXl {
+  border-radius: var(--margin-xl);
 }
 
 .primary {

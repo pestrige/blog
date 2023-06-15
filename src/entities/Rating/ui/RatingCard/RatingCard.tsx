@@ -5,7 +5,7 @@ import {
 	ButtonDeprecated,
 	CardDeprecated,
 	HStack,
-	Input,
+	InputDeprecated,
 	Modal,
 	StarRating,
 	TextDeprecated,
@@ -79,7 +79,7 @@ export const RatingCard = memo(function RatingCard({
 		() => (
 			<VStack gap={32} max>
 				<TextDeprecated title={feedbackTitle} />
-				<Input
+				<InputDeprecated
 					dataTestInputId={`${testId}.Input`}
 					name="feedback"
 					placeholder={t("Ваш отзыв")}

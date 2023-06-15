@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Select } from "@/shared/ui";
+import { SelectDeprecated } from "@/shared/ui";
 import { Currency } from "../../model/constants/currency";
 
 interface CurrencySelectProps {
@@ -23,7 +23,7 @@ export const CurrencySelect = memo(({ className, value, onChange, readonly }: Cu
 	);
 
 	return (
-		<Select
+		<SelectDeprecated
 			name="currency"
 			className={className}
 			label={t("Укажите валюту")}

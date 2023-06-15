@@ -6,7 +6,7 @@ import { ArticleDetails } from "@/entities/Article";
 import { TextDeprecated } from "@/shared/ui";
 import { ArticleRating } from "@/features/ArticleRating";
 import { ArticleRecommendations } from "@/features/ArticleRecommendations";
-import { ReducersList, useDynamicReducerLoader, usePageClassName } from "@/shared/hooks";
+import { ReducersList, useDynamicReducerLoader, useInitialEffect, usePageClassName } from "@/shared/hooks";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { articleDetailsPageReducer } from "../model/slice";
 import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
@@ -22,6 +22,10 @@ const DetailArticlePage = memo((): JSX.Element => {
 	const pageClassName = usePageClassName();
 
 	useDynamicReducerLoader(reducers);
+
+	useInitialEffect(() => {
+		window.scrollTo(0, 0);
+	});
 
 	if (!id) {
 		return (

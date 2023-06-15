@@ -5,3 +5,16 @@
 .active {
   fill: var(--inverted-secondary-color);
 }
+
+.nonActive {
+  color: var(--hint-redesigned);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  line-height: 0;
+}

@@ -7,7 +7,7 @@ import cls from "./Select.module.scss";
 import commonCls from "../common.module.scss";
 import { typedMemo } from "@/shared/constants";
 
-export interface SelectOption<T> {
+interface SelectOption<T> {
 	value: T;
 	content: string;
 	disabled?: boolean;

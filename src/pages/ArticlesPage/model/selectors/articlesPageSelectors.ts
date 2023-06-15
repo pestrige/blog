@@ -18,10 +18,11 @@ export const getArticlesLimit = (store: StoreSchema) => store?.articlesPage?.lim
 export const getArticlesPage = (store: StoreSchema) => store?.articlesPage?.page ?? 1;
 export const getArticlesHasMore = (store: StoreSchema) => store?.articlesPage?.hasMore ?? true;
 export const getArticlesInitialized = (store: StoreSchema) => store?.articlesPage?._initialized;
+export const getArticlesFirstRequest = (store: StoreSchema) => store?.articlesPage?._isFirstRequest;
 
 export const getArticlesSort = (store: StoreSchema) => store?.articlesPage?.sort ?? ArticleSort.CREATED;
 export const useArticlesSortSelector = () => useSelector(getArticlesSort);
-export const getArticlesOrder = (store: StoreSchema) => store?.articlesPage?.order ?? "desc";
+export const getArticlesOrder = (store: StoreSchema) => store?.articlesPage?.order ?? "asc";
 export const useArticlesOrderSelector = () => useSelector(getArticlesOrder);
 export const getArticlesSearch = (store: StoreSchema) => store?.articlesPage?.search ?? "";
 export const useArticlesSearchSelector = () => useSelector(getArticlesSearch);

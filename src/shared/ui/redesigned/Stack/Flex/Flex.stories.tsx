@@ -14,7 +14,7 @@ const children = (
 /* eslint-enable i18next/no-literal-string */
 
 export default {
-	title: "shared/Flex",
+	title: "redesigned/shared/Flex",
 	component: Flex,
 } as ComponentMeta<typeof Flex>;
 

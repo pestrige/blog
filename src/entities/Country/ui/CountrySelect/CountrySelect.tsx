@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Select } from "@/shared/ui";
+import { SelectDeprecated } from "@/shared/ui";
 import { Country } from "../../model/constants/country";
 
 interface CountrySelectProps {
@@ -26,7 +26,7 @@ export const CountrySelect = memo(({ className, value, onChange, readonly }: Cou
 	);
 
 	return (
-		<Select
+		<SelectDeprecated
 			name="country"
 			className={className}
 			label={t("Укажите страну")}

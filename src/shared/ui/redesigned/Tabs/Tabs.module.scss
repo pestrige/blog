@@ -1,0 +1,11 @@
+.tab {
+  cursor: pointer;
+
+  div.card {
+    padding: var(--margin-s) var(--margin-m);
+  }
+}
+
+.active {
+  cursor: default;
+}

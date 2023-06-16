@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { SelectDeprecated } from "@/shared/ui";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
+import { Select, SelectDeprecated } from "@/shared/ui";
 import { Currency } from "../../model/constants/currency";
 
 interface CurrencySelectProps {
@@ -23,14 +24,30 @@ export const CurrencySelect = memo(({ className, value, onChange, readonly }: Cu
 	);
 
 	return (
-		<SelectDeprecated
-			name="currency"
-			className={className}
-			label={t("Укажите валюту")}
-			options={options}
-			value={value}
-			onChange={onChangeHandler}
-			readonly={readonly}
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<Select
+					name="currency"
+					className={className}
+					label={t("Укажите валюту")}
+					options={options}
+					value={value}
+					onChange={onChangeHandler}
+					readonly={readonly}
+				/>
+			}
+			off={
+				<SelectDeprecated
+					name="currency"
+					className={className}
+					label={t("Укажите валюту")}
+					options={options}
+					value={value}
+					onChange={onChangeHandler}
+					readonly={readonly}
+				/>
+			}
 		/>
 	);
 });

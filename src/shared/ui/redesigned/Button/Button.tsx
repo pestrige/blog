@@ -2,12 +2,14 @@ import React, { ButtonHTMLAttributes, memo } from "react";
 import { classNames } from "@/shared/lib";
 import cls from "./Button.module.scss";
 
-export type ButtonVariant = "clear" | "outline";
+export type ButtonVariant = "clear" | "outline" | "rounded-outline";
 
 export type ButtonSize = "M" | "L" | "XL";
+type BorderColor = "red" | "green" | "default";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: ButtonVariant;
+	borderColor?: BorderColor;
 	square?: boolean;
 	size?: ButtonSize;
 	fullWidth?: boolean;
@@ -20,6 +22,7 @@ export const Button = memo(
 		children,
 		className,
 		variant = "outline",
+		borderColor = "default",
 		square = false,
 		size = "M",
 		dataTestId,
@@ -29,6 +32,7 @@ export const Button = memo(
 		const classes = classNames(
 			cls.button,
 			cls[variant],
+			cls[borderColor],
 			cls[size],
 			{
 				[cls.square]: square,

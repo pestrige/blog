@@ -22,3 +22,8 @@ export interface ProfileErrors {
 	validateErrors?: ValidateErrors;
 	error?: ValidateErrorsEnum;
 }
+
+export interface ProfileInputsItem {
+	name: ProfileCardTypeKeyof;
+	label: string;
+}

@@ -1,7 +1,14 @@
 .root {
+  display: flex;
+  gap: var(--margin-s);
+  align-items: center;
+  width: 100%;
+}
+
+.inner {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-grow: 1;
 }
 
 .icon {
@@ -25,7 +32,11 @@
     padding-left: calc(var(--margin-xl) + var(--margin-s));
   }
 
-  &:focus-visible {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:not(:read-only) {
     outline: 1px solid var(--accent-redesigned);
   }
 }

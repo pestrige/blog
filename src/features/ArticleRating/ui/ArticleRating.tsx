@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { RatingCard } from "@/entities/Rating";
 import { useArticleRating, useRateArticle } from "../api/articleRatingApi";
 import { useUser } from "@/entities/User";
-import { Skeleton } from "@/shared/ui";
+import { SkeletonDeprecated } from "@/shared/ui";
 
 export interface ArticleRatingProps {
 	articleId: string;
@@ -42,7 +42,7 @@ const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingPr
 	);
 
 	if (isLoading || isRateProcessing) {
-		return <Skeleton width="100%" height="108px" />;
+		return <SkeletonDeprecated width="100%" height="108px" />;
 	}
 
 	const rating = data?.[0];

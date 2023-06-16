@@ -1,9 +1,15 @@
-import { toggleFeatures } from "@/shared/lib";
+import { classNames, toggleFeatures } from "@/shared/lib";
 
-export const usePageClassName = () => {
+interface Arguments {
+	isSmall?: boolean;
+}
+
+export const usePageClassName = (args?: Arguments) => {
+	const { isSmall = false } = args || {};
+
 	return toggleFeatures({
 		name: "isAppRedesigned",
-		on: () => "page-redesigned",
+		on: () => classNames("page-redesigned", { "page-small": isSmall }),
 		off: () => "page",
 	});
 };

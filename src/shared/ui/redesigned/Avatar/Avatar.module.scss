@@ -5,12 +5,12 @@
 
 .empty {
   overflow: hidden;
-  color: var(--inverted-secondary-color);
+  color: var(--text-redesigned);
   text-transform: uppercase;
-  background-color: var(--secondary-color);
+  background-color: var(--light-bg-redesigned);
   border-radius: 50%;
 }
 
 .userIcon {
-  fill: var(--secondary-color);
+  fill: var(--hint-redesigned);
 }

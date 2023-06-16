@@ -8,10 +8,6 @@ interface Props {
 	size?: LoaderSize;
 }
 
-/**
- * @deprecated
- */
-
 export const Loader = ({ className, size = "L" }: Props): JSX.Element => {
 	return (
 		<div className={classNames(cls.ring, cls[size], className)}>

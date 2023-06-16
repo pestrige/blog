@@ -41,6 +41,11 @@ body {
   overflow-y: visible;
 }
 
+.page-small {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .block-margin {
   margin-bottom: var(--margin-m);
 }

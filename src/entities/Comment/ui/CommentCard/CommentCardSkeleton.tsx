@@ -1,6 +1,6 @@
 import React from "react";
 import { classNames } from "@/shared/lib";
-import { Skeleton } from "@/shared/ui";
+import { SkeletonDeprecated } from "@/shared/ui";
 import cls from "./CommentCard.module.scss";
 
 interface Props {
@@ -12,17 +12,17 @@ export const CommentCardSkeleton = ({ className }: Props): JSX.Element => {
 		<>
 			<li className={classNames(cls.commentCard, className)}>
 				<div className={cls.header}>
-					<Skeleton className={cls.avatar} width="30px" height="30px" border="50%" />
-					<Skeleton width="100px" height="24px" />
+					<SkeletonDeprecated className={cls.avatar} width="30px" height="30px" border="50%" />
+					<SkeletonDeprecated width="100px" height="24px" />
 				</div>
-				<Skeleton width="100%" height="24px" />
+				<SkeletonDeprecated width="100%" height="24px" />
 			</li>
 			<li className={classNames(cls.commentCard, className)}>
 				<div className={cls.header}>
-					<Skeleton className={cls.avatar} width="30px" height="30px" border="50%" />
-					<Skeleton width="100px" height="24px" />
+					<SkeletonDeprecated className={cls.avatar} width="30px" height="30px" border="50%" />
+					<SkeletonDeprecated width="100px" height="24px" />
 				</div>
-				<Skeleton width="100%" height="24px" />
+				<SkeletonDeprecated width="100%" height="24px" />
 			</li>
 		</>
 	);

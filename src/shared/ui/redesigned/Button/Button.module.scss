@@ -7,15 +7,15 @@
   cursor: pointer;
   transition: color 0.3s, fill-opacity 0.3s, stroke-opacity 0.3s;
 
-  &:hover {
-    color: var(--accent-redesigned);
-    fill-opacity: 80%;
-    stroke-opacity: 80%;
-  }
-
   &:disabled {
     cursor: default;
     opacity: 0.5;
+  }
+
+  &:hover:not(:disabled) {
+    color: var(--accent-redesigned);
+    fill-opacity: 80%;
+    stroke-opacity: 80%;
   }
 }
 
@@ -67,8 +67,23 @@
   }
 }
 
-.outline {
+.outline,
+.rounded-outline {
   color: var(--text-redesigned);
   background-color: transparent;
   border: 1px solid var(--accent-redesigned);
+}
+
+.rounded-outline {
+  border-radius: var(--margin-xl);
+}
+
+.outline.red,
+.rounded-outline.red {
+  border-color: var(--cancel-redesigned);
+}
+
+.outline.green,
+.rounded-outline.green {
+  border-color: var(--save-redesigned);
 }

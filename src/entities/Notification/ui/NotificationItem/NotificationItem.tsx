@@ -20,7 +20,7 @@ export const NotificationItem = memo(({ notification }: Props): JSX.Element => {
 						<Text title={title} text={href ? undefined : description} />
 						{href && (
 							<AppLink to={href}>
-								<Text text={description} />
+								<Text variant="accent" text={description} />
 							</AppLink>
 						)}
 					</Card>

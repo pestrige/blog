@@ -8,6 +8,7 @@ interface Props extends HTMLInputProps {
 	name: string;
 	className?: string;
 	value?: string;
+	label?: string;
 	error?: string;
 	onChange?: (value: string, name: string) => void;
 	autofocus?: boolean;
@@ -23,6 +24,7 @@ export const Input = memo((props: Props) => {
 		name,
 		className,
 		value,
+		label,
 		onChange,
 		type = "text",
 		placeholder,
@@ -49,25 +51,28 @@ export const Input = memo((props: Props) => {
 
 	return (
 		<div className={wrapperClasses}>
-			{!!Icon && <Icon className={cls.icon} />}
-			<input
-				id={name}
-				name={name}
-				ref={ref}
-				type={type}
-				value={value}
-				onChange={onChangeHandler}
-				className={classNames(cls.input, { [cls.leftPadding]: !!Icon })}
-				readOnly={readonly}
-				placeholder={placeholder}
-				data-testid={dataTestInputId}
-				{...otherProps}
-			/>
-			{!!error && (
-				<span className={cls.error} data-testid={dataTestErrorId}>
-					{error}
-				</span>
-			)}
+			{!!label && <label htmlFor={name}>{label}:</label>}
+			<div className={cls.inner}>
+				{!!Icon && <Icon className={cls.icon} />}
+				<input
+					id={name}
+					name={name}
+					ref={ref}
+					type={type}
+					value={value}
+					onChange={onChangeHandler}
+					className={classNames(cls.input, { [cls.leftPadding]: !!Icon })}
+					readOnly={readonly}
+					placeholder={placeholder}
+					data-testid={dataTestInputId}
+					{...otherProps}
+				/>
+				{!!error && (
+					<span className={cls.error} data-testid={dataTestErrorId}>
+						{error}
+					</span>
+				)}
+			</div>
 		</div>
 	);
 });

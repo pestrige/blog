@@ -41,7 +41,7 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 
 	return (
 		<Stack className={className}>
-			{label && <span className={cls.label}>{`${label}`}</span>}
+			{label && <span className={cls.label}>{`${label}:`}</span>}
 
 			<Listbox
 				as="div"

@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { SelectDeprecated } from "@/shared/ui";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
+import { Select, SelectDeprecated } from "@/shared/ui";
 import { Country } from "../../model/constants/country";
 
 interface CountrySelectProps {
@@ -26,14 +27,30 @@ export const CountrySelect = memo(({ className, value, onChange, readonly }: Cou
 	);
 
 	return (
-		<SelectDeprecated
-			name="country"
-			className={className}
-			label={t("Укажите страну")}
-			options={options}
-			value={value}
-			onChange={onChangeHandler}
-			readonly={readonly}
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<Select
+					name="country"
+					className={className}
+					label={t("Укажите страну")}
+					options={options}
+					value={value}
+					onChange={onChangeHandler}
+					readonly={readonly}
+				/>
+			}
+			off={
+				<SelectDeprecated
+					name="country"
+					className={className}
+					label={t("Укажите страну")}
+					options={options}
+					value={value}
+					onChange={onChangeHandler}
+					readonly={readonly}
+				/>
+			}
 		/>
 	);
 });

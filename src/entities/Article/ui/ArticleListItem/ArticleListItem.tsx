@@ -9,7 +9,7 @@ import {
 	TextDeprecated,
 	HStack,
 	AppImage,
-	Skeleton,
+	SkeletonDeprecated,
 } from "@/shared/ui";
 import { EyeIcon } from "@/shared/assets";
 import { getRoute } from "@/shared/constants";
@@ -66,7 +66,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 						src={img}
 						alt={title}
 						className={cls.image}
-						fallback={<Skeleton width="100%" height={200} />}
+						fallback={<SkeletonDeprecated width="100%" height={200} />}
 					/>
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
@@ -87,7 +87,7 @@ export const ArticleListItem = memo(({ article, view, target }: Props): JSX.Elem
 							src={img}
 							alt={title}
 							className={cls.image}
-							fallback={<Skeleton width="100%" height={200} />}
+							fallback={<SkeletonDeprecated width="100%" height={200} />}
 						/>
 						<time className={cls.date} dateTime={articleDate}>
 							<TextDeprecated text={createdAt} />

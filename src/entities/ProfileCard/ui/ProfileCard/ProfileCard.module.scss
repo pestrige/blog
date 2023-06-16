@@ -28,3 +28,15 @@
 .listITem {
   width: 100%;
 }
+
+// redesigned
+
+.rootRedesigned {
+  padding: var(--margin-m);
+}
+
+.listRedesigned {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--margin-m) var(--margin-l);
+}

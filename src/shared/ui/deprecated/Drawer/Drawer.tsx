@@ -4,7 +4,7 @@ import { classNames } from "@/shared/lib";
 import { AnimationProvider, useAnimationContext } from "@/shared/providers";
 import { Portal } from "../../redesigned/Portal/Portal";
 import { Overlay } from "../../redesigned/Overlay/Overlay";
-import { Loader } from "../Loader";
+import { Loader } from "../../redesigned/Loader";
 import cls from "./Drawer.module.scss";
 
 const height = window.innerHeight - 100;

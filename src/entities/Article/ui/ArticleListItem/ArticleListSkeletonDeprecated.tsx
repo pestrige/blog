@@ -9,7 +9,7 @@ interface Props {
 	view: ArticleView;
 }
 
-export const ArticleListItemSkeleton = memo((props: Props) => {
+export const ArticleListSkeletonDeprecated = memo((props: Props) => {
 	const { className, view } = props;
 
 	if (view === ArticleView.LIST) {

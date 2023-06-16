@@ -4,6 +4,7 @@ export { default as CopyIcon } from "./icons/copy-icon.svg";
 export { default as ThemeIcon } from "./icons/theme-icon.svg";
 export { default as ThemeIconDeprecated } from "./icons/theme-icon-deprecated.svg";
 export { default as EyeIcon } from "./icons/eye-icon.svg";
+export { default as EyeIconDeprecated } from "./icons/eye-icon-deprecated.svg";
 export { default as LogoIcon } from "./icons/logo-icon.svg";
 export { default as MenuAboutIconDeprecated } from "./icons/menu-about-icon-deprecated.svg";
 export { default as MenuArticleIconDeprecated } from "./icons/menu-article-icon-deprecated.svg";

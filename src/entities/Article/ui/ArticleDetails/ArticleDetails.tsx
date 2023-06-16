@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
 import { AvatarDeprecated, TextDeprecated } from "@/shared/ui";
-import { CalendarIcon, EyeIcon } from "@/shared/assets";
+import { CalendarIcon, EyeIconDeprecated } from "@/shared/assets";
 import { classNames } from "@/shared/lib";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useArticleDetails } from "../../model/hooks/useArticleDetails";
@@ -57,7 +57,7 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 			/>
 
 			<div className={cls.info}>
-				<EyeIcon className={cls.icon} />
+				<EyeIconDeprecated className={cls.icon} />
 				<TextDeprecated text={article.views.toString()} />
 			</div>
 			<div className={cls.infoLast}>

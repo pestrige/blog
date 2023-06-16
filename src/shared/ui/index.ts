@@ -36,3 +36,4 @@ export { HStack, VStack } from "./redesigned/Stack";
 export { Tabs } from "./redesigned/Tabs/Tabs";
 export type { TabItem } from "./redesigned/Tabs/Tabs";
 export { Text } from "./redesigned/Text";
+export { ViewsCount } from "./redesigned/ViewsCount/ViewsCount";

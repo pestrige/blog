@@ -11,7 +11,7 @@ export const articlesPageSlice = createSlice({
 	initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
 		isLoading: true,
 		error: "",
-		view: ArticleView.GRID,
+		view: ArticleView.LIST,
 		ids: [],
 		entities: {},
 		page: 1,
@@ -19,7 +19,7 @@ export const articlesPageSlice = createSlice({
 		order: "asc",
 		sort: ArticleSort.CREATED,
 		search: "",
-		limit: 9,
+		limit: 4,
 		type: ArticleType.ALL,
 		_initialized: false,
 		_isFirstRequest: true,

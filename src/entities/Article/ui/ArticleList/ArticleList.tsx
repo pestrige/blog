@@ -1,17 +1,23 @@
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { TextDeprecated } from "@/shared/ui";
-import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListITemSkeleton";
+import { Text, TextDeprecated } from "@/shared/ui";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { Article } from "../../model/types/article";
 import { ArticleView } from "../../model/constants/article";
+import { ArticleListSkeletonDeprecated } from "../ArticleListItem/ArticleListSkeletonDeprecated";
+import { ArticleListSkeletonRedesigned } from "../ArticleListItem/ArticleListSkeletonRedesigned";
 import cls from "./ArticleList.module.scss";
 
 const getSkeleton = (view: ArticleView) => {
 	return (
 		<>
-			{new Array(view === ArticleView.GRID ? 9 : 3).fill(0).map((_, index) => (
-				<ArticleListItemSkeleton key={index} view={view} />
+			{new Array(view === ArticleView.GRID ? 9 : 4).fill(0).map((_, index) => (
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={<ArticleListSkeletonRedesigned key={index} view={view} />}
+					off={<ArticleListSkeletonDeprecated key={index} view={view} />}
+				/>
 			))}
 		</>
 	);
@@ -40,7 +46,11 @@ export const ArticleList = memo(
 		if (!isLoading && articles.length === 0)
 			return (
 				<div className={className}>
-					<TextDeprecated title={t("Статьи не найдены")} />
+					<ToggleFeaturesWrapper
+						featureName="isAppRedesigned"
+						on={<Text title={t("Статьи не найдены")} />}
+						off={<TextDeprecated title={t("Статьи не найдены")} />}
+					/>
 				</div>
 			);
 

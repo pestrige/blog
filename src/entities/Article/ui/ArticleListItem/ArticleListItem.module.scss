@@ -100,3 +100,58 @@
     white-space: nowrap;
   }
 }
+
+// redesigned LIST type
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-m);
+}
+
+.imageRedesigned {
+  object-fit: cover;
+  width: 100%;
+  height: 420px;
+  transition: transform 0.5s;
+}
+
+.textBlockRedesigned {
+  max-height: 72px;
+  overflow-y: hidden;
+}
+
+.eyeRedesigned {
+  color: var(--icon-redesigned);
+}
+
+// redesigned GRID type
+
+.cardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-s);
+  overflow: hidden;
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.imageGrid {
+  object-fit: cover;
+  width: 100%;
+  height: 140px;
+  transition: transform 0.5s;
+}
+
+.infoGrid {
+  padding: var(--margin-s);
+  padding-bottom: var(--margin-m);
+}
+
+.textBlockGrid {
+  max-height: 114px;
+  overflow-y: hidden;
+}

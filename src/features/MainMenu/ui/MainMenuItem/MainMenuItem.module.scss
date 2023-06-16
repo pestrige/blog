@@ -49,6 +49,7 @@
 
 .activeRedesigned {
   position: relative;
+  cursor: default;
   background: linear-gradient(89.97deg, rgb(29 89 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
 
   &::before {
@@ -62,5 +63,9 @@
 
   &.activeCollapsed {
     background: transparent;
+  }
+
+  .text {
+    color: var(--accent-redesigned);
   }
 }

@@ -8,10 +8,6 @@ interface Props {
 	target?: HTMLElement;
 }
 
-/**
- * @deprecated
- */
-
 export const Portal = ({ children, target = rootElement }: Props): JSX.Element => {
 	return createPortal(children, target);
 };

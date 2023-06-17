@@ -1,9 +1,16 @@
 .content {
   padding: var(--margin-l);
-  background-color: var(--bg-color);
   border-radius: 12px;
   opacity: 0;
   transform: translateY(-50px);
+
+  &.bgRedesigned {
+    background-color: var(--bg-redesigned);
+  }
+
+  &.bg {
+    background-color: var(--bg-color);
+  }
 }
 
 .content.open {

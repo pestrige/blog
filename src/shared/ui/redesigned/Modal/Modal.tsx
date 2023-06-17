@@ -1,5 +1,5 @@
 import { memo, ReactNode } from "react";
-import { classNames } from "@/shared/lib";
+import { classNames, toggleFeatures } from "@/shared/lib";
 import { useModal } from "@/shared/hooks";
 import { Portal } from "../../redesigned/Portal";
 import { Overlay } from "../../redesigned/Overlay/Overlay";
@@ -14,6 +14,11 @@ interface Props {
 
 const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Element | null => {
 	const { isClosing, handleClose, handleContentClick } = useModal(onClose);
+	const bgColorCls = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.bgRedesigned,
+		off: () => cls.bg,
+	});
 
 	if (!isOpen) {
 		return null;
@@ -23,7 +28,7 @@ const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Elemen
 		<Portal>
 			<Overlay onClose={handleClose} isOpen={isOpen} isClose={isClosing} data-testid="modal-test">
 				<div
-					className={classNames(cls.content, className, {
+					className={classNames(cls.content, bgColorCls, className, {
 						[cls.open]: isOpen,
 						[cls.close]: isClosing,
 					})}
@@ -36,9 +41,5 @@ const ModalInner = ({ children, className, isOpen, onClose }: Props): JSX.Elemen
 		</Portal>
 	);
 };
-
-/**
- * @deprecated
- */
 
 export const Modal = memo(ModalInner);

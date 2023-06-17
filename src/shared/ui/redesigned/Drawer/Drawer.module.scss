@@ -27,6 +27,13 @@
   height: calc(100vh + 100px);
   padding: 15px;
   touch-action: none;
-  background: var(--bg-color);
   border-radius: 12px 12px 0;
+
+  &.bgRedesigned {
+    background: var(--light-bg-redesigned);
+  }
+
+  &.bg {
+    background: var(--bg-color);
+  }
 }

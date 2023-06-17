@@ -18,8 +18,9 @@ export const NotificationList = memo(function NotificationList({ className }: Pr
 	if (isLoading) {
 		return (
 			<VStack as="ul" gap={16} max className={className}>
-				{NOTIFICATIONS_SKELETON.map(() => (
+				{NOTIFICATIONS_SKELETON.map((idx) => (
 					<ToggleFeaturesWrapper
+						key={idx}
 						featureName="isAppRedesigned"
 						on={<Skeleton {...NOTIFICATIONS_SKELETON_PROPS} />}
 						off={<SkeletonDeprecated {...NOTIFICATIONS_SKELETON_PROPS} />}

@@ -1,6 +1,6 @@
 import { MouseEvent, ReactNode, useCallback, useEffect } from "react";
 import { useModal } from "@/shared/hooks";
-import { classNames } from "@/shared/lib";
+import { classNames, toggleFeatures } from "@/shared/lib";
 import { AnimationProvider, useAnimationContext } from "@/shared/providers";
 import { Portal } from "../../redesigned/Portal/Portal";
 import { Overlay } from "../../redesigned/Overlay/Overlay";
@@ -20,6 +20,12 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 	const { Spring, Gesture } = useAnimationContext();
 	const { isClosing, handleClose } = useModal(onClose);
 	const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
+	const backgroundClassName = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.bgRedesigned,
+		off: () => cls.bg,
+	});
+	console.log("backgroundClassName", backgroundClassName);
 
 	const handleOpenDrawer = useCallback(() => {
 		api.start({ y: 0, immediate: false });
@@ -78,7 +84,7 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 				<Overlay onClose={handleCloseDrawer} isOpen={isOpen} isClose={isClosing}>
 					<Spring.a.div
 						onClick={handleContentClick}
-						className={cls.sheet}
+						className={classNames(cls.sheet, backgroundClassName)}
 						style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
 						{...bind()}
 					>

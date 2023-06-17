@@ -1,5 +1,5 @@
-import { FeatureFlags } from "../../types";
-import { getFeatureFlag } from "./setGetFeatures";
+import { FeatureFlags } from "../../../types";
+import { getFeatureFlag } from "../lib/setGetFeatures";
 
 interface Props {
 	featureName: keyof FeatureFlags;

@@ -1,6 +1,14 @@
 import { RouteProps } from "react-router-dom";
 import { ReactElement } from "react";
-import { AboutPage, ArticlesPage, DetailArticlePage, MainPage, NotFound, ProfilePage } from "@/pages";
+import {
+	AboutPage,
+	ArticlesPage,
+	DetailArticlePage,
+	MainPage,
+	NotFound,
+	ProfilePage,
+	SettingsPage,
+} from "@/pages";
 import { ArticleEditPage } from "@/pages/ArticleEditPage";
 import { AdminPanelPage } from "@/pages/AdminPanelPage";
 import { ForbiddenPage } from "@/pages/ForbiddenPage";
@@ -46,6 +54,11 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
 	[AppRoutes.FORBIDDEN]: {
 		element: <ForbiddenPage />,
 		path: getRoute.forbidden(),
+		authOnly: true,
+	},
+	[AppRoutes.SETTINGS]: {
+		element: <SettingsPage />,
+		path: getRoute.settings(),
 		authOnly: true,
 	},
 

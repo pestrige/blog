@@ -42,7 +42,7 @@ export const Redesigned = memo(function Redesigned({
 					const inputError = getTranslateErrors(validateErrors, name);
 
 					if (isLoading) {
-						return <Skeleton width="100%" height={42} />;
+						return <Skeleton key={name} width="100%" height={42} />;
 					}
 
 					return (

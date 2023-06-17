@@ -14,6 +14,7 @@ const getSkeleton = (view: ArticleView) => {
 		<>
 			{new Array(view === ArticleView.GRID ? 9 : 4).fill(0).map((_, index) => (
 				<ToggleFeaturesWrapper
+					key={index}
 					featureName="isAppRedesigned"
 					on={<ArticleListSkeletonRedesigned key={index} view={view} />}
 					off={<ArticleListSkeletonDeprecated key={index} view={view} />}

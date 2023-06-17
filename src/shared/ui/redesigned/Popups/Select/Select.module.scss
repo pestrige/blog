@@ -4,6 +4,7 @@
 
 button.button {
   position: relative;
+  min-width: 100px;
   min-height: var(--margin-xl);
   padding: var(--margin-s) calc(var(--margin-xl) + var(--margin-m)) var(--margin-s) var(--margin-m);
   background-color: var(--light-bg-redesigned);

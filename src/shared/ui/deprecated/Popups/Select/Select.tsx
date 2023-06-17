@@ -21,6 +21,7 @@ interface SelectProps<T extends string> {
 	value?: T;
 	onChange?: (value: T, name: string) => void;
 	readonly?: boolean;
+	isLoading?: boolean;
 }
 
 /**
@@ -28,7 +29,7 @@ interface SelectProps<T extends string> {
  */
 
 export const Select = typedMemo(function Select<T extends string>(props: SelectProps<T>): JSX.Element {
-	const { name, className, label, options, onChange, value, readonly } = props;
+	const { name, className, label, options, onChange, value, readonly, isLoading } = props;
 	const selected = useMemo(() => options?.find((option) => option.value === value), [options, value]);
 
 	const onChangeHandler = useCallback(
@@ -57,6 +58,7 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 						<Listbox.Button as="div">
 							<Button
 								disabled={readonly}
+								isLoading={isLoading}
 								className={classNames(cls.button, { [cls.open]: open })}
 							>
 								{selected?.content ?? "..."}

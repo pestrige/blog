@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FormEvent, memo, useCallback } from "react";
-import { classNames } from "@/shared/lib";
+import { classNames, reloadPage } from "@/shared/lib";
 import { ButtonDeprecated, InputDeprecated, Loader, TextDeprecated } from "@/shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import {
@@ -51,6 +51,7 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 			const result = await dispatch(loginByUsername({ username, password }));
 			if (result.meta.requestStatus === "fulfilled") {
 				onClose();
+				reloadPage();
 			}
 		},
 		[dispatch, username, password, onClose],

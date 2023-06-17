@@ -22,10 +22,11 @@ interface SelectProps<T extends string> {
 	value?: T;
 	onChange?: (value: T, name: string) => void;
 	readonly?: boolean;
+	isLoading?: boolean;
 }
 
 export const Select = typedMemo(function Select<T extends string>(props: SelectProps<T>): JSX.Element {
-	const { name, className, label, options, onChange, value, readonly, isLabelInRow } = props;
+	const { name, className, label, options, onChange, value, readonly, isLabelInRow, isLoading } = props;
 	const selected = useMemo(() => options?.find((option) => option.value === value), [options, value]);
 
 	const Stack = isLabelInRow ? VStack : HStack;
@@ -57,6 +58,7 @@ export const Select = typedMemo(function Select<T extends string>(props: SelectP
 							<Button
 								variant="clear"
 								disabled={readonly}
+								isLoading={isLoading}
 								className={classNames(cls.button, { [cls.open]: open })}
 							>
 								{selected?.content ?? "..."}

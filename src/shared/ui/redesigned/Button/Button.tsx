@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, memo } from "react";
 import { classNames } from "@/shared/lib";
+import { Loader } from "../Loader";
 import cls from "./Button.module.scss";
 
 export type ButtonVariant = "clear" | "outline" | "rounded-outline";
@@ -13,6 +14,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	square?: boolean;
 	size?: ButtonSize;
 	fullWidth?: boolean;
+	isLoading?: boolean;
 
 	dataTestId?: string;
 }
@@ -27,6 +29,7 @@ export const Button = memo(
 		size = "M",
 		dataTestId,
 		fullWidth = false,
+		isLoading,
 		...otherProps
 	}: Props): JSX.Element => {
 		const classes = classNames(
@@ -48,7 +51,7 @@ export const Button = memo(
 				className={classes}
 				{...otherProps}
 			>
-				{children}
+				{isLoading ? <Loader size="S" className={cls.loader} /> : children}
 			</button>
 		);
 	},

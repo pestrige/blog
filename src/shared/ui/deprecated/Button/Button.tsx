@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, memo } from "react";
 import { classNames } from "@/shared/lib";
 import cls from "./Button.module.scss";
+import { Loader } from "../../redesigned/Loader";
 
 export enum ButtonTheme {
 	CLEAR = "clear",
@@ -22,6 +23,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	square?: boolean;
 	size?: ButtonSize;
 	fullWidth?: boolean;
+	isLoading?: boolean;
 
 	dataTestId?: string;
 }
@@ -39,6 +41,7 @@ export const Button = memo(
 		size = ButtonSize.M,
 		dataTestId,
 		fullWidth = false,
+		isLoading = false,
 		...otherProps
 	}: Props): JSX.Element => {
 		const classes = classNames(
@@ -59,7 +62,7 @@ export const Button = memo(
 				className={classes}
 				{...otherProps}
 			>
-				{children}
+				{isLoading ? <Loader size="S" /> : children}
 			</button>
 		);
 	},

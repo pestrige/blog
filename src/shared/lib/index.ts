@@ -1,12 +1,10 @@
 export { addQueryParams } from "./url/addQueryParams";
 export { classNames } from "./classNames/classNames";
-export { getFeatureFlag, setFeatureFlags } from "./features/setGetFeatures";
+export { getFeatureFlag, setFeatureFlags, toggleFeatures, ToggleFeaturesWrapper } from "./features";
 export { buildSelector } from "./store/buildSelector";
 export { buildSlice } from "./store/buildSlice";
 export { formatDateToISO } from "./formatDate/formatDate";
 export { THEMES, ThemeContext } from "./ThemeContext/ThemeContext";
 export type { Theme } from "./ThemeContext/ThemeContext";
-export { toggleFeatures } from "./features/toggleFeatures";
-export { ToggleFeaturesWrapper } from "./features/ToggleFeaturesWrapper";
-export type { ToggleFeaturesOptions } from "./features/toggleFeatures";
+export { reloadPage } from "./reloadPage/reloadPage";
 export { useTheme } from "./ThemeContext/useTheme";

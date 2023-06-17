@@ -4,7 +4,7 @@ import { Avatar, AvatarDeprecated, Dropdown, DropdownDeprecated, DropdownItem } 
 import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
 import { useAppDispatch } from "@/shared/hooks";
 import { getRoute } from "@/shared/constants/router";
-import { ToggleFeaturesWrapper } from "@/shared/lib";
+import { reloadPage, ToggleFeaturesWrapper } from "@/shared/lib";
 
 export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const dispatch = useAppDispatch();
@@ -14,13 +14,15 @@ export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const isManager = useIsUserManagerSelector();
 	const isAdminPanelAvailable = isAdmin || isManager;
 
-	const handleLogout = useCallback(() => {
-		dispatch(userActions.logout());
+	const handleLogout = useCallback(async () => {
+		await dispatch(userActions.logout());
+		reloadPage();
 	}, [dispatch]);
 
 	const dropdownItems: DropdownItem[] = useMemo(() => {
 		return [
 			{ content: t("Профиль"), href: `${getRoute.profile(id || "")}` },
+			{ content: t("Настройки"), href: getRoute.settings() },
 			...(isAdminPanelAvailable ? [{ content: t("Админка"), href: getRoute.adminPanel() }] : []),
 			{ content: t("Выйти"), onClick: handleLogout },
 		];

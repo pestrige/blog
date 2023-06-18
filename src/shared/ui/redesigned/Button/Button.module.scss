@@ -81,9 +81,17 @@
 .outline.error,
 .rounded-outline.error {
   border-color: var(--cancel-redesigned);
+
+  &:hover:not(:disabled) {
+    color: var(--cancel-redesigned);
+  }
 }
 
 .outline.success,
 .rounded-outline.success {
   border-color: var(--save-redesigned);
+
+  &:hover:not(:disabled) {
+    color: var(--save-redesigned);
+  }
 }

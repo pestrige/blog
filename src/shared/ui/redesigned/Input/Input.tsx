@@ -65,18 +65,18 @@ export const Input = memo((props: Props) => {
 					type={type}
 					value={value}
 					onChange={onChangeHandler}
-					className={classNames(cls.input, { [cls.leftPadding]: !!Icon })}
+					className={classNames(cls.input, { [cls.leftPadding]: !!Icon, [cls.error]: !!error })}
 					readOnly={readonly}
 					placeholder={placeholder}
 					data-testid={dataTestInputId}
 					{...otherProps}
 				/>
-				{!!error && (
-					<span className={cls.error} data-testid={dataTestErrorId}>
-						{error}
-					</span>
-				)}
 			</div>
+			{!!error && (
+				<span className={cls.error} data-testid={dataTestErrorId}>
+					{error}
+				</span>
+			)}
 		</div>
 	);
 });

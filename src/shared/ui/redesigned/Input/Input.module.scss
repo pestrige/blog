@@ -2,13 +2,18 @@
   position: absolute;
   top: 14px;
   left: var(--margin-m);
+  flex-shrink: 0;
   width: 15px;
   height: 15px;
   color: var(--icon-redesigned);
 }
 
 .root {
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    "label input"
+    ". error";
+  grid-template-columns: auto 1fr;
   gap: var(--margin-s);
   align-items: center;
   width: 100%;
@@ -24,9 +29,11 @@
   position: relative;
   display: flex;
   flex-grow: 1;
+  grid-area: input;
 }
 
 .label {
+  grid-area: label;
   color: var(--text-redesigned);
 }
 
@@ -37,6 +44,11 @@
   background: transparent;
   border: 1px solid var(--icon-redesigned);
   border-radius: var(--margin-l);
+  transition: border 0.3s;
+
+  &.error {
+    border-color: var(--cancel-redesigned);
+  }
 
   &.leftPadding {
     padding-left: calc(var(--margin-xl) + var(--margin-s));
@@ -56,5 +68,7 @@
 }
 
 .error {
+  grid-area: error;
+  padding-left: var(--margin-m);
   color: var(--cancel-redesigned);
 }

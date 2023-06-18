@@ -35,7 +35,7 @@ export const Redesigned = memo(function Redesigned({
 		<div className={cls.header}>
 			<div>
 				{!readonly && isEditable && (
-					<Button variant="rounded-outline" onClick={onCancelClick} borderColor="red">
+					<Button variant="rounded-outline" onClick={onCancelClick} borderColor="error">
 						{t("Отменить", { ns: "translation" })}
 					</Button>
 				)}
@@ -48,7 +48,7 @@ export const Redesigned = memo(function Redesigned({
 					</Button>
 				)}
 				{isEditable && !readonly && (
-					<Button variant="rounded-outline" onClick={onSaveClick} borderColor="green">
+					<Button variant="rounded-outline" onClick={onSaveClick} borderColor="success">
 						{t("Сохранить", { ns: "translation" })}
 					</Button>
 				)}

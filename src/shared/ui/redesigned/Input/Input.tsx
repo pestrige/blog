@@ -51,7 +51,11 @@ export const Input = memo((props: Props) => {
 
 	return (
 		<div className={wrapperClasses}>
-			{!!label && <label htmlFor={name}>{label}:</label>}
+			{!!label && (
+				<label className={cls.label} htmlFor={name}>
+					{label}:
+				</label>
+			)}
 			<div className={cls.inner}>
 				{!!Icon && <Icon className={cls.icon} />}
 				<input

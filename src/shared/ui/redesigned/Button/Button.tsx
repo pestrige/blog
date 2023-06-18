@@ -6,7 +6,7 @@ import cls from "./Button.module.scss";
 export type ButtonVariant = "clear" | "outline" | "rounded-outline";
 
 export type ButtonSize = "M" | "L" | "XL";
-type BorderColor = "red" | "green" | "default";
+type BorderColor = "error" | "success" | "default";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: ButtonVariant;

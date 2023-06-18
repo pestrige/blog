@@ -52,7 +52,7 @@ export const RatingCardRedesigned = memo(function RatingCardRedesigned({
 						<Button
 							dataTestId={`${testId}.CancelButton`}
 							variant="rounded-outline"
-							borderColor="red"
+							borderColor="error"
 							onClick={onCancel}
 						>
 							{t("Отмена")}

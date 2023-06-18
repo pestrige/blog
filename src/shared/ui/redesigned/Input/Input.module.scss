@@ -26,6 +26,10 @@
   flex-grow: 1;
 }
 
+.label {
+  color: var(--text-redesigned);
+}
+
 .input {
   width: 100%;
   padding: var(--margin-s) var(--margin-m);

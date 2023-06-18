@@ -1,8 +1,8 @@
 export { fetchProfileData } from "./services/fetchProfileData/fetchProfileData";
-export { updateProfileData } from "./services/updateProfileData/updateProfileData";
+export { validateAndUpdateProfileData } from "./services/validateAndUpdateProfileCard/validateAndUpdateProfileCard";
 export { profileReducer, profileActions } from "./slice/profileSlice";
 export type { ProfileSchema } from "./types/profile";
-export { useProfileSelector } from "./selectors/getProfileData/getProfileData";
+export { useProfileSelector, useProfileAvatarSelector } from "./selectors/getProfileData/getProfileData";
 export { useProfileFormSelector } from "./selectors/getProfileFormData/getProfileFormData";
 export { useProfileErrorSelector } from "./selectors/getProfileError/getProfileError";
 export { useProfileLoadingSelector } from "./selectors/getProfileLoading/getProfileLoading";

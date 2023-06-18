@@ -18,7 +18,7 @@ export const ButtonIcon = memo((props: IconProps) => {
 
 	return (
 		<button
-			data-testId={dataTestId}
+			data-testid={dataTestId}
 			name={name}
 			type="button"
 			className={cls.button}

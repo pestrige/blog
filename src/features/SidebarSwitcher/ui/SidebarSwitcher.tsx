@@ -16,7 +16,7 @@ export const SidebarSwitcher = memo(({ onToggle, isCollapsed }: Props): JSX.Elem
 			on={
 				<ButtonIcon
 					className={classNames(cls.rootRedesigned, { [cls.rootRedesignedCollapsed]: isCollapsed })}
-					data-testid="sidebar-toggle-test"
+					dataTestId="sidebar-toggle-test"
 					Svg={ArrowIcon}
 					onClick={onToggle}
 				/>

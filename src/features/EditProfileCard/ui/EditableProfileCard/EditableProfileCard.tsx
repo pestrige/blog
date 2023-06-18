@@ -6,12 +6,12 @@ import {
 	fetchProfileData,
 	profileActions,
 	profileReducer,
-	updateProfileData,
 	useProfileErrorSelector,
 	useProfileFormSelector,
 	useProfileLoadingSelector,
 	useProfileReadonlySelector,
 	useProfileValidateErrorsSelector,
+	validateAndUpdateProfileData,
 } from "../../model";
 
 const reducersList: ReducersList = { profile: profileReducer };
@@ -45,7 +45,7 @@ export const EditableProfileCard = ({ id }: { id?: string }): JSX.Element => {
 	);
 
 	const handleSubmit = useCallback(() => {
-		dispatch(updateProfileData());
+		dispatch(validateAndUpdateProfileData());
 	}, [dispatch]);
 
 	useDynamicReducerLoader(reducersList);

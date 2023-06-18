@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProfileCardType, ProfileCardTypeKeyof } from "@/entities/ProfileCard";
+import { ProfileCardType, ProfileCardTypeKeyof, ProfileErrors } from "@/entities/ProfileCard";
 import { ProfileSchema } from "../types/profile";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
@@ -33,6 +33,10 @@ export const profileSlice = createSlice({
 			if (state.validateErrors[payload.field]) {
 				delete state.validateErrors[payload.field];
 			}
+		},
+		setFormErrors: (state, action: PayloadAction<ProfileErrors>) => {
+			state.error = action.payload?.error;
+			state.validateErrors = action.payload?.validateErrors ?? {};
 		},
 	},
 	extraReducers: (builder) => {

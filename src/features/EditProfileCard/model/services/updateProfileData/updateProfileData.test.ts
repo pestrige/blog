@@ -2,7 +2,6 @@ import { TestAsyncThunk } from "@/shared/lib/tests";
 import { ProfileCardType, ValidateErrorsEnum } from "@/entities/ProfileCard";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
-import { StoreSchema } from "@/shared/config";
 import { updateProfileData } from "./updateProfileData";
 
 const form: ProfileCardType = {
@@ -36,14 +35,5 @@ describe("updateProfileData", () => {
 		expect(thunk.api.put).toHaveBeenCalled();
 		expect(result.meta.requestStatus).toBe("rejected");
 		expect(result.payload).toEqual({ error: ValidateErrorsEnum.SERVER_ERROR });
-	});
-
-	test("should return validation error", async () => {
-		const state: DeepPartial<StoreSchema> = { profile: { form: { ...form, first: "" } } };
-		const thunk = new TestAsyncThunk(updateProfileData, state);
-		const result = await thunk.callThunk();
-
-		expect(result.meta.requestStatus).toBe("rejected");
-		expect(result.payload).toEqual({ validateErrors: { first: ValidateErrorsEnum.REQUIRED_FIELD } });
 	});
 });

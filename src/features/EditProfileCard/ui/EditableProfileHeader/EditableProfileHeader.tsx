@@ -3,7 +3,7 @@ import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { useAppDispatch } from "@/shared/hooks";
 import {
 	profileActions,
-	updateProfileData,
+	validateAndUpdateProfileData,
 	useIsEditAllowSelector,
 	useProfileReadonlySelector,
 } from "../../model";
@@ -17,7 +17,7 @@ export const EditableProfileHeader = memo((): JSX.Element => {
 
 	const handleEditClick = useCallback(() => dispatch(profileActions.setReadonly(false)), [dispatch]);
 	const handleCancelClick = useCallback(() => dispatch(profileActions.cancelEdit()), [dispatch]);
-	const handleSaveClick = useCallback(() => dispatch(updateProfileData()), [dispatch]);
+	const handleSaveClick = useCallback(() => dispatch(validateAndUpdateProfileData()), [dispatch]);
 
 	return (
 		<ToggleFeaturesWrapper

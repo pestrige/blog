@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Avatar, Button, Skeleton } from "@/shared/ui";
-import { useProfileFormSelector, useProfileLoadingSelector } from "../../model";
+import { useProfileLoadingSelector, useProfileAvatarSelector } from "../../model";
 import cls from "./EditableProfileHeader.module.scss";
 
 interface Props {
@@ -20,7 +20,7 @@ export const Redesigned = memo(function Redesigned({
 	onCancelClick,
 }: Props): JSX.Element {
 	const { t } = useTranslation("profile");
-	const profile = useProfileFormSelector();
+	const avatarSrc = useProfileAvatarSelector();
 	const isLoading = useProfileLoadingSelector();
 
 	if (isLoading) {
@@ -35,20 +35,30 @@ export const Redesigned = memo(function Redesigned({
 		<div className={cls.header}>
 			<div>
 				{!readonly && isEditable && (
-					<Button variant="rounded-outline" onClick={onCancelClick} borderColor="error">
+					<Button
+						variant="rounded-outline"
+						onClick={onCancelClick}
+						borderColor="error"
+						dataTestId="ProfileCard.CancelBtn"
+					>
 						{t("Отменить", { ns: "translation" })}
 					</Button>
 				)}
 			</div>
-			<Avatar src={profile?.avatar} alt={profile?.first ?? ""} />
+			<Avatar key="profile-avatar" src={avatarSrc} alt="profile avatar" />
 			<div>
 				{isEditable && readonly && (
-					<Button variant="rounded-outline" onClick={onEditClick}>
+					<Button variant="rounded-outline" onClick={onEditClick} dataTestId="ProfileCard.EditBtn">
 						{t("Редактировать")}
 					</Button>
 				)}
 				{isEditable && !readonly && (
-					<Button variant="rounded-outline" onClick={onSaveClick} borderColor="success">
+					<Button
+						variant="rounded-outline"
+						onClick={onSaveClick}
+						borderColor="success"
+						dataTestId="ProfileCard.SaveBtn"
+					>
 						{t("Сохранить", { ns: "translation" })}
 					</Button>
 				)}

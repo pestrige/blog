@@ -12,7 +12,6 @@ import {
 	ViewsCount,
 	VStack,
 } from "@/shared/ui";
-import { formatDateToISO } from "@/shared/lib";
 import { getRoute } from "@/shared/constants";
 import { ArticleBlockType, ArticleView } from "../../model/constants/article";
 import { ArticleTextBlock } from "../../model/types/article";
@@ -24,8 +23,7 @@ export const ArticleListItemRedesigned = memo(function ArticleListItemRedesigned
 ): JSX.Element {
 	const { t } = useTranslation("articles");
 	const { article, view, target } = props;
-	const { id, title, img, createdAt, type, views, user, blocks } = article;
-	const articleDate = formatDateToISO(createdAt);
+	const { id, title, img, createdAt, views, user, blocks } = article;
 	const textBlock = (
 		blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock | undefined
 	)?.paragraphs
@@ -35,11 +33,7 @@ export const ArticleListItemRedesigned = memo(function ArticleListItemRedesigned
 	if (view === ArticleView.LIST) {
 		return (
 			<Card as="li" className={cls.cardList}>
-				<HStack gap={8}>
-					<Avatar size={32} src={user?.avatar} />
-					<Text text={user?.username} bold />
-					<Text text={createdAt} />
-				</HStack>
+				<Avatar size={32} src={user?.avatar} title={user?.username} subTitle={createdAt} />
 
 				<Text title={title} />
 				<AppImage
@@ -77,10 +71,7 @@ export const ArticleListItemRedesigned = memo(function ArticleListItemRedesigned
 						<Text text={createdAt} />
 						<ViewsCount views={views} />
 					</HStack>
-					<HStack>
-						<Avatar size={32} src={user?.avatar} />
-						<Text text={user?.username} bold />
-					</HStack>
+					<Avatar size={32} src={user?.avatar} title={user?.username} />
 				</VStack>
 			</AppLink>
 		</Card>

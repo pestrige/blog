@@ -26,3 +26,10 @@
   margin-right: var(--margin-s);
   fill: var(--secondary-color);
 }
+
+.imageRedesigned {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  margin-bottom: var(--margin-m);
+}

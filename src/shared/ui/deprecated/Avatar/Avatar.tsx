@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib";
 import { UserIcon } from "@/shared/assets";
 import { HStack } from "../../redesigned/Stack";
 import { AppImage } from "../../redesigned/AppImage/AppImage";
-import { Skeleton } from "../Skeleton/Skeleton";
+import { Skeleton } from "../../redesigned/Skeleton/Skeleton";
 import cls from "./Avatar.module.scss";
 
 interface Props {

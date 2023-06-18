@@ -18,6 +18,7 @@ export { default as NotificationIcon } from "./icons/notification-icon.svg";
 export { default as NotificationIconDeprecated } from "./icons/notification-icon-deprecated.svg";
 export { default as StarIcon } from "./icons/star.svg";
 export { default as SearchIcon } from "./icons/search-icon.svg";
+export { default as SendIcon } from "./icons/send-icon.svg";
 export { default as ViewGridIcon } from "./icons/view-grid.svg";
 export { default as ViewGridIconDeprecated } from "./icons/view-grid-deprecated.svg";
 export { default as ViewListIcon } from "./icons/view-list.svg";

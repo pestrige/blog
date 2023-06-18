@@ -1,0 +1,31 @@
+.star,
+.starRedesigned {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
+}
+
+.starRedesigned {
+  color: var(--icon-redesigned);
+
+  &:hover:not(.clicked) {
+    fill: var(--icon-redesigned);
+    transform: scale(1.1);
+  }
+}
+
+.star:hover:not(.clicked) {
+  fill: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.filled {
+  fill: var(--primary-color);
+}
+
+.filledRedesigned {
+  fill: var(--icon-redesigned);
+}
+
+.clicked {
+  cursor: auto;
+}

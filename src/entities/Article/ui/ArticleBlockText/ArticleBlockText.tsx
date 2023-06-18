@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { TextDeprecated } from "@/shared/ui";
-import { classNames } from "@/shared/lib";
+import { Text, TextDeprecated } from "@/shared/ui";
+import { classNames, ToggleFeaturesWrapper } from "@/shared/lib";
 import { ArticleTextBlock } from "../../model/types/article";
 
 interface Props {
@@ -11,10 +11,20 @@ interface Props {
 export const ArticleBlockText = memo(({ content, className = "" }: Props): JSX.Element => {
 	return (
 		<div className={classNames("block-margin", className)}>
-			{!!content.title && <TextDeprecated className="block-margin" title={content.title} />}
+			{!!content.title && (
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={<Text className="block-margin" title={content.title} />}
+					off={<TextDeprecated className="block-margin" title={content.title} />}
+				/>
+			)}
 
 			{content.paragraphs.map((paragraph) => (
-				<TextDeprecated key={paragraph} className="block-margin" text={paragraph} />
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={<Text key={paragraph} className="block-margin" text={paragraph} />}
+					off={<TextDeprecated key={paragraph} className="block-margin" text={paragraph} />}
+				/>
 			))}
 		</div>
 	);

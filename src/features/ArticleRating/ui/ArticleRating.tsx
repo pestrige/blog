@@ -1,15 +1,16 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { RatingCard } from "@/entities/Rating";
-import { useArticleRating, useRateArticle } from "../api/articleRatingApi";
 import { useUser } from "@/entities/User";
-import { SkeletonDeprecated } from "@/shared/ui";
+import { useArticleRating, useRateArticle } from "../api/articleRatingApi";
+import { ArticleRatingSkeleton } from "./ArticleRatingSkeleton";
 
 export interface ArticleRatingProps {
 	articleId: string;
+	className?: string;
 }
 
-const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingProps): JSX.Element {
+const ArticleRating = memo(function ArticleRating({ articleId, className }: ArticleRatingProps): JSX.Element {
 	const { t } = useTranslation("article");
 	const { id: userId } = useUser();
 	const { data, isLoading, refetch } = useArticleRating({ articleId, userId });
@@ -42,7 +43,7 @@ const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingPr
 	);
 
 	if (isLoading || isRateProcessing) {
-		return <SkeletonDeprecated width="100%" height="108px" />;
+		return <ArticleRatingSkeleton />;
 	}
 
 	const rating = data?.[0];
@@ -55,6 +56,7 @@ const ArticleRating = memo(function ArticleRating({ articleId }: ArticleRatingPr
 			onAccept={handleAccept}
 			onCancel={handleCancel}
 			testId="ArticleRating"
+			className={className}
 		/>
 	);
 });

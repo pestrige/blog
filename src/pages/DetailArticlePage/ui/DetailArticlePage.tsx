@@ -2,15 +2,12 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-import { ArticleDetails } from "@/entities/Article";
-import { TextDeprecated } from "@/shared/ui";
-import { ArticleRating } from "@/features/ArticleRating";
-import { ArticleRecommendations } from "@/features/ArticleRecommendations";
+import { Text, TextDeprecated } from "@/shared/ui";
 import { ReducersList, useDynamicReducerLoader, useInitialEffect, usePageClassName } from "@/shared/hooks";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { articleDetailsPageReducer } from "../model/slice";
-import { DetailArticlePageHeader } from "./DetailArticlePageHeader/DetailArticlePageHeader";
-import { DetailArticlePageComments } from "./DetailArticlePageComments/DetailArticlePageComments";
+import { DetailArticlePageDeprecated } from "./DetailArticlePageDeprecated";
+import { DetailArticlePageRedesigned } from "./DetailArticlePageRedesigned";
 
 const reducers: ReducersList = {
 	articleDetailsPage: articleDetailsPageReducer,
@@ -29,23 +26,23 @@ const DetailArticlePage = memo((): JSX.Element => {
 
 	if (!id) {
 		return (
-			<main className="page">
-				<TextDeprecated title={t("Статья не найдена")} />
+			<main className={pageClassName}>
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={<Text title={t("Статья не найдена")} />}
+					off={<TextDeprecated title={t("Статья не найдена")} />}
+				/>
 			</main>
 		);
 	}
 
 	return (
 		<main className={pageClassName}>
-			<DetailArticlePageHeader />
-			<ArticleDetails id={id ?? "1"} className="big-margin" />
 			<ToggleFeaturesWrapper
-				featureName="isArticleRatingEnabled"
-				on={<ArticleRating articleId={id ?? ""} />}
-				off={null}
+				featureName="isAppRedesigned"
+				on={<DetailArticlePageRedesigned id={id} />}
+				off={<DetailArticlePageDeprecated id={id} />}
 			/>
-			<ArticleRecommendations />
-			<DetailArticlePageComments id={id} />
 		</main>
 	);
 });

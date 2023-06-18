@@ -8,7 +8,7 @@ import {
 	ButtonDeprecated,
 	CardDeprecated,
 	HStack,
-	SkeletonDeprecated,
+	Skeleton,
 	TextDeprecated,
 } from "@/shared/ui";
 import { EyeIconDeprecated } from "@/shared/assets";
@@ -64,7 +64,7 @@ export const ArticleListItemDeprecated = memo(function ArticleListItemDeprecated
 						src={img}
 						alt={title}
 						className={cls.image}
-						fallback={<SkeletonDeprecated width="100%" height={200} />}
+						fallback={<Skeleton width="100%" height={200} />}
 					/>
 
 					{!!textBlock && <ArticleBlockText className={cls.text} content={textBlock} />}
@@ -85,7 +85,7 @@ export const ArticleListItemDeprecated = memo(function ArticleListItemDeprecated
 							src={img}
 							alt={title}
 							className={cls.image}
-							fallback={<SkeletonDeprecated width="100%" height={200} />}
+							fallback={<Skeleton width="100%" height={200} />}
 						/>
 						<time className={cls.date} dateTime={articleDate}>
 							<TextDeprecated text={createdAt} />

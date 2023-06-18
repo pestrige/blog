@@ -5,7 +5,7 @@ import { THEMES } from "@/shared/lib";
 import { StarRating } from "./StarRating";
 
 export default {
-	title: "shared/StarRating",
+	title: "redesigned/shared/StarRating",
 	component: StarRating,
 } as ComponentMeta<typeof StarRating>;
 

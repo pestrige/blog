@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { classNames } from "@/shared/lib";
-import { AppLinkDeprecated, AvatarDeprecated, TextDeprecated } from "@/shared/ui";
+import { classNames, ToggleFeaturesWrapper } from "@/shared/lib";
+import { AppLink, AppLinkDeprecated, Avatar, AvatarDeprecated, Text, TextDeprecated } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 import { Comment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
@@ -14,14 +14,33 @@ export const CommentCard = memo(({ comment, className = "" }: Props): JSX.Elemen
 	const { user } = comment;
 
 	return (
-		<li data-testid="CommentCard" className={classNames(cls.commentCard, className)}>
-			<div className={cls.header}>
-				<AvatarDeprecated className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
-				<AppLinkDeprecated to={getRoute.article(user.id)}>
-					<TextDeprecated text={user.username} />
-				</AppLinkDeprecated>
-			</div>
-			<TextDeprecated text={comment.text} />
-		</li>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<li data-testid="CommentCard" className={classNames(cls.commentCardRedesigned, className)}>
+					<AppLink to={getRoute.profile(user.id)} className={cls.header}>
+						<Avatar className={cls.avatar} src={user.avatar} size={30} alt={user.username} />
+						<Text text={user.username} bold />
+					</AppLink>
+					<Text text={comment.text} className={cls.textRedesigned} />
+				</li>
+			}
+			off={
+				<li data-testid="CommentCard" className={classNames(cls.commentCard, className)}>
+					<div className={cls.header}>
+						<AvatarDeprecated
+							className={cls.avatar}
+							src={user.avatar}
+							size={30}
+							alt={user.username}
+						/>
+						<AppLinkDeprecated to={getRoute.profile(user.id)}>
+							<TextDeprecated text={user.username} />
+						</AppLinkDeprecated>
+					</div>
+					<TextDeprecated text={comment.text} />
+				</li>
+			}
+		/>
 	);
 });

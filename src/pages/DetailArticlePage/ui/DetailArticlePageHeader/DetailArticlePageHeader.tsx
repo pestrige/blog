@@ -1,12 +1,13 @@
 import React, { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ButtonDeprecated } from "@/shared/ui";
+import { Avatar, Button, ButtonDeprecated, Card, Text } from "@/shared/ui";
 import { getRoute } from "@/shared/constants";
 
 import { useArticleDataSelector } from "@/entities/Article";
 import { useCanUserEditArticleSelector } from "../../model/selectors/articleSelectors";
 import cls from "./DetailArticlePageHeader.module.scss";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 
 export const DetailArticlePageHeader = memo((): JSX.Element => {
 	const { t } = useTranslation("articles");
@@ -25,13 +26,40 @@ export const DetailArticlePageHeader = memo((): JSX.Element => {
 	}, [navigate, article?.id]);
 
 	return (
-		<div className={cls.header}>
-			<ButtonDeprecated onClick={handleBackClick}>{t("Назад к списку")}</ButtonDeprecated>
-			{canEdit && (
-				<ButtonDeprecated className={cls.editBtn} onClick={handleEditClick}>
-					{t("Редактировать")}
-				</ButtonDeprecated>
-			)}
-		</div>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={
+				<Card className={cls.cardRedesigned}>
+					<Avatar
+						size={32}
+						src={article?.user.avatar}
+						alt={article?.user.username ?? ""}
+						title={article?.user.username}
+					/>
+
+					<Text
+						text={`${article?.views ?? 0} ${t("просмотров", { count: article?.views ?? 0 })}`}
+					/>
+					{canEdit && (
+						<Button onClick={handleEditClick} variant="rounded-outline">
+							{t("Редактировать")}
+						</Button>
+					)}
+					<Button onClick={handleBackClick} variant="rounded-outline">
+						{t("Назад")}
+					</Button>
+				</Card>
+			}
+			off={
+				<div className={cls.header}>
+					<ButtonDeprecated onClick={handleBackClick}>{t("Назад к списку")}</ButtonDeprecated>
+					{canEdit && (
+						<ButtonDeprecated className={cls.editBtn} onClick={handleEditClick}>
+							{t("Редактировать")}
+						</ButtonDeprecated>
+					)}
+				</div>
+			}
+		/>
 	);
 });

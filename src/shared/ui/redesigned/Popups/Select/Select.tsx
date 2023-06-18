@@ -3,7 +3,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "@/shared/lib";
 import { typedMemo } from "@/shared/constants";
 import { Button } from "../../Button/Button";
-import { HStack, VStack } from "../../../redesigned/Stack";
+import { HStack, VStack } from "../../Stack";
 import commonCls from "../common.module.scss";
 import cls from "./Select.module.scss";
 

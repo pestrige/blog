@@ -1,7 +1,15 @@
-.form {
+.form,
+.formRedesigned {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.form {
   padding: var(--margin-l);
   border: 1px solid var(--primary-color);
+}
+
+.formRedesigned {
+  gap: var(--margin-m);
 }

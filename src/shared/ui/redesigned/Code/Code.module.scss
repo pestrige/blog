@@ -1,0 +1,16 @@
+.code {
+  position: relative;
+  width: 100%;
+  padding: var(--margin-l);
+  overflow: auto;
+  background-color: var(--light-bg-redesigned);
+  border-radius: var(--margin-m);
+}
+
+.button {
+  position: absolute;
+  top: var(--margin-l);
+  right: var(--margin-l);
+  width: 22px;
+  height: 22px;
+}

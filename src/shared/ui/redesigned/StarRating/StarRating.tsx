@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from "react";
 import { StarIcon } from "@/shared/assets";
-import { classNames } from "@/shared/lib";
-import { HStack } from "../../redesigned/Stack";
+import { classNames, toggleFeatures } from "@/shared/lib";
+import { HStack } from "../Stack";
 import cls from "./StarRating.module.scss";
 
 const STARS = [1, 2, 3, 4, 5];
@@ -13,10 +13,6 @@ interface Props {
 	onSelect?: (rating: number) => void;
 }
 
-/**
- * @deprecated
- */
-
 export const StarRating = memo(function StarRating({
 	className = "",
 	size = 30,
@@ -24,6 +20,17 @@ export const StarRating = memo(function StarRating({
 	onSelect,
 }: Props): JSX.Element {
 	const [hoveredRating, setHoveredRating] = useState(0);
+
+	const starClassName = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.starRedesigned,
+		off: () => cls.star,
+	});
+	const filledClassName = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.filledRedesigned,
+		off: () => cls.filled,
+	});
 
 	const handleHover = useCallback((currentRating: number) => {
 		return () => setHoveredRating(currentRating);
@@ -62,8 +69,9 @@ export const StarRating = memo(function StarRating({
 					<StarIcon
 						width={size}
 						height={size}
-						className={classNames(cls.star, {
-							[cls.filled]: hoveredRating && !rating ? hoveredRating >= star : rating >= star,
+						className={classNames(starClassName, {
+							[filledClassName]:
+								hoveredRating && !rating ? hoveredRating >= star : rating >= star,
 							[cls.clicked]: !!rating,
 						})}
 					/>

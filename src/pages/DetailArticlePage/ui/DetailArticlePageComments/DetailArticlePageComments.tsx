@@ -1,9 +1,10 @@
 import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { TextDeprecated } from "@/shared/ui";
 import { AddCommentForm } from "@/features/AddCommentForm";
 import { CommentList } from "@/entities/Comment";
+import { Text, TextDeprecated } from "@/shared/ui";
 import { useAppDispatch, useInitialEffect } from "@/shared/hooks";
+import { ToggleFeaturesWrapper } from "@/shared/lib";
 import {
 	useArticleCommentsError,
 	useArticleCommentsSelector,
@@ -36,7 +37,12 @@ export const DetailArticlePageComments = memo(function DetailArticlePageComments
 
 	return (
 		<>
-			<TextDeprecated title={t("Комментарии")} className="block-margin" />
+			<ToggleFeaturesWrapper
+				featureName="isAppRedesigned"
+				on={<Text title={t("Комментарии")} className="block-margin" />}
+				off={<TextDeprecated title={t("Комментарии")} className="block-margin" />}
+			/>
+
 			<AddCommentForm onSubmit={handleSubmit} className="block-margin" />
 			<CommentList error={error} isLoading={isCommentsLoading} comments={comments} />
 		</>

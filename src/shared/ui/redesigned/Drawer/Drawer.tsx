@@ -2,9 +2,9 @@ import { MouseEvent, ReactNode, useCallback, useEffect } from "react";
 import { useModal } from "@/shared/hooks";
 import { classNames, toggleFeatures } from "@/shared/lib";
 import { AnimationProvider, useAnimationContext } from "@/shared/providers";
-import { Portal } from "../../redesigned/Portal/Portal";
-import { Overlay } from "../../redesigned/Overlay/Overlay";
-import { Loader } from "../../redesigned/Loader";
+import { Portal } from "../Portal/Portal";
+import { Overlay } from "../Overlay/Overlay";
+import { Loader } from "../Loader";
 import cls from "./Drawer.module.scss";
 
 const height = window.innerHeight - 100;
@@ -25,7 +25,6 @@ const DrawerContent = ({ isOpen, children, className, onClose }: DrawerProps): J
 		on: () => cls.bgRedesigned,
 		off: () => cls.bg,
 	});
-	console.log("backgroundClassName", backgroundClassName);
 
 	const handleOpenDrawer = useCallback(() => {
 		api.start({ y: 0, immediate: false });
@@ -105,10 +104,6 @@ const DrawerAsync = ({ children, ...otherProps }: DrawerProps) => {
 
 	return <DrawerContent {...otherProps}>{children}</DrawerContent>;
 };
-
-/**
- * @deprecated
- */
 
 export const Drawer = ({ children, ...otherProps }: DrawerProps): JSX.Element => (
 	<AnimationProvider>

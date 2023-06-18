@@ -1,8 +1,23 @@
+.icon {
+  position: absolute;
+  top: 14px;
+  left: var(--margin-m);
+  width: 15px;
+  height: 15px;
+  color: var(--icon-redesigned);
+}
+
 .root {
   display: flex;
   gap: var(--margin-s);
   align-items: center;
   width: 100%;
+
+  &:focus-within {
+    .icon {
+      color: var(--accent-redesigned);
+    }
+  }
 }
 
 .inner {
@@ -11,21 +26,12 @@
   flex-grow: 1;
 }
 
-.icon {
-  position: absolute;
-  top: 14px;
-  left: var(--margin-m);
-  width: 15px;
-  height: 15px;
-  color: var(--accent-redesigned);
-}
-
 .input {
   width: 100%;
   padding: var(--margin-s) var(--margin-m);
   color: var(--text-redesigned);
   background: transparent;
-  border: 1px solid var(--accent-redesigned);
+  border: 1px solid var(--icon-redesigned);
   border-radius: var(--margin-l);
 
   &.leftPadding {

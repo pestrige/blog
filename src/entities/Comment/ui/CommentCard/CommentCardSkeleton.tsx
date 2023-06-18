@@ -1,6 +1,6 @@
 import React from "react";
-import { classNames } from "@/shared/lib";
-import { SkeletonDeprecated } from "@/shared/ui";
+import { classNames, toggleFeatures } from "@/shared/lib";
+import { Skeleton } from "@/shared/ui";
 import cls from "./CommentCard.module.scss";
 
 interface Props {
@@ -8,21 +8,26 @@ interface Props {
 }
 
 export const CommentCardSkeleton = ({ className }: Props): JSX.Element => {
+	const cardCls = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.commentCardRedesigned,
+		off: () => cls.commentCard,
+	});
 	return (
 		<>
-			<li className={classNames(cls.commentCard, className)}>
+			<li className={classNames(cardCls, className)}>
 				<div className={cls.header}>
-					<SkeletonDeprecated className={cls.avatar} width="30px" height="30px" border="50%" />
-					<SkeletonDeprecated width="100px" height="24px" />
+					<Skeleton className={cls.avatar} width="30px" height="30px" border="50%" />
+					<Skeleton width="100px" height="24px" />
 				</div>
-				<SkeletonDeprecated width="100%" height="24px" />
+				<Skeleton width="100%" height="24px" />
 			</li>
-			<li className={classNames(cls.commentCard, className)}>
+			<li className={classNames(cardCls, className)}>
 				<div className={cls.header}>
-					<SkeletonDeprecated className={cls.avatar} width="30px" height="30px" border="50%" />
-					<SkeletonDeprecated width="100px" height="24px" />
+					<Skeleton className={cls.avatar} width="30px" height="30px" border="50%" />
+					<Skeleton width="100px" height="24px" />
 				</div>
-				<SkeletonDeprecated width="100%" height="24px" />
+				<Skeleton width="100%" height="24px" />
 			</li>
 		</>
 	);

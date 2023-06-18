@@ -1,12 +1,12 @@
 import { lazy, Suspense } from "react";
-import { SkeletonDeprecated } from "@/shared/ui";
 import { ArticleRatingProps } from "./ArticleRating";
+import { ArticleRatingSkeleton } from "./ArticleRatingSkeleton";
 
 const ArticleRatingLazy = lazy(() => import("./ArticleRating"));
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => {
 	return (
-		<Suspense fallback={<SkeletonDeprecated width="100%" height="108px" />}>
+		<Suspense fallback={<ArticleRatingSkeleton />}>
 			<ArticleRatingLazy {...props} />
 		</Suspense>
 	);

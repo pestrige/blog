@@ -1,41 +1,12 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
-import {
-	ButtonTheme,
-	ButtonDeprecated,
-	CardDeprecated,
-	HStack,
-	InputDeprecated,
-	Modal,
-	StarRating,
-	TextDeprecated,
-	VStack,
-	Drawer,
-} from "@/shared/ui";
-import { useIsMobile } from "@/shared/hooks";
-import cls from "./RatingCard.module.scss";
+import React, { memo, useCallback, useEffect, useState } from "react";
 
-interface Props {
-	className?: string;
-	title: string;
-	feedbackTitle?: string;
-	rating?: number;
-	testId?: string;
-	onCancel?: (starsCount: number) => void;
-	onAccept?: (starsCount: number, feedback?: string) => void;
-}
+import { ToggleFeaturesWrapper } from "@/shared/lib";
+import { RatingCardDeprecated } from "./RatingCardDeprecated";
+import { RatingCardBaseProps } from "./RatingCard.props";
+import { RatingCardRedesigned } from "./RatingCardRedesigned";
 
-export const RatingCard = memo(function RatingCard({
-	className,
-	title,
-	feedbackTitle,
-	rating,
-	testId = "RatingCard",
-	onCancel,
-	onAccept,
-}: Props): JSX.Element {
-	const { t } = useTranslation();
-	const isMobile = useIsMobile();
+export const RatingCard = memo(function RatingCard(props: RatingCardBaseProps): JSX.Element {
+	const { className, title, feedbackTitle, rating, testId = "RatingCard", onCancel, onAccept } = props;
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedStars, setSelectedStars] = useState(rating ?? 0);
 	const [feedback, setFeedback] = useState("");
@@ -75,63 +46,32 @@ export const RatingCard = memo(function RatingCard({
 		onAccept?.(selectedStars, feedback);
 	}, [onAccept, selectedStars, feedback]);
 
-	const content = useMemo(
-		() => (
-			<VStack gap={32} max>
-				<TextDeprecated title={feedbackTitle} />
-				<InputDeprecated
-					dataTestInputId={`${testId}.Input`}
-					name="feedback"
-					placeholder={t("Ваш отзыв")}
-					onChange={handleInput}
-					value={feedback}
-				/>
-			</VStack>
-		),
-		[feedbackTitle, t, handleInput, feedback, testId],
-	);
-
 	useEffect(() => {
 		if (rating) {
 			setSelectedStars(rating);
 		}
 	}, [rating]);
 
+	const ratingProps = {
+		className,
+		title,
+		feedbackTitle,
+		testId,
+		isModalOpen,
+		feedback,
+		selectedStars,
+		onSelectStars: handleSelectStars,
+		onInput: handleInput,
+		onModalClose: handleModalClose,
+		onCancel: handleCancel,
+		onAccept: handleAccept,
+	};
+
 	return (
-		<CardDeprecated className={className}>
-			<VStack align="center">
-				<TextDeprecated title={title} />
-				<StarRating onSelect={handleSelectStars} rating={selectedStars} />
-			</VStack>
-
-			{!isMobile && (
-				<Modal isOpen={isModalOpen} onClose={handleModalClose}>
-					{content}
-					<HStack justify="end" max className={cls.modalButtons}>
-						<ButtonDeprecated
-							dataTestId={`${testId}.CancelButton`}
-							theme={ButtonTheme.OUTLINE_ERROR}
-							onClick={handleCancel}
-						>
-							{t("Отмена")}
-						</ButtonDeprecated>
-						<ButtonDeprecated dataTestId={`${testId}.SendButton`} onClick={handleAccept}>
-							{t("Отправить")}
-						</ButtonDeprecated>
-					</HStack>
-				</Modal>
-			)}
-
-			{isMobile && (
-				<Drawer isOpen={isModalOpen} onClose={handleModalClose}>
-					{content}
-					<HStack justify="center" align="end" max className={cls.drawerButtons}>
-						<ButtonDeprecated fullWidth onClick={handleAccept}>
-							{t("Отправить")}
-						</ButtonDeprecated>
-					</HStack>
-				</Drawer>
-			)}
-		</CardDeprecated>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={<RatingCardRedesigned {...ratingProps} />}
+			off={<RatingCardDeprecated {...ratingProps} />}
+		/>
 	);
 });

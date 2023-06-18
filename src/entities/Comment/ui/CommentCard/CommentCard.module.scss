@@ -1,7 +1,10 @@
 .commentCard {
   padding: var(--margin-l);
   border: 1px solid var(--primary-color);
+}
 
+.commentCard,
+.commentCardRedesigned {
   &:not(:last-child) {
     margin-bottom: var(--margin-l);
   }
@@ -15,4 +18,8 @@
 
 .avatar {
   margin-right: 10px;
+}
+
+.textRedesigned {
+  padding-left: 40px;
 }

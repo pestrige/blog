@@ -1,9 +1,8 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { ReducersList, useDynamicReducerLoader } from "@/shared/hooks";
-import { AvatarDeprecated, TextDeprecated } from "@/shared/ui";
-import { CalendarIcon, EyeIconDeprecated } from "@/shared/assets";
-import { classNames } from "@/shared/lib";
+import { Text, TextDeprecated } from "@/shared/ui";
+import { classNames, ToggleFeaturesWrapper } from "@/shared/lib";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useArticleDetails } from "../../model/hooks/useArticleDetails";
 import {
@@ -12,7 +11,8 @@ import {
 	useIsArticleLoadingSelector,
 } from "../../model/selectors/articleDetails";
 import { ArticleDetailsSkeleton } from "../ArticleDetailsSkeleton/ArticleDetailsSkeleton";
-import { ArticleContent } from "../ArticleContent/ArticleContent";
+import { ArticleDetailsDeprecated } from "./ArticleDetailsDeprecated";
+import { ArticleDetailsRedesigned } from "./ArticleDetailsRedesigned";
 import cls from "./ArticleDetails.module.scss";
 
 const reducersList: ReducersList = { articleDetails: articleDetailsReducer };
@@ -38,36 +38,20 @@ export const ArticleDetails = memo(({ id, className }: Props): JSX.Element => {
 	if (articleError || !article) {
 		return (
 			<div className={classNames(cls.articleDetails, className)}>
-				<TextDeprecated align="center" title={t("Статья не найдена")} />
+				<ToggleFeaturesWrapper
+					featureName="isAppRedesigned"
+					on={<Text align="center" title={t("Статья не найдена")} />}
+					off={<TextDeprecated align="center" title={t("Статья не найдена")} />}
+				/>
 			</div>
 		);
 	}
 
 	return (
-		<div className={cls.articleDetails}>
-			<div className={cls.avatar}>
-				<AvatarDeprecated src={article.img} alt={article.title} size={200} />
-			</div>
-			<TextDeprecated
-				className={cls.title}
-				title={article.title}
-				text={article.subtitle}
-				size="lg"
-				titleTag="h1"
-			/>
-
-			<div className={cls.info}>
-				<EyeIconDeprecated className={cls.icon} />
-				<TextDeprecated text={article.views.toString()} />
-			</div>
-			<div className={cls.infoLast}>
-				<CalendarIcon className={cls.icon} />
-				<TextDeprecated text={article.createdAt} />
-			</div>
-
-			{article.blocks.map((block) => (
-				<ArticleContent key={block.id} block={block} />
-			))}
-		</div>
+		<ToggleFeaturesWrapper
+			featureName="isAppRedesigned"
+			on={<ArticleDetailsRedesigned article={article} className={className} />}
+			off={<ArticleDetailsDeprecated article={article} className={className} />}
+		/>
 	);
 });

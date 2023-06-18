@@ -1,5 +1,5 @@
 import { CSSProperties, memo, useMemo } from "react";
-import { classNames } from "@/shared/lib";
+import { classNames, toggleFeatures } from "@/shared/lib";
 import cls from "./Skeleton.module.scss";
 
 interface SkeletonProps {
@@ -11,6 +11,11 @@ interface SkeletonProps {
 
 export const Skeleton = memo((props: SkeletonProps) => {
 	const { className, height, width, border } = props;
+	const skeletonCls = toggleFeatures({
+		name: "isAppRedesigned",
+		on: () => cls.redesigned,
+		off: () => cls.deprecated,
+	});
 
 	const styles: CSSProperties = useMemo(
 		() => ({
@@ -21,5 +26,5 @@ export const Skeleton = memo((props: SkeletonProps) => {
 		[height, width, border],
 	);
 
-	return <div className={classNames(cls.skeleton, className)} style={styles} />;
+	return <div className={classNames(skeletonCls, className)} style={styles} />;
 });

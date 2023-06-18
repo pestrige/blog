@@ -50,5 +50,5 @@ WithValidateError.args = {
 WithValidateError.decorators = [StoreDecorator({})];
 
 export const IsLoading = Template.bind({});
-IsLoading.args = { profile: user, isLoading: true };
+IsLoading.args = { profile: user, isLoading: true, validateErrors: {} };
 IsLoading.decorators = [StoreDecorator({})];

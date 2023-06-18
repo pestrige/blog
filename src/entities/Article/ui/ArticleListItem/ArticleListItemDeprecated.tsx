@@ -28,7 +28,7 @@ export const ArticleListItemDeprecated = memo(function ArticleListItemDeprecated
 	const articleDate = formatDateToISO(createdAt);
 
 	const infoBlock = (
-		<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
+		<HStack justify="between" className={cls.infoWrapper}>
 			<TextDeprecated text={type.join(", ")} className={cls.info} />
 			<div className={cls.viewsWrapper}>
 				<EyeIconDeprecated className={cls.eye} />
@@ -92,7 +92,7 @@ export const ArticleListItemDeprecated = memo(function ArticleListItemDeprecated
 						</time>
 					</div>
 
-					<HStack testId="ArticleDetails.Info" justify="between" className={cls.infoWrapper}>
+					<HStack justify="between" className={cls.infoWrapper}>
 						<TextDeprecated text={type.join(", ")} className={cls.info} />
 						<div className={cls.viewsWrapper}>
 							<EyeIconDeprecated className={cls.eye} />

@@ -16,6 +16,7 @@ interface Props {
 	align?: TextAlign;
 	size?: TextSize;
 	bold?: boolean;
+	testId?: string;
 }
 
 export const Text = memo(
@@ -28,11 +29,15 @@ export const Text = memo(
 		align = "left",
 		size = "md",
 		bold = false,
+		testId,
 	}: Props): JSX.Element => {
 		const TitleTag = titleTag;
 
 		return (
-			<div className={classNames(className, cls[variant], cls[align], cls[size], { [cls.bold]: bold })}>
+			<div
+				data-testid={testId}
+				className={classNames(className, cls[variant], cls[align], cls[size], { [cls.bold]: bold })}
+			>
 				{!!title && <TitleTag className={cls.title}>{title}</TitleTag>}
 				{!!text && <p className={cls.text}>{text}</p>}
 			</div>

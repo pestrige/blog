@@ -38,6 +38,7 @@ export const DetailArticlePageHeader = memo((): JSX.Element => {
 					/>
 
 					<Text
+						testId="ArticleDetails.Info"
 						text={`${article?.views ?? 0} ${t("просмотров", { count: article?.views ?? 0 })}`}
 					/>
 					{canEdit && (

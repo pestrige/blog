@@ -4,6 +4,7 @@ export { getFeatureFlag, setFeatureFlags, toggleFeatures, ToggleFeaturesWrapper 
 export { buildSelector } from "./store/buildSelector";
 export { buildSlice } from "./store/buildSlice";
 export { formatDateToISO } from "./formatDate/formatDate";
+export { ForceUpdateProvider, useForceUpdate } from "./forceUpdate/forceUpdate";
 export { THEMES, ThemeContext } from "./ThemeContext/ThemeContext";
 export type { Theme } from "./ThemeContext/ThemeContext";
 export { reloadPage } from "./reloadPage/reloadPage";

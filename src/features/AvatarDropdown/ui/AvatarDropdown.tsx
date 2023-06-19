@@ -4,11 +4,12 @@ import { Avatar, AvatarDeprecated, Dropdown, DropdownDeprecated, DropdownItem } 
 import { useIsUserAdminSelector, useIsUserManagerSelector, userActions, useUser } from "@/entities/User";
 import { useAppDispatch } from "@/shared/hooks";
 import { getRoute } from "@/shared/constants/router";
-import { reloadPage, ToggleFeaturesWrapper } from "@/shared/lib";
+import { ToggleFeaturesWrapper, useForceUpdate } from "@/shared/lib";
 
 export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
+	const forceUpdate = useForceUpdate();
 	const { avatar, id } = useUser();
 	const isAdmin = useIsUserAdminSelector();
 	const isManager = useIsUserManagerSelector();
@@ -16,8 +17,8 @@ export const AvatarDropdown = memo(function AvatarDropdown(): JSX.Element {
 
 	const handleLogout = useCallback(async () => {
 		await dispatch(userActions.logout());
-		reloadPage();
-	}, [dispatch]);
+		forceUpdate();
+	}, [dispatch, forceUpdate]);
 
 	const dropdownItems: DropdownItem[] = useMemo(() => {
 		return [

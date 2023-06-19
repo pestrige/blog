@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "@/app/App";
 import { StoreProvider, ThemeProvider } from "@/app/providers";
 import "./shared/config/i18n";
+import { ForceUpdateProvider } from "@/shared/lib";
 
 const container = document.getElementById("root");
 if (!container) {
@@ -14,9 +15,11 @@ const root = createRoot(container);
 root.render(
 	<BrowserRouter>
 		<StoreProvider>
-			<ThemeProvider>
-				<App />
-			</ThemeProvider>
+			<ForceUpdateProvider>
+				<ThemeProvider>
+					<App />
+				</ThemeProvider>
+			</ForceUpdateProvider>
 		</StoreProvider>
 	</BrowserRouter>,
 );

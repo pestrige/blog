@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FormEvent, memo, useCallback } from "react";
-import { classNames, reloadPage, ToggleFeaturesWrapper } from "@/shared/lib";
+import { classNames, ToggleFeaturesWrapper, useForceUpdate } from "@/shared/lib";
 import { Button, ButtonDeprecated, Input, InputDeprecated, Loader, Text, TextDeprecated } from "@/shared/ui";
 import { ReducersList, useAppDispatch, useDynamicReducerLoader } from "@/shared/hooks";
 import {
@@ -26,6 +26,7 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
+	const forceUpdate = useForceUpdate();
 	const username = useLoginUsernameSelector();
 	const password = useLoginPasswordSelector();
 	const error = useLoginErrorSelector();
@@ -51,10 +52,10 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 			const result = await dispatch(loginByUsername({ username, password }));
 			if (result.meta.requestStatus === "fulfilled") {
 				onClose();
-				reloadPage();
+				forceUpdate();
 			}
 		},
-		[dispatch, username, password, onClose],
+		[forceUpdate, dispatch, username, password, onClose],
 	);
 
 	useDynamicReducerLoader(initialReducers);

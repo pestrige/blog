@@ -54,7 +54,7 @@ export const EditableProfileCard = ({ id }: { id?: string }): JSX.Element => {
 		if (id) {
 			dispatch(fetchProfileData(id));
 		}
-	});
+	}, [id]);
 
 	return (
 		<>

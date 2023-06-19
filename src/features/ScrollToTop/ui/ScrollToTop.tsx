@@ -2,7 +2,6 @@ import React, { memo, useCallback, useEffect, useState } from "react";
 import { ScrollArrowIcon } from "@/shared/assets";
 import { useDebounceCallback } from "@/shared/hooks";
 import { ButtonIcon } from "@/shared/ui";
-import cls from "./ScrollToTop.module.scss";
 
 export const ScrollToTop = memo(function ScrollToTop(): JSX.Element | null {
 	const [showScroll, setShowScroll] = useState(false);
@@ -32,9 +31,5 @@ export const ScrollToTop = memo(function ScrollToTop(): JSX.Element | null {
 		return null;
 	}
 
-	return (
-		<div className={cls.root}>
-			<ButtonIcon Svg={ScrollArrowIcon} onClick={handleScrollToTop} />
-		</div>
-	);
+	return <ButtonIcon Svg={ScrollArrowIcon} onClick={handleScrollToTop} />;
 });

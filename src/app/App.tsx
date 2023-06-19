@@ -1,6 +1,5 @@
 import { Suspense } from "react";
-import { Navbar, PageLoader, Sidebar } from "@/widgets";
-import { ScrollToTop } from "@/features/ScrollToTop";
+import { Navbar, PageLoader, ScrollToolbar, Sidebar } from "@/widgets";
 import { useInitUser, useIsUserInit } from "@/entities/User";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { AppLoaderLayout, MainLayout } from "@/shared/layouts";
@@ -36,7 +35,7 @@ export const App = (): JSX.Element => {
 								</ErrorBoundary>
 							}
 							sidebar={<Sidebar />}
-							toolbar={<ScrollToTop />}
+							toolbar={<ScrollToolbar />}
 						/>
 					</Suspense>
 				</div>

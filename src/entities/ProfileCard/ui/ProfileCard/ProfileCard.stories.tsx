@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator";
 import { THEMES } from "@/shared/lib";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
@@ -26,6 +27,10 @@ export default {
 } as ComponentMeta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+
+export const Redesigned = Template.bind({});
+Redesigned.args = { profile: user, validateErrors: {} };
+Redesigned.decorators = [NewDesignDecorator(), StoreDecorator({})];
 
 export const Light = Template.bind({});
 Light.args = { profile: user, validateErrors: {} };

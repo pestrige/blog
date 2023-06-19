@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { Navbar, PageLoader, ScrollToolbar, Sidebar } from "@/widgets";
 import { useInitUser, useIsUserInit } from "@/entities/User";
 import { ToggleFeaturesWrapper } from "@/shared/lib";

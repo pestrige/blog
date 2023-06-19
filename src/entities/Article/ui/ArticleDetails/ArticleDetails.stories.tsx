@@ -1,8 +1,9 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { THEMES } from "@/shared/lib";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator";
+import { THEMES } from "@/shared/lib";
 import { articleExample } from "../../model/constants/articleExample";
 import { ArticleDetails } from "./ArticleDetails";
 
@@ -13,6 +14,14 @@ export default {
 } as ComponentMeta<typeof ArticleDetails>;
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+
+// Redesigned
+export const Redesigned = Template.bind({});
+Redesigned.args = {};
+Redesigned.decorators = [
+	NewDesignDecorator(),
+	StoreDecorator({ articleDetails: { data: articleExample, isLoading: false } }),
+];
 
 // Light
 export const Light = Template.bind({});

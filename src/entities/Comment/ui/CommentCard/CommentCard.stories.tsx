@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { NewDesignDecorator } from "@/shared/config/storybook/NewDesignDecorator";
 import { THEMES } from "@/shared/lib";
 import { CommentCard } from "./CommentCard";
 
@@ -25,3 +26,8 @@ Light.args = { comment };
 export const Dark = Template.bind({});
 Dark.args = { comment };
 Dark.decorators = [ThemeDecorator(THEMES.dark)];
+
+// Redesigned
+export const Redesigned = Template.bind({});
+Redesigned.args = { comment };
+Redesigned.decorators = [NewDesignDecorator(), ThemeDecorator(THEMES.dark)];

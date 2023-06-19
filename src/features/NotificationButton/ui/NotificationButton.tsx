@@ -26,7 +26,6 @@ const TriggerButton = memo(function TriggerButton(props: TriggerButtonProps): JS
 
 export const NotificationButton = memo(function NotificationButton(): JSX.Element {
 	const isMobile = useIsMobile();
-	console.log("isMobile", isMobile);
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleCloseClick = useCallback(() => {

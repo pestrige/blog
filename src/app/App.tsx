@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import { Navbar, PageLoader, Sidebar } from "@/widgets";
+import { ScrollToTop } from "@/features/ScrollToTop";
 import { useInitUser, useIsUserInit } from "@/entities/User";
-import { AppRouter, ErrorBoundary } from "./providers";
-
-import "./styles/index.scss";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
 import { MainLayout } from "@/shared/layouts";
+
+import { AppRouter, ErrorBoundary } from "./providers";
+import "./styles/index.scss";
 
 export const App = (): JSX.Element => {
 	const isInit = useIsUserInit();
@@ -29,7 +30,7 @@ export const App = (): JSX.Element => {
 								</ErrorBoundary>
 							}
 							sidebar={<Sidebar />}
-							toolbar={<div>1242354355</div>}
+							toolbar={<ScrollToTop />}
 						/>
 					</Suspense>
 				</div>

@@ -16,6 +16,7 @@ export { default as MenuMainIcon } from "./icons/menu-main-icon.svg";
 export { default as MenuProfileIcon } from "./icons/menu-profile-icon.svg";
 export { default as NotificationIcon } from "./icons/notification-icon.svg";
 export { default as NotificationIconDeprecated } from "./icons/notification-icon-deprecated.svg";
+export { default as ScrollArrowIcon } from "./icons/scroll-arrow.svg";
 export { default as StarIcon } from "./icons/star.svg";
 export { default as SearchIcon } from "./icons/search-icon.svg";
 export { default as SendIcon } from "./icons/send-icon.svg";

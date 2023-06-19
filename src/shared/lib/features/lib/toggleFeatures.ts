@@ -1,4 +1,4 @@
-import { FeatureFlags } from "@/shared/types";
+import { FeatureFlags } from "../../../types";
 import { getFeatureFlag } from "./setGetFeatures";
 
 export interface ToggleFeaturesOptions<T> {

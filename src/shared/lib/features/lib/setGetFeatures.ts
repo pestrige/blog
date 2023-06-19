@@ -1,4 +1,4 @@
-import { FeatureFlags } from "@/shared/types";
+import { FeatureFlags } from "../../../types";
 
 let featureFlags: FeatureFlags = {};
 

@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ArticleSort, ArticleView, ArticleType } from "@/entities/Article";
-import { ARTICLES_VIEW_KEY } from "@/shared/constants";
+import { StorageKeys } from "@/shared/constants";
 import { SortOrder } from "@/shared/types";
+import { LocalStorage } from "@/shared/lib";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
 import { articlesAdapter } from "./articlesPageAdapter";
@@ -27,7 +28,7 @@ export const articlesPageSlice = createSlice({
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleView>) => {
 			state.view = action.payload;
-			localStorage.setItem(ARTICLES_VIEW_KEY, action.payload);
+			LocalStorage.setItem(StorageKeys.ARTICLES_VIEW_KEY, action.payload);
 			state.limit = action.payload === ArticleView.LIST ? 4 : 9;
 		},
 		setPage: (state, action: PayloadAction<number>) => {
@@ -46,7 +47,7 @@ export const articlesPageSlice = createSlice({
 			state.type = action.payload;
 		},
 		initState: (state) => {
-			const view = localStorage.getItem(ARTICLES_VIEW_KEY) as ArticleView;
+			const view = LocalStorage.getItem(StorageKeys.ARTICLES_VIEW_KEY) as ArticleView;
 			state.view = view;
 			state.limit = view === ArticleView.LIST ? 4 : 9;
 			state._initialized = true;

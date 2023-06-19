@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "@/shared/config";
-import { FeatureFlags } from "@/shared/types";
+import { ThunkConfig } from "../../../config";
+import { FeatureFlags } from "../../../types";
 import { getAllFeatureFlags } from "../lib/setGetFeatures";
 import { reloadPage } from "../../reloadPage/reloadPage";
 import { updateFeatureFlagMutation } from "../api/featureFlagsApi";

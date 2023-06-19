@@ -1,10 +1,9 @@
 import React, { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Select, SelectDeprecated } from "@/shared/ui";
-import { getFeatureFlag, ToggleFeaturesWrapper } from "@/shared/lib";
-import { useAppDispatch } from "@/shared/hooks";
-import { updateFeatureFlags } from "@/shared/lib/features";
 import { useUser } from "@/entities/User";
+import { Select, SelectDeprecated } from "@/shared/ui";
+import { getFeatureFlag, ToggleFeaturesWrapper, updateFeatureFlags } from "@/shared/lib";
+import { useAppDispatch } from "@/shared/hooks";
 
 export const UiDesignSwitcher = memo(function UiDesignSwitcher(): JSX.Element {
 	const { t } = useTranslation("");

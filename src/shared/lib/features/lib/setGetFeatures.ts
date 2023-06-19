@@ -3,7 +3,7 @@ import { LocalStorage } from "../../localStorage/localStorage";
 import { StorageKeys } from "../../../constants";
 
 let featureFlags: FeatureFlags = {
-	isAppRedesigned: LocalStorage.getItem(StorageKeys.LAST_DESIGN_LOCALSTORAGE_KEY) === "new",
+	isAppRedesigned: (LocalStorage.getItem(StorageKeys.LAST_DESIGN_LOCALSTORAGE_KEY) ?? "new") === "new",
 };
 
 export function setFeatureFlags(flags?: FeatureFlags): void {

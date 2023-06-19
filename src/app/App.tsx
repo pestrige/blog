@@ -3,7 +3,7 @@ import { Navbar, PageLoader, Sidebar } from "@/widgets";
 import { ScrollToTop } from "@/features/ScrollToTop";
 import { useInitUser, useIsUserInit } from "@/entities/User";
 import { ToggleFeaturesWrapper } from "@/shared/lib";
-import { MainLayout } from "@/shared/layouts";
+import { AppLoaderLayout, MainLayout } from "@/shared/layouts";
 
 import { AppRouter, ErrorBoundary } from "./providers";
 import "./styles/index.scss";
@@ -13,7 +13,13 @@ export const App = (): JSX.Element => {
 	useInitUser();
 
 	if (!isInit) {
-		return <PageLoader />;
+		return (
+			<ToggleFeaturesWrapper
+				featureName="isAppRedesigned"
+				on={<AppLoaderLayout />}
+				off={<PageLoader />}
+			/>
+		);
 	}
 
 	return (

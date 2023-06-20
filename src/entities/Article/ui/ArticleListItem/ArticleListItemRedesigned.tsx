@@ -32,7 +32,7 @@ export const ArticleListItemRedesigned = memo(function ArticleListItemRedesigned
 
 	if (view === ArticleView.LIST) {
 		return (
-			<Card as="li" className={cls.cardList}>
+			<Card as="li" className={cls.cardList} data-testid="ArticleListItem">
 				<Avatar size={32} src={user?.avatar} title={user?.username} subTitle={createdAt} />
 
 				<Text title={title} />
@@ -56,7 +56,7 @@ export const ArticleListItemRedesigned = memo(function ArticleListItemRedesigned
 	}
 
 	return (
-		<Card as="li" paddings="none" className={cls.cardGrid}>
+		<Card as="li" paddings="none" className={cls.cardGrid} data-testid="ArticleListItem">
 			<AppLink to={getRoute.article(id)} noHover target={target} className={cls.linkGrid}>
 				<AppImage
 					src={img}

@@ -10,7 +10,7 @@ export const login = (username = "test", password = "123") => {
 			body: { username, password },
 		})
 		.then(({ body }) => {
-			window.localStorage.setItem(StorageKeys.USER_LOCALSTORAGE_KEY, JSON.stringify(body));
+			window.localStorage.setItem(StorageKeys.USER_LOCALSTORAGE_KEY, body?.id);
 			return body;
 		});
 };
